@@ -1,86 +1,80 @@
 <?php
 
 namespace azf\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
+use Session;
+use Redirect;
+use azf\Estado;
+use azf\Ciudad;
 use Illuminate\Http\Request;
 
 use azf\Http\Requests;
 
 class EdoControl extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $estados = Estado::All();
+        return view('estado.index',compact('estados'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function getCiudades(Request $request,$id)
+    {
+        if($request -> ajax())
+        {
+            $cdads = Ciudad::ciudades($id);
+            return response()->json($cdads);
+        }
+    }
+
+    public function getEditCiudades(Request $request,$cdad,$id)
+    {
+        if($request -> ajax())
+        {
+            $cdads = Ciudad::ciudades($id);
+            return response()->json($cdads);
+        }
+    }
+
     public function create()
     {
-        //
+        return view('estado.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Estado::create([
+            'nom_edo'=>$request['nom_edo'],
+        ]);
+        return redirect('/edo')->with('message','Estado Creado Correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $estad = Estado::find($id);
+        $ciu = DB::table('ciudads')->where('id_edo', '=', $id)->get();
+        return view('estado.view',['ciu'=>$ciu],['estad'=>$estad]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $est = Estado::find($id);
+        return view('estado.edit',['est'=>$est]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $edo = Estado::find($id);
+        $edo->fill($request->all());
+        $edo->save();
+        Session::flash('message','Estado Editado Correctamente');
+        return Redirect::to('/edo');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        Estado::destroy($id);
+        Session::flash('message','Estado Eliminado Correctamente');
+        return Redirect::to('/edo');
     }
 }

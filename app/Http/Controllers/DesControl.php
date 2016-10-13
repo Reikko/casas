@@ -5,17 +5,15 @@ namespace azf\Http\Controllers;
 use Illuminate\Http\Request;
 
 use azf\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 class DesControl extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $dess = DB::table('desarrollos')
+            ->join('ciudads', 'ciudads.id_edo', '=', 'desarrollos.id')->select('desarrollos.*', 'nom_cdad')->get();
+        return view('desa.index',compact('dess'));
     }
 
     /**
@@ -47,7 +45,9 @@ class DesControl extends Controller
      */
     public function show($id)
     {
-        //
+        $ciu = Ciudad::find($id);
+        $dess = DB::table('desarrollos')->where('id_cdad', '=', $id)->get();
+        return view('ciuda.view',['dess'=>$dess],['ciu'=>$ciu]);
     }
 
     /**
