@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.admin');
 });
+
+Route::resource('des','DesControl');
+Route::resource('edo','EdoControl');
+Route::resource('cdad','CdadControl');
+Route::resource('calle','CalleControl');
+Route::resource('client','ClienteControl');
