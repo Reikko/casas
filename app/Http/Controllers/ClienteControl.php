@@ -2,41 +2,35 @@
 
 namespace azf\Http\Controllers;
 
+use azf\Cliente;
 use Illuminate\Http\Request;
 
 use azf\Http\Requests;
 
 class ClienteControl extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $clients = Cliente::All();
+        return view('client.index',compact('clients'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('client.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Cliente::create([
+            'nombre'=>$request['nombre'],
+            'ap_pat'=> $request['ap_pat'],
+            'ap_mat'=> $request['ap_mat'],
+            'tel'=> $request['tel'],
+            'correo'=> $request['correo'],
+            'contra'=> $request['contra'],
+        ]);
+        return redirect('/client')->with('message','Usuario Creado Correctamente');
     }
 
     /**
