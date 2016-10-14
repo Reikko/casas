@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
 
-    <?php echo Form::open(['route'=>'des.store','method'=>'POST']); ?>
+    <?php echo Form::model($desa,['route'=>['des.update',$desa->id],'method'=>'PUT']); ?>
 
     <div class="form-group">
         <?php echo Form::label('Estado:'); ?>
@@ -29,7 +29,7 @@
         '3'=>'Vivienda',
         '4'=>'Vivienda-Condominio',
         '5'=>'Mixto'],
-        null,['class'=>'form-control','id'=>'tipo_sel']); ?>
+        $desa->tipo,['class'=>'form-control','id'=>'tipo_sel']); ?>
 
     </div>
     <div class="form-group">
@@ -39,6 +39,13 @@
 
     </div>
     <?php echo Form::submit('Registrar',['class'=>'btn btn-primary']); ?>
+
+    <?php echo Form::close(); ?>
+
+
+    <?php echo Form::open(['route'=>['des.destroy',$desa->id],'method'=>'DELETE']); ?>
+
+    <?php echo Form::submit('Eliminar',['class'=>'btn btn-danger']); ?>
 
     <?php echo Form::close(); ?>
 

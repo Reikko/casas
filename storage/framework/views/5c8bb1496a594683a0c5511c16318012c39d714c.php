@@ -6,26 +6,25 @@
     </div>
 <?php endif; ?>
 <?php $__env->startSection('content'); ?>
-    <h1>Ciudades Registradas </h1>
+    <h1>Calles del Desarrollo  <?php echo e($des->nom_des); ?></h1>
     <table class="table">
         <thead>
-        <th>ID</th>
-        <th>Estado</th>
-        <th>Ciudad</th>
-        <th>Editar</th>
-        <th>Ver</th>
+        <th>#</th>
+        <th>nombre</th>
+        <th>Numero Ext</th>
+        <th>Numero Int</th>
+
         </thead>
-        <?php foreach($ciudades as $ciudad): ?>
+        <?php foreach($calles as $c): ?>
             <tbody>
-            <td><?php echo e($ciudad->id); ?></td>
-            <td><?php echo e($ciudad->nom_edo); ?></td>
-            <td><?php echo e($ciudad->nom_cdad); ?></td>
+            <td><?php echo e($c->id); ?></td>
+            <td><?php echo e($c->nom_cdad); ?></td>
             <td>
-                <?php echo link_to_route('cdad.edit', $title = 'Editar', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('call.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary']); ?>
 
             </td>
             <td>
-                <?php echo link_to_route('cdad.show', $title = 'Ver Desarrollos', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('call.edit', $title = 'Asignar Cliente', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary']); ?>
 
             </td>
             </tbody>

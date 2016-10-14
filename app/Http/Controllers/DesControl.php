@@ -1,7 +1,12 @@
 <?php
 
 namespace azf\Http\Controllers;
-
+use azf\Propiedad;
+use Session;
+use Redirect;
+use azf\Desarrollo;
+use azf\Estado;
+use azf\Ciudad;
 use Illuminate\Http\Request;
 
 use azf\Http\Requests;
@@ -12,75 +17,70 @@ class DesControl extends Controller
     public function index()
     {
         $dess = DB::table('desarrollos')
-            ->join('ciudads', 'ciudads.id_edo', '=', 'desarrollos.id')->select('desarrollos.*', 'nom_cdad')->get();
+            ->join('ciudads', 'ciudads.id', '=', 'desarrollos.id_cdad')->select('desarrollos.*', 'nom_cdad')->get();
         return view('desa.index',compact('dess'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('desa.create');
+        $estados = Estado::lists('nom_edo','id');
+        $ciudades = Ciudad::where('id_edo', 1)->lists('nom_cdad','id');
+
+        //Redireccional a donde se crean las direcciones
+        return view('desa.create',compact('estados','ciudades'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Desarrollo::create([
+            'id_cdad'=>$request['id_cdad'],
+            'nom_des'=>$request['nom_des'],
+            'tipo'=>$request['tipo'],
+            'unidades'=>$request['unidades'],
+            'responsable'=>1,
+            'editar'=>1,
+        ]);
+
+
+        Propiedad::create([
+            'id_des'=>1,
+            'id_calle'=>1,
+            'id_clie'=>1,
+            'num_ext'=>0,
+            'num_int'=>0,
+        ]);
+
+        return redirect('/des')->with('message','Desarrollo Creado Correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        $ciu = Ciudad::find($id);
-        $dess = DB::table('desarrollos')->where('id_cdad', '=', $id)->get();
-        return view('ciuda.view',['dess'=>$dess],['ciu'=>$ciu]);
+        $des = Desarrollo::find($id);
+        $calles = DB::table('calles')->where('id_des', '=', $id)->get();
+        return view('desa.view',['des'=>$des],['calles'=>$calles]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $desa = Desarrollo::find($id);
+        $estados = Estado::lists('nom_edo','id');
+        $ciudades = Ciudad::where('id_edo', 1)->lists('nom_cdad','id');
+        return view('desa.edit',['desa'=>$desa],compact('estados','ciudades'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $des = Desarrollo::find($id);
+        $des->fill($request->all());
+        $des->save();
+        Session::flash('message','Desarrollo Editado');
+        return Redirect::to('/des');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        Desarrollo::destroy($id);
+        Session::flash('message','Desarrollo eliminado');
+        return Redirect::to('/des');
     }
 }

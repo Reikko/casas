@@ -6,15 +6,16 @@
     </div>
 @endif
 @section('content')
-    <h1>Desarrollos  {{$estad->nom_edo}}</h1>
+    <h1>Calles del Desarrollo  {{$des->nom_des}}</h1>
     <table class="table">
         <thead>
-        <th>Num</th>
-        <th>Ciudades</th>
-        <th>Modificar</th>
-        <th>Ver</th>
+        <th>#</th>
+        <th>nombre</th>
+        <th>Numero Ext</th>
+        <th>Numero Int</th>
+
         </thead>
-        @foreach($ciu as $c)
+        @foreach($calles as $c)
             <tbody>
             <td>{{$c->id}}</td>
             <td>{{$c->nom_cdad}}</td>
@@ -22,7 +23,7 @@
                 {!!link_to_route('call.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary'])!!}
             </td>
             <td>
-                {!!link_to_route('call.edit', $title = 'Ver Desarrollos', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary'])!!}
+                {!!link_to_route('call.edit', $title = 'Asignar Cliente', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary'])!!}
             </td>
             </tbody>
         @endforeach

@@ -6,6 +6,7 @@
     </div>
 @endif
 @section('content')
+    <h1>Ciudades Registradas </h1>
     <table class="table">
         <thead>
         <th>ID</th>

@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('layouts.admin');
 });
 
+Route::get('des/estado/{id}','EdoControl@getCiudades');
+
 Route::resource('des','DesControl');
 Route::resource('edo','EdoControl');
 Route::resource('cdad','CdadControl');

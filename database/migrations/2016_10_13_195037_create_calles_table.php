@@ -13,7 +13,11 @@ class CreateCallesTable extends Migration
     public function up()
     {
         Schema::create('calles', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('id_des')->unsigned();
+            $table->foreign('id_des')->references('id')->on('desarrollos')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('nom_calle');
             $table->timestamps();
         });
     }
