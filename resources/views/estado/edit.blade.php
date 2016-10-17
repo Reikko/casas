@@ -9,7 +9,4 @@
     {!! Form::open(['route'=>['edo.destroy',$est->id],'method'=>'DELETE']) !!}
     {!! Form::submit('Eliminar',['class'=>'btn btn-danger']) !!}
     {!! Form::close() !!}
-
-
-
         @stop

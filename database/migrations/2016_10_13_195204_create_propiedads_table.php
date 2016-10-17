@@ -15,6 +15,7 @@ class CreatePropiedadsTable extends Migration
         Schema::create('propiedads', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('id_des')->unsigned();
             $table->integer('id_calle')->unsigned();
             $table->foreign('id_calle')->references('id')->on('calles')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('id_clie')->unsigned();
@@ -25,11 +26,6 @@ class CreatePropiedadsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::drop('propiedads');

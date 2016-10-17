@@ -1,86 +1,74 @@
 <?php
 
 namespace azf\Http\Controllers;
-
+use Session;
+use Redirect;
+use azf\Calles;
+use azf\Ciudad;
+use azf\Desarrollo;
 use Illuminate\Http\Request;
 
 use azf\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 class CalleControl extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $calls = DB::table('desarrollos')
+            ->join('ciudads', 'desarrollos.id_cdad', '=', 'ciudads.id')
+            ->join('calles','desarrollos.id','=','calles.id_des')
+            ->select('calles.*', 'nom_des','nom_cdad')->get();
+        return view('clle.index',compact('calls'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $ciudades = Ciudad::lists('nom_cdad','id');
+        $desarrolls = Desarrollo::lists('nom_des','id');
+        return view('clle.create',compact('ciudades','desarrolls'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        Calles::create([
+            'id_des'=>$request['id_des'],
+            'nom_calle'=>$request['nom_calle'],
+        ]);
+        return redirect('/calle')->with('message','Calle Creada Correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $desa = Desarrollo::find($id);
+        $calls = DB::table('desarrollos')
+            ->join('ciudads', 'desarrollos.id_cdad', '=', 'ciudads.id')
+            ->join('calles','desarrollos.id','=','calles.id_des')->where('calles.id_des','=',$id)
+            ->select('calles.*', 'nom_des','nom_cdad')->get();
+        return view('clle.show',compact('calls','desa'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $call = Calles::find($id);
+        $ciudades = Ciudad::lists('nom_cdad','id');
+        $desarrolls = Desarrollo::lists('nom_des','id');
+        return view('clle.edit',['call'=>$call],compact('ciudades','desarrolls'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $call = Calles::find($id);
+        $call->fill($request->all());
+        $call->save();
+        Session::flash('message','Calle editada');
+        return Redirect::to('/calle/'.$call->id_des);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $call = Calles::find($id);
+        Calles::destroy($id);
+        Session::flash('message','Calle eliminada');
+        return Redirect::to('/calle/'.$call->id_des);
     }
 }

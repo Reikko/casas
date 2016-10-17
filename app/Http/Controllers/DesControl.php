@@ -32,7 +32,7 @@ class DesControl extends Controller
 
     public function store(Request $request)
     {
-        Desarrollo::create([
+        $id = DB::table('desarrollos')->insertGetId([
             'id_cdad'=>$request['id_cdad'],
             'nom_des'=>$request['nom_des'],
             'tipo'=>$request['tipo'],
@@ -40,15 +40,16 @@ class DesControl extends Controller
             'responsable'=>1,
             'editar'=>1,
         ]);
-
-
-        Propiedad::create([
-            'id_des'=>1,
-            'id_calle'=>1,
-            'id_clie'=>1,
-            'num_ext'=>0,
-            'num_int'=>0,
-        ]);
+        for ($i = 0;$i<$request['unidades'];$i++)
+        {
+            Propiedad::create([
+                'id_des'=>$id,
+                'id_calle'=>1,
+                'id_clie'=>1,
+                'num_ext'=>0,
+                'num_int'=>0,
+            ]);
+        }
 
         return redirect('/des')->with('message','Desarrollo Creado Correctamente');
     }

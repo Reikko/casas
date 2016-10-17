@@ -30,12 +30,6 @@ class CdadControl extends Controller
         return view('ciuda.create',compact('states'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         Ciudad::create([
@@ -43,7 +37,6 @@ class CdadControl extends Controller
             'nom_cdad'=>$request['nom_cdad'],
         ]);
         return redirect('/cdad')->with('message','Ciudad Creada Correctamente');
-
     }
 
     public function show($id)

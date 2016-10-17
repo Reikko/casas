@@ -6,25 +6,23 @@
     </div>
 <?php endif; ?>
 <?php $__env->startSection('content'); ?>
-    <h1>Calles del Desarrollo  <?php echo e($des->nom_des); ?></h1>
-
+    <h1>Calles Registradas en <?php echo e($desa->nom_des); ?></h1>
     <table class="table">
         <thead>
-        <th><?php echo link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $des->id, $attributes = ['class'=>'btn btn-success']); ?></th>
-        <th>nombre</th>
+        <th>ID</th>
+        <th>Ciudad</th>
+        <th>Fraccionamiento</th>
+        <th>Nombre Calle</th>
         <th>Editar</th>
-
         </thead>
-        <?php foreach($calles as $c): ?>
+        <?php foreach($calls as $c): ?>
             <tbody>
             <td><?php echo e($c->id); ?></td>
             <td><?php echo e($c->nom_cdad); ?></td>
+            <td><?php echo e($c->nom_des); ?></td>
+            <td><?php echo e($c->nom_calle); ?></td>
             <td>
                 <?php echo link_to_route('calle.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary']); ?>
-
-            </td>
-            <td>
-                <?php echo link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $des->id, $attributes = ['class'=>'btn btn-success']); ?>
 
             </td>
             </tbody>

@@ -6,24 +6,23 @@
     </div>
 @endif
 @section('content')
-    <h1>Calles del Desarrollo  {{$des->nom_des}}</h1>
-
+    <h1>Calles Registradas en {{$desa->nom_des}}</h1>
     <table class="table">
         <thead>
-        <th>{!!link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $des->id, $attributes = ['class'=>'btn btn-success'])!!}</th>
-        <th>nombre</th>
+        <th>ID</th>
+        <th>Ciudad</th>
+        <th>Fraccionamiento</th>
+        <th>Nombre Calle</th>
         <th>Editar</th>
-
         </thead>
-        @foreach($calles as $c)
+        @foreach($calls as $c)
             <tbody>
             <td>{{$c->id}}</td>
             <td>{{$c->nom_cdad}}</td>
+            <td>{{$c->nom_des}}</td>
+            <td>{{$c->nom_calle}}</td>
             <td>
                 {!!link_to_route('calle.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary'])!!}
-            </td>
-            <td>
-                {!!link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $des->id, $attributes = ['class'=>'btn btn-success'])!!}
             </td>
             </tbody>
         @endforeach

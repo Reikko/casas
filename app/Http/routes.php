@@ -22,3 +22,4 @@ Route::resource('edo','EdoControl');
 Route::resource('cdad','CdadControl');
 Route::resource('calle','CalleControl');
 Route::resource('client','ClienteControl');
+Route::resource('propiedad','PropiedadControl');
