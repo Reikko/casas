@@ -5,28 +5,32 @@
 
     </div>
 <?php endif; ?>
+$var = 0;
 <?php $__env->startSection('content'); ?>
-    <h1>Calles Registradas</h1>
     <table class="table">
         <thead>
-        <th>ID</th>
-        <th>Ciudad</th>
-        <th>Desarrollo</th>
-        <th>Nombre Calle</th>
+        <th>#</th>
+        <th>Nombre de la Calle</th>
+        <th>Numero Exterior</th>
+        <th>Numero Interior</th>
+        <th>Asignada</th>
         <th>Editar</th>
         </thead>
-        <?php foreach($calls as $c): ?>
-            <tbody>
-            <td><?php echo e($c->id); ?></td>
-            <td><?php echo e($c->nom_cdad); ?></td>
-            <td><?php echo e($c->nom_des); ?></td>
-            <td><?php echo e($c->nom_calle); ?></td>
-            <td>
-                <?php echo link_to_route('calle.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary']); ?>
+        <?php $var = 0; ?>
 
-            </td>
+        <?php foreach($propiedades as $propiedad): ?>
+            <?php echo e($var++); ?>
+
+            <tbody>
+            <td><?php echo e($var); ?></td>
+            <td><?php echo e($propiedad->nom_calle); ?></td>
+            <td><?php echo e($propiedad->num_ext); ?></td>
+            <td><?php echo e($propiedad->num_int); ?></td>
+            <td><?php echo e($propiedad->asignada); ?></td>
+            <td><?php echo e($propiedad->editable); ?></td>
             </tbody>
         <?php endforeach; ?>
     </table>
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

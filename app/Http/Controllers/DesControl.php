@@ -44,7 +44,7 @@ class DesControl extends Controller
         {
             Propiedad::create([
                 'id_des'=>$id,
-                'id_calle'=>1,
+                'id_calle'=>5,
                 'id_clie'=>1,
                 'num_ext'=>0,
                 'num_int'=>0,

@@ -22,6 +22,8 @@ class CreatePropiedadsTable extends Migration
             $table->foreign('id_clie')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
             $table->string('num_ext');
             $table->string('num_int');
+            $table->integer('asignada')->unsigned()->default(0);
+            $table->integer('editable')->unsigned()->default(1);
             $table->timestamps();
         });
     }

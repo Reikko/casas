@@ -13,6 +13,8 @@ class Propiedad extends Model
         'id_clie',
         'num_ext',
         'num_int',
+        'asignada',
+        'editable',
     ];
 
 }

@@ -19,7 +19,7 @@
             <tbody>
             <td>{{$c->id}}</td>
             <td>{{$c->nom_cdad}}</td>
-            <td>{{$c->id_des}}</td>
+            <td>{{$c->nom_des}}</td>
             <td>{{$c->nom_calle}}</td>
             <td>
                 {!!link_to_route('calle.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary'])!!}
