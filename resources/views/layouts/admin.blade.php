@@ -13,6 +13,10 @@
     -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <style type="text/css">
+        .col-sm-9,.col-sm-6{
+            padding-right: 0px;
+        }
+
 
     </style>
 </head>
@@ -60,8 +64,7 @@
                         <ul class="dropdown-menu">
                             <li>{!!link_to_route('calle.index', $title = 'Mostrar Calle o Edificio')!!}</li>
                             <li>{!!link_to_route('calle.create', $title = 'Crear Calle o Edificio')!!}</li>
-                            <li><a href="#">Page 1-2</a></li>
-                            <li><a href="#">Page 1-3</a></li>
+
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -71,8 +74,14 @@
                             <li>{!!link_to_route('client.create', $title = 'Crear Cliente')!!}</li>
                         </ul>
                     </li>
-                    <li><a href="#">Page 2</a></li>
-                    <li><a href="#">Page 3</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/">Trabajadores<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>{!!link_to_route('trabajador.index', $title = 'Mostrar Trabajadores')!!}</li>
+                            <li>{!!link_to_route('trabajador.create', $title = 'Crear Trabajadores')!!}</li>
+                        </ul>
+                    </li>
+
 
 
                 </ul>
@@ -104,6 +113,8 @@
 
                 <div class="col-sm-3" style="background-color:lavender;">
                 </div>
+
+                @yield('contentTrab')
 
             </div>
         </div>
