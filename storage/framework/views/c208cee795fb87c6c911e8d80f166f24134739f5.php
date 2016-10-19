@@ -7,6 +7,10 @@
 <?php endif; ?>
 <?php $__env->startSection('content'); ?>
     <h1>Calles Registradas</h1>
+    <div class="form-group">
+        <button><?php echo link_to_route('calle.create', $title = 'Crear Calle o Edificio'); ?></button>
+    </div>
+
     <table class="table">
         <thead>
         <th>ID</th>

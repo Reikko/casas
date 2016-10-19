@@ -71,4 +71,27 @@ class CalleControl extends Controller
         Session::flash('message','Calle eliminada');
         return Redirect::to('/calle/'.$call->id_des);
     }
+
+    public function creandoCalle(Request $request,$id)
+    {
+        if($request -> ajax())
+        {
+            $desa = Desarrollo::find($id);
+            return response()->json($desa);
+        }
+    }
+
+    public function getDesarrollo($id)
+    {
+        return view('clle.crease',compact('id'));
+    }
+
+    public function store2(Request $request,$id)
+    {
+        Calles::create([
+            'id_des'=>$id,
+            'nom_calle'=>$request['nom_calle'],
+        ]);
+        return redirect('/calle/'.$id)->with('message','Calle Creada Correctamente');
+    }
 }

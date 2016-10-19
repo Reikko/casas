@@ -7,7 +7,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('Nombre de la Ciudad') !!}
-        {!! Form::text('nom_cdad',null,['class'=>'form-control','placeholder'=>'Nombre de la colonia']) !!}
+        {!! Form::text('nom_cdad',null,['class'=>'form-control','placeholder'=>'Nombre de la ciudad']) !!}
     </div>
     {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
     {!! Form::close() !!}

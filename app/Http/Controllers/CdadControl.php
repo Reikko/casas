@@ -1,6 +1,7 @@
 <?php
 
 namespace azf\Http\Controllers;
+use azf\Desarrollo;
 use Session;
 use Redirect;
 use azf\Estado;
@@ -12,11 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 class CdadControl extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $ciudades = DB::table('ciudads')
@@ -74,7 +70,7 @@ class CdadControl extends Controller
     {
         if($request -> ajax())
         {
-            $desa = Desarrollo::fracciones($id);
+            $desa = Desarrollo::ndesarrollos($id);
             return response()->json($desa);
         }
     }
@@ -83,8 +79,8 @@ class CdadControl extends Controller
     {
         if($request -> ajax())
         {
-            $ciuda = Ciudad::ciudad($id);
-            return response()->json($ciuda);
+            $desa = Desarrollo::ndesarrollos($id);
+            return response()->json($desa);
         }
     }
 }

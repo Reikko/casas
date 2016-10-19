@@ -15,4 +15,10 @@ class Desarrollo extends Model
         'responsable',
         'editar'
     ];
+
+    public static function ndesarrollos($id)
+    {
+        return Desarrollo::where('id_cdad','=',$id)
+            ->get();
+    }
 }

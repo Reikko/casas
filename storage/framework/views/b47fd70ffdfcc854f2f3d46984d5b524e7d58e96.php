@@ -10,7 +10,7 @@
     <div class="form-group">
         <?php echo Form::label('Nombre de la Ciudad'); ?>
 
-        <?php echo Form::text('nom_cdad',null,['class'=>'form-control','placeholder'=>'Nombre de la colonia']); ?>
+        <?php echo Form::text('nom_cdad',null,['class'=>'form-control','placeholder'=>'Nombre de la ciudad']); ?>
 
     </div>
     <?php echo Form::submit('Registrar',['class'=>'btn btn-primary']); ?>

@@ -1,13 +1,14 @@
 @extends('layouts.admin')
 @section('content')
+
     {!! Form::open(['route'=>'calle.store','method'=>'POST']) !!}
     <div class="form-group">
         {!! Form::label('ciudad:') !!}
-        {!! Form::select('id_cdad', $ciudades,null,['class'=>'form-control']) !!}
+        {!! Form::select('id_cdad', $ciudades,null,['class'=>'form-control','id'=>'calle_cdad_sel']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('ciudad:') !!}
-        {!! Form::select('id_des', $desarrolls,null,['class'=>'form-control']) !!}
+        {!! Form::label('desarrollo:') !!}
+        {!! Form::select('id_des', $desarrolls,null,['class'=>'form-control','id'=>'des_sel']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('Nombre de la Calle') !!}

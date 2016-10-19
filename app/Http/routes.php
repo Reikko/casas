@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('des/estado/{id}','EdoControl@getCiudades');
+Route::get('calle/desa/{id}','CdadControl@getDesarrollo');
 
 Route::resource('des','DesControl');
 Route::resource('edo','EdoControl');
@@ -23,3 +24,7 @@ Route::resource('cdad','CdadControl');
 Route::resource('calle','CalleControl');
 Route::resource('client','ClienteControl');
 Route::resource('propiedad','PropiedadControl');
+
+//Obtener el desarrollo y darlo de alta en el mismo desarrollo
+Route::get('calle/create/{id}','CalleControl@getDesarrollo');
+Route::post('calle/create/{id}', 'CalleControl@store2');

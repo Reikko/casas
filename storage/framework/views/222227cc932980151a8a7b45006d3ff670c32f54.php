@@ -1,16 +1,17 @@
 <?php $__env->startSection('content'); ?>
+
     <?php echo Form::open(['route'=>'calle.store','method'=>'POST']); ?>
 
     <div class="form-group">
         <?php echo Form::label('ciudad:'); ?>
 
-        <?php echo Form::select('id_cdad', $ciudades,null,['class'=>'form-control']); ?>
+        <?php echo Form::select('id_cdad', $ciudades,null,['class'=>'form-control','id'=>'calle_cdad_sel']); ?>
 
     </div>
     <div class="form-group">
-        <?php echo Form::label('ciudad:'); ?>
+        <?php echo Form::label('desarrollo:'); ?>
 
-        <?php echo Form::select('id_des', $desarrolls,null,['class'=>'form-control']); ?>
+        <?php echo Form::select('id_des', $desarrolls,null,['class'=>'form-control','id'=>'des_sel']); ?>
 
     </div>
     <div class="form-group">

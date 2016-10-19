@@ -11,4 +11,12 @@ class Ciudad extends Model
         'id_edo',
         'nom_cdad'
     ];
+
+    public static function ciudades($id)
+    {
+        return Ciudad::where('id_edo','=',$id)
+            ->get();
+    }
+
+
 }
