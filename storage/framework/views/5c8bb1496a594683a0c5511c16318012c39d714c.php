@@ -18,7 +18,7 @@
         <?php foreach($calles as $c): ?>
             <tbody>
             <td><?php echo e($c->id); ?></td>
-            <td><?php echo e($c->nom_cdad); ?></td>
+            <td><?php echo e($c->nom_calle); ?></td>
             <td>
                 <?php echo link_to_route('calle.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary']); ?>
 

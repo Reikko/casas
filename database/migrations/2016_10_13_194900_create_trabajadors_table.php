@@ -13,7 +13,31 @@ class CreateTrabajadorsTable extends Migration
     public function up()
     {
         Schema::create('trabajadors', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('nom_trab');
+            $table->string('ap_pat');
+            $table->string('ap_mat');
+            $table->integer('edo_civil')->unsigned();
+            $table->integer('sexo')->unsigned();
+            $table->string('alias');
+            $table->date('fecha_nac');
+            $table->integer('lug_nac')->unsigned();
+            $table->string('calle');
+            $table->string('num_ext');
+            $table->string('num_int');
+            $table->string('colonia');
+            $table->string('estado');
+            $table->string('municipio');
+            $table->string('puesto');
+            $table->string('renuncia');
+            $table->string('ife');
+            $table->string('curp');
+            $table->string('rfc');
+            $table->string('comp_dom');
+            $table->string('num_seguro');
+            $table->string('comp_seguro');
+            $table->integer('estatus')->unsigned();
             $table->timestamps();
         });
     }

@@ -16,7 +16,8 @@ class CdadControl extends Controller
     public function index()
     {
         $ciudades = DB::table('ciudads')
-            ->join('estados', 'ciudads.id_edo', '=', 'estados.id')->select('ciudads.*', 'nom_edo')->get();
+            ->join('estados', 'ciudads.id_edo', '=', 'estados.id')->where('ciudads.id','!=',1)
+            ->select('ciudads.*', 'nom_edo')->get();
         return view('ciuda.index',compact('ciudades'));
     }
 

@@ -6,12 +6,13 @@ use azf\Cliente;
 use Illuminate\Http\Request;
 
 use azf\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 class ClienteControl extends Controller
 {
     public function index()
     {
-        $clients = Cliente::All();
+        $clients = DB::table('clientes')->where('id','!=',1)->get();
         return view('client.index',compact('clients'));
     }
 

@@ -17,7 +17,7 @@ class CalleControl extends Controller
     {
         $calls = DB::table('desarrollos')
             ->join('ciudads', 'desarrollos.id_cdad', '=', 'ciudads.id')
-            ->join('calles','desarrollos.id','=','calles.id_des')
+            ->join('calles','desarrollos.id','=','calles.id_des')->where('calles.id','!=',1)
             ->select('calles.*', 'nom_des','nom_cdad')->get();
         return view('clle.index',compact('calls'));
     }

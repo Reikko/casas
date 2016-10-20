@@ -17,7 +17,9 @@ class DesControl extends Controller
     public function index()
     {
         $dess = DB::table('desarrollos')
-            ->join('ciudads', 'ciudads.id', '=', 'desarrollos.id_cdad')->select('desarrollos.*', 'nom_cdad')->get();
+            ->join('ciudads', 'ciudads.id', '=', 'desarrollos.id_cdad')
+            ->where('desarrollos.id','!=',1)
+            ->select('desarrollos.*', 'nom_cdad')->get();
         return view('desa.index',compact('dess'));
     }
 
@@ -44,7 +46,7 @@ class DesControl extends Controller
         {
             Propiedad::create([
                 'id_des'=>$id,
-                'id_calle'=>5,
+                'id_calle'=>1,
                 'id_clie'=>1,
                 'num_ext'=>0,
                 'num_int'=>0,

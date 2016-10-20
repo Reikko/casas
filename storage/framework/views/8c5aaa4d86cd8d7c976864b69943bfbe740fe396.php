@@ -6,15 +6,15 @@
                 <?php echo Form::label('NOMBRE COMPLETO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombre del Trabajador']); ?>
+                    <?php echo Form::text('nom_trab',null,['class'=>'form-control','placeholder'=>'Nombre']); ?>
 
                 </div>
                 <div class="col-sm-3">
-                    <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Apellido Paterno']); ?>
+                    <?php echo Form::text('ap_pat',null,['class'=>'form-control','placeholder'=>'Apellido Paterno']); ?>
 
                 </div>
                 <div class="col-sm-3">
-                    <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Apellido Materno']); ?>
+                    <?php echo Form::text('ap_mat',null,['class'=>'form-control','placeholder'=>'Apellido Materno']); ?>
 
                 </div>
             </div>
@@ -22,7 +22,7 @@
                 <?php echo Form::label('ESTADO CIVIL',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::select('civil',['S'=>'Soltero','C'=>'Casado'],'S',['class'=>'form-control']); ?>
+                    <?php echo Form::select('edo_civil',['S'=>'Soltero','C'=>'Casado'],'S',['class'=>'form-control']); ?>
 
                 </div>
                 <div class="col-sm-3">
@@ -37,7 +37,7 @@
                     <?php echo Form::label('ALIAS',null,['class'=>'control-label col-sm-3']); ?>
 
                     <div class="col-sm-9">
-                        <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombre de usuario']); ?>
+                        <?php echo Form::text('alias',null,['class'=>'form-control','placeholder'=>'Nombre de usuario']); ?>
 
                     </div>
                 </div>
@@ -46,32 +46,34 @@
                 <?php echo Form::label('FECHA DE NACIMIENTO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <input type="date" name="bday" class="form-control col-sm-9">
+                    <input type="date" name="fecha_nac" class="form-control col-sm-9">
                 </div>
+                <?php echo Form::label('LUGAR DE NACIMIENTO',null,['class'=>'control-label col-sm-3']); ?>
+
                 <div class="col-sm-3">
-                </div>
-                <div class="col-sm-3">
+                    <?php echo Form::select('lug_nac',['S'=>'San Luis Potosi','Q'=>'Queretaro'],'S',['class'=>'form-control']); ?>
+
                 </div>
             </div>
             <div class="form-group">
                 <?php echo Form::label('DOMICILIO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Calle']); ?>
+                    <?php echo Form::text('calle',null,['class'=>'form-control','placeholder'=>'Calle']); ?>
 
                 </div>
                 <div class="col-sm-3">
                     <div class="col-sm-6">
-                        <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Num Ext']); ?>
+                        <?php echo Form::text('num_ext',null,['class'=>'form-control','placeholder'=>'Num Ext']); ?>
 
                     </div>
                     <div class="col-sm-6">
-                        <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Num Int']); ?>
+                        <?php echo Form::text('num_int',null,['class'=>'form-control','placeholder'=>'Num Int']); ?>
 
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Colonia']); ?>
+                    <?php echo Form::text('colonia',null,['class'=>'form-control','placeholder'=>'Colonia']); ?>
 
                 </div>
             </div>
@@ -79,11 +81,11 @@
                 <?php echo Form::label('',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Ciudad']); ?>
+                    <?php echo Form::text('estado',null,['class'=>'form-control','placeholder'=>'Ciudad']); ?>
 
                 </div>
                 <div class="col-sm-3">
-                    <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Municipio']); ?>
+                    <?php echo Form::text('municipio',null,['class'=>'form-control','placeholder'=>'Municipio']); ?>
 
                 </div>
                 <div class="col-sm-3">
@@ -93,7 +95,7 @@
                 <?php echo Form::label('PUESTO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Puesto']); ?>
+                    <?php echo Form::text('puesto',null,['class'=>'form-control','placeholder'=>'Puesto']); ?>
 
                 </div>
                 <div class="col-sm-3">
@@ -109,10 +111,14 @@
 
                 </div>
                 <div class="col-sm-3">
-                    <?php echo link_to('trabajador/create', $title = 'Adjuntar',['class'=>'form-control btn btn-success',]); ?>
+                    <?php echo Form::label('Adjuntar renuncia',null,['class'=>'control-label col-sm-6']); ?>
+
+                    <?php echo Form::file('renuncia'); ?>
 
                 </div>
+
                 <div class="col-sm-3">
+
                 </div>
             </div>
             <div class="form-group">
@@ -180,7 +186,6 @@
 
                 </div>
             </div>
-
         </form>
     </div>
 

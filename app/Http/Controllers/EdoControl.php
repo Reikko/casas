@@ -14,7 +14,7 @@ class EdoControl extends Controller
 {
     public function index()
     {
-        $estados = Estado::All();
+        $estados = DB::table('estados')->where('id','!=',1)->get();
         return view('estado.index',compact('estados'));
     }
 

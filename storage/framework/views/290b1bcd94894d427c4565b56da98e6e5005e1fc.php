@@ -12,18 +12,23 @@
         <th>Num</th>
         <th>Desarrollo</th>
         <th>Modificar</th>
-        <th>Ver</th>
+        <th>Ver Calles</th>
+        <th>Ver Unidades</th>
         </thead>
         <?php foreach($dess as $d): ?>
             <tbody>
             <td><?php echo e($d->id); ?></td>
             <td><?php echo e($d->nom_des); ?></td>
             <td>
-                <?php echo link_to_route('cdad.edit', $title = 'Editar', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('des.edit', $title = 'Editar', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
 
             </td>
             <td>
-                <?php echo link_to_route('des.show', $title = 'Ver Desarrollo', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('calle.show', $title = 'Ver Calles', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
+
+            </td>
+            <td>
+                <?php echo link_to_route('propiedad.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
 
             </td>
             </tbody>
