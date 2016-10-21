@@ -1,7 +1,22 @@
 <?php $__env->startSection('contentTrab'); ?>
     <div class="container-fluid">
         <h2>Registro de trabajadores</h2>
-        <form class="form-horizontal">
+        <?php echo Form::open(['route'=>'trabajador.store','method'=>'POST','class'=>'form-horizontal','files'=> true]); ?>
+
+        <div class="form-group">
+            <div class="col-sm-6">
+            </div>
+            <?php echo Form::label('FOTO',null,['class'=>'control-label col-sm-3']); ?>
+
+            <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
+                <?php echo Form::label('Subir Foto',null,['class'=>'']); ?>
+
+                <?php echo Form::file('foto'); ?>
+
+            </div>
+        </div>
             <div class="form-group">
                 <?php echo Form::label('NOMBRE COMPLETO',null,['class'=>'control-label col-sm-3']); ?>
 
@@ -29,7 +44,7 @@
                     <?php echo Form::label('SEXO',null,['class'=>'control-label col-sm-3']); ?>
 
                     <div class="col-sm-9">
-                        <?php echo Form::select('sexo',['M'=>'Masculino','F'=>'Femenino'],'M',['class'=>'form-control']); ?>
+                        <?php echo Form::select('sexo',['1'=>'Masculino','2'=>'Femenino'],'1',['class'=>'form-control']); ?>
 
                     </div>
                 </div>
@@ -110,25 +125,21 @@
                     <?php echo link_to('trabajador/create', $title = 'Descargar',['class'=>'form-control btn btn-primary',]); ?>
 
                 </div>
-                <div class="col-sm-3">
-                    <?php echo Form::label('Adjuntar renuncia',null,['class'=>'control-label col-sm-6']); ?>
+                <div class="col-sm-6">
+                    <?php echo Form::label('Adjuntar renuncia',null,['class'=>'']); ?>
 
                     <?php echo Form::file('renuncia'); ?>
-
-                </div>
-
-                <div class="col-sm-3">
 
                 </div>
             </div>
             <div class="form-group">
                 <?php echo Form::label('IFE',null,['class'=>'control-label col-sm-3']); ?>
 
-                <div class="col-sm-3">
-                    <?php echo link_to('trabajador/create', $title = 'Adjuntar IFE',['class'=>'form-control btn btn-warning',]); ?>
+                <div class="col-sm-6">
+                    <?php echo Form::label('Adjuntar IFE',null,['class'=>'']); ?>
 
-                </div>
-                <div class="col-sm-3">
+                    <?php echo Form::file('ife'); ?>
+
                 </div>
                 <div class="col-sm-3">
                 </div>
@@ -136,11 +147,11 @@
             <div class="form-group">
                 <?php echo Form::label('CURP',null,['class'=>'control-label col-sm-3']); ?>
 
-                <div class="col-sm-3">
-                    <?php echo link_to('trabajador/create', $title = 'Adjuntar CURP',['class'=>'form-control btn btn-success',]); ?>
+                <div class="col-sm-6">
+                    <?php echo Form::label('Adjuntar curp',null,['class'=>'']); ?>
 
-                </div>
-                <div class="col-sm-3">
+                    <?php echo Form::file('curp'); ?>
+
                 </div>
                 <div class="col-sm-3">
                 </div>
@@ -149,7 +160,7 @@
                 <?php echo Form::label('RFC',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'RFC']); ?>
+                    <?php echo Form::text('rfc',null,['class'=>'form-control','placeholder'=>'RFC']); ?>
 
                 </div>
                 <div class="col-sm-3">
@@ -160,11 +171,11 @@
             <div class="form-group">
                 <?php echo Form::label('COMPROBANTE DE DOMICILIO',null,['class'=>'control-label col-sm-3']); ?>
 
-                <div class="col-sm-3">
-                    <?php echo link_to('trabajador/create', $title = 'Adjuntar CURP',['class'=>'form-control btn btn-info',]); ?>
+                <div class="col-sm-6">
+                    <?php echo Form::label('Adjuntar Comprobante de domicilio',null,['class'=>'']); ?>
 
-                </div>
-                <div class="col-sm-3">
+                    <?php echo Form::file('comp_dom'); ?>
+
                 </div>
                 <div class="col-sm-3">
                 </div>
@@ -173,23 +184,24 @@
                 <?php echo Form::label('NUMERO DE SEGURO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::select('civil',['L'=>'Lo tengo','N'=>'No lo tengo','P'=>'Pendiente'],'L',['class'=>'form-control']); ?>
+                    <?php echo Form::select('estatus',['1'=>'Lo tengo','2'=>'No lo tengo','3'=>'Pendiente'],'1',['class'=>'form-control']); ?>
 
                 </div>
 
-                <div class="col-sm-3">
-                    <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Numero de Seguro']); ?>
+                <div class="col-sm-2">
+                    <?php echo Form::text('num_seguro',null,['class'=>'form-control','placeholder'=>'Numero de Seguro']); ?>
 
                 </div>
-                <div class="col-sm-3">
-                    <?php echo link_to('trabajador/create', $title = 'Subir comprobante',['class'=>'form-control btn btn-success',]); ?>
+                <div class="col-sm-4">
+                    <?php echo Form::label('Adjuntar Comprobante de seguro',null,['class'=>'']); ?>
+
+                    <?php echo Form::file('comp_seguro'); ?>
 
                 </div>
             </div>
-        </form>
+
     </div>
 
-    <?php echo Form::open(['route'=>'client.store','method'=>'POST']); ?>
 
 
     <?php echo Form::submit('Registrar',['class'=>'btn btn-primary']); ?>

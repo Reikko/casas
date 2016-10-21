@@ -30,13 +30,8 @@ class CreateTrabajadorsTable extends Migration
             $table->string('estado');
             $table->string('municipio');
             $table->string('puesto');
-            $table->string('renuncia');
-            $table->string('ife');
-            $table->string('curp');
             $table->string('rfc');
-            $table->string('comp_dom');
             $table->string('num_seguro');
-            $table->string('comp_seguro');
             $table->integer('estatus')->unsigned();
             $table->timestamps();
         });
