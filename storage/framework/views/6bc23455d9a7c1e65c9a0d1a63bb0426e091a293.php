@@ -7,6 +7,7 @@
 <?php endif; ?>
 $var = 0;
 <?php $__env->startSection('content'); ?>
+    <button><?php echo link_to('calle/edit', $title = 'Editar Unidades'); ?></button>
     <table class="table">
         <thead>
         <th>#</th>

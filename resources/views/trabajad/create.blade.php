@@ -18,13 +18,13 @@
             <div class="form-group">
                 {!! Form::label('NOMBRE COMPLETO',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
-                    {!! Form::text('nom_trab',null,['class'=>'form-control','placeholder'=>'Nombre']) !!}
+                    {!! Form::text('nom_trab',null,['class'=>'form-control','placeholder'=>'Nombre','required' => 'required']) !!}
                 </div>
                 <div class="col-sm-3">
-                    {!! Form::text('ap_pat',null,['class'=>'form-control','placeholder'=>'Apellido Paterno']) !!}
+                    {!! Form::text('ap_pat',null,['class'=>'form-control','placeholder'=>'Apellido Paterno','required' => 'required']) !!}
                 </div>
                 <div class="col-sm-3">
-                    {!! Form::text('ap_mat',null,['class'=>'form-control','placeholder'=>'Apellido Materno']) !!}
+                    {!! Form::text('ap_mat',null,['class'=>'form-control','placeholder'=>'Apellido Materno','required' => 'required']) !!}
                 </div>
             </div>
             <div class="form-group">
@@ -48,7 +48,7 @@
             <div class="form-group">
                 {!! Form::label('FECHA DE NACIMIENTO',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
-                    <input type="date" name="fecha_nac" class="form-control col-sm-9">
+                    <input type="date" name="fecha_nac" class="form-control col-sm-9" required="true">
                 </div>
                 {!! Form::label('LUGAR DE NACIMIENTO',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
@@ -58,27 +58,27 @@
             <div class="form-group">
                 {!! Form::label('DOMICILIO',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
-                    {!! Form::text('calle',null,['class'=>'form-control','placeholder'=>'Calle']) !!}
+                    {!! Form::text('calle',null,['class'=>'form-control','placeholder'=>'Calle','required' => 'required']) !!}
                 </div>
                 <div class="col-sm-3">
                     <div class="col-sm-6">
-                        {!! Form::text('num_ext',null,['class'=>'form-control','placeholder'=>'Num Ext']) !!}
+                        {!! Form::text('num_ext',null,['class'=>'form-control','placeholder'=>'Num Ext','required' => 'required']) !!}
                     </div>
                     <div class="col-sm-6">
                         {!! Form::text('num_int',null,['class'=>'form-control','placeholder'=>'Num Int']) !!}
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    {!! Form::text('colonia',null,['class'=>'form-control','placeholder'=>'Colonia']) !!}
+                    {!! Form::text('colonia',null,['class'=>'form-control','placeholder'=>'Colonia' ,'required' => 'required']) !!}
                 </div>
             </div>
             <div class="form-group">
                 {!! Form::label('',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
-                    {!! Form::text('estado',null,['class'=>'form-control','placeholder'=>'Ciudad']) !!}
+                    {!! Form::text('estado',null,['class'=>'form-control','placeholder'=>'Ciudad','required' => 'required']) !!}
                 </div>
                 <div class="col-sm-3">
-                    {!! Form::text('municipio',null,['class'=>'form-control','placeholder'=>'Municipio']) !!}
+                    {!! Form::text('municipio',null,['class'=>'form-control','placeholder'=>'Municipio','required' => 'required']) !!}
                 </div>
                 <div class="col-sm-3">
                 </div>
@@ -143,9 +143,8 @@
             <div class="form-group">
                 {!! Form::label('NUMERO DE SEGURO',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
-                    {!! Form::select('estatus',['1'=>'Lo tengo','2'=>'No lo tengo','3'=>'Pendiente'],'1',['class'=>'form-control']) !!}
+                    {!! Form::select('estatus',['1'=>'Completo-Lo tengo','2'=>'Consultar-Lo tengo','3'=>'Generar'],'1',['class'=>'form-control']) !!}
                 </div>
-
                 <div class="col-sm-2">
                     {!! Form::text('num_seguro',null,['class'=>'form-control','placeholder'=>'Numero de Seguro']) !!}
                 </div>

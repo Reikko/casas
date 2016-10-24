@@ -21,15 +21,15 @@
                 <?php echo Form::label('NOMBRE COMPLETO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::text('nom_trab',null,['class'=>'form-control','placeholder'=>'Nombre']); ?>
+                    <?php echo Form::text('nom_trab',null,['class'=>'form-control','placeholder'=>'Nombre','required' => 'required']); ?>
 
                 </div>
                 <div class="col-sm-3">
-                    <?php echo Form::text('ap_pat',null,['class'=>'form-control','placeholder'=>'Apellido Paterno']); ?>
+                    <?php echo Form::text('ap_pat',null,['class'=>'form-control','placeholder'=>'Apellido Paterno','required' => 'required']); ?>
 
                 </div>
                 <div class="col-sm-3">
-                    <?php echo Form::text('ap_mat',null,['class'=>'form-control','placeholder'=>'Apellido Materno']); ?>
+                    <?php echo Form::text('ap_mat',null,['class'=>'form-control','placeholder'=>'Apellido Materno','required' => 'required']); ?>
 
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 <?php echo Form::label('FECHA DE NACIMIENTO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <input type="date" name="fecha_nac" class="form-control col-sm-9">
+                    <input type="date" name="fecha_nac" class="form-control col-sm-9" required="true">
                 </div>
                 <?php echo Form::label('LUGAR DE NACIMIENTO',null,['class'=>'control-label col-sm-3']); ?>
 
@@ -74,12 +74,12 @@
                 <?php echo Form::label('DOMICILIO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::text('calle',null,['class'=>'form-control','placeholder'=>'Calle']); ?>
+                    <?php echo Form::text('calle',null,['class'=>'form-control','placeholder'=>'Calle','required' => 'required']); ?>
 
                 </div>
                 <div class="col-sm-3">
                     <div class="col-sm-6">
-                        <?php echo Form::text('num_ext',null,['class'=>'form-control','placeholder'=>'Num Ext']); ?>
+                        <?php echo Form::text('num_ext',null,['class'=>'form-control','placeholder'=>'Num Ext','required' => 'required']); ?>
 
                     </div>
                     <div class="col-sm-6">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <?php echo Form::text('colonia',null,['class'=>'form-control','placeholder'=>'Colonia']); ?>
+                    <?php echo Form::text('colonia',null,['class'=>'form-control','placeholder'=>'Colonia' ,'required' => 'required']); ?>
 
                 </div>
             </div>
@@ -96,11 +96,11 @@
                 <?php echo Form::label('',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::text('estado',null,['class'=>'form-control','placeholder'=>'Ciudad']); ?>
+                    <?php echo Form::text('estado',null,['class'=>'form-control','placeholder'=>'Ciudad','required' => 'required']); ?>
 
                 </div>
                 <div class="col-sm-3">
-                    <?php echo Form::text('municipio',null,['class'=>'form-control','placeholder'=>'Municipio']); ?>
+                    <?php echo Form::text('municipio',null,['class'=>'form-control','placeholder'=>'Municipio','required' => 'required']); ?>
 
                 </div>
                 <div class="col-sm-3">
@@ -184,7 +184,7 @@
                 <?php echo Form::label('NUMERO DE SEGURO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::select('estatus',['1'=>'Lo tengo','2'=>'No lo tengo','3'=>'Pendiente'],'1',['class'=>'form-control']); ?>
+                    <?php echo Form::select('estatus',['1'=>'Completo-Lo tengo','2'=>'Consultar-Lo tengo','3'=>'Generar'],'1',['class'=>'form-control']); ?>
 
                 </div>
 

@@ -3,6 +3,7 @@
 namespace azf\Http\Controllers;
 
 use azf\Archivo;
+use azf\Trabajador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Storage;
@@ -10,14 +11,10 @@ use azf\Http\Requests;
 
 class TrabControl extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $ts = Trabajador::Trabajadores();
+        return view ('trabajad.index',compact('ts'));
     }
 
     public function create()
@@ -27,8 +24,6 @@ class TrabControl extends Controller
 
     public function store(Request $request)
     {
-
-
         $id = DB::table('trabajadors')->insertGetId([
             'nom_trab' => $request['nom_trab'],
             'ap_pat' => $request['ap_pat'],
@@ -57,6 +52,7 @@ class TrabControl extends Controller
             'foto' => $picture,
         ]);
         \Storage::disk('local')->put($name,\File::get($request['renuncia']));
+        \Storage::disk('local')->put($picture,\File::get($request['foto']));
         return redirect('/trabajador/'.$id)->with('message','Trabajador Registrado');
     }
 
@@ -66,12 +62,6 @@ class TrabControl extends Controller
         return view('trabajad.show',compact('trabaja'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //

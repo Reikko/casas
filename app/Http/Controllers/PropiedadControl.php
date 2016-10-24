@@ -13,6 +13,7 @@ class PropiedadControl extends Controller
 {
     public function index()
     {
+
         $propiedades = DB::table('propiedads')
             ->join('calles', 'propiedads.id_calle', '=', 'calles.id')->select('propiedads.*', 'nom_calle')->get();
         return view('propi.index',compact('propiedades'));

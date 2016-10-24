@@ -7,6 +7,7 @@
 @endif
 $var = 0;
 @section('content')
+    <button>{!!link_to('calle/edit', $title = 'Editar Unidades')!!}</button>
     <table class="table">
         <thead>
         <th>#</th>

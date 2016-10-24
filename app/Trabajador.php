@@ -3,6 +3,7 @@
 namespace azf;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Storage;
 
 class Trabajador extends Model
@@ -35,7 +36,13 @@ class Trabajador extends Model
         'estatus'
     ];
 
-
+    public static function Trabajadores()
+    {
+        return DB::table('trabajadors')
+            ->join('archivos','trabajadors.id','=','archivos.id_trab')
+            ->select('trabajadors.*','archivos.foto','archivos.renuncia','archivos.ife','archivos.curp','archivos.comp_dom','archivos.com_seguro')
+            ->get();
+    }
 
 
 
