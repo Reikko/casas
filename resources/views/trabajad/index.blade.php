@@ -34,7 +34,13 @@
                 <tr class="danger">
                     @endif
             <td>{{$t->id}}</td>
-            <td><img src="archivos/{{$t->foto}}" style="width: 100px"></td>
+            <!--@if($t->foto == "")
+                        <td><img src="archivos/imagen.png" style="width: 100px"></td>
+                @else
+                    <td><img src="archivos/{{$t->foto}}" style="width: 100px"></td>
+                    @endif
+                        -->
+                    <td><img src="archivos/imagen.jpg" style="width: 100px"></td>
             <td>{{$t->nom_trab}} {{$t->ap_pat}} {{$t->ap_mat}}</td>
             <td>{{$t->puesto}}</td>
             <td>{{$t->estatus}}</td>

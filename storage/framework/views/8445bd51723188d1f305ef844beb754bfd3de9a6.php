@@ -34,7 +34,13 @@
                 <tr class="danger">
                     <?php endif; ?>
             <td><?php echo e($t->id); ?></td>
-            <td><img src="archivos/<?php echo e($t->foto); ?>" style="width: 100px"></td>
+            <!--<?php if($t->foto == ""): ?>
+                        <td><img src="archivos/imagen.png" style="width: 100px"></td>
+                <?php else: ?>
+                    <td><img src="archivos/<?php echo e($t->foto); ?>" style="width: 100px"></td>
+                    <?php endif; ?>
+                        -->
+                    <td><img src="archivos/imagen.jpg" style="width: 100px"></td>
             <td><?php echo e($t->nom_trab); ?> <?php echo e($t->ap_pat); ?> <?php echo e($t->ap_mat); ?></td>
             <td><?php echo e($t->puesto); ?></td>
             <td><?php echo e($t->estatus); ?></td>

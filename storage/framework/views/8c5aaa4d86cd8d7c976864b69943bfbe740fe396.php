@@ -128,7 +128,7 @@
                 <div class="col-sm-6">
                     <?php echo Form::label('Adjuntar renuncia',null,['class'=>'']); ?>
 
-                    <?php echo Form::file('renuncia'); ?>
+                    <?php echo Form::file('renuncia',['required' => 'required']); ?>
 
                 </div>
             </div>
@@ -187,7 +187,6 @@
                     <?php echo Form::select('estatus',['1'=>'Completo-Lo tengo','2'=>'Consultar-Lo tengo','3'=>'Generar'],'1',['class'=>'form-control']); ?>
 
                 </div>
-
                 <div class="col-sm-2">
                     <?php echo Form::text('num_seguro',null,['class'=>'form-control','placeholder'=>'Numero de Seguro']); ?>
 

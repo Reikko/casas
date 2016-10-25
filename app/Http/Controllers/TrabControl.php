@@ -44,15 +44,24 @@ class TrabControl extends Controller
             'rfc' => $request['rfc'],
             'num_seguro' => $request['num_seguro'],
         ]);
+        //return $request['foto'];
         $name = "".$id."".$request['renuncia']->getClientOriginalName();
-        $picture = "".$id."".$request['foto']->getClientOriginalName();
+        if($request['foto'] != nullOrEmptyString() )
+        {
+            $picture = "".$id."".$request['foto']->getClientOriginalName();
+            \Storage::disk('local')->put($picture,\File::get($request['foto']));
+        }
+        else{
+            $picture = "imagen.jpg";
+        }
+
         Archivo::create([
             'id_trab' => $id,
             'renuncia' => $name,
             'foto' => $picture,
         ]);
         \Storage::disk('local')->put($name,\File::get($request['renuncia']));
-        \Storage::disk('local')->put($picture,\File::get($request['foto']));
+
         return redirect('/trabajador/'.$id)->with('message','Trabajador Registrado');
     }
 

@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-sm-6">
                     {!!Form::label('Adjuntar renuncia',null,['class'=>''])!!}
-                    {!!Form::file('renuncia')!!}
+                    {!!Form::file('renuncia',['required' => 'required'])!!}
                 </div>
             </div>
             <div class="form-group">
