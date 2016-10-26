@@ -3,6 +3,7 @@
 namespace azf;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Archivo extends Model
 {
@@ -25,6 +26,12 @@ class Archivo extends Model
         \Storage::disk('local')->put($name,\File::get($path));
     }*/
 
+    /*public static function Trabajador($id)
+    {
+        return DB::table('archivos')
+            ->where('id_trab','=',$id)
+            ->get();
+    }*/
 
 
 }

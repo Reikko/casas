@@ -22,7 +22,7 @@ class CreateTrabajadorsTable extends Migration
             $table->integer('sexo')->unsigned();
             $table->string('alias');
             $table->date('fecha_nac');
-            $table->integer('lug_nac')->unsigned();
+            $table->string('lug_nac');
             $table->string('calle');
             $table->string('num_ext');
             $table->string('num_int');

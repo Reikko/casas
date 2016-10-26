@@ -67,8 +67,12 @@ class TrabControl extends Controller
 
     public function show($id)
     {
-        $trabaja = Archivo::find($id);
-        return view('trabajad.show',compact('trabaja'));
+        $ts = Trabajador::find($id);
+        $arc = DB::table('archivos')
+            ->where('id_trab',$id)
+            ->first();
+        //return compact('arc','ts');
+        return view ('trabajad.show',compact('ts','arc'));
     }
 
     public function edit($id)

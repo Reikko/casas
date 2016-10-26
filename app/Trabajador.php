@@ -44,6 +44,15 @@ class Trabajador extends Model
             ->get();
     }
 
+    public static function Trabajador($id)
+    {
+        return DB::table('trabajadors')
+            ->join('archivos','trabajadors.id','=','archivos.id_trab')
+            ->select('trabajadors.*','archivos.foto','archivos.renuncia','archivos.ife','archivos.curp','archivos.comp_dom','archivos.com_seguro')
+            ->where('trabajadors.id','=',$id)
+            ->get();
+    }
+
 
 
 
