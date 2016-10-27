@@ -18,8 +18,8 @@ class CreateTrabajadorsTable extends Migration
             $table->string('nom_trab');
             $table->string('ap_pat');
             $table->string('ap_mat');
-            $table->integer('edo_civil')->unsigned();
-            $table->integer('sexo')->unsigned();
+            $table->string('edo_civil');
+            $table->string('sexo');
             $table->string('alias');
             $table->date('fecha_nac');
             $table->string('lug_nac');

@@ -30,12 +30,12 @@
             <div class="form-group">
                 {!! Form::label('ESTADO CIVIL',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
-                    {!! Form::select('edo_civil',['S'=>'Soltero','C'=>'Casado'],'S',['class'=>'form-control']) !!}
+                    {!! Form::select('edo_civil',['Soltero'=>'Soltero','Casado'=>'Casado'],'Soltero',['class'=>'form-control']) !!}
                 </div>
                 <div class="col-sm-3">
                     {!! Form::label('SEXO',null,['class'=>'control-label col-sm-3']) !!}
                     <div class="col-sm-9">
-                        {!! Form::select('sexo',['1'=>'Masculino','2'=>'Femenino'],'1',['class'=>'form-control']) !!}
+                        {!! Form::select('sexo',['Masculino'=>'Masculino','Femenino'=>'Femenino'],'Masculino',['class'=>'form-control']) !!}
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -52,7 +52,7 @@
                 </div>
                 {!! Form::label('LUGAR DE NACIMIENTO',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
-                    {!! Form::select('lug_nac',['S'=>'San Luis Potosi','Q'=>'Queretaro'],'S',['class'=>'form-control']) !!}
+                    {!! Form::select('lug_nac',['San Luis Potosi'=>'San Luis Potosi','Queretaro'=>'Queretaro'],'San Luis Potosi',['class'=>'form-control']) !!}
                 </div>
             </div>
             <div class="form-group">
@@ -96,7 +96,7 @@
             <div class="form-group">
                 {!! Form::label('RENUNCIA',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
-                    {!! link_to('trabajador/create', $title = 'Descargar',['class'=>'form-control btn btn-primary',]) !!}
+                    {{link_to('archivos/r.docx','Descargar',['download'=>'Renuncia'])}}
                 </div>
                 <div class="col-sm-6">
                     {!!Form::label('Adjuntar renuncia',null,['class'=>''])!!}

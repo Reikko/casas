@@ -37,14 +37,14 @@
                 <?php echo Form::label('ESTADO CIVIL',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::select('edo_civil',['S'=>'Soltero','C'=>'Casado'],'S',['class'=>'form-control']); ?>
+                    <?php echo Form::select('edo_civil',['Soltero'=>'Soltero','Casado'=>'Casado'],'Soltero',['class'=>'form-control']); ?>
 
                 </div>
                 <div class="col-sm-3">
                     <?php echo Form::label('SEXO',null,['class'=>'control-label col-sm-3']); ?>
 
                     <div class="col-sm-9">
-                        <?php echo Form::select('sexo',['1'=>'Masculino','2'=>'Femenino'],'1',['class'=>'form-control']); ?>
+                        <?php echo Form::select('sexo',['Masculino'=>'Masculino','Femenino'=>'Femenino'],'Masculino',['class'=>'form-control']); ?>
 
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                 <?php echo Form::label('LUGAR DE NACIMIENTO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::select('lug_nac',['S'=>'San Luis Potosi','Q'=>'Queretaro'],'S',['class'=>'form-control']); ?>
+                    <?php echo Form::select('lug_nac',['San Luis Potosi'=>'San Luis Potosi','Queretaro'=>'Queretaro'],'San Luis Potosi',['class'=>'form-control']); ?>
 
                 </div>
             </div>
@@ -122,7 +122,7 @@
                 <?php echo Form::label('RENUNCIA',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo link_to('trabajador/create', $title = 'Descargar',['class'=>'form-control btn btn-primary',]); ?>
+                    <?php echo e(link_to('archivos/r.docx','Descargar',['download'=>'Renuncia'])); ?>
 
                 </div>
                 <div class="col-sm-6">

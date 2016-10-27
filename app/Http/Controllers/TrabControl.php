@@ -7,6 +7,8 @@ use azf\Trabajador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Storage;
+use Session;
+use Redirect;
 use azf\Http\Requests;
 
 class TrabControl extends Controller
@@ -46,7 +48,7 @@ class TrabControl extends Controller
         ]);
         //return $request['foto'];
         $name = "".$id."".$request['renuncia']->getClientOriginalName();
-        if($request['foto'] != nullOrEmptyString() )
+        if($request['foto'] != null )
         {
             $picture = "".$id."".$request['foto']->getClientOriginalName();
             \Storage::disk('local')->put($picture,\File::get($request['foto']));
@@ -77,7 +79,8 @@ class TrabControl extends Controller
 
     public function edit($id)
     {
-        //
+        $ts = Trabajador::find($id);
+        return view('trabajad.edit',compact('ts'));
     }
 
     /**
@@ -89,7 +92,11 @@ class TrabControl extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ts = Trabajador::find($id);
+        $ts->fill($request->all());
+        $ts->save();
+        Session::flash('message','Datos editados');
+        return Redirect::to('/trabajador/'.$ts->id);
     }
 
     /**

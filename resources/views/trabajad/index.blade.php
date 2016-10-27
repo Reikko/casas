@@ -22,6 +22,9 @@
 
         @foreach($ts as $t)
             <tbody>
+            @if($t->estatus ==0)
+                <tr class="success">
+            @endif
             @if($t->estatus ==1)
                 <tr class="info">
             @endif
@@ -45,7 +48,7 @@
                         <a href="archivos/{{$t->comp_dom}}" target="_blank"> DOMICILIO</a>
                         <a href="archivos/{{$t->com_seguro}}" target="_blank"> SEGURO</a>
                     </td>
-                    <td>Editar</td>
+                    <td>{!!link_to_route('trabajador.edit', $title = 'Editar', $parameters = $t->id, $attributes = ['class'=>'btn btn-primary'])!!}</td>
                     <td>Baja</td>
                 </tr>
             </tbody>

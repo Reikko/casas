@@ -22,6 +22,9 @@
 
         <?php foreach($ts as $t): ?>
             <tbody>
+            <?php if($t->estatus ==0): ?>
+                <tr class="success">
+            <?php endif; ?>
             <?php if($t->estatus ==1): ?>
                 <tr class="info">
             <?php endif; ?>
@@ -45,7 +48,7 @@
                         <a href="archivos/<?php echo e($t->comp_dom); ?>" target="_blank"> DOMICILIO</a>
                         <a href="archivos/<?php echo e($t->com_seguro); ?>" target="_blank"> SEGURO</a>
                     </td>
-                    <td>Editar</td>
+                    <td><?php echo link_to_route('trabajador.edit', $title = 'Editar', $parameters = $t->id, $attributes = ['class'=>'btn btn-primary']); ?></td>
                     <td>Baja</td>
                 </tr>
             </tbody>

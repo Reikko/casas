@@ -6,21 +6,28 @@
     </div>
 @endif
 @section('content')
-    <div class="alert alert-success alert-dismissible" role="alert">
+    <div class="alert alert-info alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        Estatus:
+        En espera de Revision de Datos
     </div>
-    <img src="archivos/{{$arc->foto}}" style="width: 100px" >
-    <h2>{{$ts->nom_trab}} {{$ts->ap_pat}} {{$ts->ap_mat}}</h2>
-    <h4>Puesto :{{$ts->puesto}}</h4>
     <div class="panel panel-default">
-        <div class="panel-heading">Datos personales</div>
+
         <div class="panel-body">
-            <h5>Estado civil:{{$ts->edo_civil}}</h5>
-            <h5>Sexo:{{$ts->sexo}}</h5>
-            <h5>Alias:{{$ts->alias}}</h5>
-            <h5>Fecha de nacimiento:{{$ts->fecha_nac}}</h5>
-            <h5>Lugar de nacimiento:{{$ts->lug_nac}}</h5>
+            <h2>{{$ts->nom_trab}} {{$ts->ap_pat}} {{$ts->ap_mat}}</h2>
+            <h4>Puesto:  {{$ts->puesto}}</h4>
+            <div class="col-sm-4">
+                {{ Html::image(asset('archivos/'.$arc->foto), 'a picture', ['class' => 'img-thumbnail img-responsive','style'=>'width: 200px']) }}
+
+            </div>
+            <div class="col-sm-8">
+                <h5>Fecha de nacimiento: {{$ts->fecha_nac}}</h5>
+                <h5>Lugar de nacimiento: {{$ts->lug_nac}}</h5>
+                <h5>Clave: {{$ts->id}}</h5>
+                <h5>Estado civil: {{$ts->edo_civil}}</h5>
+                <h5>Sexo: {{$ts->sexo}}</h5>
+                <h5>Alias: {{$ts->alias}}</h5>
+            </div>
+
         </div>
     </div>
 
@@ -43,7 +50,6 @@
             <h5>Comprobante de Domicilio:<a href="archivos/{{$arc->comp_dom}}" target="_blank">Descargar IFE</a></h5>
             <h5>Curp:<a href="archivos/{{$arc->curp}}" target="_blank">Descargar Curp</a></h5>
             <h5>Prueba: {{link_to('archivos/'.$arc->renuncia,'Descargar Prueba',['target'=>'_blank','download'=>'Prueba'])}} </h5>
-
 
         </div>
     </div>
