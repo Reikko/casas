@@ -37,7 +37,15 @@
                 <tr class="danger">
             <?php endif; ?>
                     <td><?php echo e($t->id); ?></td>
-                    <td><img src="archivos/<?php echo e($t->foto); ?>" style="width: 100px" ><?php echo e(link_to_route('trabajador.show', $title = 'VER PERFIL', $t->id)); ?></td>
+                    <td>
+                        <?php if($t->foto == 'imagen.jpg'): ?>
+                            <?php echo e(Html::image(asset('imagen.jpg'),null,['class' => ' ','style'=>'width: 100px'])); ?>
+
+                        <?php else: ?>
+                            <?php echo e(Html::image(asset('archivos/'.$t->foto),null, ['class' => ' ','style'=>'width: 100px'])); ?>
+
+                        <?php endif; ?>
+                       <?php echo e(link_to_route('trabajador.show', $title = 'VER PERFIL', $t->id)); ?></td>
                     <td><?php echo e($t->nom_trab); ?> <?php echo e($t->ap_pat); ?> <?php echo e($t->ap_mat); ?></td>
                     <td><?php echo e($t->puesto); ?></td>
                     <td><?php echo e($t->estatus); ?></td>

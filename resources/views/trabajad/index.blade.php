@@ -37,7 +37,13 @@
                 <tr class="danger">
             @endif
                     <td>{{$t->id}}</td>
-                    <td><img src="archivos/{{$t->foto}}" style="width: 100px" >{{link_to_route('trabajador.show', $title = 'VER PERFIL', $t->id)}}</td>
+                    <td>
+                        @if($t->foto == 'imagen.jpg')
+                            {{ Html::image(asset('imagen.jpg'),null,['class' => ' ','style'=>'width: 100px']) }}
+                        @else
+                            {{ Html::image(asset('archivos/'.$t->foto),null, ['class' => ' ','style'=>'width: 100px']) }}
+                        @endif
+                       {{link_to_route('trabajador.show', $title = 'VER PERFIL', $t->id)}}</td>
                     <td>{{$t->nom_trab}} {{$t->ap_pat}} {{$t->ap_mat}}</td>
                     <td>{{$t->puesto}}</td>
                     <td>{{$t->estatus}}</td>

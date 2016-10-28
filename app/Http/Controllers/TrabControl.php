@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Storage;
 use Session;
 use Redirect;
+use File;
 use azf\Http\Requests;
 
 class TrabControl extends Controller
@@ -46,21 +47,60 @@ class TrabControl extends Controller
             'rfc' => $request['rfc'],
             'num_seguro' => $request['num_seguro'],
         ]);
-        //return $request['foto'];
         $name = "".$id."".$request['renuncia']->getClientOriginalName();
         if($request['foto'] != null )
         {
-            $picture = "".$id."".$request['foto']->getClientOriginalName();
+            $picture = "".$id."FOTO".$request['foto']->getClientOriginalName();
             \Storage::disk('local')->put($picture,\File::get($request['foto']));
         }
         else{
             $picture = "imagen.jpg";
         }
 
+        if($request['ife'] != null )
+        {
+            $fe = "".$id."IFE".$request['ife']->getClientOriginalName();
+            \Storage::disk('local')->put($fe,\File::get($request['ife']));
+        }
+        else{
+            $fe = "null";
+        }
+
+        if($request['curp'] != null )
+        {
+            $crp = "".$id."CURP".$request['curp']->getClientOriginalName();
+            \Storage::disk('local')->put($crp,\File::get($request['curp']));
+        }
+        else{
+            $crp = "null";
+        }
+
+        if($request['comp_dom'] != null )
+        {
+            $cdom = "".$id."HOME".$request['comp_dom']->getClientOriginalName();
+            \Storage::disk('local')->put($cdom,\File::get($request['comp_dom']));
+        }
+        else{
+            $cdom = "null";
+        }
+
+        if($request['com_seguro'] != null )
+        {
+            $segur = "".$id."SEGURO".$request['com_seguro']->getClientOriginalName();
+            \Storage::disk('local')->put($segur,\File::get($request['com_seguro']));
+        }
+        else{
+            $segur = "null";
+        }
+
         Archivo::create([
             'id_trab' => $id,
             'renuncia' => $name,
             'foto' => $picture,
+            'ife' => $fe,
+            'curp' => $crp,
+            'comp_dom'=> $cdom,
+            'com_seguro'=> $segur,
         ]);
         \Storage::disk('local')->put($name,\File::get($request['renuncia']));
 
@@ -73,7 +113,6 @@ class TrabControl extends Controller
         $arc = DB::table('archivos')
             ->where('id_trab',$id)
             ->first();
-        //return compact('arc','ts');
         return view ('trabajad.show',compact('ts','arc'));
     }
 
@@ -83,13 +122,6 @@ class TrabControl extends Controller
         return view('trabajad.edit',compact('ts'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $ts = Trabajador::find($id);
@@ -99,14 +131,19 @@ class TrabControl extends Controller
         return Redirect::to('/trabajador/'.$ts->id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+
+        $arc = DB::table('archivos')->where('id_trab',$id)->first();
+        File::delete(public_path()."/archivos/".$arc->renuncia);
+        File::delete(public_path()."/archivos/".$arc->foto);
+        File::delete(public_path()."/archivos/".$arc->ife);
+        File::delete(public_path()."/archivos/".$arc->curp);
+        File::delete(public_path()."/archivos/".$arc->comp_dom);
+        File::delete(public_path()."/archivos/".$arc->com_seguro);
+
+        Trabajador::destroy($id);
+        Session::flash('message','Trabajador Eliminado');
+        return Redirect::to('trabajador');
     }
 }

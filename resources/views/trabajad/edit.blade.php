@@ -159,4 +159,8 @@
 
     {!! Form::submit('Editar',['class'=>'btn btn-primary']) !!}
     {!! Form::close() !!}
+
+    {!! Form::open(['route'=>['trabajador.destroy',$ts->id],'method'=>'DELETE']) !!}
+    {!! Form::submit('Eliminar',['class'=>'btn btn-danger']) !!}
+    {!! Form::close() !!}
 @stop

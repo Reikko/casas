@@ -15,6 +15,7 @@ class Archivo extends Model
         'ife',
         'curp',
         'comp_dom',
+        'com_seguro',
         'foto',
     ];
 

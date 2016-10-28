@@ -3,7 +3,6 @@
     <?php echo Form::open(['url' => 'calle/create/'.$id]); ?>
 
         <div class="form-group">
-            <?php echo Form::label('id = '.$id); ?>
 
             <?php echo Form::label('Nombre de la Calle'); ?>
 

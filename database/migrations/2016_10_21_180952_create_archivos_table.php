@@ -13,14 +13,16 @@ class CreateArchivosTable extends Migration
     public function up()
     {
         Schema::create('archivos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('id_trab')->unsigned();
+            $table->foreign('id_trab')->references('id')->on('trabajadors')->onDelete('cascade')->onUpdate('cascade');
             $table->string('foto');
             $table->string('renuncia');
             $table->string('ife');
             $table->string('curp');
             $table->string('comp_dom');
-            $table->string('comp_seguro');
+            $table->string('com_seguro');
             $table->timestamps();
         });
     }

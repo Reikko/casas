@@ -4,17 +4,18 @@
         <?php echo Form::open(['route'=>'trabajador.store','method'=>'POST','class'=>'form-horizontal','files'=> true]); ?>
 
         <div class="form-group">
-            <div class="col-sm-6">
+            <div class="col-sm-3">
             </div>
             <?php echo Form::label('FOTO',null,['class'=>'control-label col-sm-3']); ?>
 
-            <div class="col-sm-3">
-            </div>
+
             <div class="col-sm-3">
                 <?php echo Form::label('Subir Foto',null,['class'=>'']); ?>
 
                 <?php echo Form::file('foto'); ?>
 
+            </div>
+            <div class="col-sm-3">
             </div>
         </div>
             <div class="form-group">
@@ -119,6 +120,18 @@
                 </div>
             </div>
             <div class="form-group">
+                <?php echo Form::label('RFC',null,['class'=>'control-label col-sm-3']); ?>
+
+                <div class="col-sm-3">
+                    <?php echo Form::text('rfc',null,['class'=>'form-control','placeholder'=>'RFC']); ?>
+
+                </div>
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="form-group">
                 <?php echo Form::label('RENUNCIA',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
@@ -156,18 +169,7 @@
                 <div class="col-sm-3">
                 </div>
             </div>
-            <div class="form-group">
-                <?php echo Form::label('RFC',null,['class'=>'control-label col-sm-3']); ?>
 
-                <div class="col-sm-3">
-                    <?php echo Form::text('rfc',null,['class'=>'form-control','placeholder'=>'RFC']); ?>
-
-                </div>
-                <div class="col-sm-3">
-                </div>
-                <div class="col-sm-3">
-                </div>
-            </div>
             <div class="form-group">
                 <?php echo Form::label('COMPROBANTE DE DOMICILIO',null,['class'=>'control-label col-sm-3']); ?>
 
@@ -194,7 +196,7 @@
                 <div class="col-sm-4">
                     <?php echo Form::label('Adjuntar Comprobante de seguro',null,['class'=>'']); ?>
 
-                    <?php echo Form::file('comp_seguro'); ?>
+                    <?php echo Form::file('com_seguro'); ?>
 
                 </div>
             </div>

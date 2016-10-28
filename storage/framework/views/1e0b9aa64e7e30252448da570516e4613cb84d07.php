@@ -16,9 +16,13 @@
             <h2><?php echo e($ts->nom_trab); ?> <?php echo e($ts->ap_pat); ?> <?php echo e($ts->ap_mat); ?></h2>
             <h4>Puesto:  <?php echo e($ts->puesto); ?></h4>
             <div class="col-sm-4">
-                <?php echo e(Html::image(asset('archivos/'.$arc->foto), 'a picture', ['class' => 'img-thumbnail img-responsive','style'=>'width: 200px'])); ?>
+                <?php if($arc->foto == 'imagen.jpg'): ?>
+                    <?php echo e(Html::image(asset('imagen.jpg'), 'a picture', ['class' => 'img-thumbnail img-responsive','style'=>'width: 200px'])); ?>
 
+                    <?php else: ?>
+                    <?php echo e(Html::image(asset('archivos/'.$arc->foto), 'a picture', ['class' => 'img-thumbnail img-responsive','style'=>'width: 200px'])); ?>
 
+                <?php endif; ?>
             </div>
             <div class="col-sm-8">
                 <h5>Fecha de nacimiento: <?php echo e($ts->fecha_nac); ?></h5>
@@ -44,13 +48,22 @@
     <div class="panel panel-default">
         <div class="panel-heading">Documentos</div>
         <div class="panel-body">
-            <h5>RFC: <?php echo e($ts->rfc); ?> <a href="archivos/<?php echo e($arc->renuncia); ?>" target="_blank"> Descargar RFC</a></h5>
-            <h5>Numero de Seguro: <?php echo e($ts->num_seguro); ?> <a href="archivos/<?php echo e($arc->com_seguro); ?>" target="_blank"> Descargar Seguro</a></h5>
-            <h5>Renuncia: <a href="archivos/<?php echo e($arc->renuncia); ?>" target="_blank">Descargar Renuncia</a></h5>
-            <h5>IFE:<a href="archivos/<?php echo e($arc->ife); ?>" target="_blank">Descargar IFE</a></h5>
-            <h5>Comprobante de Domicilio:<a href="archivos/<?php echo e($arc->comp_dom); ?>" target="_blank">Descargar IFE</a></h5>
-            <h5>Curp:<a href="archivos/<?php echo e($arc->curp); ?>" target="_blank">Descargar Curp</a></h5>
-            <h5>Prueba: <?php echo e(link_to('archivos/'.$arc->renuncia,'Descargar Prueba',['target'=>'_blank','download'=>'Prueba'])); ?> </h5>
+            <h5>RFC:<?php echo e($ts->rfc); ?> </h5>
+
+            <h5>Numero de Seguro: <?php echo e($ts->num_seguro); ?>
+
+                <?php echo e(link_to('archivos/'.$arc->com_seguro,'Descargar Comprobante de Seguro',['target'=>'_blank','download'=> ''.$ts->id.'Seguro'])); ?></h5>
+
+            <h5>Renuncia:
+                <?php echo e(link_to('archivos/'.$arc->renuncia,'Descargar Renuncia',['target'=>'_blank','download'=> ''.$ts->id.'Renuncia'])); ?></h5>
+            <h5>IFE:
+                <?php echo e(link_to('archivos/'.$arc->ife,'Descargar IFE',['target'=>'_blank','download'=> ''.$ts->id.'IFE'])); ?></h5>
+
+            <h5>Comprobante de Domicilio:
+                <?php echo e(link_to('archivos/'.$arc->comp_dom,'Descargar Comprobante de Domicilio',['target'=>'_blank','download'=> ''.$ts->id.'DOMICILIO'])); ?></h5>
+
+            <h5>Curp:
+                <?php echo e(link_to('archivos/'.$arc->curp,'Descargar CURP',['target'=>'_blank','download'=> ''.$ts->id.'CURP'])); ?></h5>
 
         </div>
     </div>

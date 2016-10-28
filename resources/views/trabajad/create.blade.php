@@ -5,14 +5,15 @@
         <h2>Registro de trabajadores</h2>
         {!! Form::open(['route'=>'trabajador.store','method'=>'POST','class'=>'form-horizontal','files'=> true]) !!}
         <div class="form-group">
-            <div class="col-sm-6">
-            </div>
-            {!! Form::label('FOTO',null,['class'=>'control-label col-sm-3']) !!}
             <div class="col-sm-3">
             </div>
+            {!! Form::label('FOTO',null,['class'=>'control-label col-sm-3']) !!}
+
             <div class="col-sm-3">
                 {!!Form::label('Subir Foto',null,['class'=>''])!!}
                 {!!Form::file('foto')!!}
+            </div>
+            <div class="col-sm-3">
             </div>
         </div>
             <div class="form-group">
@@ -94,6 +95,16 @@
                 </div>
             </div>
             <div class="form-group">
+                {!! Form::label('RFC',null,['class'=>'control-label col-sm-3']) !!}
+                <div class="col-sm-3">
+                    {!! Form::text('rfc',null,['class'=>'form-control','placeholder'=>'RFC']) !!}
+                </div>
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-3">
+                </div>
+            </div>
+            <div class="form-group">
                 {!! Form::label('RENUNCIA',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
                     {{link_to('archivos/r.docx','Descargar',['download'=>'Renuncia'])}}
@@ -121,16 +132,7 @@
                 <div class="col-sm-3">
                 </div>
             </div>
-            <div class="form-group">
-                {!! Form::label('RFC',null,['class'=>'control-label col-sm-3']) !!}
-                <div class="col-sm-3">
-                    {!! Form::text('rfc',null,['class'=>'form-control','placeholder'=>'RFC']) !!}
-                </div>
-                <div class="col-sm-3">
-                </div>
-                <div class="col-sm-3">
-                </div>
-            </div>
+
             <div class="form-group">
                 {!! Form::label('COMPROBANTE DE DOMICILIO',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-6">
@@ -150,7 +152,7 @@
                 </div>
                 <div class="col-sm-4">
                     {!!Form::label('Adjuntar Comprobante de seguro',null,['class'=>''])!!}
-                    {!!Form::file('comp_seguro')!!}
+                    {!!Form::file('com_seguro')!!}
                 </div>
             </div>
 

@@ -197,12 +197,18 @@
 
             </div>-->
         </div>
-
     </div>
 
 
 
     <?php echo Form::submit('Editar',['class'=>'btn btn-primary']); ?>
+
+    <?php echo Form::close(); ?>
+
+
+    <?php echo Form::open(['route'=>['trabajador.destroy',$ts->id],'method'=>'DELETE']); ?>
+
+    <?php echo Form::submit('Eliminar',['class'=>'btn btn-danger']); ?>
 
     <?php echo Form::close(); ?>
 
