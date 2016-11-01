@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.admin');
+    return view('layouts.login');
 });
 
 Route::get('des/estado/{id}','EdoControl@getCiudades');
@@ -26,6 +26,7 @@ Route::resource('client','ClienteControl');
 Route::resource('propiedad','PropiedadControl');
 Route::resource('trabajador','TrabControl');
 Route::resource('unidad','UnidadControl');
+Route::resource('login','UserControl');
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');

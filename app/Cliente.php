@@ -11,11 +11,9 @@ class Cliente extends Model
         'nombre', 'ap_pat', 'ap_mat','tel','correo','usuario','contra','priv',
     ];
 
-    public function setPasswordAttribute($valor)
-    {
-        if(!empty($valor))
-        {
-            $this->attributes['correo'] = \Hash::make($valor);
+    public function setPasswordAttribute($valor){
+        if(!empty($valor)){
+            $this->attributes['contra'] = \Hash::make($valor);
         }
     }
 }

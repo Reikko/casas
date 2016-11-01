@@ -20,8 +20,14 @@
 </head>
 <body>
 
-<div class="container">
 
+<div class="container">
+    @if(Session::has('message'))
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{Session::get('message')}}
+        </div>
+    @endif
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -80,12 +86,10 @@
                         </ul>
                     </li>
 
-
-
                 </ul>
                 <ul class="nav navbar-pills navbar-nav navbar-right">
-                    <li ><a data-toggle="pill" href="#inicio">Inicio</a></li>
-                    <li class = "active"><a data-toggle="pill" href="#entrar"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
+                    <li class = "active"><a data-toggle="pill" href="#inicio">Inicio</a></li>
+                    <li ><a data-toggle="pill" href="#entrar"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>
 
                 </ul>
             </div>
@@ -93,15 +97,9 @@
     </nav>
 
     <div class="tab-content">
-        <div id="inicio" class="tab-pane fade">
-            <p></p>
-        </div>
-
-        <div id="entrar" class="tab-pane fade  in active">
+        <div id="inicio" class="tab-pane fade  in active">
             <div class="container-fluid">
-
                 <div class="col-sm-3" style="background-color:lavender;">
-
                 </div>
 
                 <div class="col-sm-6">
@@ -110,9 +108,44 @@
 
                 <div class="col-sm-3" style="background-color:lavender;">
                 </div>
-
                 @yield('contentTrab')
 
+            </div>
+        </div>
+
+        <div id="entrar" class="tab-pane fade ">
+            <div class="container-fluid">
+                <div class="col-sm-3" style="background-color:lavender;">
+                </div>
+                <div class="col-sm-6">
+                    <div class="container-fluid">
+                            <h2>Inicio de sesion</h2>
+                            {!! Form::open(['route'=>'login.store','method'=>'POST','class'=>'form-horizontal']) !!}
+                                <div class="form-group">
+                                    {!! Form::label('Usuario:',null,['class'=>'col-sm-3 control-label']) !!}
+                                    <div class="col-sm-9">
+                                        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Usuario']) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::label('Contraseña:',null,['class'=>'col-sm-3 control-label']) !!}
+                                    <div class="col-sm-9">
+                                        {!! Form::text('email',null,['class'=>'form-control','placeholder'=>'email']) !!}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label"></label>
+                                    <div class="col-sm-9">
+                                        {!! Form::submit('Entrar',['class'=>'btn btn-primary form-control']) !!}
+                                    </div>
+                                </div>
+                                {!! Form::close() !!}
+                    </div>
+
+                </div>
+
+                <div class="col-sm-3" style="background-color:lavender;">
+                </div>
             </div>
         </div>
 
