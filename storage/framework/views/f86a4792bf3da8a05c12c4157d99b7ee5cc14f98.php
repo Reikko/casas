@@ -122,7 +122,7 @@
                 <div class="col-sm-6">
                     <div class="container-fluid">
                             <h2>Inicio de sesion</h2>
-                            <?php echo Form::open(['route'=>'login.store','method'=>'POST','class'=>'form-horizontal']); ?>
+                            <?php echo Form::open(['route'=>'des.store','method'=>'POST','class'=>'form-horizontal']); ?>
 
                                 <div class="form-group">
                                     <?php echo Form::label('Usuario:',null,['class'=>'col-sm-3 control-label']); ?>
@@ -169,9 +169,6 @@
 
 </div>
 
-
-
-<!-- Latest compiled and minified JavaScript -->
 
 <?php echo Html::script('js/drop.js'); ?>
 

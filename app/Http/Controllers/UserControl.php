@@ -33,12 +33,7 @@ class UserControl extends Controller
 
     public function store(LoginRequest $request)
     {
-        if(Auth::attempt(['name' => $request['name'],'email'=>$request['email']]))
-        {
-            return Redirect::to('trabajadores');
-        }
-        Session::flash('message','Error');
-        return Redirect::to('/');
+
     }
 
     /**

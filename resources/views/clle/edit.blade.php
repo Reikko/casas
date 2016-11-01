@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 @section('content')
     {!! Form::model($call,['route'=>['calle.update',$call->id],'method'=>'PUT']) !!}
     <div class="form-group">

@@ -10,9 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::get('/', function () {
-    return view('layouts.login');
+    return view('welcome');
 });
 
 Route::get('des/estado/{id}','EdoControl@getCiudades');
@@ -31,3 +30,16 @@ Route::resource('login','UserControl');
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
 Route::post('calle/create/{id}', 'CalleControl@store2');
+
+
+Route::group(['middleware' => ['web']], function () {
+    //
+});
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+    Route::get('/home', 'HomeController@index');
+});
+//Route::auth();
+
+//Route::get('/home', 'HomeController@index');
+

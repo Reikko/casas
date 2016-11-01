@@ -120,7 +120,7 @@
                 <div class="col-sm-6">
                     <div class="container-fluid">
                             <h2>Inicio de sesion</h2>
-                            {!! Form::open(['route'=>'login.store','method'=>'POST','class'=>'form-horizontal']) !!}
+                            {!! Form::open(['route'=>'des.store','method'=>'POST','class'=>'form-horizontal']) !!}
                                 <div class="form-group">
                                     {!! Form::label('Usuario:',null,['class'=>'col-sm-3 control-label']) !!}
                                     <div class="col-sm-9">
@@ -160,9 +160,6 @@
 
 </div>
 
-
-
-<!-- Latest compiled and minified JavaScript -->
 
 {!!Html::script('js/drop.js')!!}
 

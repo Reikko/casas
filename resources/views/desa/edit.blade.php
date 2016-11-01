@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 @section('content')
 
     {!! Form::model($desa,['route'=>['des.update',$desa->id],'method'=>'PUT']) !!}
