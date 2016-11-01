@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Menu</title>
+    <title>AZF</title>
     <!-- Latest compiled and minified CSS -->
     <?php echo Html::style('assets/css/bootstrap.css'); ?>
 
@@ -17,8 +17,6 @@
         .col-sm-9,.col-sm-6{
             padding-right: 0px;
         }
-
-
     </style>
 </head>
 <body>
@@ -104,12 +102,11 @@
             <div class="container-fluid">
 
                 <div class="col-sm-3" style="background-color:lavender;">
-                    <?php echo $__env->yieldContent('fraccion'); ?>
+
                 </div>
 
                 <div class="col-sm-6">
                     <?php echo $__env->yieldContent('content'); ?>
-
                 </div>
 
                 <div class="col-sm-3" style="background-color:lavender;">

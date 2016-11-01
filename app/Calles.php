@@ -11,4 +11,6 @@ class Calles extends Model
         'id_des',
         'nom_calle'
     ];
+
+
 }

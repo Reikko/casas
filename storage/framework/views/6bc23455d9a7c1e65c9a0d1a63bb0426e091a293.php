@@ -17,7 +17,8 @@ $var = 0;
         <th>Asignada</th>
         <th>Editar</th>
         </thead>
-        <?php $var = 0; ?>
+
+        <?php $var = 0 ?>
 
         <?php foreach($propiedades as $propiedad): ?>
             <?php echo e($var++); ?>

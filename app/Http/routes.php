@@ -25,6 +25,7 @@ Route::resource('calle','CalleControl');
 Route::resource('client','ClienteControl');
 Route::resource('propiedad','PropiedadControl');
 Route::resource('trabajador','TrabControl');
+Route::resource('unidad','UnidadControl');
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');

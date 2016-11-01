@@ -35,7 +35,7 @@
 
             </td>
             <td>
-                <?php echo link_to_route('propiedad.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('unidad.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
 
             </td>
             </tbody>

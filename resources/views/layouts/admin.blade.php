@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Menu</title>
+    <title>AZF</title>
     <!-- Latest compiled and minified CSS -->
     {!! Html::style('assets/css/bootstrap.css') !!}
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -16,8 +16,6 @@
         .col-sm-9,.col-sm-6{
             padding-right: 0px;
         }
-
-
     </style>
 </head>
 <body>
@@ -103,12 +101,11 @@
             <div class="container-fluid">
 
                 <div class="col-sm-3" style="background-color:lavender;">
-                    @yield('fraccion')
+
                 </div>
 
                 <div class="col-sm-6">
                     @yield('content')
-
                 </div>
 
                 <div class="col-sm-3" style="background-color:lavender;">

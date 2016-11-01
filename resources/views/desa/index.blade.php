@@ -33,7 +33,7 @@
                 {!!link_to_route('calle.show', $title = 'Ver Calles', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary'])!!}
             </td>
             <td>
-                {!!link_to_route('propiedad.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary'])!!}
+                {!!link_to_route('unidad.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary'])!!}
             </td>
             </tbody>
         @endforeach
