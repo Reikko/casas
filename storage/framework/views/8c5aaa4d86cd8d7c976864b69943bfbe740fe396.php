@@ -135,8 +135,9 @@
                 <?php echo Form::label('RENUNCIA',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo e(link_to('archivos/r.docx','Descargar',['download'=>'Renuncia'])); ?>
+                    <?php echo e(link_to_action('TrabControl@postPdf', 'Descargar', null, $attributes = array())); ?>
 
+                    <!--<?php echo e(link_to('archivos/r.docx','Descargar',['download'=>'Renuncia'])); ?>-->
                 </div>
                 <div class="col-sm-6">
                     <?php echo Form::label('Adjuntar renuncia',null,['class'=>'']); ?>
@@ -145,6 +146,7 @@
 
                 </div>
             </div>
+        <button type="button" class="btn btn-success btn-lg btn-block" onclick="Obten_Datos()"> Descargar Renuncia </button>
             <div class="form-group">
                 <?php echo Form::label('IFE',null,['class'=>'control-label col-sm-3']); ?>
 
@@ -202,12 +204,9 @@
             </div>
 
     </div>
-
-
-
     <?php echo Form::submit('Registrar',['class'=>'btn btn-primary']); ?>
 
     <?php echo Form::close(); ?>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

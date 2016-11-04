@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <style>
         body {
             font-family: 'Lato';
@@ -39,41 +41,55 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    AZF
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <!--<li><a href="{{ url('/home') }}">Home</a></li>-->
+                        @if (Auth::guest())
+
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Trabajadores</a>
+                                <ul class="dropdown-menu">
+                                    <li>{!!link_to_route('trabajador.index', $title = 'Mostrar Trabajadores')!!}</li>
+                                    <li>{!!link_to_route('trabajador.create', $title = 'Crear Trabajadores')!!}</li>
+                                </ul>
+                            </li>
+                        @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a href="{{ url('/login') }}">Ingresar</a></li>
+                        <!--<li><a href="{{ url('/register') }}">Registrar usuario</a></li>-->
                     @else
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                             </ul>
                         </li>
+
                     @endif
                 </ul>
             </div>
         </div>
     </nav>
 
+
     <div class="container-fluid">
-        <div class="col-sm-3" style="background-color:lavender;">
+        <div class="col-sm-3" >
 
         </div>
 
@@ -81,18 +97,23 @@
             @yield('content')
         </div>
 
-        <div class="col-sm-3" style="background-color:lavender;">
+        <div class="col-sm-3">
         </div>
 
-
     </div>
-    @yield('menu')
+
+    <div class="container">
+        <div class="container-fluid">
+            @yield('contentTrab')
+        </div>
+    </div>
+
     @yield('login')
     @yield('register')
     @yield('welcome')
 
 
-    <!-- JavaScripts -->
+    {!!Html::script('/js/drop.js')!!}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}

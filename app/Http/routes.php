@@ -32,14 +32,11 @@ Route::get('calle/create/{id}','CalleControl@getDesarrollo');
 Route::post('calle/create/{id}', 'CalleControl@store2');
 
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-    Route::get('/home', 'HomeController@index');
-});
-//Route::auth();
+//Ruta para generar el pdf
+Route::get('trabajador/obt/pdf/{nombre}','TrabControl@postPdf');
+//Route::post('obt/pdf','TrabControl@postPdf');
 
-//Route::get('/home', 'HomeController@index');
+Route::auth();
+Route::get('/home', 'HomeController@index');
+
 

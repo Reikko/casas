@@ -107,13 +107,15 @@
             <div class="form-group">
                 {!! Form::label('RENUNCIA',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-3">
-                    {{link_to('archivos/r.docx','Descargar',['download'=>'Renuncia'])}}
+                    {{link_to_action('TrabControl@postPdf', 'Descargar', null, $attributes = array())}}
+                    <!--{{link_to('archivos/r.docx','Descargar',['download'=>'Renuncia'])}}-->
                 </div>
                 <div class="col-sm-6">
                     {!!Form::label('Adjuntar renuncia',null,['class'=>''])!!}
                     {!!Form::file('renuncia',['required' => 'required'])!!}
                 </div>
             </div>
+        <button type="button" class="btn btn-success btn-lg btn-block" onclick="Obten_Datos()"> Descargar Renuncia </button>
             <div class="form-group">
                 {!! Form::label('IFE',null,['class'=>'control-label col-sm-3']) !!}
                 <div class="col-sm-6">
@@ -157,9 +159,6 @@
             </div>
 
     </div>
-
-
-
     {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
     {!! Form::close() !!}
 @stop

@@ -22,6 +22,28 @@ $("#calle_cdad_sel").change(function ( event) {
     });
 });
 
+function Obten_Datos()
+{
+
+    //var nom_trab = $('input:text[name=nom_trab]').val();
+    var ap_pat = $("input:text[name=ap_pat]").val();
+    var ap_mat = $("input:text[name=ap_mat]").val();
+
+
+    $.get("obt/pdf/"+$('input:text[name=nom_trab]').val()+"",function(response,state){
+        console.log($('input:text[name=nom_trab]').val());
+
+    });
+    /*$.ajax({
+        type: 'post',
+        data: {"nom_trab": nom_trab, "ap_pat": ap_pat},
+        url: "../obt/pdf"
+    }).done(function (data) {
+        console('hola');
+    });*/
+}
+
+
 
 
 

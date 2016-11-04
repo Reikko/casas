@@ -27,6 +27,7 @@
     23 => 'azf\\Providers\\EventServiceProvider',
     24 => 'azf\\Providers\\RouteServiceProvider',
     25 => 'Collective\\Html\\HtmlServiceProvider',
+    26 => 'Barryvdh\\DomPDF\\ServiceProvider',
   ),
   'eager' => 
   array (
@@ -43,6 +44,7 @@
     10 => 'azf\\Providers\\AuthServiceProvider',
     11 => 'azf\\Providers\\EventServiceProvider',
     12 => 'azf\\Providers\\RouteServiceProvider',
+    13 => 'Barryvdh\\DomPDF\\ServiceProvider',
   ),
   'deferred' => 
   array (

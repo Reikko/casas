@@ -20,7 +20,7 @@
             <td><?php echo e($c->id); ?></td>
             <td><?php echo e($c->nom_calle); ?></td>
             <td>
-                <?php echo link_to_route('calle.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('des.edit', $title = 'Editar', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
 
             </td>
             <td>
@@ -31,4 +31,4 @@
         <?php endforeach; ?>
     </table>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

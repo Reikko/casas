@@ -10,6 +10,7 @@ use Storage;
 use Session;
 use Redirect;
 use File;
+use PDF;
 use azf\Http\Requests;
 
 class TrabControl extends Controller
@@ -146,4 +147,51 @@ class TrabControl extends Controller
         Session::flash('message','Trabajador Eliminado');
         return Redirect::to('trabajador');
     }
+
+    public function postPdf(Request $request,$nombre)
+    {
+        //if($request -> ajax()) {
+            $pdf = PDF::loadView('trabajad.renuncia', compact('request','nombre'));
+            return $pdf->download('renuncia.pdf');
+        //}
+    }
+
+    public function getPdf(Request $request,$nombre)
+    {
+        //if($request -> ajax()) {
+        $pdf = PDF::loadView('trabajad.renuncia', compact('request','nombre'));
+        return $pdf->download('renuncia.pdf');
+        //}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

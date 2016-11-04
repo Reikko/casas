@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <?php /* <link href="<?php echo e(elixir('css/app.css')); ?>" rel="stylesheet"> */ ?>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <style>
         body {
             font-family: 'Lato';
@@ -39,41 +41,55 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-                    Laravel
+                <a class="navbar-brand" href="<?php echo e(url('/home')); ?>">
+                    AZF
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="<?php echo e(url('/home')); ?>">Home</a></li>
+                    <!--<li><a href="<?php echo e(url('/home')); ?>">Home</a></li>-->
+                        <?php if(Auth::guest()): ?>
+
+                        <?php else: ?>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Trabajadores</a>
+                                <ul class="dropdown-menu">
+                                    <li><?php echo link_to_route('trabajador.index', $title = 'Mostrar Trabajadores'); ?></li>
+                                    <li><?php echo link_to_route('trabajador.create', $title = 'Crear Trabajadores'); ?></li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     <?php if(Auth::guest()): ?>
-                        <li><a href="<?php echo e(url('/login')); ?>">Login</a></li>
-                        <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
+                        <li><a href="<?php echo e(url('/login')); ?>">Ingresar</a></li>
+                        <!--<li><a href="<?php echo e(url('/register')); ?>">Registrar usuario</a></li>-->
                     <?php else: ?>
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="<?php echo e(url('/logout')); ?>"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="<?php echo e(url('/logout')); ?>"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
                             </ul>
                         </li>
+
                     <?php endif; ?>
                 </ul>
             </div>
         </div>
     </nav>
 
+
     <div class="container-fluid">
-        <div class="col-sm-3" style="background-color:lavender;">
+        <div class="col-sm-3" >
 
         </div>
 
@@ -81,18 +97,24 @@
             <?php echo $__env->yieldContent('content'); ?>
         </div>
 
-        <div class="col-sm-3" style="background-color:lavender;">
+        <div class="col-sm-3">
         </div>
 
-
     </div>
-    <?php echo $__env->yieldContent('menu'); ?>
+
+    <div class="container">
+        <div class="container-fluid">
+            <?php echo $__env->yieldContent('contentTrab'); ?>
+        </div>
+    </div>
+
     <?php echo $__env->yieldContent('login'); ?>
     <?php echo $__env->yieldContent('register'); ?>
     <?php echo $__env->yieldContent('welcome'); ?>
 
 
-    <!-- JavaScripts -->
+    <?php echo Html::script('/js/drop.js'); ?>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <?php /* <script src="<?php echo e(elixir('js/app.js')); ?>"></script> */ ?>
