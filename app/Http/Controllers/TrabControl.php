@@ -11,6 +11,7 @@ use Session;
 use Redirect;
 use File;
 use PDF;
+use Carbon\Carbon;
 use azf\Http\Requests;
 
 class TrabControl extends Controller
@@ -148,20 +149,21 @@ class TrabControl extends Controller
         return Redirect::to('trabajador');
     }
 
-    public function postPdf(Request $request,$nombre)
+    public function postPdf(Request $request,$nombre,$app,$apm,$puesto)
     {
         //if($request -> ajax()) {
-            $pdf = PDF::loadView('trabajad.renuncia', compact('request','nombre'));
+            $pdf = PDF::loadView('trabajad.renuncia', compact('request','nombre','app','apm','puesto'));
             return $pdf->download('renuncia.pdf');
         //}
     }
 
-    public function getPdf(Request $request,$nombre)
+    public function getPdf(Request $request,$nombre,$app,$apm,$puesto)
     {
-        //if($request -> ajax()) {
-        $pdf = PDF::loadView('trabajad.renuncia', compact('request','nombre'));
+        $dt = Carbon::now();
+        setlocale(LC_TIME,'es');
+        $fecha = $dt->formatLocalized('%d')." de ". $dt->formatLocalized('%B')." del ".$dt->formatLocalized('%Y')." ";
+        $pdf = PDF::loadView('trabajad.renuncia', compact('request','nombre','app','apm','puesto','fecha'));
         return $pdf->download('renuncia.pdf');
-        //}
     }
 
 

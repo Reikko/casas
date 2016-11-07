@@ -61,7 +61,6 @@
                 <ul class="nav navbar-pills navbar-nav navbar-right">
                     <!--<li class = "active"><a data-toggle="pill" href="#inicio">Inicio</a></li>
                     <li ><a data-toggle="pill" href="#entrar"><span class="glyphicon glyphicon-log-in"></span> Entrar</a></li>-->
-
                 </ul>
             </div>
         </div>

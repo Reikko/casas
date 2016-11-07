@@ -22,7 +22,7 @@
                 <?php echo Form::label('NOMBRE COMPLETO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::text('nom_trab',null,['class'=>'form-control','placeholder'=>'Nombre','required' => 'required']); ?>
+                    <?php echo Form::text('nom_trab',null,['class'=>'form-control','placeholder'=>'Nombre','required' => 'required','onkeydown' => 'ValidaNombre()']); ?>
 
                 </div>
                 <div class="col-sm-3">
@@ -135,9 +135,9 @@
                 <?php echo Form::label('RENUNCIA',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo e(link_to_action('TrabControl@postPdf', 'Descargar', null, $attributes = array())); ?>
 
                     <!--<?php echo e(link_to('archivos/r.docx','Descargar',['download'=>'Renuncia'])); ?>-->
+                        <button type="button" class="btn btn-success btn-lg btn-block" onclick="Obten_Datos()"> Descargar Renuncia </button>
                 </div>
                 <div class="col-sm-6">
                     <?php echo Form::label('Adjuntar renuncia',null,['class'=>'']); ?>
@@ -146,7 +146,7 @@
 
                 </div>
             </div>
-        <button type="button" class="btn btn-success btn-lg btn-block" onclick="Obten_Datos()"> Descargar Renuncia </button>
+
             <div class="form-group">
                 <?php echo Form::label('IFE',null,['class'=>'control-label col-sm-3']); ?>
 

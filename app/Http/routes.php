@@ -33,8 +33,7 @@ Route::post('calle/create/{id}', 'CalleControl@store2');
 
 
 //Ruta para generar el pdf
-Route::get('trabajador/obt/pdf/{nombre}','TrabControl@postPdf');
-//Route::post('obt/pdf','TrabControl@postPdf');
+Route::get('trabajador/obt/pdf/{nombre}/{app}/{apm}/{puesto}','TrabControl@getPdf');
 
 Route::auth();
 Route::get('/home', 'HomeController@index');

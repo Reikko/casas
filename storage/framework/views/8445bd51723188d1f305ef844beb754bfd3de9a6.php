@@ -45,16 +45,17 @@
                             <?php echo e(Html::image(asset('archivos/'.$t->foto),null, ['class' => ' ','style'=>'width: 100px'])); ?>
 
                         <?php endif; ?>
+                            <br>
                        <?php echo e(link_to_route('trabajador.show', $title = 'VER PERFIL', $t->id)); ?></td>
                     <td><?php echo e($t->nom_trab); ?> <?php echo e($t->ap_pat); ?> <?php echo e($t->ap_mat); ?></td>
                     <td><?php echo e($t->puesto); ?></td>
                     <td><?php echo e($t->estatus); ?></td>
                     <td><?php echo e($t->alias); ?></td>
-                    <td><a href="archivos/<?php echo e($t->renuncia); ?>" target="_blank"> Renuncia</a>
+                    <td><a href="archivos/<?php echo e($t->renuncia); ?>" target="_blank"> Renuncia</a><br>
                         <a href="archivos/<?php echo e($t->ife); ?>" target="_blank"> IFE</a><br>
-                        <a href="archivos/<?php echo e($t->curp); ?>" target="_blank"> CURP</a>
-                        <a href="archivos/<?php echo e($t->comp_dom); ?>" target="_blank"> DOMICILIO</a>
-                        <a href="archivos/<?php echo e($t->com_seguro); ?>" target="_blank"> SEGURO</a>
+                        <a href="archivos/<?php echo e($t->curp); ?>" target="_blank"> CURP</a><br>
+                        <a href="archivos/<?php echo e($t->comp_dom); ?>" target="_blank"> DOMICILIO</a><br>
+                        <a href="archivos/<?php echo e($t->com_seguro); ?>" target="_blank"> SEGURO</a><br>
                     </td>
                     <td><?php echo link_to_route('trabajador.edit', $title = 'Editar', $parameters = $t->id, $attributes = ['class'=>'btn btn-primary']); ?></td>
                     <td>Baja</td>
