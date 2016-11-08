@@ -33,7 +33,7 @@ function Obten_Datos()
     });
 }
 
-/*$('input:text[name=nom_trab]').onkeydown = ValidaNombre();
+//$('input:text[name=nom_trab]').onkeydown = ValidaNombre();
 
 function ValidaNombre()
 {
@@ -41,7 +41,15 @@ function ValidaNombre()
     {
         alert('El campo no puede estar vacio');
     }
-}*/
+}
+
+function validar(frm) {
+    frm.sub.disabled = true;
+
+        if ($('input:text[name=nom_trab]').value =='')
+            return
+    frm.sub.disabled = false;
+}
 
 
 

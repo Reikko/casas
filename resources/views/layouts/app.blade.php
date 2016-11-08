@@ -87,7 +87,7 @@
         </div>
     </nav>
 
-
+    @include('layouts.menu')
     <div class="container-fluid">
         <div class="col-sm-3" >
 

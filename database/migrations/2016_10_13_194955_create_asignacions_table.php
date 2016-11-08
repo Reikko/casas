@@ -15,6 +15,7 @@ class CreateAsignacionsTable extends Migration
         Schema::create('asignacions', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('id_trab');
 
             $table->timestamps();
         });
