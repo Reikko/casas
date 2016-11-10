@@ -3,6 +3,7 @@
 namespace azf;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Desarrollo extends Model
 {
@@ -21,4 +22,6 @@ class Desarrollo extends Model
         return Desarrollo::where('id_cdad','=',$id)
             ->get();
     }
+
+
 }

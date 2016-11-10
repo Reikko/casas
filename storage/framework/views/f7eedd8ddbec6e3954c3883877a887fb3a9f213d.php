@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-
+    <h3>Creando Desarrollo</h3>
     <?php echo Form::open(['route'=>'des.store','method'=>'POST']); ?>
 
     <div class="form-group">
@@ -38,7 +38,7 @@
         <?php echo Form::text('unidades',null,['class'=>'form-control','placeholder'=>'Unidades habitacionales']); ?>
 
     </div>
-    <?php echo Form::submit('Registrar',['class'=>'btn btn-primary']); ?>
+    <?php echo Form::submit('Registrar',['class'=>'btn btn-primary btn-block']); ?>
 
     <?php echo Form::close(); ?>
 

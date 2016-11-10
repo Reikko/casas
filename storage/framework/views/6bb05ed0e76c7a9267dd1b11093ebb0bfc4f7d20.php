@@ -1,17 +1,17 @@
 <?php $__env->startSection('content'); ?>
 
-    <?php echo Form::model($desa,['route'=>['des.update',$desa->id],'method'=>'PUT']); ?>
+    <?php echo Form::model($des,['route'=>['des.update',$des->id],'method'=>'PUT']); ?>
 
     <div class="form-group">
         <?php echo Form::label('Estado:'); ?>
 
-        <?php echo Form::select('id_edo',$estados,null,['class'=>'form-control','id'=>'edo_sel']); ?>
+        <?php echo Form::select('id_edo',$estados,$des->id_edo,['class'=>'form-control','id'=>'edo_sel']); ?>
 
     </div>
     <div class="form-group">
         <?php echo Form::label('Ciudad:'); ?>
 
-        <?php echo Form::select('id_cdad',$ciudades,null,['class'=>'form-control','id'=>'cdad_sel']); ?>
+        <?php echo Form::select('id_cdad',$ciudades,$des->id_cdad,['class'=>'form-control','id'=>'cdad_sel']); ?>
 
     </div>
     <div class="form-group">
@@ -29,7 +29,7 @@
         '3'=>'Vivienda',
         '4'=>'Vivienda-Condominio',
         '5'=>'Mixto'],
-        $desa->tipo,['class'=>'form-control','id'=>'tipo_sel']); ?>
+        $des->tipo,['class'=>'form-control','id'=>'tipo_sel']); ?>
 
     </div>
     <div class="form-group">
@@ -43,11 +43,11 @@
     <?php echo Form::close(); ?>
 
 
-    <?php echo Form::open(['route'=>['des.destroy',$desa->id],'method'=>'DELETE']); ?>
+    <?php echo Form::open(['route'=>['des.destroy',$des->id],'method'=>'DELETE']); ?>
 
     <?php echo Form::submit('Eliminar',['class'=>'btn btn-danger']); ?>
 
     <?php echo Form::close(); ?>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

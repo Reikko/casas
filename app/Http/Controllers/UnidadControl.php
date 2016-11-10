@@ -5,6 +5,8 @@ namespace azf\Http\Controllers;
 use azf\Propiedad;
 use Illuminate\Http\Request;
 
+use Redirect;
+
 use azf\Http\Requests;
 use Illuminate\Support\Facades\DB;
 
@@ -57,7 +59,7 @@ class UnidadControl extends Controller
         $unidades = Propiedad::Unidades($id);
         $calles = Propiedad::Calles($id);
         //return $unidades;
-        return view('unid.edit',compact('unidades','calles'));
+        return view('unid.edit',compact('unidades','calles','id'));
     }
 
     /**
@@ -69,7 +71,19 @@ class UnidadControl extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $unidades = $request['unidades'];
+        $id_calle = $request['id_calle'];
+        $num_ext = $request['num_ext'];
+        $num_int = $request['num_int'];
+        foreach ($unidades as $i => $uni)
+        {
+            $unid = Propiedad::find($uni);
+            $unid->id_calle = $id_calle[$i];
+            $unid->num_ext = $num_ext[$i];
+            $unid->num_int = $num_int[$i];
+            $unid->save();
+        }
+        return Redirect::to('/unidad/'.$id);
     }
 
     /**

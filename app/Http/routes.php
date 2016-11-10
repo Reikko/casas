@@ -14,8 +14,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Utilizada para el cambio de estado al crear
 Route::get('des/estado/{id}','EdoControl@getCiudades');
-Route::get('calle/desa/{id}','CdadControl@getDesarrollo');
+Route::get('des/{n}/estado/{id}','EdoControl@getEditCiudades');
+//
+//Route::get('calle/desa/{id}','CdadControl@getDesarrollo');
 
 Route::resource('des','DesControl');
 Route::resource('edo','EdoControl');

@@ -27,7 +27,7 @@ class EdoControl extends Controller
         }
     }
 
-    public function getEditCiudades(Request $request,$cdad,$id)
+    public function getEditCiudades(Request $request,$n,$id)
     {
         if($request -> ajax())
         {

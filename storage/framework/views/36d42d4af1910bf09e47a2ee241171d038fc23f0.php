@@ -39,15 +39,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="<?php echo e(url('/home')); ?>">
+                <a class="navbar-brand" href="<?php echo e(url('/des')); ?>">
                     AZF
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <!--<li><a href="<?php echo e(url('/home')); ?>">Home</a></li>-->
                         <?php if(Auth::guest()): ?>
@@ -87,7 +84,30 @@
         </div>
     </nav>
 
-    <?php echo $__env->make('layouts.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php if(Auth::guest()): ?>
+
+    <?php else: ?>
+        <div class="container">
+            <div class="row">
+                <?php echo $__env->make('layouts.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4
+
+                </div>
+                <div class="col-sm-4" style="background-color:lavenderblush;">
+                    <?php echo $__env->yieldContent('content'); ?>
+                </div>
+                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+            </div>
+            <h4>Otra Vista</h4>
+            <div class="row">
+                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+                <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
+                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+            </div>
+        </div>
+
+    <?php endif; ?>
+
     <div class="container-fluid">
         <div class="col-sm-3" >
 

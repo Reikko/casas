@@ -39,15 +39,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" href="{{ url('/des') }}">
                     AZF
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <!--<li><a href="{{ url('/home') }}">Home</a></li>-->
                         @if (Auth::guest())
@@ -87,7 +84,30 @@
         </div>
     </nav>
 
-    @include('layouts.menu')
+    @if (Auth::guest())
+
+    @else
+        <div class="container">
+            <div class="row">
+                @include('layouts.menu')
+                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4
+
+                </div>
+                <div class="col-sm-4" style="background-color:lavenderblush;">
+                    @yield('content')
+                </div>
+                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+            </div>
+            <h4>Otra Vista</h4>
+            <div class="row">
+                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+                <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
+                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+            </div>
+        </div>
+
+    @endif
+
     <div class="container-fluid">
         <div class="col-sm-3" >
 

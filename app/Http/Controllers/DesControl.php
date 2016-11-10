@@ -65,10 +65,16 @@ class DesControl extends Controller
 
     public function edit($id)
     {
-        $desa = Desarrollo::find($id);
+
+        $des = DB::table('desarrollos')
+            ->join('ciudads', 'ciudads.id', '=', 'desarrollos.id_cdad')
+            ->where('desarrollos.id','=',$id)
+            ->select('desarrollos.*', 'nom_cdad','id_edo')->first();
+
+        //return $des;
         $estados = Estado::lists('nom_edo','id');
-        $ciudades = Ciudad::where('id_edo', 1)->lists('nom_cdad','id');
-        return view('desa.edit',['desa'=>$desa],compact('estados','ciudades'));
+        $ciudades = Ciudad::where('id_edo', $id)->lists('nom_cdad','id');
+        return view('desa.edit',compact('estados','ciudades','des'));
     }
 
     public function update(Request $request, $id)

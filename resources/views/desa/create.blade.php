@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+    <h3>Creando Desarrollo</h3>
     {!! Form::open(['route'=>'des.store','method'=>'POST']) !!}
     <div class="form-group">
         {!! Form::label('Estado:') !!}
@@ -28,6 +28,6 @@
         {!! Form::label('Numero de Viviendas') !!}
         {!! Form::text('unidades',null,['class'=>'form-control','placeholder'=>'Unidades habitacionales']) !!}
     </div>
-    {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
+    {!! Form::submit('Registrar',['class'=>'btn btn-primary btn-block']) !!}
     {!! Form::close() !!}
 @endsection
