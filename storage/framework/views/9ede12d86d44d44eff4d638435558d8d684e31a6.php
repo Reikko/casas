@@ -1,12 +1,12 @@
-<?php if(Session::has('message')): ?>
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <?php echo e(Session::get('message')); ?>
-
-    </div>
-<?php endif; ?>
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('363'); ?>
     <h1>Ciudades Registradas </h1>
+    <?php if(Session::has('message')): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo e(Session::get('message')); ?>
+
+        </div>
+    <?php endif; ?>
     <table class="table">
         <thead>
         <th>ID</th>
@@ -21,11 +21,11 @@
             <td><?php echo e($ciudad->nom_edo); ?></td>
             <td><?php echo e($ciudad->nom_cdad); ?></td>
             <td>
-                <?php echo link_to_route('cdad.edit', $title = 'Editar', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('cdad.edit', $title = 'Editar', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-warning btn-block']); ?>
 
             </td>
             <td>
-                <?php echo link_to_route('cdad.show', $title = 'Ver Desarrollos', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('cdad.show', $title = 'Ver Desarrollos', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-success btn-block']); ?>
 
             </td>
             </tbody>

@@ -1,6 +1,7 @@
 <?php
 
 namespace azf\Http\Controllers;
+use azf\Propiedad;
 use Session;
 use Redirect;
 use azf\Calles;
@@ -30,10 +31,12 @@ class CalleControl extends Controller
     }
     public function store(Request $request)
     {
+        $id_des=$request['id_des'];
         Calles::create([
-            'id_des'=>$request['id_des'],
+            'id_des'=>$id_des,
             'nom_calle'=>$request['nom_calle'],
         ]);
+
         return redirect('/calle')->with('message','Calle Creada Correctamente');
     }
 
@@ -66,6 +69,14 @@ class CalleControl extends Controller
 
     public function destroy($id)
     {
+        $prop = Propiedad::Propiedades($id);
+        foreach ($prop as $p)
+        {
+            $pro = Propiedad::find($p->id);
+            $pro->id_calle = 1;
+            $pro->save();
+        }
+
         $call = Calles::find($id);
         Calles::destroy($id);
         Session::flash('message','Calle eliminada');
@@ -88,10 +99,12 @@ class CalleControl extends Controller
 
     public function store2(Request $request,$id)
     {
+        $id_des=$id;
         Calles::create([
             'id_des'=>$id,
             'nom_calle'=>$request['nom_calle'],
         ]);
-        return redirect('/calle/'.$id)->with('message','Calle Creada Correctamente');
+        //return redirect('/calle/'.$id)->with('message','Calle Creada Correctamente');
+        return redirect('/unidad/'.$id_des.'/edit')->with('message','Calle '.$request['nom_calle'].' Agregada Correctamente');
     }
 }

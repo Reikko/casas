@@ -1,4 +1,4 @@
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('444'); ?>
     <h3>Datos del Cliente</h3>
     <?php echo Form::open(['route'=>'client.store','method'=>'POST']); ?>
 

@@ -5,7 +5,7 @@
         {{Session::get('message')}}
     </div>
 @endif
-@section('content')
+@section('363')
     <h1>Calles Registradas</h1>
     <div class="form-group">
         <button>{!!link_to_route('calle.create', $title = 'Crear Calle o Edificio')!!}</button>

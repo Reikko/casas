@@ -1,4 +1,4 @@
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('444'); ?>
     <?php echo Form::model($call,['route'=>['calle.update',$call->id],'method'=>'PUT']); ?>
 
     <div class="form-group">
@@ -10,7 +10,7 @@
     <div class="form-group">
         <?php echo Form::label('ciudad:'); ?>
 
-        <?php echo Form::select('id_des', $desarrolls,$call->id,['class'=>'form-control']); ?>
+        <?php echo Form::select('id_des', $desarrolls,$call->id_des,['class'=>'form-control']); ?>
 
     </div>
     <div class="form-group">

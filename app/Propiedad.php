@@ -34,4 +34,11 @@ class Propiedad extends Model
             ->lists('nom_calle','id');
     }
 
+    Public static function Propiedades($id)
+    {
+        return DB::table('propiedads')
+            ->where('id_calle','=',$id)
+            ->get();
+    }
+
 }

@@ -18,13 +18,14 @@ class CdadControl extends Controller
         $ciudades = DB::table('ciudads')
             ->join('estados', 'ciudads.id_edo', '=', 'estados.id')->where('ciudads.id','!=',1)
             ->select('ciudads.*', 'nom_edo')->get();
+
         return view('ciuda.index',compact('ciudades'));
     }
 
     public function create()
     {
-        $states = Estado::lists('nom_edo','id');
-        return view('ciuda.create',compact('states'));
+        $estados = Estado::lists('nom_edo','id');
+        return view('ciuda.create',compact('estados'));
     }
 
     public function store(Request $request)
@@ -33,7 +34,7 @@ class CdadControl extends Controller
             'id_edo'=>$request['id_edo'],
             'nom_cdad'=>$request['nom_cdad'],
         ]);
-        return redirect('/cdad')->with('message','Ciudad Creada Correctamente');
+        return redirect('/des/create')->with('message','Ciudad Creada Correctamente');
     }
 
     public function show($id)

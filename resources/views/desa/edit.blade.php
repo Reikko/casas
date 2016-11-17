@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('content')
+@section('444')
 
     {!! Form::model($des,['route'=>['des.update',$des->id],'method'=>'PUT']) !!}
     <div class="form-group">

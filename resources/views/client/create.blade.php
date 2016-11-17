@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('444')
     <h3>Datos del Cliente</h3>
     {!! Form::open(['route'=>'client.store','method'=>'POST']) !!}
     <div class="form-group">

@@ -46,7 +46,7 @@ class EdoControl extends Controller
         Estado::create([
             'nom_edo'=>$request['nom_edo'],
         ]);
-        return redirect('/edo')->with('message','Estado Creado Correctamente');
+        return redirect('/des/create')->with('message','Estado Creado Correctamente');
     }
 
     public function show($id)

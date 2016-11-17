@@ -9,6 +9,7 @@ use Redirect;
 
 use azf\Http\Requests;
 use Illuminate\Support\Facades\DB;
+use Validator;
 
 class UnidadControl extends Controller
 {
@@ -75,15 +76,39 @@ class UnidadControl extends Controller
         $id_calle = $request['id_calle'];
         $num_ext = $request['num_ext'];
         $num_int = $request['num_int'];
-        foreach ($unidades as $i => $uni)
+
+
+        $v = Validator::make($request->all(), [
+            'num_ext.*'=>'required',
+            'num_int.*'=>'required',
+            'id__calle' => 'not_in:1'
+        ]);
+
+        /*foreach ($unidades as $i => $uni)
         {
-            $unid = Propiedad::find($uni);
-            $unid->id_calle = $id_calle[$i];
-            $unid->num_ext = $num_ext[$i];
-            $unid->num_int = $num_int[$i];
-            $unid->save();
+            $this->validate($request,[
+                'id_calle['.$i.']'=>'not_in:0',
+                'num_ext'=>['required'],
+            ]);
+        }*/
+
+        if ($v->fails())
+        {
+            return redirect()->to('/unidad/'.$id.'/edit');
         }
-        return Redirect::to('/unidad/'.$id);
+        else{
+            foreach ($unidades as $i => $uni)
+            {
+                $unid = Propiedad::find($uni);
+                $unid->id_calle = $id_calle[$i];
+                $unid->num_ext = $num_ext[$i];
+                $unid->num_int = $num_int[$i];
+                $unid->save();
+            }
+            return redirect()->to('/unidad/'.$id);
+        }
+
+        //return Redirect::to('/unidad/'.$id);
     }
 
     /**

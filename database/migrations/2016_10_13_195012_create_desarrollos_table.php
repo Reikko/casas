@@ -20,7 +20,8 @@ class CreateDesarrollosTable extends Migration
             $table->string('nom_des');
             $table->integer('tipo');
             $table->integer('unidades');
-            $table->integer('responsable');
+            $table->integer('responsable')->unsigned();
+            $table->foreign('responsable')->references('id')->on('trabajadors')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('editar');
             $table->timestamps();
         });

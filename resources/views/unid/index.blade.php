@@ -5,7 +5,7 @@
         {{Session::get('message')}}
     </div>
 @endif
-@section('content')
+@section('363')
     <button>{!!link_to_route('unidad.edit', $title = 'Editar',$id)!!}</button>
     <table class="table">
         <thead>
@@ -17,16 +17,14 @@
         <th>Editar</th>
         </thead>
 
-        <?php $var = 0 ?>
+        @foreach($propiedades as $key =>$propiedad)
 
-        @foreach($propiedades as $propiedad)
-            {{$var++}}
             <tbody>
-            <td>{{$var}}</td>
+            <td>{{$key+1}}</td>
             <td>{{$propiedad->nom_calle}}</td>
             <td>{{$propiedad->num_ext}}</td>
             <td>{{$propiedad->num_int}}</td>
-            <td>{{$propiedad->asignada}}</td>
+            <td>{{$propiedad->id_clie}}</td>
             <td>{{$propiedad->editable}}</td>
             </tbody>
         @endforeach

@@ -5,7 +5,7 @@
 
     </div>
 <?php endif; ?>
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('363'); ?>
     <h1>Calles Registradas en <?php echo e($desa->nom_des); ?></h1>
     <div class="form-group">
         <button><?php echo link_to('calle/create/'.$desa->id, $title = 'Crear Calle o Edificio'); ?></button>

@@ -5,7 +5,7 @@
 
     </div>
 <?php endif; ?>
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('seis'); ?>
     <h1>Ciudades de <?php echo e($estad->nom_edo); ?></h1>
     <table class="table">
         <thead>

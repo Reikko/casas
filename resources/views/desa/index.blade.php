@@ -5,7 +5,7 @@
         {{Session::get('message')}}
     </div>
 @endif
-@section('content')
+@section('completo')
     <h1>Desarrollos</h1>
     <table class="table">
         <thead>

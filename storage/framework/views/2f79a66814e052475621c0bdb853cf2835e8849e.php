@@ -5,7 +5,7 @@
 
     </div>
 <?php endif; ?>
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('363'); ?>
     <button><?php echo link_to_route('unidad.edit', $title = 'Editar',$id); ?></button>
     <table class="table">
         <thead>
@@ -17,17 +17,14 @@
         <th>Editar</th>
         </thead>
 
-        <?php $var = 0 ?>
-
-        <?php foreach($propiedades as $propiedad): ?>
-            <?php echo e($var++); ?>
+        <?php foreach($propiedades as $key =>$propiedad): ?>
 
             <tbody>
-            <td><?php echo e($var); ?></td>
+            <td><?php echo e($key+1); ?></td>
             <td><?php echo e($propiedad->nom_calle); ?></td>
             <td><?php echo e($propiedad->num_ext); ?></td>
             <td><?php echo e($propiedad->num_int); ?></td>
-            <td><?php echo e($propiedad->asignada); ?></td>
+            <td><?php echo e($propiedad->id_clie); ?></td>
             <td><?php echo e($propiedad->editable); ?></td>
             </tbody>
         <?php endforeach; ?>

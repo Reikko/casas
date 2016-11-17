@@ -1,4 +1,4 @@
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('444'); ?>
 
     <?php echo Form::model($des,['route'=>['des.update',$des->id],'method'=>'PUT']); ?>
 

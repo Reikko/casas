@@ -5,7 +5,7 @@
         {{Session::get('message')}}
     </div>
 @endif
-@section('content')
+@section('seis')
     <h1>Ciudades de {{$estad->nom_edo}}</h1>
     <table class="table">
         <thead>

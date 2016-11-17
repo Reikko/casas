@@ -65,7 +65,7 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Ingresar</a></li>
-                        <!--<li><a href="{{ url('/register') }}">Registrar usuario</a></li>-->
+                        <!----><li><a href="{{ url('/register') }}">Registrar usuario</a></li>
                     @else
 
                         <li class="dropdown">
@@ -85,46 +85,36 @@
     </nav>
 
     @if (Auth::guest())
-
     @else
+        @include('modal.edo')
+        @include('layouts.menu')
         <div class="container">
+
             <div class="row">
-                @include('layouts.menu')
-                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4
+
+                <div class="col-sm-4" >
 
                 </div>
-                <div class="col-sm-4" style="background-color:lavenderblush;">
-                    @yield('content')
+                <div class="col-sm-4" >
+                    @yield('444')
                 </div>
-                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+                <div class="col-sm-4" ></div>
             </div>
-            <h4>Otra Vista</h4>
             <div class="row">
-                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
-                <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
-                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+                <div class="col-sm-3" >
+                </div>
+                <div class="col-sm-6">
+                    @yield('363')
+                </div>
+                <div class="col-sm-3">
+                </div>
             </div>
         </div>
-
     @endif
 
-    <div class="container-fluid">
-        <div class="col-sm-3" >
-
-        </div>
-
-        <div class="col-sm-6">
-            @yield('content')
-        </div>
-
-        <div class="col-sm-3">
-        </div>
-
-    </div>
-
     <div class="container">
-        <div class="container-fluid">
-            @yield('contentTrab')
+        <div class="row">
+            @yield('completo')
         </div>
     </div>
 

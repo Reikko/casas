@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@if(Session::has('message'))
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        {{Session::get('message')}}
-    </div>
-@endif
-@section('content')
+@section('363')
     <h1>Ciudades Registradas </h1>
+    @if(Session::has('message'))
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{Session::get('message')}}
+        </div>
+    @endif
     <table class="table">
         <thead>
         <th>ID</th>
@@ -21,10 +21,10 @@
             <td>{{$ciudad->nom_edo}}</td>
             <td>{{$ciudad->nom_cdad}}</td>
             <td>
-                {!!link_to_route('cdad.edit', $title = 'Editar', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-primary'])!!}
+                {!!link_to_route('cdad.edit', $title = 'Editar', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-warning btn-block'])!!}
             </td>
             <td>
-                {!!link_to_route('cdad.show', $title = 'Ver Desarrollos', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-primary'])!!}
+                {!!link_to_route('cdad.show', $title = 'Ver Desarrollos', $parameters = $ciudad->id, $attributes = ['class'=>'btn btn-success btn-block'])!!}
             </td>
             </tbody>
         @endforeach

@@ -6,13 +6,15 @@
     </div>
 <?php endif; ?>
 
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('completo'); ?>
     <table class="table">
         <thead>
         <th>ID</th>
         <th>Nombre</th>
         <th>Telefono</th>
         <th>Correo</th>
+        <th>Usuario</th>
+
         <th>Operacion</th>
         </thead>
         <?php foreach($clients as $client): ?>
@@ -22,6 +24,7 @@
             <td><?php echo e($client->nombre, $client->ap_pat); ?> <?php echo e($client->ap_pat); ?> <?php echo e($client->ap_mat); ?></td>
             <td><?php echo e($client->tel); ?></td>
             <td><?php echo e($client->correo); ?></td>
+            <td><?php echo e($client->usuario); ?></td>
             <td>
                 <?php echo link_to_route('client.edit', $title = 'Editar', $parameters = $client->id, $attributes = ['class'=>'btn btn-primary']); ?>
 

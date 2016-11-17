@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('content')
+@section('completo')
     {!! Form::model($ciu,['route'=>['cdad.update',$ciu->id],'method'=>'PUT']) !!}
     <div class="form-group">
         {!! Form::label('Estado:') !!}

@@ -25,9 +25,23 @@ class DesControl extends Controller
 
     public function create()
     {
+        $es = Estado::find(1);
+        if($es)
+        {
+            $cdad = Ciudad::find(1);
+            if(!$cdad)
+            {
+                $this->creaDefault();
+            }
+        }
+        else{
+            Estado::create([
+                'nom_edo'=>'Seleccione un estado',
+            ]);
+            $this->creaDefault();
+        }
         $estados = Estado::lists('nom_edo','id');
         $ciudades = Ciudad::where('id_edo', 1)->lists('nom_cdad','id');
-
         //Redireccional a donde se crean las direcciones
         return view('desa.create',compact('estados','ciudades'));
     }
@@ -71,7 +85,6 @@ class DesControl extends Controller
             ->where('desarrollos.id','=',$id)
             ->select('desarrollos.*', 'nom_cdad','id_edo')->first();
 
-        //return $des;
         $estados = Estado::lists('nom_edo','id');
         $ciudades = Ciudad::where('id_edo', $id)->lists('nom_cdad','id');
         return view('desa.edit',compact('estados','ciudades','des'));
@@ -92,4 +105,22 @@ class DesControl extends Controller
         Session::flash('message','Desarrollo eliminado');
         return Redirect::to('/des');
     }
+
+    public function creaDefault()
+    {
+        Estado::create([
+            'nom_edo'=>'Seleccione un estado',
+        ]);
+
+        Ciudad::create([
+            'id_edo'=>'1',
+            'nom_cdad'=>'Seleccione una ciudad',
+        ]);
+
+        Desarrollo::create([
+            'id_cdad'=>'1',
+            ''=>'Seleccione una ciudad',
+        ]);
+    }
+
 }

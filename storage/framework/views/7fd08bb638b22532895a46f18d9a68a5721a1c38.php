@@ -5,7 +5,7 @@
 
     </div>
 <?php endif; ?>
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('completo'); ?>
     <h1>Desarrollos</h1>
     <table class="table">
         <thead>

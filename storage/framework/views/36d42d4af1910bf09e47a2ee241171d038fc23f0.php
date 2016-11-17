@@ -65,7 +65,7 @@
                     <!-- Authentication Links -->
                     <?php if(Auth::guest()): ?>
                         <li><a href="<?php echo e(url('/login')); ?>">Ingresar</a></li>
-                        <!--<li><a href="<?php echo e(url('/register')); ?>">Registrar usuario</a></li>-->
+                        <!----><li><a href="<?php echo e(url('/register')); ?>">Registrar usuario</a></li>
                     <?php else: ?>
 
                         <li class="dropdown">
@@ -85,46 +85,36 @@
     </nav>
 
     <?php if(Auth::guest()): ?>
-
     <?php else: ?>
+        <?php echo $__env->make('modal.edo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->make('layouts.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div class="container">
+
             <div class="row">
-                <?php echo $__env->make('layouts.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4
+
+                <div class="col-sm-4" >
 
                 </div>
-                <div class="col-sm-4" style="background-color:lavenderblush;">
-                    <?php echo $__env->yieldContent('content'); ?>
+                <div class="col-sm-4" >
+                    <?php echo $__env->yieldContent('444'); ?>
                 </div>
-                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+                <div class="col-sm-4" ></div>
             </div>
-            <h4>Otra Vista</h4>
             <div class="row">
-                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
-                <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
-                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+                <div class="col-sm-3" >
+                </div>
+                <div class="col-sm-6">
+                    <?php echo $__env->yieldContent('363'); ?>
+                </div>
+                <div class="col-sm-3">
+                </div>
             </div>
         </div>
-
     <?php endif; ?>
 
-    <div class="container-fluid">
-        <div class="col-sm-3" >
-
-        </div>
-
-        <div class="col-sm-6">
-            <?php echo $__env->yieldContent('content'); ?>
-        </div>
-
-        <div class="col-sm-3">
-        </div>
-
-    </div>
-
     <div class="container">
-        <div class="container-fluid">
-            <?php echo $__env->yieldContent('contentTrab'); ?>
+        <div class="row">
+            <?php echo $__env->yieldContent('completo'); ?>
         </div>
     </div>
 

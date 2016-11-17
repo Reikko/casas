@@ -1,6 +1,6 @@
-<div class="container">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
+
+    <nav class="navbar navbar-default ">
+        <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
@@ -11,7 +11,6 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="/">Estado<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -100,4 +99,3 @@
             </div>
         </div>
     </div>-->
-</div>
