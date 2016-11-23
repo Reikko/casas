@@ -5,7 +5,7 @@
 
     </div>
 <?php endif; ?>
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('completo'); ?>
     <h1>Calles del Desarrollo  <?php echo e($des->nom_des); ?></h1>
 
     <table class="table">
@@ -20,11 +20,11 @@
             <td><?php echo e($c->id); ?></td>
             <td><?php echo e($c->nom_calle); ?></td>
             <td>
-                <?php echo link_to_route('des.edit', $title = 'Editar', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('des.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary']); ?>
 
             </td>
             <td>
-                <?php echo link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $des->id, $attributes = ['class'=>'btn btn-success']); ?>
+                <?php echo link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $c->id, $attributes = ['class'=>'btn btn-success']); ?>
 
             </td>
             </tbody>

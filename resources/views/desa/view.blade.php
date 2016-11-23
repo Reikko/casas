@@ -5,7 +5,7 @@
         {{Session::get('message')}}
     </div>
 @endif
-@section('content')
+@section('completo')
     <h1>Calles del Desarrollo  {{$des->nom_des}}</h1>
 
     <table class="table">
@@ -20,10 +20,10 @@
             <td>{{$c->id}}</td>
             <td>{{$c->nom_calle}}</td>
             <td>
-                {!!link_to_route('des.edit', $title = 'Editar', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary'])!!}
+                {!!link_to_route('des.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary'])!!}
             </td>
             <td>
-                {!!link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $des->id, $attributes = ['class'=>'btn btn-success'])!!}
+                {!!link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $c->id, $attributes = ['class'=>'btn btn-success'])!!}
             </td>
             </tbody>
         @endforeach

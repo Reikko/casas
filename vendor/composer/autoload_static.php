@@ -300,6 +300,7 @@ class ComposerStaticInit536af01ad52cd9d3c107e432cfc4ae36
     public static $classMap = array (
         'ClientesFalsos' => __DIR__ . '/../..' . '/database/seeds/ClientesFalsos.php',
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
+        'CreateAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_17_191006_create_admins_table.php',
         'CreateArchivosTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_21_180952_create_archivos_table.php',
         'CreateAsignacionsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_194955_create_asignacions_table.php',
         'CreateCallesTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_195037_create_calles_table.php',

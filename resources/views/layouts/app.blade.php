@@ -64,7 +64,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Ingresar</a></li>
+                        <li><a href="{{ url('/user/login') }}">Ingresar</a></li>
                         <!----><li><a href="{{ url('/register') }}">Registrar usuario</a></li>
                     @else
 

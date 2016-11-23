@@ -64,7 +64,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     <?php if(Auth::guest()): ?>
-                        <li><a href="<?php echo e(url('/login')); ?>">Ingresar</a></li>
+                        <li><a href="<?php echo e(url('/user/login')); ?>">Ingresar</a></li>
                         <!----><li><a href="<?php echo e(url('/register')); ?>">Registrar usuario</a></li>
                     <?php else: ?>
 

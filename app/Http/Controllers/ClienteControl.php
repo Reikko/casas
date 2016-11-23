@@ -42,7 +42,7 @@ class ClienteControl extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

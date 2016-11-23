@@ -70,11 +70,12 @@ class DesControl extends Controller
         return redirect('/des')->with('message','Desarrollo Creado Correctamente');
     }
 
+    //Muestra todas las propiedades de Algun desarrollo
     public function show($id)
     {
-        $des = Desarrollo::find($id);
-        $calles = DB::table('calles')->where('id_des', '=', $id)->get();
-        return view('desa.view',['des'=>$des],['calles'=>$calles]);
+        $propiedades = DB::table('propiedads')
+            ->join('calles', 'propiedads.id_calle', '=', 'calles.id')->select('propiedads.*', 'nom_calle')->where('propiedads.id_des','=',$id)->get();
+        return view('unid.index',compact('propiedades','id'));
     }
 
     public function edit($id)

@@ -14,17 +14,18 @@
         <th>Telefono</th>
         <th>Correo</th>
         <th>Usuario</th>
+        <th>Ver perfil</th>
 
         <th>Operacion</th>
         </thead>
         <?php foreach($clients as $client): ?>
             <tbody>
             <td><?php echo e($client->id); ?></td>
-
             <td><?php echo e($client->nombre, $client->ap_pat); ?> <?php echo e($client->ap_pat); ?> <?php echo e($client->ap_mat); ?></td>
             <td><?php echo e($client->tel); ?></td>
             <td><?php echo e($client->correo); ?></td>
             <td><?php echo e($client->usuario); ?></td>
+            <td><?php echo link_to_route('client.edit', $title = 'Editar', $parameters = $client->id, $attributes = ['class'=>'btn btn-primary']); ?></td>
             <td>
                 <?php echo link_to_route('client.edit', $title = 'Editar', $parameters = $client->id, $attributes = ['class'=>'btn btn-primary']); ?>
 

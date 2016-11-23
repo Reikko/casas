@@ -156,11 +156,6 @@ trait AuthenticatesUsers
         return $request->only($this->loginUsername(), 'password');
     }
 
-    /**
-     * Log the user out of the application.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function getLogout()
     {
         return $this->logout();

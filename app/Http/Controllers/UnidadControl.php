@@ -2,9 +2,11 @@
 
 namespace azf\Http\Controllers;
 
+use azf\Cliente;
+use azf\Desarrollo;
 use azf\Propiedad;
 use Illuminate\Http\Request;
-
+use Session;
 use Redirect;
 
 use azf\Http\Requests;
@@ -21,11 +23,6 @@ class UnidadControl extends Controller
         return view('propi.index',compact('propiedades'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
@@ -42,17 +39,12 @@ class UnidadControl extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Aqui se mustran los detalles de la unidad...
     public function show($id)
     {
-        $propiedades = DB::table('propiedads')
-            ->join('calles', 'propiedads.id_calle', '=', 'calles.id')->select('propiedads.*', 'nom_calle')->where('propiedads.id_des','=',$id)->get();
-        return view('unid.index',compact('propiedades','id'));
+        $un = Propiedad::find($id);
+        $duenio = Cliente::find($un->id_clie);
+        return view('unid.show',compact('un','duenio'));
     }
 
     public function edit($id)
@@ -63,13 +55,6 @@ class UnidadControl extends Controller
         return view('unid.edit',compact('unidades','calles','id'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $unidades = $request['unidades'];
@@ -77,20 +62,11 @@ class UnidadControl extends Controller
         $num_ext = $request['num_ext'];
         $num_int = $request['num_int'];
 
-
         $v = Validator::make($request->all(), [
             'num_ext.*'=>'required',
             'num_int.*'=>'required',
-            'id__calle' => 'not_in:1'
+            'id_calle' => 'not_in:1'
         ]);
-
-        /*foreach ($unidades as $i => $uni)
-        {
-            $this->validate($request,[
-                'id_calle['.$i.']'=>'not_in:0',
-                'num_ext'=>['required'],
-            ]);
-        }*/
 
         if ($v->fails())
         {
@@ -105,20 +81,15 @@ class UnidadControl extends Controller
                 $unid->num_int = $num_int[$i];
                 $unid->save();
             }
-            return redirect()->to('/unidad/'.$id);
+            return redirect()->to('/des/'.$id);
         }
-
-        //return Redirect::to('/unidad/'.$id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $des = Propiedad::find($id);
+        Propiedad::destroy($id);
+        Session::flash('message','Unidad Eliminada');
+        return redirect()->to('/des/'.$des->id_des.'');
     }
 }

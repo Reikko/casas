@@ -11,8 +11,10 @@ use Illuminate\Support\Facades\DB;
 
 class PropiedadControl extends Controller
 {
+    //Index Muestra todas las propiedades
     public function index()
     {
+        //mostrar las prmeras sin asignar
 
     }
     public function create()
@@ -27,7 +29,7 @@ class PropiedadControl extends Controller
 
     public function show($id)
     {
-
+        //mostrar casa seleccionada
     }
 
     public function edit($id)
@@ -35,13 +37,6 @@ class PropiedadControl extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //

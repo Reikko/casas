@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'ClientesFalsos' => $baseDir . '/database/seeds/ClientesFalsos.php',
     'Cpdf' => $vendorDir . '/dompdf/dompdf/lib/Cpdf.php',
+    'CreateAdminsTable' => $baseDir . '/database/migrations/2016_11_17_191006_create_admins_table.php',
     'CreateArchivosTable' => $baseDir . '/database/migrations/2016_10_21_180952_create_archivos_table.php',
     'CreateAsignacionsTable' => $baseDir . '/database/migrations/2016_10_13_194955_create_asignacions_table.php',
     'CreateCallesTable' => $baseDir . '/database/migrations/2016_10_13_195037_create_calles_table.php',

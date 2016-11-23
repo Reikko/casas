@@ -15,6 +15,7 @@
         <th>Numero Exterior</th>
         <th>Numero Interior</th>
         <th>Editar</th>
+        <th>Eliminar</th>
         </thead>
         <td></td>
         <td>{!! Form::select('id_calle', $calles,1,['class'=>'form-control']) !!}
@@ -27,8 +28,12 @@
         <td>{!! Form::text('all_Ext',null,['class'=>'form-control']) !!}
             Todos igual {!!Form::checkbox('allExt', 'value',false)!!}</td>
         <td></td>
-        <td><button type="button" class="btn btn-info">
+        <td><button type="button" class="btn btn-info btn-block">
                 <span class="glyphicon glyphicon-lock"></span> Block
+            </button>
+        </td>
+        <td><button type="button" class="btn btn-danger btn-block">
+                <span class="glyphicon glyphicon-lock"></span> Eliminar
             </button>
         </td>
     {!! Form::model($unidades,['route'=>['unidad.update',$id],'method'=>'PUT']) !!}
@@ -40,6 +45,7 @@
             <td>{!! Form::text('num_ext[]',$unidad->num_ext,['class'=>'form-control']) !!}</td>
             <td>{!! Form::text('num_int[]',$unidad->num_int,['class'=>'form-control']) !!}</td>
             <td>{{$unidad->editable}}</td>
+
             </tbody>
         @endforeach
 

@@ -28,7 +28,6 @@ Route::resource('client','ClienteControl');
 Route::resource('propiedad','PropiedadControl');
 Route::resource('trabajador','TrabControl');
 Route::resource('unidad','UnidadControl');
-Route::resource('login','UserControl');
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
@@ -39,6 +38,47 @@ Route::post('calle/create/{id}', 'CalleControl@store2');
 Route::get('trabajador/obt/pdf/{nombre}/{app}/{apm}/{puesto}','TrabControl@getPdf');
 
 Route::auth();
-Route::get('/home', 'HomeController@index');
+
+//---------------------------Rutas para Los accesos de usuarios
+Route::get('/user/login','UserControl@showLoginForm');
+Route::post('/user/login','UserControl@login');
+//-------------------------------------------------------------//
+//Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
+Route::get('/home', 'UserControl@index');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

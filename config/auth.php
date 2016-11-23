@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'admins'=>[
+            'driver'=>'session',
+            'provider' => 'admins'
+        ]
     ],
 
     /*
@@ -70,6 +75,10 @@ return [
             'model' => azf\User::class,
         ],
 
+        'admins'=>[
+            'driver'=>'eloquent',
+            'model'=> azf\Usuario::class,
+        ]
          /*'users' => [
              'driver' => 'database',
              'table' => 'clientes',

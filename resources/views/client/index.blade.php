@@ -15,6 +15,7 @@
         <th>Telefono</th>
         <th>Correo</th>
         <th>Usuario</th>
+        <th>Ver perfil</th>
 
         <th>Operacion</th>
         </thead>
@@ -25,6 +26,7 @@
             <td>{{$client->tel}}</td>
             <td>{{$client->correo}}</td>
             <td>{{$client->usuario}}</td>
+            <td>{!!link_to_route('client.show', $title = 'Ver perfil',$parameters = $client->id, $attributes = ['class'=>'btn btn-primary'])!!}</td>
             <td>
                 {!!link_to_route('client.edit', $title = 'Editar', $parameters = $client->id, $attributes = ['class'=>'btn btn-primary'])!!}
             </td>
