@@ -12,6 +12,11 @@ use azf\Http\Requests;
 
 class EdoControl extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $estados = DB::table('estados')->where('id','!=',1)->get();
@@ -47,6 +52,7 @@ class EdoControl extends Controller
             'nom_edo'=>$request['nom_edo'],
         ]);
         return redirect('/des/create')->with('message','Estado Creado Correctamente');
+        //return $request->url();
     }
 
     public function show($id)

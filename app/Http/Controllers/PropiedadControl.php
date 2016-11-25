@@ -17,6 +17,7 @@ class PropiedadControl extends Controller
         //mostrar las prmeras sin asignar
 
     }
+
     public function create()
     {
 

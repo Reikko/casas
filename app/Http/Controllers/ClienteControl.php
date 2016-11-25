@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class ClienteControl extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $clients = DB::table('clientes')->where('id','!=',1)->get();

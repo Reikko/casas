@@ -6,7 +6,7 @@
     </div>
 @endif
 
-@section('content')
+@section('completo')
     <table class="table table-hover table-condensed">
         <thead>
         <th>Id</th>

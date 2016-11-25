@@ -47,10 +47,21 @@ function ValidaNombre()
 
 function validar(frm) {
     frm.sub.disabled = true;
-
         if ($('input:text[name=nom_trab]').value =='')
-            return
+            return;
     frm.sub.disabled = false;
+}
+
+function getCodigoPostal()
+{
+    $.get("estado/"+event.target.value+"",function(response,state){
+        console.log(response);
+        $("#cdad_sel").empty(response);
+        for(i=0 ; i<response.length;i++)
+        {
+            $("#cdad_sel").append("<option value = \""+response[i].id+"\"> "+response[i].nom_cdad+"</option>");
+        }
+    });
 }
 
 

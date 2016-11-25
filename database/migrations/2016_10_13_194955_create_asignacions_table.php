@@ -16,7 +16,6 @@ class CreateAsignacionsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('id_trab');
-
             $table->timestamps();
         });
     }

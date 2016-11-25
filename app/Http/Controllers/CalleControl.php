@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\DB;
 
 class CalleControl extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $calls = DB::table('desarrollos')
@@ -29,6 +33,7 @@ class CalleControl extends Controller
         $desarrolls = Desarrollo::lists('nom_des','id');
         return view('clle.create',compact('ciudades','desarrolls'));
     }
+
     public function store(Request $request)
     {
         $id_des=$request['id_des'];

@@ -16,6 +16,11 @@ use azf\Http\Requests;
 
 class TrabControl extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $ts = Trabajador::Trabajadores();
@@ -95,6 +100,8 @@ class TrabControl extends Controller
             $segur = "null";
         }
 
+        $prue = Trabajador::find($id);
+        $prue->alias = 'Reikko';
         Archivo::create([
             'id_trab' => $id,
             'renuncia' => $name,
@@ -106,6 +113,8 @@ class TrabControl extends Controller
         ]);
         \Storage::disk('local')->put($name,\File::get($request['renuncia']));
 
+
+        return $request->all();
         return redirect('/trabajador/'.$id)->with('message','Trabajador Registrado');
     }
 

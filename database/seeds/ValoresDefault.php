@@ -88,5 +88,14 @@ class ValoresDefault extends Seeder
             'updated_at' => date('Y-m-d H:m:s')
         ));
 
+        \DB::table('usuarios')->insert(array(
+            'name'=> 'reikko',
+            'email'=>$faker->email,
+            'password' => Hash::make('zavala_09'),
+            'remember_token' => str_random(80),
+            'created_at' => date('Y-m-d H:m:s'),
+            'updated_at' => date('Y-m-d H:m:s')
+        ));
+
     }
 }

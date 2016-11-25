@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\DB;
 
 class DesControl extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $dess = DB::table('desarrollos')

@@ -1,4 +1,4 @@
-<?php $__env->startSection('contentTrab'); ?>
+<?php $__env->startSection('completo'); ?>
     <div class="container-fluid">
         <h2>Registro de trabajadores</h2>
         <?php echo Form::open(['route'=>'trabajador.store','method'=>'POST','class'=>'form-horizontal','files'=> true]); ?>
@@ -202,7 +202,6 @@
 
                 </div>
             </div>
-
     </div>
     <?php echo Form::submit('Registrar',['class'=>'btn btn-primary']); ?>
 

@@ -46,7 +46,6 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <!--<li><a href="<?php echo e(url('/home')); ?>">Home</a></li>-->
                         <?php if(Auth::guest()): ?>
 
                         <?php else: ?>
@@ -79,6 +78,7 @@
                         </li>
 
                     <?php endif; ?>
+
                 </ul>
             </div>
         </div>

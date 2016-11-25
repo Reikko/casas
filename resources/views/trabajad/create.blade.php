@@ -1,6 +1,5 @@
 @extends('layouts.app')
-
-@section('contentTrab')
+@section('completo')
     <div class="container-fluid">
         <h2>Registro de trabajadores</h2>
         {!! Form::open(['route'=>'trabajador.store','method'=>'POST','class'=>'form-horizontal','files'=> true]) !!}
@@ -158,7 +157,6 @@
                     {!!Form::file('com_seguro')!!}
                 </div>
             </div>
-
     </div>
     {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
     {!! Form::close() !!}

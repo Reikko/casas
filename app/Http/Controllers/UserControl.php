@@ -2,36 +2,129 @@
 
 namespace azf\Http\Controllers;
 
+use FontLib\Table\Type\name;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use azf\Http\Requests;
-use azf\Http\Requests\LoginRequest;
+use Auth;
 use Session;
 use Redirect;
 
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use azf\Http\Requests;
+use azf\Http\Requests\LoginRequest;
 
 class UserControl extends Controller
 {
-    use AuthenticatesUsers;
 
-    protected $loginView = 'Users.user';
+    use AuthenticatesUsers;
     protected $guard = 'admins';
     protected $username = 'name';
-    protected $redirectTo = '/home';
+    protected $loginView = 'Users.user';
 
-
-    public function authenticated()
+    /*
+    protected $redirectTo = '/home';*/
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    /*public function __construct()
     {
-        if (\Auth::attempt(['email' => $email, 'password' => $password, 'active' => 1]))
-        {
-            return redirect('/des');
-        }
+        $this->middleware('auth:admins', ['except' => 'logout']);
+    }*/
 
+    public function authenticated(Request $request,$guard)
+    {
+        //if (Auth::attempt(['name' => $name, 'password' => $password]))
+        //{
+            //return redirect()->intended('des');
+        //}
+            //Session::flash('message',''.Auth::user()->name.'Datos incorrectos');
+            return Redirect::to('des');
+
+        //return Auth::user();
     }
+
+
+    protected function guard()
+    {
+        return Auth::guard('admins');
+    }
+
 
     public function index()
     {
-        return view('/home');
-        //return view('layouts.app');
+        return view('Users.user');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(LoginRequest $request)
+    {
+        if (Auth::attempt(['name' => $request->name, 'password' => $request->password])) {
+            // Authentication passed...
+            return redirect()->intended('des');
+        }
+
+        Session::flash('message','Datos incorrectos');
+        return Redirect::to('/user/login');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

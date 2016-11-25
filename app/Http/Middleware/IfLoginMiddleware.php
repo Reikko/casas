@@ -15,8 +15,6 @@ class IfLoginMiddleware
         else{
             return redirect()->to('/user/login');
         }
-
-
     }
 }
 

@@ -1,10 +1,18 @@
 <?php $__env->startSection('login'); ?>
+    <?php if(Session::has('message')): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo e(Session::get('message')); ?>
+
+        </div>
+    <?php endif; ?>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Login de Administradores</div>
                     <div class="panel-body">
+
                         <form class="form-horizontal" role="form" method="POST" action="<?php echo e(url('user/login')); ?>">
                             <?php echo e(csrf_field()); ?>
 

@@ -46,7 +46,6 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <!--<li><a href="{{ url('/home') }}">Home</a></li>-->
                         @if (Auth::guest())
 
                         @else
@@ -79,6 +78,7 @@
                         </li>
 
                     @endif
+
                 </ul>
             </div>
         </div>

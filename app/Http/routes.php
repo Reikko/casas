@@ -1,18 +1,10 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+//Rutas unicas para mostrar vistas
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+Route::get('nuevas/select','CasaControl@select');
+//------------------------------------------------//
 
 //Utilizada para el cambio de estado al crear
 Route::get('des/estado/{id}','EdoControl@getCiudades');
@@ -23,11 +15,15 @@ Route::get('des/{n}/estado/{id}','EdoControl@getEditCiudades');
 Route::resource('des','DesControl');
 Route::resource('edo','EdoControl');
 Route::resource('cdad','CdadControl');
-Route::resource('calle','CalleControl');
+Route::resource('calle','CalleControl');        //Crear calles del nuevo desarrollo
 Route::resource('client','ClienteControl');
 Route::resource('propiedad','PropiedadControl');
-Route::resource('trabajador','TrabControl');
-Route::resource('unidad','UnidadControl');
+Route::resource('trabajador','TrabControl');    //Trabajador
+Route::resource('unidad','UnidadControl');      //
+Route::resource('nuevas','CasaControl');
+Route::resource('una','UnaControl');
+Route::resource('varias','VariasControl');
+Route::resource('inquilino','InquilinoControl');
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
@@ -36,6 +32,7 @@ Route::post('calle/create/{id}', 'CalleControl@store2');
 
 //Ruta para generar el pdf
 Route::get('trabajador/obt/pdf/{nombre}/{app}/{apm}/{puesto}','TrabControl@getPdf');
+//-------------------------------------------------------------------------------------//
 
 Route::auth();
 
@@ -43,10 +40,11 @@ Route::auth();
 Route::get('/user/login','UserControl@showLoginForm');
 Route::post('/user/login','UserControl@login');
 //-------------------------------------------------------------//
-//Route::get('/home', 'HomeController@index');
-//Route::get('/home', 'HomeController@index');
-Route::get('/home', 'UserControl@index');
 
+
+
+Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'UserControl@index');
 
 
 

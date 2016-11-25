@@ -55,6 +55,20 @@
                             <li><?php echo link_to_route('trabajador.create', $title = 'Crear Trabajadores'); ?></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/">Inquilino<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><?php echo link_to_route('inquilino.index', $title = 'Mostrar Inquilinos'); ?></li>
+                            <li><?php echo link_to_route('inquilino.create', $title = 'Crear Inquilino'); ?></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/">Admin Propiedad<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><?php echo link_to('nuevas/select', $title = 'Nueva Propiedad'); ?></li>
+                            <li><?php echo link_to_route('trabajador.create', $title = 'Crear Trabajadores'); ?></li>
+                        </ul>
+                    </li>
 
                 </ul>
                 <ul class="nav navbar-pills navbar-nav navbar-right">
