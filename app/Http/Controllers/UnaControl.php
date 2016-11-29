@@ -3,7 +3,10 @@
 namespace azf\Http\Controllers;
 
 use azf\codigospostales;
+use azf\regHouse;
 use Illuminate\Http\Request;
+use Session;
+use Redirect;
 
 use azf\Http\Requests;
 
@@ -28,15 +31,18 @@ class UnaControl extends Controller
     {
 
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Creando una nueva Propiedad
     public function store(Request $request)
     {
+        $casa = new regHouse;
+        $casa->id_colonia = $request['id_colonia'];
+        $casa->calle = $request['calle'];
+        $casa->num_int=$request['num_int'];
+            $casa->num_ext=$request['num_ext'];
+        $casa->tipo ='0';
+        $casa->save();
+        Session::flash('message','Propiedad Registrada');
+        return Redirect::to('/nuevas/'.$casa->id);
     }
 
     /**
@@ -86,7 +92,11 @@ class UnaControl extends Controller
 
     public function showDireccion(Request $request)
     {
-        return $request['codigo']; //
-        //return view('unaProp.create');
+        $cp = $request['codigo'];
+        $dir = codigospostales::unaDireccion($cp);
+
+        $direcciones = codigospostales::DireccionCompleta($cp);
+        //return $direcciones;
+        return view('unaProp.create',compact('dir','direcciones'));
     }
 }

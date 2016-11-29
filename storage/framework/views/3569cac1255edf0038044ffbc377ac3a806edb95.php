@@ -1,21 +1,22 @@
 <?php $__env->startSection('completo'); ?>
     <div class="container-fluid">
         <h2>Registro de Propiedad</h2>
-        <?php echo Form::open(['route'=>'trabajador.store','method'=>'POST','class'=>'form-horizontal','files'=> true]); ?>
+        <?php echo Form::open(['route'=>'una.store','method'=>'POST','class'=>'form-horizontal','files'=> true]); ?>
 
 
         <div class="form-group">
             <?php echo Form::label('Codigo Postal',null,['class'=>'control-label col-sm-3']); ?>
 
             <div class="col-sm-3">
-                <?php echo Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Codigo Postal','required' => 'required','id'=>'codigo']); ?>
+                <?php echo Form::text('codigo',$dir->cp,['class'=>'form-control','disabled']); ?>
 
             </div>
             <div class="col-sm-3">
-                <?php echo Form::button('Buscar',['class'=>'form-control','placeholder'=>'Ciudad','required' => 'required','onClick'=> 'getCodigoPostal()']); ?>
+                <?php echo Form::text('zona',$dir->zona,['class'=>'form-control','disabled']); ?>
 
             </div>
             <div class="col-sm-3">
+                <?php echo Form::text('tipo',"Tipo:".$dir->tipo,['class'=>'form-control','disabled']); ?>
 
             </div>
         </div>
@@ -23,16 +24,19 @@
             <?php echo Form::label('DIRECCION',null,['class'=>'control-label col-sm-3']); ?>
 
             <div class="col-sm-3">
-                <?php echo Form::select('lug_nac',['San Luis Potosi'=>'San Luis Potosi','Queretaro'=>'Queretaro'],'San Luis Potosi',['class'=>'form-control']); ?>
+                <?php echo Form::text('estado',$dir->estado,['class'=>'form-control','disabled']); ?>
 
             </div>
             <div class="col-sm-3">
-                <?php echo Form::text('estado',null,['class'=>'form-control','placeholder'=>'Ciudad','required' => 'required']); ?>
+                <?php echo Form::text('municipio',$dir->municipio,['class'=>'form-control','disabled']); ?>
 
             </div>
             <div class="col-sm-3">
-                <?php echo Form::text('municipio',null,['class'=>'form-control','placeholder'=>'Municipio','required' => 'required']); ?>
-
+                    <select name="id_colonia" class="form-control">
+                        <?php foreach($direcciones as $direc): ?>
+                            <option value="<?php echo e($direc->id); ?>"><?php echo e($direc->asentamiento); ?></option>
+                        <?php endforeach; ?>
+                    </select>
             </div>
         </div>
         <div class="form-group">
@@ -53,8 +57,6 @@
                 </div>
             </div>
             <div class="col-sm-3">
-                <?php echo Form::text('colonia',null,['class'=>'form-control','placeholder'=>'Colonia' ,'required' => 'required']); ?>
-
             </div>
         </div>
 

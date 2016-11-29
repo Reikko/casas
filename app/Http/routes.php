@@ -21,7 +21,7 @@ Route::resource('client','ClienteControl');
 Route::resource('propiedad','PropiedadControl');
 Route::resource('trabajador','TrabControl');    //Trabajador
 Route::resource('unidad','UnidadControl');      //
-Route::resource('nuevas','CasaControl');
+Route::resource('nuevas','CasaControl');        //Registro de nuevas casas
 Route::resource('una','UnaControl');
 Route::resource('varias','VariasControl');
 Route::resource('inquilino','InquilinoControl');

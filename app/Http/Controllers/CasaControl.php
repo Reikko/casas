@@ -3,6 +3,7 @@
 namespace azf\Http\Controllers;
 
 use azf\codigospostales;
+use azf\regHouse;
 use azf\TipoCasa;
 use Illuminate\Http\Request;
 
@@ -51,8 +52,9 @@ class CasaControl extends Controller
      */
     public function show($id)
     {
-        $tipos = TipoCasa::All();
-        return view('newHouse.show',compact('id','tipos'));
+        $ts = regHouse::find($id); //Busca datos de la propieda y los muestra en la vista
+        $dir = codigospostales::find($ts->id_colonia);
+        return view('newHouse.show',compact('ts','dir'));
     }
 
     /**

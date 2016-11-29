@@ -11,14 +11,12 @@
 
             </div>
             <div class="col-sm-3">
-                <?php echo Form::button('Buscar',['class'=>'form-control','placeholder'=>'Ciudad','required' => 'required','onClick'=> 'getCodigoPostal()']); ?>
-
             </div>
             <div class="col-sm-3">
             </div>
         </div>
     </div>
-    <?php echo Form::submit('Registrar',['class'=>'btn btn-primary']); ?>
+    <?php echo Form::submit('Buscar',['class'=>'btn btn-primary']); ?>
 
     <?php echo Form::close(); ?>
 

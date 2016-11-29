@@ -3,6 +3,7 @@
 namespace azf;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class codigospostales extends Model
 {
@@ -20,9 +21,41 @@ class codigospostales extends Model
         'tipo',
     ];
 
-    public static function Direccion($id)
+    public static function DireccionCompleta($id)
     {
         return codigospostales::where('cp','=',$id)
             ->get();
+        //return codigospostales::lists('asentamiento','id');
     }
+
+    public static function unaDireccion($id)
+    {
+        $user = DB::table('codigo')->where('cp', $id)->first();
+        return $user;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -19,6 +19,7 @@ return array(
     'CreateInquilinosTable' => $baseDir . '/database/migrations/2016_11_24_171630_create_inquilinos_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePropiedadsTable' => $baseDir . '/database/migrations/2016_10_13_195204_create_propiedads_table.php',
+    'CreateRegHousesTable' => $baseDir . '/database/migrations/2016_11_29_162315_create_reg_houses_table.php',
     'CreateRolsTable' => $baseDir . '/database/migrations/2016_11_23_185402_create_rols_table.php',
     'CreateTipoCasasTable' => $baseDir . '/database/migrations/2016_11_24_180117_create_tipo_casas_table.php',
     'CreateTiposTable' => $baseDir . '/database/migrations/2016_10_13_194922_create_tipos_table.php',

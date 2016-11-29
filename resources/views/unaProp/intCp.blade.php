@@ -9,12 +9,11 @@
                 {!! Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Codigo Postal','required' => 'required','id'=>'codigo']) !!}
             </div>
             <div class="col-sm-3">
-                {!! Form::button('Buscar',['class'=>'form-control','placeholder'=>'Ciudad','required' => 'required','onClick'=> 'getCodigoPostal()']) !!}
             </div>
             <div class="col-sm-3">
             </div>
         </div>
     </div>
-    {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
+    {!! Form::submit('Buscar',['class'=>'btn btn-primary']) !!}
     {!! Form::close() !!}
 @stop

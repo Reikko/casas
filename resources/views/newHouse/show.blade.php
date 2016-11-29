@@ -1,62 +1,60 @@
 @extends('layouts.app')
-@section('363')
-    @if($id != 1)
-        <h2>Creando Varias</h2>
-        @for($i=0;$i<$id;$i++)
-            <h3>{{$id}}</h3>
-            @endfor
+@section('completo')
+    <div class="panel panel-default">
+        <div class="panel-heading">Ubicación</div>
+        <div class="panel-body">
+            <h2>{{$ts->nom_trab}} {{$ts->ap_pat}} {{$ts->ap_mat}}</h2>
+            <div class="col-sm-8">
+                <h5>Estado: {{$dir->estado}}</h5>
+                <h5>Municipio: {{$dir->municipio}}</h5>
+                <h5>{{$dir->tipo}}: {{$dir->asentamiento}}</h5>
+                <h5>Tipo de zona: {{$dir->zona}}</h5>
+                <h5>Tipo de Propiedad: {{$ts->tipo}}</h5>
+                <h5>Calle : {{$ts->calle}}</h5>
+                <h5>Código Postal: {{$dir->cp}}</h5>
+                <h5>Numero Exterior: {{$ts->num_ext}}</h5>
+                <h5>Numero Interior: {{$ts->num_int}}</h5>
+            </div>
+        </div>
+    </div>
+    
+    <div class="panel panel-info">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tr>
+                    <td>
+                        <button type="button" class="form-control btn btn-info">
+                            Inquilinos
+                            <span class="glyphicon glyphicon-user"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="form-control btn btn-info">
+                            Contabilidad
+                            <span class="glyphicon glyphicon-th-list"></span>
+                        </button>
+                    <td>
+                        <button type="button" class="form-control btn btn-info">
+                            Recordatorios
+                            <span class="glyphicon glyphicon-time"></span>
+                        </button>
+                    <td>
+                        <button type="button" class="form-control btn btn-info">
+                            Mantenimiento
+                            <span class="glyphicon glyphicon-wrench"></span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-        @else
-        <table class="table table-bordered table-hover">
+    <div class="panel panel-default">
+        <div class="panel-heading">Documentos</div>
+        <div class="panel-body">
+            <h5>Escrituras: </h5>
+        </div>
+    </div>
 
-            <thead>
-            <th>id</th>
-            <th>tipo</th>
-            <th>Numero Exterior</th>
-            <th>Numero Interior</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-            </thead>
-            <td></td>
-            <td>
-                {!! Form::select('tipo', $tipos,1,['class'=>'form-control']) !!}
-                {!! Form::button('Agregar tipo',[
-                    'class'=>'form-control btn btn-default btn-md',
-                    'data-toggle'=>'modal',
-                    'data-target'=>'#modCalle',
-                    'data-backdrop'=>'static' ]) !!}
-                    Todos igual {!!Form::checkbox('allCalle', 'value',false)
-                !!}
-            </td>
-            <td>
-                {!! Form::text('all_Ext',null,['class'=>'form-control']) !!}
-                Todos igual
-                {!!Form::checkbox('allExt', 'value',false)!!}
-            </td>
-            <td></td>
-            <td><button type="button" class="btn btn-info btn-block">
-                    <span class="glyphicon glyphicon-lock"></span> Block
-                </button>
-            </td>
-            <td><button type="button" class="btn btn-danger btn-block">
-                    <span class="glyphicon glyphicon-lock"></span> Eliminar
-                </button>
-            </td>
-        {!! Form::model($id,['route'=>['unidad.update',$id],'method'=>'PUT']) !!}
-        <!--Inicio del formulario-->
-            @for($i=0;$i<$id;$i++)
-                <tbody>
-                <td>{{$i+1}}{!! Form::hidden('unidades[]',null,['class'=>'form-control']) !!}</td>
-                <td>{!! Form::select('id_calle[]', ['1'=>'Seleccione una Calle'],1,['class'=>'form-control' ]) !!}</td>
-                <td>{!! Form::text('num_ext[]','0',['class'=>'form-control']) !!}</td>
-                <td>{!! Form::text('num_int[]','0',['class'=>'form-control']) !!}</td>
-                <td></td>
-                </tbody>
-            @endfor
-
-
-        </table>
-        {!! Form::submit('Actualizar',['class'=>'btn btn-primary']) !!}
-        {!! Form::close() !!}
-        @endif
 @endsection
