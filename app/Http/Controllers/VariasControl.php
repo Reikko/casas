@@ -83,4 +83,9 @@ class VariasControl extends Controller
     {
         //
     }
+
+    public function cp()
+    {
+        return view('unaProp.intCp');
+    }
 }

@@ -63,13 +63,12 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="/">Admin Propiedad<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="/">Propiedades<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><?php echo link_to('nuevas/select', $title = 'Nueva Propiedad'); ?></li>
-                            <li><?php echo link_to_route('trabajador.create', $title = 'Crear Trabajadores'); ?></li>
+                            <li><?php echo link_to_route('nuevas.create', $title = 'Mostrar Propiedades'); ?></li>
                         </ul>
                     </li>
-
                 </ul>
                 <ul class="nav navbar-pills navbar-nav navbar-right">
                     <!--<li class = "active"><a data-toggle="pill" href="#inicio">Inicio</a></li>

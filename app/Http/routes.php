@@ -3,7 +3,8 @@
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('nuevas/select','CasaControl@select');
+Route::get('nuevas/select','CasaControl@select');       //Seleccion entre una o varias casas
+Route::get('nuevas/cp','CasaControl@cp');               //Envia el codigo postal
 //------------------------------------------------//
 
 //Utilizada para el cambio de estado al crear
@@ -41,6 +42,11 @@ Route::get('/user/login','UserControl@showLoginForm');
 Route::post('/user/login','UserControl@login');
 //-------------------------------------------------------------//
 
+
+//-----------------Ruta para El codigo Postal--------------//
+//Route::get('una/cp/{id}','Unacontrol@getDireccion');
+Route::post('una/cp','UnaControl@showDireccion');
+//---------------------------------------------------------//
 
 
 Route::get('/home', 'HomeController@index');

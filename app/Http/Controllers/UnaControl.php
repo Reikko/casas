@@ -2,6 +2,7 @@
 
 namespace azf\Http\Controllers;
 
+use azf\codigospostales;
 use Illuminate\Http\Request;
 
 use azf\Http\Requests;
@@ -25,7 +26,7 @@ class UnaControl extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -36,7 +37,6 @@ class UnaControl extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -82,5 +82,11 @@ class UnaControl extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showDireccion(Request $request)
+    {
+        return $request['codigo']; //
+        //return view('unaProp.create');
     }
 }

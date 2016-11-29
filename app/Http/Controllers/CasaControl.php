@@ -16,6 +16,11 @@ class CasaControl extends Controller
         return view('newHouse.botones');
     }
 
+    public function cp()
+    {
+        return view('unaProp.intCp');
+    }
+
     public function index()
     {
 

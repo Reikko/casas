@@ -6,7 +6,7 @@
     </div>
 <?php endif; ?>
 
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('completo'); ?>
     <table class="table table-hover table-condensed">
         <thead>
         <th>Id</th>

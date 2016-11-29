@@ -6,17 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class codigospostales extends Model
 {
-    protected $table = 'codigospostales';
+    protected $table = 'codigo';
     protected $fillable = [
-        'CodigoPostal',
-        'Colonia',
-        'Municipio',
-        'Estado',
+        'id',
+        'idEstado',
+        'estado',
+        'idMunicipio',
+        'municipio',
+        'ciudad',
+        'zona',
+        'cp',
+        'asentamiento',
+        'tipo',
     ];
 
     public static function Direccion($id)
     {
-        return codigospostales::where('CodigoPostal','=',$id)
+        return codigospostales::where('cp','=',$id)
             ->get();
     }
 }

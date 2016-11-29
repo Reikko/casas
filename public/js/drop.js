@@ -54,7 +54,8 @@ function validar(frm) {
 
 function getCodigoPostal()
 {
-    $.get("estado/"+event.target.value+"",function(response,state){
+    var c = $("#codigo").val();
+    $.get("cp/"+c+"",function(response){
         console.log(response);
         $("#cdad_sel").empty(response);
         for(i=0 ; i<response.length;i++)
