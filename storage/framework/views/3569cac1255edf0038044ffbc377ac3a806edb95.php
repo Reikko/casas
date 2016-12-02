@@ -3,6 +3,7 @@
         <h2>Registro de Propiedad</h2>
         <?php echo Form::open(['route'=>'una.store','method'=>'POST','class'=>'form-horizontal','files'=> true]); ?>
 
+        <?php echo e(Form::hidden('tipo_prop', $tipoP)); ?>
 
         <div class="form-group">
             <?php echo Form::label('Codigo Postal',null,['class'=>'control-label col-sm-3']); ?>
@@ -16,9 +17,10 @@
 
             </div>
             <div class="col-sm-3">
-                <?php echo Form::text('tipo',"Tipo:".$dir->tipo,['class'=>'form-control','disabled']); ?>
+                <?php echo Form::text('tipo_prop',"Tipo:".$tipoP,['class'=>'form-control','disabled']); ?>
 
             </div>
+
         </div>
         <div class="form-group">
             <?php echo Form::label('DIRECCION',null,['class'=>'control-label col-sm-3']); ?>

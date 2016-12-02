@@ -38,8 +38,8 @@ class UnaControl extends Controller
         $casa->id_colonia = $request['id_colonia'];
         $casa->calle = $request['calle'];
         $casa->num_int=$request['num_int'];
-            $casa->num_ext=$request['num_ext'];
-        $casa->tipo ='0';
+        $casa->num_ext=$request['num_ext'];
+        $casa->tipo_prop =$request['tipo_prop'];
         $casa->save();
         Session::flash('message','Propiedad Registrada');
         return Redirect::to('/nuevas/'.$casa->id);
@@ -93,10 +93,38 @@ class UnaControl extends Controller
     public function showDireccion(Request $request)
     {
         $cp = $request['codigo'];
+        $tipoP = $request['tipo_prop'];
         $dir = codigospostales::unaDireccion($cp);
-
         $direcciones = codigospostales::DireccionCompleta($cp);
         //return $direcciones;
-        return view('unaProp.create',compact('dir','direcciones'));
+        return view('unaProp.create',compact('dir','direcciones','tipoP'));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

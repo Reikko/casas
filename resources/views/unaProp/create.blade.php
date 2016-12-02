@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <h2>Registro de Propiedad</h2>
         {!! Form::open(['route'=>'una.store','method'=>'POST','class'=>'form-horizontal','files'=> true]) !!}
-
+        {{ Form::hidden('tipo_prop', $tipoP) }}
         <div class="form-group">
             {!! Form::label('Codigo Postal',null,['class'=>'control-label col-sm-3']) !!}
             <div class="col-sm-3">
@@ -13,8 +13,9 @@
                 {!! Form::text('zona',$dir->zona,['class'=>'form-control','disabled']) !!}
             </div>
             <div class="col-sm-3">
-                {!! Form::text('tipo',"Tipo:".$dir->tipo,['class'=>'form-control','disabled']) !!}
+                {!! Form::text('tipo_prop',"Tipo:".$tipoP,['class'=>'form-control','disabled']) !!}
             </div>
+
         </div>
         <div class="form-group">
             {!! Form::label('DIRECCION',null,['class'=>'control-label col-sm-3']) !!}

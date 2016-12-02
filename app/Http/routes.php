@@ -1,7 +1,7 @@
 <?php
 //Rutas unicas para mostrar vistas
 Route::get('/', function () {
-    return view('auth.login');
+    return view('home');
 });
 Route::get('nuevas/select','CasaControl@select');       //Seleccion entre una o varias casas
 Route::get('nuevas/cp','CasaControl@cp');               //Envia el codigo postal
@@ -22,18 +22,19 @@ Route::resource('propiedad','PropiedadControl');
 Route::resource('trabajador','TrabControl');    //Trabajador
 Route::resource('unidad','UnidadControl');      //
 Route::resource('nuevas','CasaControl');        //Registro de nuevas casas
-Route::resource('una','UnaControl');
-Route::resource('varias','VariasControl');
-Route::resource('inquilino','InquilinoControl');
+Route::resource('una','UnaControl');            //Registro de solo una nueva propiedad
+Route::resource('varias','VariasControl');      //Registro d varias propiedades
+Route::resource('inquilino','InquilinoControl');//
+Route::resource('cuota','CuotaControl');        //Registro de cuotas //Servicio, Mantenimiento...etc
+Route::resource('periodo','PeriodoControl');    //Registro de periodos // Diario, Semanal etc...
+
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
 Route::post('calle/create/{id}', 'CalleControl@store2');
 
 
-//Ruta para generar el pdf
-Route::get('trabajador/obt/pdf/{nombre}/{app}/{apm}/{puesto}','TrabControl@getPdf');
-//-------------------------------------------------------------------------------------//
+
 
 Route::auth();
 
@@ -51,6 +52,10 @@ Route::post('una/cp','UnaControl@showDireccion');
 
 Route::get('/home', 'HomeController@index');
 //Route::get('/home', 'UserControl@index');
+
+//Ruta para generar el pdf
+Route::get('trabajador/obt/pdf/{nombre}/{app}/{apm}/{puesto}','TrabControl@getPdf');
+//-------------------------------------------------------------------------------------//
 
 
 

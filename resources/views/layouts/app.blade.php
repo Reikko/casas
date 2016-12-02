@@ -14,8 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <style>
         body {
@@ -25,6 +24,29 @@
         .fa-btn {
             margin-right: 6px;
         }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu>.dropdown-menu {
+             top: 0;
+             left: 100%;
+             margin-top: -6px;
+             margin-left: -1px;
+             -webkit-border-radius: 0 6px 6px 6px;
+             -moz-border-radius: 0 6px 6px;
+             border-radius: 0 6px 6px 6px;
+         }
+
+        .dropdown-submenu:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-submenu.pull-left {
+            float: none;
+        }
+
     </style>
 </head>
 <body id="app-layout">
@@ -48,11 +70,67 @@
                 <ul class="nav navbar-nav">
                         @if (Auth::guest())
                         @else
+
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Trabajadores</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Desarrollo<span class="caret"></span></a>
+                                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Desarrollos</a>
+                                        <ul class="dropdown-menu">
+                                            <li>{!!link_to_route('des.index', $title = 'Mostrar Desarrollo')!!}</li>
+                                            <li>{!!link_to_route('des.create', $title = 'Crear Desarrollo')!!}</li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Ciudades</a>
+                                        <ul class="dropdown-menu">
+                                            <li>{!!link_to_route('cdad.index', $title = 'Mostrar Ciudades')!!}</li>
+                                            <li>{!!link_to_route('cdad.create', $title = 'Crear Ciudades')!!}</li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Estados</a>
+                                        <ul class="dropdown-menu">
+                                            <li>{!!link_to_route('edo.index', $title = 'Mostrar Estados')!!}</li>
+                                            <li>{!!link_to_route('edo.create', $title = 'Agregar Estado')!!}</li>
+                                        </ul>
+                                    </li>
+                                    <!--<li class="dropdown-submenu">
+                                        <a tabindex="-1" href="#">Calles</a>
+                                        <ul class="dropdown-menu">
+                                            <li>{!!link_to_route('calle.index', $title = 'Mostrar Calle o Edificio')!!}</li>
+                                            <li>{!!link_to_route('calle.create', $title = 'Crear Calle o Edificio')!!}</li>
+                                        </ul>
+                                    </li>-->
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Clientes<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>{!!link_to_route('client.index', $title = 'Mostrar Clientes')!!}</li>
+                                    <li>{!!link_to_route('client.create', $title = 'Crear Cliente')!!}</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Trabajadores<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>{!!link_to_route('trabajador.index', $title = 'Mostrar Trabajadores')!!}</li>
                                     <li>{!!link_to_route('trabajador.create', $title = 'Crear Trabajadores')!!}</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Inquilino<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>{!!link_to_route('inquilino.index', $title = 'Mostrar Inquilinos')!!}</li>
+                                    <li>{!!link_to_route('inquilino.create', $title = 'Crear Inquilino')!!}</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Propiedades<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>{!!link_to('nuevas/select', $title = 'Nueva Propiedad')!!}</li>
+                                    <li>{!!link_to_route('nuevas.create', $title = 'Mostrar Propiedades')!!}</li>
                                 </ul>
                             </li>
                         @endif
@@ -86,7 +164,6 @@
     @if (Auth::guest())
     @else
         @include('modal.edo')
-        @include('layouts.menu')
         <div class="container">
 
             <div class="row">

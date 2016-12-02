@@ -5,7 +5,7 @@
 
     </div>
 <?php endif; ?>
-<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('363'); ?>
     <h1>Calles Registradas</h1>
     <div class="form-group">
         <button><?php echo link_to_route('calle.create', $title = 'Crear Calle o Edificio'); ?></button>
@@ -33,4 +33,4 @@
         <?php endforeach; ?>
     </table>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -19,7 +19,7 @@ class CreateRegHousesTable extends Migration
             $table->string('calle');
             $table->string('num_ext');
             $table->string('num_int');
-            $table->string('tipo');
+            $table->string('tipo_prop');
             $table->timestamps();
         });
     }

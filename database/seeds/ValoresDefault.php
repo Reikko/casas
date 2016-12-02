@@ -78,7 +78,7 @@ class ValoresDefault extends Seeder
             'updated_at' => date('Y-m-d H:m:s')
         ));
 
-
+            //Insertar el usuario administrador inicial
         \DB::table('users')->insert(array(
             'name'=>'administrador',
             'email'=> $faker->email,

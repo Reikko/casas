@@ -12,6 +12,6 @@ class regHouse extends Model
         'calle',
         'num_ext',
         'num_int',
-        'tipo',
+        'tipo_prop',
     ];
 }

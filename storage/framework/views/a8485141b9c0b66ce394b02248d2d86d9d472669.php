@@ -11,6 +11,12 @@
 
             </div>
             <div class="col-sm-3">
+
+                    <?php echo Form::select('tipo_prop',['Casa'=>'Casa',
+                    'Departamento'=>'Departamento',
+                    'Oficina'=>'Oficina',
+                    'Bodega'=>'Bodega'],'Casa',['class'=>'form-control']); ?>
+
             </div>
             <div class="col-sm-3">
             </div>

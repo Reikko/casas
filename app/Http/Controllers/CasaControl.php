@@ -44,16 +44,10 @@ class CasaControl extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        $ts = regHouse::find($id); //Busca datos de la propieda y los muestra en la vista
-        $dir = codigospostales::find($ts->id_colonia);
+        $ts = regHouse::find($id);                          //Busca datos de la propiedad y los muestra en la vista
+        $dir = codigospostales::find($ts->id_colonia);      //Busca datos relacionados con el codigo postal
         return view('newHouse.show',compact('ts','dir'));
     }
 

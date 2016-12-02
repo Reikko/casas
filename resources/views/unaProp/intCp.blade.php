@@ -9,6 +9,11 @@
                 {!! Form::text('codigo',null,['class'=>'form-control','placeholder'=>'Codigo Postal','required' => 'required','id'=>'codigo']) !!}
             </div>
             <div class="col-sm-3">
+
+                    {!! Form::select('tipo_prop',['Casa'=>'Casa',
+                    'Departamento'=>'Departamento',
+                    'Oficina'=>'Oficina',
+                    'Bodega'=>'Bodega'],'Casa',['class'=>'form-control']) !!}
             </div>
             <div class="col-sm-3">
             </div>
