@@ -35,6 +35,14 @@ class codigospostales extends Model
     }
 
 
+    public static function Propiedades()
+    {
+        return DB::table('reg_houses')
+            ->join('codigo', 'reg_houses.id_colonia', '=', 'codigo.id')
+            ->select('reg_houses.*', 'codigo.estado', 'codigo.ciudad','codigo.municipio','codigo.cp','codigo.asentamiento','codigo.tipo')
+            ->get();
+    }
+
 
 
 

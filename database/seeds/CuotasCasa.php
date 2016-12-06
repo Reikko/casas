@@ -26,6 +26,7 @@ class CuotasCasa extends Seeder
         $cuota->nom_cuota = 'Mantenimiento';
         $cuota->save();
         //------------------------------------------------------------------------------
+        //Aqui el registro de periodos
         //----------Periodos
         $cuota = new TipoPeriodo;
         $cuota->nom_periodo = 'No definido';

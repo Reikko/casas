@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class RegistroCuota extends Model
 {
-    protected $table = 'tipo_registro_cuotas';
+    protected $table = 'registro_cuotas';
     protected $fillable = [
+        'id_prop',
         'tipo_cuota',
         'tipo_periodo',
         'fecha_ini',

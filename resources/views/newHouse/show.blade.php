@@ -32,6 +32,7 @@
             <div class="panel panel-info">
                 <div class="panel-heading">Servicios</div>
                 <div class="panel-body">
+                    {!!link_to('cuota/create/'.$ts->id,'Agrega',['class'=>'btn btn-success btn-block'])!!}
                     <button type="button" class="form-control btn btn-success">
                         Agregar Cuotas
                         <span class="glyphicon glyphicon-wrench"></span>

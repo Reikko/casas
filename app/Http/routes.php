@@ -32,7 +32,11 @@ Route::resource('periodo','PeriodoControl');    //Registro de periodos // Diario
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
 Route::post('calle/create/{id}', 'CalleControl@store2');
+//
 
+//Obtener el id de la propiedad y crear sus cuotas
+Route::get('cuota/create/{id}','CuotaControl@getCuota');
+//
 
 
 

@@ -130,7 +130,7 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="/">Propiedades<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>{!!link_to('nuevas/select', $title = 'Nueva Propiedad')!!}</li>
-                                    <li>{!!link_to_route('nuevas.create', $title = 'Mostrar Propiedades')!!}</li>
+                                    <li>{!!link_to_route('nuevas.index', $title = 'Mostrar Propiedades')!!}</li>
                                 </ul>
                             </li>
                         @endif
@@ -140,10 +140,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/user/login') }}">Ingresar</a></li>
-                        <!----><li><a href="{{ url('/register') }}">Registrar usuario</a></li>
+                        <li><a href="{{ url('/login') }}">Ingresar</a></li>
+                        <!--<li><a href="{{ url('/register') }}">Registrar usuario</a></li>-->
                     @else
-
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>

@@ -2,17 +2,34 @@
 
 namespace azf\Http\Controllers;
 
+use azf\RegistroCuota;
+use azf\TipoCuota;
+use azf\TipoPeriodo;
 use Illuminate\Http\Request;
-
 use azf\Http\Requests;
+use Redirect;
+use Carbon\Carbon;
 
 class CuotaControl extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /*
+     * Este control funciona para el registro de cuotas
      */
+
+
+    //Retorna todas las cuotas de esta propiedad y permite crear nuevas redirige a crear
+    /*
+     * Redirige a */
+    public function getCuota(Request $request,$id)
+    {
+        $date = Carbon::now();
+        //$regCuotas = RegistroCuota::all();                  //Mustra cuotas falta que solo muestre las de la propiedad seleccionada
+        $regCuotas = RegistroCuota::where('id_prop',$id)->get();
+        $periodos = TipoPeriodo::lists('nom_periodo','id');
+        $cuotas = TipoCuota::lists('nom_cuota','id');
+        return view('Cuote.create',compact('id','periodos','cuotas','regCuotas','date'));
+    }
+
     public function index()
     {
         //
@@ -28,15 +45,13 @@ class CuotaControl extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Registrar una cuota en la propiedad que le corresponde
     public function store(Request $request)
     {
-        //
+        $cuota = new RegistroCuota;
+        $cuota->fill($request->all());
+        $cuota->save();
+        return Redirect::to('cuota/create/'.$cuota->id_prop);
     }
 
     /**
@@ -81,6 +96,8 @@ class CuotaControl extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id_prop = RegistroCuota::find($id);
+        RegistroCuota::destroy($id);
+        return Redirect::to('cuota/create/'.$id_prop->id_prop);
     }
 }

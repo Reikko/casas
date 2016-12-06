@@ -22,11 +22,13 @@ class CasaControl extends Controller
         return view('unaProp.intCp');
     }
 
+    //mostrar todas las casas que estan Registradas
     public function index()
     {
-
+        $casas = codigospostales::Propiedades();
+        //$direccion = codigospostales::find($casas->id_colonia);
+        return view('newHouse.index',compact('casas'));
     }
-
 
     public function create()
     {

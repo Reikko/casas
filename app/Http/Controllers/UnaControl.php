@@ -12,11 +12,6 @@ use azf\Http\Requests;
 
 class UnaControl extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //

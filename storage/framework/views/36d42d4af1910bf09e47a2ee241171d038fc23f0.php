@@ -130,7 +130,7 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="/">Propiedades<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><?php echo link_to('nuevas/select', $title = 'Nueva Propiedad'); ?></li>
-                                    <li><?php echo link_to_route('nuevas.create', $title = 'Mostrar Propiedades'); ?></li>
+                                    <li><?php echo link_to_route('nuevas.index', $title = 'Mostrar Propiedades'); ?></li>
                                 </ul>
                             </li>
                         <?php endif; ?>
@@ -140,10 +140,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     <?php if(Auth::guest()): ?>
-                        <li><a href="<?php echo e(url('/user/login')); ?>">Ingresar</a></li>
-                        <!----><li><a href="<?php echo e(url('/register')); ?>">Registrar usuario</a></li>
+                        <li><a href="<?php echo e(url('/login')); ?>">Ingresar</a></li>
+                        <!--<li><a href="<?php echo e(url('/register')); ?>">Registrar usuario</a></li>-->
                     <?php else: ?>
-
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
