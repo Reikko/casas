@@ -23,8 +23,9 @@ class CuotaControl extends Controller
     public function getCuota(Request $request,$id)
     {
         $date = Carbon::now();
-        //$regCuotas = RegistroCuota::all();                  //Mustra cuotas falta que solo muestre las de la propiedad seleccionada
-        $regCuotas = RegistroCuota::where('id_prop',$id)->get();
+        //$regCuotas = RegistroCuota::where('id_prop',$id)->get();
+        $regCuotas = RegistroCuota::Cuota($id);
+        //return $regCuotas;
         $periodos = TipoPeriodo::lists('nom_periodo','id');
         $cuotas = TipoCuota::lists('nom_cuota','id');
         return view('Cuote.create',compact('id','periodos','cuotas','regCuotas','date'));

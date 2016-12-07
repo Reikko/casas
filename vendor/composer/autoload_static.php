@@ -313,6 +313,7 @@ class ComposerStaticInit536af01ad52cd9d3c107e432cfc4ae36
         'CreatePropiedadsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_195204_create_propiedads_table.php',
         'CreateRegHousesTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_29_162315_create_reg_houses_table.php',
         'CreateRegistroCuotasTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_02_210134_create_registro_cuotas_table.php',
+        'CreateRegistroPagosTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_07_205010_create_registro_pagos_table.php',
         'CreateRolsTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_23_185402_create_rols_table.php',
         'CreateTipoCasasTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_24_180117_create_tipo_casas_table.php',
         'CreateTipoCuotasTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_02_201954_create_tipo_cuotas_table.php',

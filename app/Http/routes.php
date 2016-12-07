@@ -3,6 +3,16 @@
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('enviar', function () {
+    Mail::send('Emails.emails' ,[],function ($message){
+        $message->from('admin@administrador.com', 'Administrador de la pagina AZF');
+        $message->to('criszavalacano@gmail.com','Cristobal Zavala')->subject('Recibiste este correo por que el administrador lo mando');
+    });
+
+    return "Ya se envio el correo";
+});
+
 Route::get('nuevas/select','CasaControl@select');       //Seleccion entre una o varias casas
 Route::get('nuevas/cp','CasaControl@cp');               //Envia el codigo postal
 //------------------------------------------------//
@@ -27,6 +37,9 @@ Route::resource('varias','VariasControl');      //Registro d varias propiedades
 Route::resource('inquilino','InquilinoControl');//
 Route::resource('cuota','CuotaControl');        //Registro de cuotas //Servicio, Mantenimiento...etc
 Route::resource('periodo','PeriodoControl');    //Registro de periodos // Diario, Semanal etc...
+Route::resource('email','MailController');        //Utiliza para enviar correos de prueba
+
+Route::get('/email/enviar','MailController@enviar');        //Utiliza para enviar correos de prueba
 
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo

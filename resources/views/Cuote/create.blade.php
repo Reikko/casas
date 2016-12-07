@@ -12,8 +12,8 @@
         @foreach($regCuotas as $c)
             <tbody>
             <td>{{$c->fecha_ini}}</td>
-            <td>{{$c->tipo_cuota}}</td>
-            <td>{{$c->tipo_periodo}}</td>
+            <td>{{$c->nom_cuota}}</td>
+            <td>{{$c->nom_periodo}}</td>
             <td>
                 {{$c->descripcion}}
             </td>

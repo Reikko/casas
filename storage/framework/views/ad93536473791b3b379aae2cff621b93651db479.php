@@ -11,8 +11,8 @@
         <?php foreach($regCuotas as $c): ?>
             <tbody>
             <td><?php echo e($c->fecha_ini); ?></td>
-            <td><?php echo e($c->tipo_cuota); ?></td>
-            <td><?php echo e($c->tipo_periodo); ?></td>
+            <td><?php echo e($c->nom_cuota); ?></td>
+            <td><?php echo e($c->nom_periodo); ?></td>
             <td>
                 <?php echo e($c->descripcion); ?>
 

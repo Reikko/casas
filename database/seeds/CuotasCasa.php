@@ -13,32 +13,57 @@ class CuotasCasa extends Seeder
      */
     public function run()
     {
-        //-----------Cuotas
-        $cuota = new TipoCuota;
+        //-----------Cuotas por default que existen reiniciar el sistema
+        $cuota = new TipoCuota;             //id 1
         $cuota->nom_cuota = 'No definido';
         $cuota->save();
 
-        $cuota = new TipoCuota;
+        $cuota = new TipoCuota;             //id 2
         $cuota->nom_cuota = 'Renta';
         $cuota->save();
 
-        $cuota = new TipoCuota;
+        $cuota = new TipoCuota;             //id 3
         $cuota->nom_cuota = 'Mantenimiento';
         $cuota->save();
+
+        $cuota = new TipoCuota;             //id 4
+        $cuota->nom_cuota = 'Servicio';
+        $cuota->save();
         //------------------------------------------------------------------------------
-        //Aqui el registro de periodos
+        //Aqui el registro de periodos al iniciar
         //----------Periodos
-        $cuota = new TipoPeriodo;
-        $cuota->nom_periodo = 'No definido';
+
+
+        $cuota = new TipoPeriodo;           //id = 1
+        $cuota->nom_periodo = 'Unico';
         $cuota->save();
 
-        $cuota = new TipoPeriodo;
+        $cuota = new TipoPeriodo;           //id =2
         $cuota->nom_periodo = 'Diario';
         $cuota->save();
 
-        $cuota = new TipoPeriodo;
+        $cuota = new TipoPeriodo;           //id = 3
         $cuota->nom_periodo = 'Semanal';
         $cuota->save();
 
+        $cuota = new TipoPeriodo;           //id = 3
+        $cuota->nom_periodo = 'Quincenal';
+        $cuota->save();
+
+        $cuota = new TipoPeriodo;           //id = 3
+        $cuota->nom_periodo = 'Mensual';
+        $cuota->save();
+
+        $cuota = new TipoPeriodo;           //id = 3
+        $cuota->nom_periodo = 'Bimestral';
+        $cuota->save();
+
+        $cuota = new TipoPeriodo;           //id = 3
+        $cuota->nom_periodo = 'Trimestral';
+        $cuota->save();
+
+        $cuota = new TipoPeriodo;           //id = 3
+        $cuota->nom_periodo = 'Semestral';
+        $cuota->save();
     }
 }
