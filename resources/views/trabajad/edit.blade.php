@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('contentTrab')
+@section('completo')
     <div class="container-fluid">
         <h2>Editar datos</h2>
         {!! Form::model($ts,['route'=>['trabajador.update',$ts->id],'method'=>'PUT','class'=>'form-horizontal','files'=> true]) !!}

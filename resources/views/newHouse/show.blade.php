@@ -6,6 +6,8 @@
                 <div class="panel-heading">Documentos</div>
                 <div class="panel-body">
                     <h5>Escrituras: </h5>
+                    {!!link_to_route('nuevas.edit','Agregar Inquilino',$ts->id,['class'=>'btn btn-success btn-block'])!!}
+                    {!!link_to_route('nuevas.edit','Agregar Dueño',$ts->id,['class'=>'btn btn-success btn-block'])!!}
                 </div>
             </div>
         </div>
@@ -32,11 +34,19 @@
             <div class="panel panel-info">
                 <div class="panel-heading">Servicios</div>
                 <div class="panel-body">
-                    {!!link_to('cuota/create/'.$ts->id,'Agrega',['class'=>'btn btn-success btn-block'])!!}
-                    <button type="button" class="form-control btn btn-success">
-                        Agregar Cuotas
-                        <span class="glyphicon glyphicon-wrench"></span>
-                    </button>
+                    <table>
+                        <thead>
+                        <th>Servicio</th>
+                        <th>Monto</th>
+                        </thead>
+                    @foreach($cuotas as $cuota)
+                            <tbody>
+                                <td>{{$cuota->tipo_cuota}}</td>
+                                <td>{{$cuota->monto}}</td>
+                            </tbody>
+                        @endforeach
+                    </table>
+                    {!!link_to('cuota/create/'.$ts->id,'Agrega',['class'=>'btn btn-success btn-block glyphicon glyphicon-wrench'])!!}
                 </div>
             </div>
         </div>

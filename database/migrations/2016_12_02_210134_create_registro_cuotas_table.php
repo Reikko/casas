@@ -21,9 +21,11 @@ class CreateRegistroCuotasTable extends Migration
             $table->foreign('tipo_cuota')->references('id')->on('tipo_cuotas')->onUpdate('cascade');
             $table->integer('tipo_periodo')->unsigned();
             $table->foreign('tipo_periodo')->references('id')->on('tipo_periodos')->onUpdate('cascade');
+            $table->integer('monto')->unsigned();
+            $table->integer('ver')->unsigned();
+            $table->string('descripcion');
             $table->dateTime('fecha_ini');
             $table->dateTime('fecha_fin');
-            $table->string('descripcion');
             $table->timestamps();
         });
     }

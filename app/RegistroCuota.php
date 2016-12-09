@@ -12,8 +12,10 @@ class RegistroCuota extends Model
         'id_prop',
         'tipo_cuota',
         'tipo_periodo',
+        'monto',
+        'ver',
         'fecha_ini',
-        'fecha_fin',
+        'fecha fin',
         'descripcion'
     ];
 
@@ -23,12 +25,42 @@ class RegistroCuota extends Model
             ->join('tipo_cuotas','registro_cuotas.tipo_cuota','=','tipo_cuotas.id')
             ->join('tipo_periodos','registro_cuotas.tipo_periodo','=','tipo_periodos.id')
             ->where('id_prop','=',$id)
-            ->select('registro_cuotas.*','nom_cuota','nom_periodo')
-            ->get();
-
-        return DB::table('reg_houses')
-            ->join('codigo', 'reg_houses.id_colonia', '=', 'codigo.id')
-            ->select('reg_houses.*', 'codigo.estado', 'codigo.ciudad','codigo.municipio','codigo.cp','codigo.asentamiento','codigo.tipo')
+            ->select('registro_cuotas.*','nom_cuota','nom_periodo')->orderBy('id', 'asc')
             ->get();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

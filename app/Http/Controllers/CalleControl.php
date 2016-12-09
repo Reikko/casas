@@ -18,6 +18,8 @@ class CalleControl extends Controller
     {
         $this->middleware('auth');
     }
+
+
     public function index()
     {
         $calls = DB::table('desarrollos')

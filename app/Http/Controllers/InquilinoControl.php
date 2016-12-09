@@ -29,6 +29,7 @@ class InquilinoControl extends Controller
             'nom_inquilino' => $request['nom_inquilino'],
             'ap_pat' => $request['ap_pat'],
             'ap_mat' => $request['ap_mat'],
+            'tipo'  =>$request['tipo'],
             'edo_civil' => $request['edo_civil'],
             'sexo' => $request['sexo'],
             'alias' => $request['alias'],

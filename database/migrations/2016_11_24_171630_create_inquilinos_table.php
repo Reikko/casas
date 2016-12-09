@@ -18,6 +18,7 @@ class CreateInquilinosTable extends Migration
             $table->string('nom_inquilino');
             $table->string('ap_pat');
             $table->string('ap_mat');
+            $table->string('tipo');
             $table->string('edo_civil');
             $table->string('sexo');
             $table->string('alias');

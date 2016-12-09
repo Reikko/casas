@@ -1,6 +1,7 @@
 <?php
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
+use azf\regHouse;
 
 class ValoresDefault extends Seeder
 {
@@ -96,6 +97,13 @@ class ValoresDefault extends Seeder
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
         ));
+
+        $casa = new regHouse;           //Registro de una casa Default
+        $casa->id_colonia = '110904';
+        $casa->calle = 'Primo Feliciano Velazquez';
+        $casa->num_ext = '781';
+        $casa->tipo_prop = 'Casa';
+        $casa->save();
 
     }
 }

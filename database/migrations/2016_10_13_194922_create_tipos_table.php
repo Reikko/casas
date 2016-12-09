@@ -5,15 +5,13 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTiposTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    //Creando los tipos de casas
     public function up()
     {
-        Schema::create('tipos', function (Blueprint $table) {
+        Schema::create('tipo_propiedad', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ class CreateTiposTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tipos');
+        Schema::drop('tipo_propiedad');
     }
 }

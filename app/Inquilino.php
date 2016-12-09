@@ -12,6 +12,7 @@ class Inquilino extends Model
         'nom_inquilino',
         'ap_pat',
         'ap_mat',
+        'tipo',
         'edo_civil',
         'sexo',
         'alias',

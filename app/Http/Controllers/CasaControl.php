@@ -4,6 +4,7 @@ namespace azf\Http\Controllers;
 
 use azf\codigospostales;
 use azf\regHouse;
+use azf\RegistroCuota;
 use azf\TipoCasa;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class CasaControl extends Controller
         return view('newHouse.botones');
     }
 
+    //Manda a la vista donde se pone el codigo postal
     public function cp()
     {
         return view('unaProp.intCp');
@@ -26,9 +28,9 @@ class CasaControl extends Controller
     public function index()
     {
         $casas = codigospostales::Propiedades();
-        //$direccion = codigospostales::find($casas->id_colonia);
         return view('newHouse.index',compact('casas'));
     }
+
 
     public function create()
     {
@@ -50,7 +52,8 @@ class CasaControl extends Controller
     {
         $ts = regHouse::find($id);                          //Busca datos de la propiedad y los muestra en la vista
         $dir = codigospostales::find($ts->id_colonia);      //Busca datos relacionados con el codigo postal
-        return view('newHouse.show',compact('ts','dir'));
+        $cuotas = RegistroCuota::Cuota($ts->id);
+        return view('newHouse.show',compact('ts','dir','cuotas'));   //Retorna vista de la propiedad con el id relacionado
     }
 
     /**

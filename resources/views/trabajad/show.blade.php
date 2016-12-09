@@ -1,11 +1,12 @@
 @extends('layouts.app')
-@if(Session::has('message'))
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        {{Session::get('message')}}
-    </div>
-@endif
+
 @section('completo')
+    @if(Session::has('message'))
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{Session::get('message')}}
+        </div>
+    @endif
     <div class="alert alert-info alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         En espera de Revision de Datos
@@ -33,12 +34,29 @@
 
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Domicilio</div>
+                <div class="panel-body">
+                    <h5>Calle: {{$ts->calle}}</h5>
+                    <h5>Numero exterior: #{{$ts->num_ext}}</h5>
+                    <h5> Numero interior:{{$ts->num_int}}</h5>
+                    <h5>{{$ts->colonia}}, {{$ts->municipio}}, {{$ts->estado}}  </h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>
 
     <div class="panel panel-default">
         <div class="panel-heading">Domicilio</div>
         <div class="panel-body">
             <h5>Calle: {{$ts->calle}}</h5>
-            <h5>Numero exterior:{{$ts->num_ext}} Numero interior:{{$ts->num_int}}</h5>
+            <h5>Numero exterior: #{{$ts->num_ext}}</h5>
+            <h5> Numero interior:{{$ts->num_int}}</h5>
             <h5>{{$ts->colonia}}, {{$ts->municipio}}, {{$ts->estado}}  </h5>
         </div>
     </div>

@@ -38,7 +38,7 @@ class CuotasCasa extends Seeder
         $cuota->nom_periodo = 'Unico';
         $cuota->save();
 
-        $cuota = new TipoPeriodo;           //id =2
+        $cuota = new TipoPeriodo;           //id = 2
         $cuota->nom_periodo = 'Diario';
         $cuota->save();
 
@@ -46,24 +46,28 @@ class CuotasCasa extends Seeder
         $cuota->nom_periodo = 'Semanal';
         $cuota->save();
 
-        $cuota = new TipoPeriodo;           //id = 3
+        $cuota = new TipoPeriodo;           //id = 4
         $cuota->nom_periodo = 'Quincenal';
         $cuota->save();
 
-        $cuota = new TipoPeriodo;           //id = 3
+        $cuota = new TipoPeriodo;           //id = 5
         $cuota->nom_periodo = 'Mensual';
         $cuota->save();
 
-        $cuota = new TipoPeriodo;           //id = 3
+        $cuota = new TipoPeriodo;           //id = 6
         $cuota->nom_periodo = 'Bimestral';
         $cuota->save();
 
-        $cuota = new TipoPeriodo;           //id = 3
+        $cuota = new TipoPeriodo;           //id = 7
         $cuota->nom_periodo = 'Trimestral';
         $cuota->save();
 
-        $cuota = new TipoPeriodo;           //id = 3
+        $cuota = new TipoPeriodo;           //id = 8
         $cuota->nom_periodo = 'Semestral';
+        $cuota->save();
+
+        $cuota = new TipoPeriodo;           //id = 9
+        $cuota->nom_periodo = 'Anual';
         $cuota->save();
     }
 }

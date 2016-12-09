@@ -43,7 +43,7 @@
                         {{ Html::image(asset('archivos/'.$t->foto),null, ['class' => ' ','style'=>'width: 100px']) }}
                     @endif
                     <br>
-                    {{link_to_route('trabajador.show', $title = 'VER PERFIL', $t->id,['class'=>'btn btn-primary'])}}</td>
+                    {{link_to_route('inquilino.show', $title = 'VER PERFIL', $t->id,['class'=>'btn btn-primary'])}}</td>
                 <td>{{$t->nom_inquilino}} {{$t->ap_pat}} {{$t->ap_mat}}</td>
                 <td>{{$t->ocupacion}}</td>
                 <td>{{$t->estatus}}</td>

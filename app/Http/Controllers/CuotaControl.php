@@ -7,6 +7,7 @@ use azf\TipoCuota;
 use azf\TipoPeriodo;
 use Illuminate\Http\Request;
 use azf\Http\Requests;
+use Illuminate\Support\Facades\Mail;
 use Redirect;
 use Carbon\Carbon;
 
@@ -28,6 +29,7 @@ class CuotaControl extends Controller
         //return $regCuotas;
         $periodos = TipoPeriodo::lists('nom_periodo','id');
         $cuotas = TipoCuota::lists('nom_cuota','id');
+
         return view('Cuote.create',compact('id','periodos','cuotas','regCuotas','date'));
     }
 
@@ -49,9 +51,25 @@ class CuotaControl extends Controller
     //Registrar una cuota en la propiedad que le corresponde
     public function store(Request $request)
     {
+        //return $request ->all();
         $cuota = new RegistroCuota;
         $cuota->fill($request->all());
+
+        $fecha_fin = Carbon::parse($cuota->fecha_ini);
+        $fecha_fin = $fecha_fin->addDay()->toDateTimeString();
+        $cuota->fecha_fin = $fecha_fin;
+
+
         $cuota->save();
+        $tipo_cuota = TipoCuota::find($cuota->tipo_cuota);
+
+
+        //Deshabilitado enviar correos descomentar para enviar correos
+        /*Mail::send('Emails.emails' ,['cuota' => $cuota,'tipo'=> $tipo_cuota],function ($message){
+            $message->from('admin@administrador.com', 'Administrador de la pagina AZF');
+            $message->to('criszavalacano@gmail.com','Cristobal Zavala')->subject('Se añadio una cuota para ti');
+        });*/
+
         return Redirect::to('cuota/create/'.$cuota->id_prop);
     }
 

@@ -5,19 +5,19 @@
     <div class="form-group">
         <?php echo Form::label('Nombre:'); ?>
 
-        <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombre del Cliente']); ?>
+        <?php echo Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombre del Cliente' ,'required'=>'true']); ?>
 
     </div>
     <div class="form-group">
         <?php echo Form::label('Apellido Paterno:'); ?>
 
-        <?php echo Form::text('ap_pat',null,['class'=>'form-control','placeholder'=>'Apellido Paterno']); ?>
+        <?php echo Form::text('ap_pat',null,['class'=>'form-control','placeholder'=>'Apellido Paterno','required'=>'true']); ?>
 
     </div>
     <div class="form-group">
         <?php echo Form::label('Apellido Materno:'); ?>
 
-        <?php echo Form::text('ap_mat',null,['class'=>'form-control','placeholder'=>'Apellido Materno']); ?>
+        <?php echo Form::text('ap_mat',null,['class'=>'form-control','placeholder'=>'Apellido Materno', 'required'=>'true']); ?>
 
     </div>
     <div class="form-group">
@@ -29,7 +29,7 @@
     <div class="form-group">
         <?php echo Form::label('Correo:'); ?>
 
-        <?php echo Form::text('correo',null,['class'=>'form-control','placeholder'=>'Ingresa tu correo']); ?>
+        <?php echo Form::email('correo',null,['class'=>'form-control','placeholder'=>'Ingresa tu correo','required'=>'true']); ?>
 
     </div>
     <div class="form-group">

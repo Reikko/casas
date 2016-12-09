@@ -5,15 +5,15 @@
     {!! Form::open(['route'=>'client.store','method'=>'POST']) !!}
     <div class="form-group">
         {!! Form::label('Nombre:') !!}
-        {!! Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombre del Cliente']) !!}
+        {!! Form::text('nombre',null,['class'=>'form-control','placeholder'=>'Nombre del Cliente' ,'required'=>'true']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('Apellido Paterno:') !!}
-        {!! Form::text('ap_pat',null,['class'=>'form-control','placeholder'=>'Apellido Paterno']) !!}
+        {!! Form::text('ap_pat',null,['class'=>'form-control','placeholder'=>'Apellido Paterno','required'=>'true']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('Apellido Materno:') !!}
-        {!! Form::text('ap_mat',null,['class'=>'form-control','placeholder'=>'Apellido Materno']) !!}
+        {!! Form::text('ap_mat',null,['class'=>'form-control','placeholder'=>'Apellido Materno', 'required'=>'true']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('Telefono') !!}
@@ -21,7 +21,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('Correo:') !!}
-        {!! Form::text('correo',null,['class'=>'form-control','placeholder'=>'Ingresa tu correo']) !!}
+        {!! Form::email('correo',null,['class'=>'form-control','placeholder'=>'Ingresa tu correo','required'=>'true']) !!}
     </div>
     <div class="form-group">
         {!! Form::label('Password:') !!}

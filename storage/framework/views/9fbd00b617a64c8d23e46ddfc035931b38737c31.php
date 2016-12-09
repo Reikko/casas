@@ -1,4 +1,4 @@
-<?php $__env->startSection('contentTrab'); ?>
+<?php $__env->startSection('completo'); ?>
     <div class="container-fluid">
         <h2>Editar datos</h2>
         <?php echo Form::model($ts,['route'=>['trabajador.update',$ts->id],'method'=>'PUT','class'=>'form-horizontal','files'=> true]); ?>

@@ -26,7 +26,8 @@ class UnaControl extends Controller
     {
 
     }
-    //Creando una nueva Propiedad
+
+    //Creando una nueva Propiedad retorna a la propiedad que se creo
     public function store(Request $request)
     {
         $casa = new regHouse;

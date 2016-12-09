@@ -45,7 +45,7 @@
 
                     <?php endif; ?>
                     <br>
-                    <?php echo e(link_to_route('trabajador.show', $title = 'VER PERFIL', $t->id,['class'=>'btn btn-primary'])); ?></td>
+                    <?php echo e(link_to_route('inquilino.show', $title = 'VER PERFIL', $t->id,['class'=>'btn btn-primary'])); ?></td>
                 <td><?php echo e($t->nom_inquilino); ?> <?php echo e($t->ap_pat); ?> <?php echo e($t->ap_mat); ?></td>
                 <td><?php echo e($t->ocupacion); ?></td>
                 <td><?php echo e($t->estatus); ?></td>

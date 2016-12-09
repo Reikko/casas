@@ -5,6 +5,10 @@
                 <div class="panel-heading">Documentos</div>
                 <div class="panel-body">
                     <h5>Escrituras: </h5>
+                    <?php echo link_to_route('nuevas.edit','Agregar Inquilino',$ts->id,['class'=>'btn btn-success btn-block']); ?>
+
+                    <?php echo link_to_route('nuevas.edit','Agregar Dueño',$ts->id,['class'=>'btn btn-success btn-block']); ?>
+
                 </div>
             </div>
         </div>
@@ -32,12 +36,20 @@
             <div class="panel panel-info">
                 <div class="panel-heading">Servicios</div>
                 <div class="panel-body">
-                    <?php echo link_to('cuota/create/'.$ts->id,'Agrega',['class'=>'btn btn-success btn-block']); ?>
+                    <table>
+                        <thead>
+                        <th>Servicio</th>
+                        <th>Monto</th>
+                        </thead>
+                    <?php foreach($cuotas as $cuota): ?>
+                            <tbody>
+                                <td><?php echo e($cuota->tipo_cuota); ?></td>
+                                <td><?php echo e($cuota->monto); ?></td>
+                            </tbody>
+                        <?php endforeach; ?>
+                    </table>
+                    <?php echo link_to('cuota/create/'.$ts->id,'Agrega',['class'=>'btn btn-success btn-block glyphicon glyphicon-wrench']); ?>
 
-                    <button type="button" class="form-control btn btn-success">
-                        Agregar Cuotas
-                        <span class="glyphicon glyphicon-wrench"></span>
-                    </button>
                 </div>
             </div>
         </div>

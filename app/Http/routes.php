@@ -39,7 +39,7 @@ Route::resource('cuota','CuotaControl');        //Registro de cuotas //Servicio,
 Route::resource('periodo','PeriodoControl');    //Registro de periodos // Diario, Semanal etc...
 Route::resource('email','MailController');        //Utiliza para enviar correos de prueba
 
-Route::get('/email/enviar','MailController@enviar');        //Utiliza para enviar correos de prueba
+Route::get('/email/e/enviar','MailController@enviar');        //Utiliza para enviar correos de prueba
 
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo

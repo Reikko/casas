@@ -1,11 +1,11 @@
-<?php if(Session::has('message')): ?>
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <?php echo e(Session::get('message')); ?>
+<?php $__env->startSection('completo'); ?>
+    <?php if(Session::has('message')): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo e(Session::get('message')); ?>
 
-    </div>
-<?php endif; ?>
-<?php $__env->startSection('content'); ?>
+        </div>
+    <?php endif; ?>
     <div class="alert alert-info alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         En espera de Revision de Datos
@@ -35,12 +35,29 @@
 
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Domicilio</div>
+                <div class="panel-body">
+                    <h5>Calle: <?php echo e($ts->calle); ?></h5>
+                    <h5>Numero exterior: #<?php echo e($ts->num_ext); ?></h5>
+                    <h5> Numero interior:<?php echo e($ts->num_int); ?></h5>
+                    <h5><?php echo e($ts->colonia); ?>, <?php echo e($ts->municipio); ?>, <?php echo e($ts->estado); ?>  </h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+
+        </div>
+    </div>
 
     <div class="panel panel-default">
         <div class="panel-heading">Domicilio</div>
         <div class="panel-body">
             <h5>Calle: <?php echo e($ts->calle); ?></h5>
-            <h5>Numero exterior:<?php echo e($ts->num_ext); ?> Numero interior:<?php echo e($ts->num_int); ?></h5>
+            <h5>Numero exterior: #<?php echo e($ts->num_ext); ?></h5>
+            <h5> Numero interior:<?php echo e($ts->num_int); ?></h5>
             <h5><?php echo e($ts->colonia); ?>, <?php echo e($ts->municipio); ?>, <?php echo e($ts->estado); ?>  </h5>
         </div>
     </div>

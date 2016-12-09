@@ -18,7 +18,7 @@ class MailController extends Controller
     public function enviar()
     {
         Mail::send('Emails.emails' ,[],function ($message){
-            $message->from('administrador.com', 'Administrador de la pagina AZF');
+            $message->from('cris@administrador.com', 'Administrador de la pagina AZF');
             $message->to('criszavalacano@gmail.com','Cristobal Zavala')->subject('Recibiste este correo por que el administrador lo mando');
         });
 

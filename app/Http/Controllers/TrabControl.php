@@ -114,7 +114,7 @@ class TrabControl extends Controller
         \Storage::disk('local')->put($name,\File::get($request['renuncia']));
 
 
-        return $request->all();
+        //return $request->all();
         return redirect('/trabajador/'.$id)->with('message','Trabajador Registrado');
     }
 

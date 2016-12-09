@@ -22,6 +22,7 @@ return array(
     'CreateRegHousesTable' => $baseDir . '/database/migrations/2016_11_29_162315_create_reg_houses_table.php',
     'CreateRegistroCuotasTable' => $baseDir . '/database/migrations/2016_12_02_210134_create_registro_cuotas_table.php',
     'CreateRegistroPagosTable' => $baseDir . '/database/migrations/2016_12_07_205010_create_registro_pagos_table.php',
+    'CreateRelationPropertiesTable' => $baseDir . '/database/migrations/2016_12_09_174349_create_relation_properties_table.php',
     'CreateRolsTable' => $baseDir . '/database/migrations/2016_11_23_185402_create_rols_table.php',
     'CreateTipoCasasTable' => $baseDir . '/database/migrations/2016_11_24_180117_create_tipo_casas_table.php',
     'CreateTipoCuotasTable' => $baseDir . '/database/migrations/2016_12_02_201954_create_tipo_cuotas_table.php',
