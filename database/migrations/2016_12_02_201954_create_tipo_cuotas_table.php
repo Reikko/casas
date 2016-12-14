@@ -15,7 +15,7 @@ class CreateTipoCuotasTable extends Migration
         Schema::create('tipo_cuotas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('nom_cuota');
+            $table->string('nom_cuota')->unique();
             $table->timestamps();
         });
     }

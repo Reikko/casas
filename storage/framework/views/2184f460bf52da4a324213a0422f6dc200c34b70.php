@@ -1,20 +1,49 @@
 <?php $__env->startSection('completo'); ?>
     <div class="row">
         <div class="col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">Documentos</div>
+            <div class="panel panel-success">
+                <div class="panel-heading">Ocupantes</div>
                 <div class="panel-body">
-                    <h5>Escrituras: </h5>
-                    <?php echo link_to_route('nuevas.edit','Agregar Inquilino',$ts->id,['class'=>'btn btn-success btn-block']); ?>
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                        <th>Id</th>
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        </thead>
 
-                    <?php echo link_to_route('nuevas.edit','Agregar Dueño',$ts->id,['class'=>'btn btn-success btn-block']); ?>
+                        <?php foreach($ocupantes as $t): ?>
+                            <tr class="success">
+                                <td><?php echo e($t->id_prop); ?></td>
+                                <td>
+                                    <?php if($t->foto == 'imagen.jpg'): ?>
+                                        <?php echo e(Html::image(asset('imagen.jpg'),null,['class' => ' ','style'=>'width: 70px'])); ?>
+
+                                    <?php else: ?>
+                                        <?php echo e(Html::image(asset('archivos/'.$t->foto),null, ['class' => ' ','style'=>'width: 70px'])); ?>
+
+                                    <?php endif; ?>
+                                    <br>
+                                    <?php echo e(link_to_route('inquilino.show', $title = 'Ver', $t->id_prop,['class'=>'btn btn-primary btn-block'])); ?></td>
+                                <td><?php echo e($t->nom_inquilino); ?> <?php echo e($t->ap_pat); ?> <?php echo e($t->ap_mat); ?></td>
+                                <td>
+                                    <?php if($t->tipo == 1): ?>
+                                        Inquilino
+                                    <?php else: ?>
+                                        Dueño
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                    <?php echo link_to('nuevas/'.$ts->id.'/create','Editar ocupantes',['class'=>'btn btn-success btn-block']); ?>
 
                 </div>
             </div>
         </div>
 
         <div class="col-sm-4">
-            <div class="panel panel-success">
+            <div class="panel panel-info">
                 <div class="panel-heading">Ubicación</div>
                 <div class="panel-body">
                         <h5>Estado: <?php echo e($dir->estado); ?></h5>
@@ -32,60 +61,59 @@
             </div>
         </div>
 
-        <div class="col-sm-4">
+
+        <div class="col-sm-4"><!--Muestra los servicios Generados-->
+
             <div class="panel panel-info">
                 <div class="panel-heading">Servicios</div>
                 <div class="panel-body">
-                    <table>
+                    <table class="table table-bordered">
                         <thead>
+                        <th>#</th>
                         <th>Servicio</th>
                         <th>Monto</th>
                         </thead>
-                    <?php foreach($cuotas as $cuota): ?>
+                    <?php foreach($cuotas as $num => $cuota): ?>
                             <tbody>
-                                <td><?php echo e($cuota->tipo_cuota); ?></td>
-                                <td><?php echo e($cuota->monto); ?></td>
+                                <td><?php echo e($num + 1); ?></td>
+                                <td> <?php echo e($cuota->nom_cuota); ?></td>
+                                <td> $<?php echo e($cuota->monto); ?></td>
                             </tbody>
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
                     </table>
                     <?php echo link_to('cuota/create/'.$ts->id,'Agrega',['class'=>'btn btn-success btn-block glyphicon glyphicon-wrench']); ?>
 
                 </div>
             </div>
         </div>
+
     </div>
 
-        <div class="panel panel-info">
-            <div class="panel-heading">Administrar Propiedad</div>
-            <div class="panel-body">
-                <table class="table table-bordered">
-                    <tr>
-                        <td>
-                            <button type="button" class="form-control btn btn-info">
-                                Inquilinos
-                                <span class="glyphicon glyphicon-user"></span>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="form-control btn btn-info">
-                                Contabilidad
-                                <span class="glyphicon glyphicon-th-list"></span>
-                            </button>
-                        <td>
-                            <button type="button" class="form-control btn btn-info">
-                                Recordatorios
-                                <span class="glyphicon glyphicon-time"></span>
-                            </button>
-                        <td>
-                            <button type="button" class="form-control btn btn-info">
-                                Reportes
-                                <span class="glyphicon glyphicon-wrench"></span>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">Administrar Propiedad</div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <tr>
+                    <td>
+                        <button type="button" class="form-control btn btn-info">
+                            Contabilidad
+                            <span class="glyphicon glyphicon-th-list"></span>
+                        </button>
+                    <td>
+                        <button type="button" class="form-control btn btn-info">
+                            Recordatorios
+                            <span class="glyphicon glyphicon-time"></span>
+                        </button>
+                    <td>
+                        <button type="button" class="form-control btn btn-info">
+                            Reportes
+                            <span class="glyphicon glyphicon-wrench"></span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
         </div>
+    </div>
 
 
 

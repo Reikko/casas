@@ -24,6 +24,7 @@ class TrabControl extends Controller
     public function index()
     {
         $ts = Trabajador::Trabajadores();
+
         return view ('trabajad.index',compact('ts'));
     }
 
@@ -32,6 +33,7 @@ class TrabControl extends Controller
         return view('trabajad.create');
     }
 
+    //Creando trabajador
     public function store(Request $request)
     {
         $id = DB::table('trabajadors')->insertGetId([
@@ -100,8 +102,7 @@ class TrabControl extends Controller
             $segur = "null";
         }
 
-        $prue = Trabajador::find($id);
-        $prue->alias = 'Reikko';
+
         Archivo::create([
             'id_trab' => $id,
             'renuncia' => $name,

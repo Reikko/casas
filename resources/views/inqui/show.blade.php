@@ -1,11 +1,12 @@
 @extends('layouts.app')
-@if(Session::has('message'))
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        {{Session::get('message')}}
-    </div>
-@endif
+
 @section('completo')
+    @if(Session::has('message'))
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{Session::get('message')}}
+        </div>
+    @endif
     <div class="alert alert-info alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         En espera de Revision de Datos
@@ -52,7 +53,7 @@
                     {{link_to('archivos/'.$inq->ife,'Descargar IFE',['target'=>'_blank','download'=> ''.$inq->id.'IFE_INQ'])}}</h5>
                 @else
                     <h5>IFE: Sin Archivo</h5>
-                @endif
+            @endif
 
             @if($inq->comp_dom != null)
             <h5>Comprobante de Domicilio:
@@ -62,13 +63,13 @@
                     Sin Comprobante</h5>
             @endif
 
-                @if($inq->contrato != null)
-                    <h5>Contrato:
-                        {{link_to('archivos/'.$inq->contrato,'Descargar Contrato',['target'=>'_blank','download'=> ''.$inq->id.'CONTRATO_INQ'])}}</h5>
-                @else
-                    <h5>Contrato
-                        Sin Contrato</h5>
-                @endif
+            @if($inq->contrato != null)
+                <h5>Contrato:
+                    {{link_to('archivos/'.$inq->contrato,'Descargar Contrato',['target'=>'_blank','download'=> ''.$inq->id.'CONTRATO_INQ'])}}</h5>
+            @else
+                <h5>Contrato
+                    Sin Contrato</h5>
+            @endif
 
         </div>
     </div>

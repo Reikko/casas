@@ -29,7 +29,7 @@
                 <h5>Clave: {{$ts->id}}</h5>
                 <h5>Estado civil: {{$ts->edo_civil}}</h5>
                 <h5>Sexo: {{$ts->sexo}}</h5>
-                <h5>Alias: {{$ts->alias}}</h5>
+                <h5>Usuario: {{$ts->alias}}</h5>
             </div>
 
         </div>
@@ -52,33 +52,48 @@
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Domicilio</div>
-        <div class="panel-body">
-            <h5>Calle: {{$ts->calle}}</h5>
-            <h5>Numero exterior: #{{$ts->num_ext}}</h5>
-            <h5> Numero interior:{{$ts->num_int}}</h5>
-            <h5>{{$ts->colonia}}, {{$ts->municipio}}, {{$ts->estado}}  </h5>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
         <div class="panel-heading">Documentos</div>
         <div class="panel-body">
             <h5>RFC:{{$ts->rfc}} </h5>
 
-            <h5>Numero de Seguro: {{$ts->num_seguro}}
-                {{link_to('archivos/'.$arc->com_seguro,'Descargar Comprobante de Seguro',['target'=>'_blank','download'=> ''.$ts->id.'Seguro'])}}</h5>
+            @if($arc->ife != 'null')
+                <h5>IFE:
+                    {{link_to('archivos/'.$arc->ife,'Descargar IFE',['target'=>'_blank','download'=> ''.$ts->id.'IFE'])}}</h5>
+            @else
+                <h5>IFE: Sin Archivo</h5>
+            @endif
 
-            <h5>Renuncia:
-                {{link_to('archivos/'.$arc->renuncia,'Descargar Renuncia',['target'=>'_blank','download'=> ''.$ts->id.'Renuncia'])}}</h5>
-            <h5>IFE:
-                {{link_to('archivos/'.$arc->ife,'Descargar IFE',['target'=>'_blank','download'=> ''.$ts->id.'IFE'])}}</h5>
+            @if($arc->comp_dom != 'null')
+                <h5>Comprobante de Domicilio:
+                    {{link_to('archivos/'.$arc->comp_dom,'Descargar Comprobante de Domicilio',['target'=>'_blank','download'=> ''.$ts->id.'DOMICILIO'])}}</h5>
+            @else
+                <h5>Comprobante de Domicilio:
+                    Sin Comprobante</h5>
+            @endif
 
-            <h5>Comprobante de Domicilio:
-                {{link_to('archivos/'.$arc->comp_dom,'Descargar Comprobante de Domicilio',['target'=>'_blank','download'=> ''.$ts->id.'DOMICILIO'])}}</h5>
+            @if($arc->curp != 'null')
+                <h5>CURP:
+                    {{link_to('archivos/'.$arc->curp,'Descargar CURP',['target'=>'_blank','download'=> ''.$ts->id.'CURP'])}}</h5>
+            @else
+                <h5>CURP:
+                    Sin CURP</h5>
+            @endif
+            @if($arc->renuncia != 'null')
+                <h5>Renuncia:
+                    {{link_to('archivos/'.$arc->renuncia,'Descargar Renuncia',['target'=>'_blank','download'=> ''.$ts->id.'Renuncia'])}}</h5>
+            @else
+                <h5>Renuncia:
+                    Sin Comprobante</h5>
+            @endif
+            @if($arc->com_seguro != 'null')
+                <h5>Numero de Seguro: {{$ts->num_seguro}}
+                    {{link_to('archivos/'.$arc->com_seguro,'Descargar Comprobante de Seguro',['target'=>'_blank','download'=> ''.$ts->id.'Seguro'])}}</h5>
+            @else
+                <h5>Numero de Seguro:
+                    Sin Comprobante</h5>
+            @endif
 
-            <h5>Curp:
-                {{link_to('archivos/'.$arc->curp,'Descargar CURP',['target'=>'_blank','download'=> ''.$ts->id.'CURP'])}}</h5>
+
 
         </div>
     </div>

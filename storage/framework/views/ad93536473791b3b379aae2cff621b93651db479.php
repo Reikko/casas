@@ -83,7 +83,7 @@
 
             </td>
             <td>
-                <?php echo link_to_route('cdad.show', $title = 'Modificar', $parameters = $c->id, $attributes = ['class'=>'btn btn-info btn-block']); ?>
+                <?php echo link_to_route('cuota.show', $title = 'Modificar', $parameters = $c->id, $attributes = ['class'=>'btn btn-info btn-block']); ?>
 
                 <?php echo Form::open(['route'=>['cuota.destroy',$c->id],'method'=>'DELETE']); ?>
 

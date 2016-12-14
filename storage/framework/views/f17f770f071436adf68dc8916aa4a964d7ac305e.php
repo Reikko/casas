@@ -4,10 +4,7 @@
         <?php echo Form::open(['route'=>'inquilino.store','method'=>'POST','class'=>'form-horizontal','files'=> true]); ?>
 
         <div class="form-group">
-            <div class="col-sm-3">
-            </div>
             <?php echo Form::label('FOTO',null,['class'=>'control-label col-sm-3']); ?>
-
 
             <div class="col-sm-3">
                 <?php echo Form::label('Subir Foto',null,['class'=>'']); ?>
@@ -15,7 +12,11 @@
                 <?php echo Form::file('foto'); ?>
 
             </div>
+            <?php echo Form::label('TIPO',null,['class'=>'control-label col-sm-3']); ?>
+
             <div class="col-sm-3">
+                <?php echo Form::select('tipo',['1'=>'Inquilino','2'=>'Dueño'],'1',['class'=>'form-control']); ?>
+
             </div>
         </div>
         <div class="form-group">

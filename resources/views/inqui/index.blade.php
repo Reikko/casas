@@ -14,8 +14,8 @@
         <th>Nombre</th>
         <th>Ocupacion</th>
         <th>Estatus</th>
-        <th>Apodo</th>
-        <th>Archivos</th>
+        <th>Usuario</th>
+        <th>Documentos</th>
         <th>Editar</th>
         </thead>
 
@@ -49,11 +49,17 @@
                 <td>{{$t->estatus}}</td>
                 <td>{{$t->alias}}</td>
                 <td>
-                    <a href="archivos/{{$t->ife}}" target="_blank"> IFE</a><br>
-                    <a href="archivos/{{$t->comp_dom}}" target="_blank"> DOMICILIO</a><br>
-                    <a href="archivos/{{$t->contrato}}" target="_blank"> SEGURO</a><br>
+                    @if($t->ife != null)
+                        <a href="archivos/{{$t->ife}}" target="_blank"> IFE</a><br>
+                    @endif
+                    @if($t->comp_dom != null)
+                        <a href="archivos/{{$t->comp_dom}}" target="_blank"> DOMICILIO</a><br>
+                    @endif
+                    @if($t->contrato != null)
+                        <a href="archivos/{{$t->contrato}}" target="_blank"> SEGURO</a><br>
+                    @endif
                 </td>
-                <td>{!!link_to_route('trabajador.edit','Editar', $t->id, ['class'=>'btn btn-primary'])!!}</td>
+                <td>{!!link_to_route('inquilino.edit','Editar', $t->id, ['class'=>'btn btn-primary'])!!}</td>
             </tr>
             </tbody>
         @endforeach

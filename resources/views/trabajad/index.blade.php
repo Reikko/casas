@@ -14,10 +14,9 @@
         <th>Nombre</th>
         <th>Puesto</th>
         <th>Estatus</th>
-        <th>Apodo</th>
+        <th>Usuario</th>
         <th>Archivos</th>
         <th>Editar</th>
-        <th>Baja</th>
         </thead>
 
         @foreach($ts as $t)
@@ -44,19 +43,29 @@
                             {{ Html::image(asset('archivos/'.$t->foto),null, ['class' => ' ','style'=>'width: 100px']) }}
                         @endif
                             <br>
-                       {{link_to_route('trabajador.show', $title = 'VER PERFIL', $t->id)}}</td>
+                       {{link_to_route('trabajador.show', $title = 'VER PERFIL', $t->id,['class'=>'btn btn-success '])}}</td>
                     <td>{{$t->nom_trab}} {{$t->ap_pat}} {{$t->ap_mat}}</td>
                     <td>{{$t->puesto}}</td>
                     <td>{{$t->estatus}}</td>
                     <td>{{$t->alias}}</td>
-                    <td><a href="archivos/{{$t->renuncia}}" target="_blank"> Renuncia</a><br>
-                        <a href="archivos/{{$t->ife}}" target="_blank"> IFE</a><br>
-                        <a href="archivos/{{$t->curp}}" target="_blank"> CURP</a><br>
-                        <a href="archivos/{{$t->comp_dom}}" target="_blank"> DOMICILIO</a><br>
-                        <a href="archivos/{{$t->com_seguro}}" target="_blank"> SEGURO</a><br>
+                    <td>
+                        @if($t->renuncia!='null')
+                            <a href="archivos/{{$t->renuncia}}" target="_blank"> Renuncia</a><br>
+                        @endif
+                        @if($t->ife!='null')
+                                <a href="archivos/{{$t->ife}}" target="_blank"> IFE</a><br>
+                        @endif
+                        @if($t->curp!='null')
+                            <a href="archivos/{{$t->curp}}" target="_blank"> CURP</a><br>
+                        @endif
+                        @if($t->comp_dom!='null')
+                            <a href="archivos/{{$t->comp_dom}}" target="_blank"> DOMICILIO</a><br>
+                        @endif
+                        @if($t->com_seguro!='null')
+                            <a href="archivos/{{$t->com_seguro}}" target="_blank"> SEGURO</a><br>
+                        @endif
                     </td>
-                    <td>{!!link_to_route('trabajador.edit', $title = 'Editar', $parameters = $t->id, $attributes = ['class'=>'btn btn-primary'])!!}</td>
-                    <td>Baja</td>
+                    <td>{!!link_to_route('trabajador.edit', $title = 'Editar', $parameters = $t->id, $attributes = ['class'=>'btn btn-primary btn-block'])!!}</td>
                 </tr>
             </tbody>
         @endforeach

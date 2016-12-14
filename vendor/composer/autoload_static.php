@@ -402,6 +402,7 @@ class ComposerStaticInit536af01ad52cd9d3c107e432cfc4ae36
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'IlluminateQueueClosure' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+        'InquilinoFalso' => __DIR__ . '/../..' . '/database/seeds/InquilinoFalso.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit_Extensions_GroupTestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
         'PHPUnit_Extensions_PhptTestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/PhptTestCase.php',
@@ -835,6 +836,7 @@ class ComposerStaticInit536af01ad52cd9d3c107e432cfc4ae36
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'TrabajadorFalso' => __DIR__ . '/../..' . '/database/seeds/TrabajadorFalso.php',
         'ValoresDefault' => __DIR__ . '/../..' . '/database/seeds/ValoresDefault.php',
     );
 

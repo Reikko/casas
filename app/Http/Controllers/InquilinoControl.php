@@ -4,7 +4,8 @@ namespace azf\Http\Controllers;
 
 use azf\Inquilino;
 use Illuminate\Http\Request;
-
+use Session;
+use Redirect;
 use azf\Http\Requests;
 use Illuminate\Support\Facades\DB;
 
@@ -23,6 +24,7 @@ class InquilinoControl extends Controller
         return view('inqui.create');
     }
 
+    //Datos a Insertar de un inquilino
     public function store(Request $request)
     {
         $id = DB::table('inquilinos')->insertGetId([
@@ -92,27 +94,21 @@ class InquilinoControl extends Controller
         return view ('inqui.show',compact('inq'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Mostrar Vista para editar inquilino o dueño
     public function edit($id)
     {
-        //
+        $ts = Inquilino::find($id);
+        return view('inqui.edit',compact('ts'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Editar Inquilino o dueño
     public function update(Request $request, $id)
     {
-        //
+        $ts = Inquilino::find($id);
+        $ts->fill($request->all());
+        $ts->save();
+        Session::flash('message','Datos editados');
+        return Redirect::to('/inquilino/'.$ts->id);
     }
 
     /**

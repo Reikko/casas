@@ -14,8 +14,8 @@
         <th>Nombre</th>
         <th>Ocupacion</th>
         <th>Estatus</th>
-        <th>Apodo</th>
-        <th>Archivos</th>
+        <th>Usuario</th>
+        <th>Documentos</th>
         <th>Editar</th>
         </thead>
 
@@ -51,11 +51,17 @@
                 <td><?php echo e($t->estatus); ?></td>
                 <td><?php echo e($t->alias); ?></td>
                 <td>
-                    <a href="archivos/<?php echo e($t->ife); ?>" target="_blank"> IFE</a><br>
-                    <a href="archivos/<?php echo e($t->comp_dom); ?>" target="_blank"> DOMICILIO</a><br>
-                    <a href="archivos/<?php echo e($t->contrato); ?>" target="_blank"> SEGURO</a><br>
+                    <?php if($t->ife != null): ?>
+                        <a href="archivos/<?php echo e($t->ife); ?>" target="_blank"> IFE</a><br>
+                    <?php endif; ?>
+                    <?php if($t->comp_dom != null): ?>
+                        <a href="archivos/<?php echo e($t->comp_dom); ?>" target="_blank"> DOMICILIO</a><br>
+                    <?php endif; ?>
+                    <?php if($t->contrato != null): ?>
+                        <a href="archivos/<?php echo e($t->contrato); ?>" target="_blank"> SEGURO</a><br>
+                    <?php endif; ?>
                 </td>
-                <td><?php echo link_to_route('trabajador.edit','Editar', $t->id, ['class'=>'btn btn-primary']); ?></td>
+                <td><?php echo link_to_route('inquilino.edit','Editar', $t->id, ['class'=>'btn btn-primary']); ?></td>
             </tr>
             </tbody>
         <?php endforeach; ?>

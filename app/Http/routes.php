@@ -4,15 +4,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('enviar', function () {
-    Mail::send('Emails.emails' ,[],function ($message){
-        $message->from('admin@administrador.com', 'Administrador de la pagina AZF');
-        $message->to('criszavalacano@gmail.com','Cristobal Zavala')->subject('Recibiste este correo por que el administrador lo mando');
-    });
-
-    return "Ya se envio el correo";
-});
-
 Route::get('nuevas/select','CasaControl@select');       //Seleccion entre una o varias casas
 Route::get('nuevas/cp','CasaControl@cp');               //Envia el codigo postal
 //------------------------------------------------//
@@ -21,7 +12,6 @@ Route::get('nuevas/cp','CasaControl@cp');               //Envia el codigo postal
 Route::get('des/estado/{id}','EdoControl@getCiudades');
 Route::get('des/{n}/estado/{id}','EdoControl@getEditCiudades');
 //
-//Route::get('calle/desa/{id}','CdadControl@getDesarrollo');
 
 Route::resource('des','DesControl');
 Route::resource('edo','EdoControl');
@@ -38,9 +28,7 @@ Route::resource('inquilino','InquilinoControl');//
 Route::resource('cuota','CuotaControl');        //Registro de cuotas //Servicio, Mantenimiento...etc
 Route::resource('periodo','PeriodoControl');    //Registro de periodos // Diario, Semanal etc...
 Route::resource('email','MailController');        //Utiliza para enviar correos de prueba
-
-Route::get('/email/e/enviar','MailController@enviar');        //Utiliza para enviar correos de prueba
-
+Route::resource('relacion','RelacionPropiedad');        //Utiliza para enviar correos de prueba
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
@@ -62,13 +50,15 @@ Route::post('/user/login','UserControl@login');
 
 
 //-----------------Ruta para El codigo Postal--------------//
-//Route::get('una/cp/{id}','Unacontrol@getDireccion');
 Route::post('una/cp','UnaControl@showDireccion');
+//---------------------------------------------------------//
+
+//-----------------Ruta para Crear una relacion entre propiedad e inquilino--------------//
+Route::get('nuevas/{id}/create','CasaControl@relacion');
 //---------------------------------------------------------//
 
 
 Route::get('/home', 'HomeController@index');
-//Route::get('/home', 'UserControl@index');
 
 //Ruta para generar el pdf
 Route::get('trabajador/obt/pdf/{nombre}/{app}/{apm}/{puesto}','TrabControl@getPdf');

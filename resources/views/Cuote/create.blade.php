@@ -71,7 +71,7 @@
                 {{$c->ver}}
             </td>
             <td>
-                {!!link_to_route('cdad.show', $title = 'Modificar', $parameters = $c->id, $attributes = ['class'=>'btn btn-info btn-block'])!!}
+                {!!link_to_route('cuota.show', $title = 'Modificar', $parameters = $c->id, $attributes = ['class'=>'btn btn-info btn-block'])!!}
                 {!! Form::open(['route'=>['cuota.destroy',$c->id],'method'=>'DELETE']) !!}
                 {!! Form::submit('Eliminar',['class'=>'btn btn-danger btn-block']) !!}
                 {!! Form::close() !!}

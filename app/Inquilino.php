@@ -3,6 +3,7 @@
 namespace azf;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Inquilino extends Model
 {
@@ -35,4 +36,15 @@ class Inquilino extends Model
         'created_at',
         'updated_at'
     ];
+
+    public static function NoEstan($arr)
+    {
+        return DB::table('inquilinos')
+                ->whereNotIn('id', $arr)->get();
+
+
+    }
+
+
+
 }

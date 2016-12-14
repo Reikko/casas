@@ -2,20 +2,17 @@
 
 namespace azf\Http\Controllers;
 
+use azf\RelationProperty;
 use Illuminate\Http\Request;
-
+use Redirect;
+use Session;
 use azf\Http\Requests;
 
 class RelacionPropiedad extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -28,15 +25,14 @@ class RelacionPropiedad extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Creamos la relacion entre el inquilino y la casa Redireccionamos a la vista para agregar...
     public function store(Request $request)
     {
-        //
+        $id_casa = $request['id_reg_house'];
+        $relacion = new RelationProperty;
+        $relacion->fill($request->all());
+        $relacion->save();
+        return Redirect::to('nuevas/'.$id_casa.'/create');
     }
 
     /**
@@ -73,14 +69,12 @@ class RelacionPropiedad extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Eliminar relacion entre la propiedad y el ocupante
     public function destroy($id)
     {
-        //
+        $casa = RelationProperty::find($id);
+        RelationProperty::destroy($id);
+        Session::flash('message','Ocupante eliminado');
+        return Redirect::to('nuevas/'.$casa->id_reg_house.'/create');
     }
 }

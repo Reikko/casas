@@ -30,7 +30,7 @@
                 <h5>Clave: <?php echo e($ts->id); ?></h5>
                 <h5>Estado civil: <?php echo e($ts->edo_civil); ?></h5>
                 <h5>Sexo: <?php echo e($ts->sexo); ?></h5>
-                <h5>Alias: <?php echo e($ts->alias); ?></h5>
+                <h5>Usuario: <?php echo e($ts->alias); ?></h5>
             </div>
 
         </div>
@@ -53,34 +53,49 @@
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Domicilio</div>
-        <div class="panel-body">
-            <h5>Calle: <?php echo e($ts->calle); ?></h5>
-            <h5>Numero exterior: #<?php echo e($ts->num_ext); ?></h5>
-            <h5> Numero interior:<?php echo e($ts->num_int); ?></h5>
-            <h5><?php echo e($ts->colonia); ?>, <?php echo e($ts->municipio); ?>, <?php echo e($ts->estado); ?>  </h5>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
         <div class="panel-heading">Documentos</div>
         <div class="panel-body">
             <h5>RFC:<?php echo e($ts->rfc); ?> </h5>
 
-            <h5>Numero de Seguro: <?php echo e($ts->num_seguro); ?>
+            <?php if($arc->ife != 'null'): ?>
+                <h5>IFE:
+                    <?php echo e(link_to('archivos/'.$arc->ife,'Descargar IFE',['target'=>'_blank','download'=> ''.$ts->id.'IFE'])); ?></h5>
+            <?php else: ?>
+                <h5>IFE: Sin Archivo</h5>
+            <?php endif; ?>
 
-                <?php echo e(link_to('archivos/'.$arc->com_seguro,'Descargar Comprobante de Seguro',['target'=>'_blank','download'=> ''.$ts->id.'Seguro'])); ?></h5>
+            <?php if($arc->comp_dom != 'null'): ?>
+                <h5>Comprobante de Domicilio:
+                    <?php echo e(link_to('archivos/'.$arc->comp_dom,'Descargar Comprobante de Domicilio',['target'=>'_blank','download'=> ''.$ts->id.'DOMICILIO'])); ?></h5>
+            <?php else: ?>
+                <h5>Comprobante de Domicilio:
+                    Sin Comprobante</h5>
+            <?php endif; ?>
 
-            <h5>Renuncia:
-                <?php echo e(link_to('archivos/'.$arc->renuncia,'Descargar Renuncia',['target'=>'_blank','download'=> ''.$ts->id.'Renuncia'])); ?></h5>
-            <h5>IFE:
-                <?php echo e(link_to('archivos/'.$arc->ife,'Descargar IFE',['target'=>'_blank','download'=> ''.$ts->id.'IFE'])); ?></h5>
+            <?php if($arc->curp != 'null'): ?>
+                <h5>CURP:
+                    <?php echo e(link_to('archivos/'.$arc->curp,'Descargar CURP',['target'=>'_blank','download'=> ''.$ts->id.'CURP'])); ?></h5>
+            <?php else: ?>
+                <h5>CURP:
+                    Sin CURP</h5>
+            <?php endif; ?>
+            <?php if($arc->renuncia != 'null'): ?>
+                <h5>Renuncia:
+                    <?php echo e(link_to('archivos/'.$arc->renuncia,'Descargar Renuncia',['target'=>'_blank','download'=> ''.$ts->id.'Renuncia'])); ?></h5>
+            <?php else: ?>
+                <h5>Renuncia:
+                    Sin Comprobante</h5>
+            <?php endif; ?>
+            <?php if($arc->com_seguro != 'null'): ?>
+                <h5>Numero de Seguro: <?php echo e($ts->num_seguro); ?>
 
-            <h5>Comprobante de Domicilio:
-                <?php echo e(link_to('archivos/'.$arc->comp_dom,'Descargar Comprobante de Domicilio',['target'=>'_blank','download'=> ''.$ts->id.'DOMICILIO'])); ?></h5>
+                    <?php echo e(link_to('archivos/'.$arc->com_seguro,'Descargar Comprobante de Seguro',['target'=>'_blank','download'=> ''.$ts->id.'Seguro'])); ?></h5>
+            <?php else: ?>
+                <h5>Numero de Seguro:
+                    Sin Comprobante</h5>
+            <?php endif; ?>
 
-            <h5>Curp:
-                <?php echo e(link_to('archivos/'.$arc->curp,'Descargar CURP',['target'=>'_blank','download'=> ''.$ts->id.'CURP'])); ?></h5>
+
 
         </div>
     </div>

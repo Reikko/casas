@@ -1,11 +1,11 @@
-<?php if(Session::has('message')): ?>
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <?php echo e(Session::get('message')); ?>
-
-    </div>
-<?php endif; ?>
 <?php $__env->startSection('completo'); ?>
+    <?php if(Session::has('message')): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo e(Session::get('message')); ?>
+
+        </div>
+    <?php endif; ?>
     <div class="alert alert-info alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         En espera de Revision de Datos
@@ -54,7 +54,7 @@
                     <?php echo e(link_to('archivos/'.$inq->ife,'Descargar IFE',['target'=>'_blank','download'=> ''.$inq->id.'IFE_INQ'])); ?></h5>
                 <?php else: ?>
                     <h5>IFE: Sin Archivo</h5>
-                <?php endif; ?>
+            <?php endif; ?>
 
             <?php if($inq->comp_dom != null): ?>
             <h5>Comprobante de Domicilio:
@@ -64,13 +64,13 @@
                     Sin Comprobante</h5>
             <?php endif; ?>
 
-                <?php if($inq->contrato != null): ?>
-                    <h5>Contrato:
-                        <?php echo e(link_to('archivos/'.$inq->contrato,'Descargar Contrato',['target'=>'_blank','download'=> ''.$inq->id.'CONTRATO_INQ'])); ?></h5>
-                <?php else: ?>
-                    <h5>Contrato
-                        Sin Contrato</h5>
-                <?php endif; ?>
+            <?php if($inq->contrato != null): ?>
+                <h5>Contrato:
+                    <?php echo e(link_to('archivos/'.$inq->contrato,'Descargar Contrato',['target'=>'_blank','download'=> ''.$inq->id.'CONTRATO_INQ'])); ?></h5>
+            <?php else: ?>
+                <h5>Contrato
+                    Sin Contrato</h5>
+            <?php endif; ?>
 
         </div>
     </div>

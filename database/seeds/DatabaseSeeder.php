@@ -14,5 +14,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $this->call('ValoresDefault');
         $this->call('CuotasCasa');
+        $this->call('InquilinoFalso');
+        $this->call('TrabajadorFalso');
     }
 }

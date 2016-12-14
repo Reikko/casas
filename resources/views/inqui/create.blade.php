@@ -4,15 +4,14 @@
         <h2>Registro de inquilino</h2>
         {!! Form::open(['route'=>'inquilino.store','method'=>'POST','class'=>'form-horizontal','files'=> true]) !!}
         <div class="form-group">
-            <div class="col-sm-3">
-            </div>
             {!! Form::label('FOTO',null,['class'=>'control-label col-sm-3']) !!}
-
             <div class="col-sm-3">
                 {!!Form::label('Subir Foto',null,['class'=>''])!!}
                 {!!Form::file('foto')!!}
             </div>
+            {!! Form::label('TIPO',null,['class'=>'control-label col-sm-3']) !!}
             <div class="col-sm-3">
+                {!! Form::select('tipo',['1'=>'Inquilino','2'=>'Dueño'],'1',['class'=>'form-control']) !!}
             </div>
         </div>
         <div class="form-group">

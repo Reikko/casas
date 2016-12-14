@@ -3,8 +3,10 @@
 namespace azf\Http\Controllers;
 
 use azf\codigospostales;
+use azf\Inquilino;
 use azf\regHouse;
 use azf\RegistroCuota;
+use azf\RelationProperty;
 use azf\TipoCasa;
 use Illuminate\Http\Request;
 
@@ -31,6 +33,15 @@ class CasaControl extends Controller
         return view('newHouse.index',compact('casas'));
     }
 
+    //Mostrar todos los inquilinos y dueños que existen
+    public function relacion($id)
+    {
+        $arr = RelationProperty::ArrOcupantes($id);     //Devuelve arreglo de ocupantes
+        $inq = Inquilino::NoEstan($arr);                //Devuelve inquilinos que no estan registrados
+        $ocupantes = RelationProperty::Ocupantes($id);  //Devuelve los ocupantes que ya estan agregados a la propiedad
+        return view('Relaciones.index',compact('inq','id','ocupantes'));//Mostrar relaciones en la propiedad
+    }
+
 
     public function create()
     {
@@ -48,12 +59,14 @@ class CasaControl extends Controller
         //
     }
 
+    //Muestra todos los datos de una propiedad
     public function show($id)
     {
         $ts = regHouse::find($id);                          //Busca datos de la propiedad y los muestra en la vista
         $dir = codigospostales::find($ts->id_colonia);      //Busca datos relacionados con el codigo postal
-        $cuotas = RegistroCuota::Cuota($ts->id);
-        return view('newHouse.show',compact('ts','dir','cuotas'));   //Retorna vista de la propiedad con el id relacionado
+        $cuotas = RegistroCuota::Cuota($ts->id);            //Muestra las cuotas en la vista principal de cada casa
+        $ocupantes = RelationProperty::Ocupantes($id);
+        return view('newHouse.show',compact('ts','dir','cuotas','ocupantes'));   //Retorna vista de la propiedad con el id relacionado
     }
 
     /**
