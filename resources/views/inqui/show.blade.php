@@ -7,12 +7,7 @@
             {{Session::get('message')}}
         </div>
     @endif
-    <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        En espera de Revision de Datos
-    </div>
     <div class="panel panel-default">
-
         <div class="panel-body">
             <h2>{{$inq->nom_inquilino}} {{$inq->ap_pat}} {{$inq->ap_mat}}</h2>
             <h4>Ocupacion:  {{$inq->ocupacion}}</h4>

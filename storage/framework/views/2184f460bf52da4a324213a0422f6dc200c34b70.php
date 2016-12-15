@@ -99,16 +99,15 @@
                             Contabilidad
                             <span class="glyphicon glyphicon-th-list"></span>
                         </button>
+
                     <td>
                         <button type="button" class="form-control btn btn-info">
                             Recordatorios
                             <span class="glyphicon glyphicon-time"></span>
                         </button>
                     <td>
-                        <button type="button" class="form-control btn btn-info">
-                            Reportes
-                            <span class="glyphicon glyphicon-wrench"></span>
-                        </button>
+                        <?php echo link_to_route('reporte.show','Ver reportes',$ts->id,['class'=>'btn btn-success btn-block']); ?>
+
                     </td>
                 </tr>
             </table>

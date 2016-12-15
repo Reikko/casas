@@ -20,7 +20,7 @@ class TrabajadorFalso extends Seeder
             $trabajador->ap_pat = $faker->lastName;
             $trabajador->ap_mat = $faker->lastName;
             $trabajador->edo_civil = 'Soltero';
-            $trabajador->sexo = '0';
+            $trabajador->sexo = 'Masculino';
             $trabajador->alias = $faker->userName;
             $trabajador->fecha_nac = $faker->dateTime;
             $trabajador->lug_nac = 'Sin lugar';

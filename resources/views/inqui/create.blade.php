@@ -113,7 +113,21 @@
             <div class="col-sm-3">
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="col-sm-6">
+
+            </div>
+
+            <div class="col-sm-3">
+                {!! link_to(URL::previous(), 'Cancelar', ['class' => 'btn btn-danger btn-block']) !!}
+            </div>
+            <div class="col-sm-3">
+                {!! Form::submit('Registrar',['class'=>'btn btn-success btn-block']) !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
     </div>
-    {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
-    {!! Form::close() !!}
+
+
 @stop

@@ -41,8 +41,12 @@ class Inquilino extends Model
     {
         return DB::table('inquilinos')
                 ->whereNotIn('id', $arr)->get();
+    }
 
-
+    public static function inquilinos($id)
+    {
+        return DB::table('inquilinos')
+            ->where('id', $id)->get();
     }
 
 

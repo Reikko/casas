@@ -10,10 +10,11 @@
                     <h4 class="modal-title">Agregando Servicio</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['route'=>'edo.store','method'=>'POST']) !!}
+                    {!! Form::open(['route'=>'tipo.store','method'=>'POST']) !!}
+                    {{ Form::hidden('cuota',$id) }}
                     <div class="form-group">
                         {!! Form::label('Servicio:') !!}
-                        {!! Form::text('nom_edo',null,['class'=>'form-control','placeholder'=>'Ingresa el nombre del estado','required'=>'true']) !!}
+                        {!! Form::text('nom_cuota',null,['class'=>'form-control','placeholder'=>'Ingresa el nombre del servicio','required'=>'true']) !!}
                     </div>
                     {!! Form::submit('Registrar',['class'=>'btn btn-primary btn-block']) !!}
                     {!! Form::close() !!}

@@ -1,8 +1,18 @@
 <?php $__env->startSection('completo'); ?>
+    <?php if($errors->has()): ?>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php foreach($errors->all() as $error): ?>
+                <div><?php echo e($error); ?></div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php echo $__env->make('modal.servicio', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <table class="table">
         <thead>
-        <th>Fecha de inicio</th>
-        <th>Servicio</th>
+        <th>Fecha de inicio <br>DD/MM/AAAA</th>
+        <th>Tipo de Servicio</th>
         <th>Periodo</th>
         <th>Monto</th>
         <th>Descripción</th>
@@ -21,18 +31,12 @@
             <?php echo Form::button('Agregar Servicio',[
                 'class'=>'form-control btn btn-info btn-md',
                 'data-toggle'=>'modal',
-                'data-target'=>'#modEstado',
+                'data-target'=>'#modServicio',
                 'data-backdrop'=>'static' ]); ?>
 
         </td>
         <td>
             <?php echo Form::select('tipo_periodo',$periodos,null,['class'=>'form-control']); ?>
-
-            <?php echo Form::button('Agregar Periodo',[
-                'class'=>'form-control btn btn-info btn-md',
-                'data-toggle'=>'modal',
-                'data-target'=>'#modCiudad',
-                'data-backdrop'=>'static' ]); ?>
 
         </td>
         <td>
@@ -67,7 +71,7 @@
         </thead>-->
         <?php foreach($regCuotas as $c): ?>
             <tbody>
-            <td><?php echo e(Carbon\Carbon::parse($c->created_at)->format('d-m-Y')); ?></td>
+            <td><?php echo e(Carbon\Carbon::parse($c->fecha_ini)->format('d-m-Y')); ?></td>
             <td><?php echo e($c->nom_cuota); ?></td>
             <td><?php echo e($c->nom_periodo); ?></td>
             <td>

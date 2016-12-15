@@ -147,10 +147,25 @@
             <div class="col-sm-3">
             </div>
         </div>
-    </div>
-    <?php echo Form::submit('Registrar',['class'=>'btn btn-primary']); ?>
 
-    <?php echo Form::close(); ?>
+        <div class="form-group">
+            <div class="col-sm-6">
+
+            </div>
+
+            <div class="col-sm-3">
+                <?php echo link_to(URL::previous(), 'Cancelar', ['class' => 'btn btn-danger btn-block']); ?>
+
+            </div>
+            <div class="col-sm-3">
+                <?php echo Form::submit('Registrar',['class'=>'btn btn-success btn-block']); ?>
+
+                <?php echo Form::close(); ?>
+
+            </div>
+        </div>
+    </div>
+
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

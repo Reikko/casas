@@ -1,9 +1,19 @@
 @extends('layouts.app')
 @section('completo')
+    @if($errors->has())
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            @foreach ($errors->all() as $error)
+                <div>{{ $error }}</div>
+            @endforeach
+        </div>
+    @endif
+
+    @include('modal.servicio')
     <table class="table">
         <thead>
-        <th>Fecha de inicio</th>
-        <th>Servicio</th>
+        <th>Fecha de inicio <br>DD/MM/AAAA</th>
+        <th>Tipo de Servicio</th>
         <th>Periodo</th>
         <th>Monto</th>
         <th>Descripción</th>
@@ -19,16 +29,11 @@
             {!! Form::button('Agregar Servicio',[
                 'class'=>'form-control btn btn-info btn-md',
                 'data-toggle'=>'modal',
-                'data-target'=>'#modEstado',
+                'data-target'=>'#modServicio',
                 'data-backdrop'=>'static' ]) !!}
         </td>
         <td>
             {!! Form::select('tipo_periodo',$periodos,null,['class'=>'form-control']) !!}
-            {!! Form::button('Agregar Periodo',[
-                'class'=>'form-control btn btn-info btn-md',
-                'data-toggle'=>'modal',
-                'data-target'=>'#modCiudad',
-                'data-backdrop'=>'static' ]) !!}
         </td>
         <td>
             {!! Form::text('monto',null,['class'=>'form-control','placeholder'=>'Monto/Cantidad' ,'required'=>'true']) !!}
@@ -58,7 +63,7 @@
         </thead>-->
         @foreach($regCuotas as $c)
             <tbody>
-            <td>{{Carbon\Carbon::parse($c->created_at)->format('d-m-Y')}}</td>
+            <td>{{Carbon\Carbon::parse($c->fecha_ini)->format('d-m-Y')}}</td>
             <td>{{$c->nom_cuota}}</td>
             <td>{{$c->nom_periodo}}</td>
             <td>

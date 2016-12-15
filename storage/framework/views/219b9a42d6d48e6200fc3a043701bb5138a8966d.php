@@ -6,12 +6,7 @@
 
         </div>
     <?php endif; ?>
-    <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        En espera de Revision de Datos
-    </div>
     <div class="panel panel-default">
-
         <div class="panel-body">
             <h2><?php echo e($inq->nom_inquilino); ?> <?php echo e($inq->ap_pat); ?> <?php echo e($inq->ap_mat); ?></h2>
             <h4>Ocupacion:  <?php echo e($inq->ocupacion); ?></h4>

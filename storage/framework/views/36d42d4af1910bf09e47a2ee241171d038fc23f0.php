@@ -164,11 +164,8 @@
     <?php else: ?>
         <?php echo $__env->make('modal.edo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <div class="container">
-
             <div class="row">
-
                 <div class="col-sm-4" >
-
                 </div>
                 <div class="col-sm-4" >
                     <?php echo $__env->yieldContent('444'); ?>
@@ -196,7 +193,6 @@
     <?php echo $__env->yieldContent('login'); ?>
     <?php echo $__env->yieldContent('register'); ?>
     <?php echo $__env->yieldContent('welcome'); ?>
-
 
     <?php echo Html::script('/js/drop.js'); ?>
 

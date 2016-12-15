@@ -25,19 +25,22 @@ Route::resource('nuevas','CasaControl');        //Registro de nuevas casas
 Route::resource('una','UnaControl');            //Registro de solo una nueva propiedad
 Route::resource('varias','VariasControl');      //Registro d varias propiedades
 Route::resource('inquilino','InquilinoControl');//
-Route::resource('cuota','CuotaControl');        //Registro de cuotas //Servicio, Mantenimiento...etc
-Route::resource('periodo','PeriodoControl');    //Registro de periodos // Diario, Semanal etc...
-Route::resource('email','MailController');        //Utiliza para enviar correos de prueba
-Route::resource('relacion','RelacionPropiedad');        //Utiliza para enviar correos de prueba
+Route::resource('cuota','CuotaControl');            //Registro de cuotas //Servicio, Mantenimiento...etc
+Route::resource('periodo','PeriodoControl');        //Registro de periodos // Diario, Semanal etc...
+//Route::resource('email','MailController');          //Utiliza para enviar correos de prueba no utilizada aun
+Route::resource('relacion','RelacionPropiedad');    //Utiliza para crear una relacion entre la propiedad y un ocupante.
+Route::resource('tipo','TipoCuotaControl');         //Utilizada para crear los tipos de cuotas.
+Route::resource('reporte','ReporteControl');        //Ruta para generar un reporte nuevo.
+Route::resource('tabla','TablaReporteControl');        //Ruta para generar un reporte nuevo.
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
 Route::post('calle/create/{id}', 'CalleControl@store2');
 //
 
-//Obtener el id de la propiedad y crear sus cuotas
+//Obtener el id de la propiedad y crear sus cuotas-----------
 Route::get('cuota/create/{id}','CuotaControl@getCuota');
-//
+//-----------------------------------------------------------
 
 
 
@@ -55,6 +58,10 @@ Route::post('una/cp','UnaControl@showDireccion');
 
 //-----------------Ruta para Crear una relacion entre propiedad e inquilino--------------//
 Route::get('nuevas/{id}/create','CasaControl@relacion');
+//---------------------------------------------------------//
+
+//-----------------Ruta para Crear una relacion entre propiedad e inquilino--------------//
+Route::get('reporte/create/{id}','ReporteControl@crear');
 //---------------------------------------------------------//
 
 
