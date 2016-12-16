@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call('CuotasCasa');
         $this->call('InquilinoFalso');
         $this->call('TrabajadorFalso');
+        $this->call('DefaultDefectos');
     }
 }

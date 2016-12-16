@@ -15,23 +15,40 @@
             <div class="panel panel-success">
                 <div class="panel-heading">Reportes</div>
                 <div class="panel-body">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-hover">
                         <thead>
+                        <tr>
                             <th>#</th>
                             <th>Fecha Reporte</th>
                             <th>Fecha fin</th>
-                            <th>Estado</th>
                             <th>Ver</th>
+                            <th>Estado</th>
                             <th>Editar</th>
+                            <th>Cerrar</th>
+                        </tr>
                         </thead>
                     @foreach($reportes as $num => $reporte)
                         <tbody>
-                            <td>{{$num + 1}}</td>
-                            <td>{{$reporte->fecha_ini}}</td>
-                            <td>{{$reporte->fecha_fin}}</td>
-                            <td>Abierto</td>
-                            <td>{!! link_to_route('tabla.show','Ver',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}</td>
-                            <td>{!! link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}</td>
+                        @if($reporte->cerrado == 0)
+                            <tr class="success">
+                        @else
+                            <tr class="danger">
+                        @endif
+                                <td>{{$num + 1}}</td>
+                                <td>{{$reporte->fecha_ini}}</td>
+                                <td>{{$reporte->fecha_fin}}</td>
+                                @if($reporte->cerrado == 0)
+                                    <td>{!! link_to_route('tabla.show','Ver',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}</td>
+                                    <td>Abierto</td>
+                                    <td>{!! link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}</td>
+                                    <td>{!! link_to_route('reporte.edit','Cerrar',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}</td>
+                                @else
+                                    <td>{!! link_to_route('tabla.show','Ver',$reporte->id, ['class' => 'btn btn-danger btn-block']) !!}</td>
+                                    <td>Cerrado</td>
+                                    <td>{!! link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-danger btn-block disabled']) !!}</td>
+                                    <td>{!! link_to_route('reporte.edit','Cerrar',$reporte->id, ['class' => 'btn btn-danger btn-block disabled']) !!}</td>
+                                @endif
+                            </tr>
                         </tbody>
                     @endforeach
                     </table>

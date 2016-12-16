@@ -60,8 +60,9 @@ Route::post('una/cp','UnaControl@showDireccion');
 Route::get('nuevas/{id}/create','CasaControl@relacion');
 //---------------------------------------------------------//
 
-//-----------------Ruta para Crear una relacion entre propiedad e inquilino--------------//
+//-----------------Ruta para El reporte--------------//
 Route::get('reporte/create/{id}','ReporteControl@crear');
+Route::get('tabla/{rep}/edit/{id}','ReporteControl@crear');
 //---------------------------------------------------------//
 
 

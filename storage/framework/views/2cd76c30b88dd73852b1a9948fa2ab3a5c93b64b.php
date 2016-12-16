@@ -15,23 +15,40 @@
             <div class="panel panel-success">
                 <div class="panel-heading">Reportes</div>
                 <div class="panel-body">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-hover">
                         <thead>
+                        <tr>
                             <th>#</th>
                             <th>Fecha Reporte</th>
                             <th>Fecha fin</th>
-                            <th>Estado</th>
                             <th>Ver</th>
+                            <th>Estado</th>
                             <th>Editar</th>
+                            <th>Cerrar</th>
+                        </tr>
                         </thead>
                     <?php foreach($reportes as $num => $reporte): ?>
                         <tbody>
-                            <td><?php echo e($num + 1); ?></td>
-                            <td><?php echo e($reporte->fecha_ini); ?></td>
-                            <td><?php echo e($reporte->fecha_fin); ?></td>
-                            <td>Abierto</td>
-                            <td><?php echo link_to_route('tabla.show','Ver',$reporte->id, ['class' => 'btn btn-success btn-block']); ?></td>
-                            <td><?php echo link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-success btn-block']); ?></td>
+                        <?php if($reporte->cerrado == 0): ?>
+                            <tr class="success">
+                        <?php else: ?>
+                            <tr class="danger">
+                        <?php endif; ?>
+                                <td><?php echo e($num + 1); ?></td>
+                                <td><?php echo e($reporte->fecha_ini); ?></td>
+                                <td><?php echo e($reporte->fecha_fin); ?></td>
+                                <?php if($reporte->cerrado == 0): ?>
+                                    <td><?php echo link_to_route('tabla.show','Ver',$reporte->id, ['class' => 'btn btn-success btn-block']); ?></td>
+                                    <td>Abierto</td>
+                                    <td><?php echo link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-success btn-block']); ?></td>
+                                    <td><?php echo link_to_route('reporte.edit','Cerrar',$reporte->id, ['class' => 'btn btn-success btn-block']); ?></td>
+                                <?php else: ?>
+                                    <td><?php echo link_to_route('tabla.show','Ver',$reporte->id, ['class' => 'btn btn-danger btn-block']); ?></td>
+                                    <td>Cerrado</td>
+                                    <td><?php echo link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-danger btn-block disabled']); ?></td>
+                                    <td><?php echo link_to_route('reporte.edit','Cerrar',$reporte->id, ['class' => 'btn btn-danger btn-block disabled']); ?></td>
+                                <?php endif; ?>
+                            </tr>
                         </tbody>
                     <?php endforeach; ?>
                     </table>

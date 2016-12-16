@@ -19,7 +19,7 @@ class ReporteControl extends Controller
     //muestra todol los reportes relacionados con
     public function crear($id)
     {
-
+        return 'Editar la vista para editar la fila';
     }
     public function index()
     {
@@ -46,7 +46,7 @@ class ReporteControl extends Controller
         $reporte->fecha_fin =  Carbon::create(0, 0, 0, 0, 0, 0);
         $reporte->cerrado = 0;
         $reporte->save();
-        return redirect('/tabla/'.$reporte->id);
+        return redirect('/tabla/'.$reporte->id.'/edit');
         //return $reporte;
     }
 
@@ -56,7 +56,7 @@ class ReporteControl extends Controller
         $inquilinos = RelationProperty::Ocupantes($id);     //Busca los inquilinos en la propiedad
         $ts = regHouse::find($id);                          //Busca datos de la propiedad y los muestra en la vista
         $dir = codigospostales::find($ts->id_colonia);      //Busca datos relacionados con el codigo postal
-        $reportes = Report::all();                          //Muestra todos los reportes actuales //falta retornar solo los reportes correspondientes a la propiedad
+        $reportes = Report::Reporte($id);                          //Muestra todos los reportes actuales //falta retornar solo los reportes correspondientes a la propiedad
         return view('Report.create',compact('id','dir','ts','inquilinos','reportes'));      //Retornar hacia la vista del la tabla del reporte
     }
 
@@ -66,11 +66,17 @@ class ReporteControl extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //Funcion editar reporte,lo cierra... y le pone fecha final actual
     public function edit($id)
     {
-        //
+        $now = Carbon::now();
+        $reporte = Report::find($id);
+        $reporte->cerrado = 1;
+        $reporte->fecha_fin = $now;
+        $reporte->save();
+        return redirect('/reporte/'.$reporte->id_prop);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -78,19 +84,17 @@ class ReporteControl extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Eliminar un Reporte buscado por id
     public function destroy($id)
     {
-        //
+        $reporte = Report::find($id);
+        Report::destroy($id);
+        return redirect('/reporte/'.$reporte->id_prop);
     }
 }

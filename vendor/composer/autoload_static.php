@@ -330,6 +330,7 @@ class ComposerStaticInit536af01ad52cd9d3c107e432cfc4ae36
         'CreateUsuariosTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_13_195143_create_usuarios_table.php',
         'CuotasCasa' => __DIR__ . '/../..' . '/database/seeds/CuotasCasa.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
+        'DefaultDefectos' => __DIR__ . '/../..' . '/database/seeds/DefaultDefectos.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',

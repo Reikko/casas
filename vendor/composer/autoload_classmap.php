@@ -38,6 +38,7 @@ return array(
     'CreateUsuariosTable' => $baseDir . '/database/migrations/2016_10_13_195143_create_usuarios_table.php',
     'CuotasCasa' => $baseDir . '/database/seeds/CuotasCasa.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
+    'DefaultDefectos' => $baseDir . '/database/seeds/DefaultDefectos.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',

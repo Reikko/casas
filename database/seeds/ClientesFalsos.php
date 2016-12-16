@@ -12,8 +12,7 @@ class ClientesFalsos extends Seeder
      */
     public function run()
     {
-        /*for ($i=0;$i<50;$i++)
-        {
+
             $faker = Faker::create();
             \DB::table('clientes')->insert(array(
                 'nombre'=>$faker->name,
@@ -26,7 +25,8 @@ class ClientesFalsos extends Seeder
                 'created_at' => date('Y-m-d H:m:s'),
                 'updated_at' => date('Y-m-d H:m:s')
             ));
-
+/*for ($i=0;$i<50;$i++)
+        {
             \DB::table('users')->insert(array(
                 'name'=> $user,
                 'email'=>$correo,

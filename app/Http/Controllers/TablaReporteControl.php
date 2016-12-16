@@ -45,7 +45,7 @@ class TablaReporteControl extends Controller
         $fila = new TableReport;
         $fila->fill($request->all());
         $fila->save();
-        return Redirect::to('tabla/'.$fila->id_reporte);
+        return Redirect::to('tabla/'.$fila->id_reporte.'/edit');
         //return $request->all();
     }
 
@@ -58,11 +58,11 @@ class TablaReporteControl extends Controller
     public function show($id)
     {
         $reporte = Report::find($id);                                   //Busca el reporte al cual se le va a editar
-        $filas = TableReport::all();                                    //Busca todas las filas, falta hacer que coincida con cada reporte
+        $filas = TableReport::Filas($reporte->id);                      //Busca todas las filas, falta hacer que coincida con cada reporte
         $lugares = Place::lugaresList();                                //Busca todos los lugares donde este un defecto
         $tipoDef = TipoDefect::TipoDefectoList();                       //Busca todos los posibles defectos
         $defecto = Defect::DefectoList();                               //Devuelve todos los defectos relacionados
-        return view('TablaReporte.create',compact('id','reporte','lugares','tipoDef','defecto','filas')); //Retorna a crear la tabla de los reportes
+        return view('TablaReporte.ver',compact('id','reporte','lugares','tipoDef','defecto','filas')); //Retorna a crear la tabla de los reportes
     }
 
     /**
@@ -73,7 +73,12 @@ class TablaReporteControl extends Controller
      */
     public function edit($id)
     {
-        //
+        $reporte = Report::find($id);                                   //Busca el reporte al cual se le va a editar
+        $filas = TableReport::Filas($reporte->id);                      //Busca todas las filas, falta hacer que coincida con cada reporte
+        $lugares = Place::lugaresList();                                //Busca todos los lugares donde este un defecto
+        $tipoDef = TipoDefect::TipoDefectoList();                       //Busca todos los posibles defectos
+        $defecto = Defect::DefectoList();                               //Devuelve todos los defectos relacionados
+        return view('TablaReporte.edit',compact('id','reporte','lugares','tipoDef','defecto','filas')); //Retorna a crear la tabla de los reportes
     }
 
     /**
@@ -96,6 +101,9 @@ class TablaReporteControl extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fila = TableReport::find($id);
+        TableReport::destroy($id);
+        return Redirect::to('tabla/'.$fila->id_reporte.'/edit');
+        return "Eliminando con el id:".$id;
     }
 }
