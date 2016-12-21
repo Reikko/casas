@@ -6,10 +6,10 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-3">
-            {!! link_to_route('reporte.show','Regresar',$reporte->id_prop, ['class' => 'btn btn-default btn-block']) !!}
+            {!! link_to_route('tabla.show','Ver reporte',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}
         </div>
         <div class="col-sm-3">
-            {!! link_to_route('reporte.edit','Cerrar Reporte',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}
+            {!! link_to_route('reporte.show','Regresar',$reporte->id_prop, ['class' => 'btn btn-default btn-block']) !!}
         </div>
     </div><br>
 
@@ -57,18 +57,19 @@
                         <td></td>
                         <td>
                             {!! Form::select('id_lugar',$lugares,null,['class'=>'form-control']) !!}
+                            {!! link_to('lugar','Ver lugares', ['class' => 'btn btn-success btn-block']) !!}
                         </td>
                         <td>
-                            {!! Form::select('tipo',$tipoDef,null,['class'=>'form-control']) !!}
+                            {!! Form::select('tipo',$tipoDef,1,['class'=>'form-control','id'=>'tipoDef']) !!}
                         </td>
                         <td>
-                            {!! Form::select('num_defecto',$defecto,null,['class'=>'form-control']) !!}
+                            {!! Form::select('num_defecto',$defecto,null,['class'=>'form-control','id'=>'defecto']) !!}
                         </td>
                         <td>
-                            {!! Form::textarea('obs_clie',null,['class'=>'form-control','placeholder'=>'Escribe un comentario', 'rows'=> '3','cols'=> '20']) !!}
+                            {!! Form::textarea('obs_clie',null,['class'=>'form-control','placeholder'=>'Escribe un comentario', 'rows'=> '2','cols'=> '20']) !!}
                         </td>
                         <td>
-                            {!! Form::textarea('obs_trab',null,['class'=>'form-control','placeholder'=>'Escribe un comentario', 'rows'=> '3','cols'=> '20']) !!}
+                            {!! Form::textarea('obs_trab',null,['class'=>'form-control','placeholder'=>'Escribe un comentario', 'rows'=> '2','cols'=> '20']) !!}
                         </td>
                         <td>
                             {!! Form::submit('Agregar Fallo',['class'=>'btn btn-success btn-block']) !!}

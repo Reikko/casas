@@ -6,9 +6,10 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-3">
+            {!! link_to_route('reporte.show','Regresar',$reporte->id_prop, ['class' => 'btn btn-default btn-block']) !!}
         </div>
         <div class="col-sm-3">
-            {!! link_to_route('reporte.show','Regresar',$reporte->id_prop, ['class' => 'btn btn-default btn-block']) !!}
+            {!! link_to_route('reporte.edit','Cerrar Reporte',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}
         </div>
     </div><br>
 
@@ -19,7 +20,7 @@
                 <h5>Fecha: {{$reporte->fecha_ini}}</h5>
             </div>
             <div class="panel-body">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>#</th>
@@ -28,12 +29,18 @@
                         <th>Descripcion</th>
                         <th>Observación Cliente</th>
                         <th>Observación trabajador</th>
-                        <th>Fecha Realizacion</th>
+                        <th>Realizado</th>
+                        <th>Opcion</th>
                     </tr>
                     </thead>
                     @foreach($filas as $num => $fila)
                         <tbody>
-                        <tr>
+                        @if($fila->completo == 1)
+                            <tr class="success">
+                        @else
+                            <tr class="danger">
+                        @endif
+
                             <td>{{$num + 1}}</td>
                             <td>{{$fila->nom_lugar}}</td>
                             <td>{{$fila->nom_defecto}}</td>
@@ -41,7 +48,11 @@
                             <td>{{$fila->obs_clie}}</td>
                             <td>{{$fila->obs_trab}}</td>
                             <td>{{$fila->f_realizacion}}</td>
-
+                            @if($fila->completo == 0)
+                                    <td>{!! link_to_action('TablaReporteControl@completarFila','Completar',$fila->id, ['class' => 'btn btn-success btn-block']) !!}</td>
+                            @else
+                                    <td>{!! link_to_action('TablaReporteControl@completarFila','Completar',$fila->id, ['class' => 'btn btn-danger btn-block disabled']) !!}</td>
+                            @endif
                         </tr>
                         </tbody>
                     @endforeach
@@ -57,9 +68,7 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-3">
-            {!! Form::open(['route'=>['reporte.destroy',$reporte->id],'method'=>'DELETE']) !!}
-            {!! Form::submit('Eliminar Reporte',['class'=>'btn btn-danger btn-block']) !!}
-            {!! Form::close() !!}
+            {!! link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}
         </div>
     </div><br>
 

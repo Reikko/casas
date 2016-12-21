@@ -12,6 +12,7 @@ class CreateTableReportsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('id_reporte')->unsigned();
+            //$table->foreign('id_reporte')->references('id')->on('reports')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_reporte')->references('id')->on('reports')->onUpdate('cascade');
             $table->integer('id_lugar')->unsigned();
             $table->foreign('id_lugar')->references('id')->on('places')->onUpdate('cascade');
@@ -25,11 +26,6 @@ class CreateTableReportsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::drop('table_reports');

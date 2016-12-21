@@ -14,9 +14,18 @@ class Defect extends Model
         'descripcion',
     ];
 
-    public static function DefectoList()
+    public static function DefectoList($id)
     {
         return DB::table('defects')
+            ->where('id_t_defecto',$id)
             ->lists('descripcion','id');
     }
+
+    public static function obtDefectos($id)
+    {
+        return Defect::where('id_t_defecto','=',$id)
+            ->get();
+    }
+
+
 }

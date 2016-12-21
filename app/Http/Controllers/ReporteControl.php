@@ -47,7 +47,6 @@ class ReporteControl extends Controller
         $reporte->cerrado = 0;
         $reporte->save();
         return redirect('/tabla/'.$reporte->id.'/edit');
-        //return $reporte;
     }
 
     //Muestra los reportes relacionados con el id de la propiedad
@@ -59,13 +58,6 @@ class ReporteControl extends Controller
         $reportes = Report::Reporte($id);                          //Muestra todos los reportes actuales //falta retornar solo los reportes correspondientes a la propiedad
         return view('Report.create',compact('id','dir','ts','inquilinos','reportes'));      //Retornar hacia la vista del la tabla del reporte
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
     //Funcion editar reporte,lo cierra... y le pone fecha final actual
     public function edit($id)

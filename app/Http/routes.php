@@ -32,6 +32,7 @@ Route::resource('relacion','RelacionPropiedad');    //Utiliza para crear una rel
 Route::resource('tipo','TipoCuotaControl');         //Utilizada para crear los tipos de cuotas.
 Route::resource('reporte','ReporteControl');        //Ruta para generar un reporte nuevo.
 Route::resource('tabla','TablaReporteControl');        //Ruta para generar un reporte nuevo.
+Route::resource('lugar','LugaresControl');        //Ruta para generar un reporte nuevo.
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
@@ -42,15 +43,12 @@ Route::post('calle/create/{id}', 'CalleControl@store2');
 Route::get('cuota/create/{id}','CuotaControl@getCuota');
 //-----------------------------------------------------------
 
-
-
 Route::auth();
 
 //---------------------------Rutas para Los accesos de usuarios
 Route::get('/user/login','UserControl@showLoginForm');
 Route::post('/user/login','UserControl@login');
 //-------------------------------------------------------------//
-
 
 //-----------------Ruta para El codigo Postal--------------//
 Route::post('una/cp','UnaControl@showDireccion');
@@ -63,6 +61,11 @@ Route::get('nuevas/{id}/create','CasaControl@relacion');
 //-----------------Ruta para El reporte--------------//
 Route::get('reporte/create/{id}','ReporteControl@crear');
 Route::get('tabla/{rep}/edit/{id}','ReporteControl@crear');
+//---------------------------------------------------------//
+
+//-----------------Cambio select en  Tabla de defectos--------------//
+Route::get('tabla/{un}/defecto/{id}','TablaReporteControl@selectDefecto');
+Route::get('tabla/{id}/completar','TablaReporteControl@completarFila');
 //---------------------------------------------------------//
 
 
