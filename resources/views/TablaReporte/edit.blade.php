@@ -57,13 +57,21 @@
                         <td></td>
                         <td>
                             {!! Form::select('id_lugar',$lugares,null,['class'=>'form-control']) !!}
-                            {!! link_to('lugar','Ver lugares', ['class' => 'btn btn-success btn-block']) !!}
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary">+</button>
+                                {!! link_to('lugar','Ver todos', ['class' => 'btn btn-primary']) !!}
+                            </div>
                         </td>
                         <td>
                             {!! Form::select('tipo',$tipoDef,1,['class'=>'form-control','id'=>'tipoDef']) !!}
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary">+</button>
+                                {!! link_to('fallo','Ver todos', ['class' => 'btn btn-primary']) !!}
+                            </div>
                         </td>
-                        <td>
+                        <td width="250">
                             {!! Form::select('num_defecto',$defecto,null,['class'=>'form-control','id'=>'defecto']) !!}
+                            {!! link_to('tipofallo','Ver todos', ['class' => 'btn btn-success btn-block']) !!}
                         </td>
                         <td>
                             {!! Form::textarea('obs_clie',null,['class'=>'form-control','placeholder'=>'Escribe un comentario', 'rows'=> '2','cols'=> '20']) !!}

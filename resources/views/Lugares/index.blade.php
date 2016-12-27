@@ -7,6 +7,17 @@
                 {{Session::get('message')}}
             </div>
         @endif
+
+        <div class="row">
+            <div class="col-sm-4" >
+            </div>
+            <div class="col-sm-4" >
+            </div>
+            <div class="col-sm-4" >
+                {!!link_to_route('lugar.create', $title = 'Crear nuevo',null,['class'=>'btn btn-success btn-block'])!!}
+            </div>
+        </div>
+
         <table class="table">
             <thead>
             <!--<th>Num</th>-->

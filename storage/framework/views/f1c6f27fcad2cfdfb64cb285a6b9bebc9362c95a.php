@@ -64,15 +64,25 @@
                         <td>
                             <?php echo Form::select('id_lugar',$lugares,null,['class'=>'form-control']); ?>
 
-                            <?php echo link_to('lugar','Ver lugares', ['class' => 'btn btn-success btn-block']); ?>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary">+</button>
+                                <?php echo link_to('lugar','Ver todos', ['class' => 'btn btn-primary']); ?>
 
+                            </div>
                         </td>
                         <td>
                             <?php echo Form::select('tipo',$tipoDef,1,['class'=>'form-control','id'=>'tipoDef']); ?>
 
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary">+</button>
+                                <?php echo link_to('fallo','Ver todos', ['class' => 'btn btn-primary']); ?>
+
+                            </div>
                         </td>
-                        <td>
+                        <td width="250">
                             <?php echo Form::select('num_defecto',$defecto,null,['class'=>'form-control','id'=>'defecto']); ?>
+
+                            <?php echo link_to('tipofallo','Ver todos', ['class' => 'btn btn-success btn-block']); ?>
 
                         </td>
                         <td>

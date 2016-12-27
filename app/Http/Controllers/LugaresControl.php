@@ -16,7 +16,6 @@ class LugaresControl extends Controller
         $this->middleware('auth');
     }
 
-
     //Controlador creado para los lugares que se deseen agregar, ver , modificar , etc...
 
     //Muestra todos los lugares disponibles
@@ -30,22 +29,13 @@ class LugaresControl extends Controller
         return view('Lugares.index',compact('lugares'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Retorna la vista para crear un nuevo lugar en la casa
     public function create()
     {
         return view('Lugares.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Permite agregar un lugar en la casa
     public function store(Request $request)
     {
         $lugar = new Place;
@@ -83,12 +73,7 @@ class LugaresControl extends Controller
         return Redirect::to('/lugar');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Eliminando un lugar de la casa
     public function destroy($id)
     {
         $lugar = Place::find($id);

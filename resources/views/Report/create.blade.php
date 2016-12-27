@@ -21,8 +21,8 @@
                             <th>#</th>
                             <th>Fecha Reporte</th>
                             <th>Fecha fin</th>
-                            <th>Ver</th>
                             <th>Estado</th>
+                            <th>Ver</th>
                             <th>Editar</th>
                             <th>Cerrar</th>
                         </tr>
@@ -38,15 +38,15 @@
                                 <td>{{$reporte->fecha_ini}}</td>
                                 <td>{{$reporte->fecha_fin}}</td>
                                 @if($reporte->cerrado == 0)
-                                    <td>{!! link_to_route('tabla.show','Ver',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}</td>
                                     <td>Abierto</td>
+                                    <td>{!! link_to_route('tabla.show','Ver',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}</td>
                                     <td>{!! link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}</td>
                                     <td>{!! link_to_route('reporte.edit','Cerrar',$reporte->id, ['class' => 'btn btn-success btn-block']) !!}</td>
                                 @else
-                                    <td>{!! link_to_route('tabla.show','Ver',$reporte->id, ['class' => 'btn btn-danger btn-block']) !!}</td>
                                     <td>Cerrado</td>
-                                    <td>{!! link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-danger btn-block disabled']) !!}</td>
-                                    <td>{!! link_to_route('reporte.edit','Cerrar',$reporte->id, ['class' => 'btn btn-danger btn-block disabled']) !!}</td>
+                                    <td>{!! link_to_route('tabla.show','Solo Ver',$reporte->id, ['class' => 'btn btn-danger btn-block']) !!}</td>
+                                    <td>{!! link_to_route('tabla.edit','Cerrado',$reporte->id, ['class' => 'btn btn-danger btn-block disabled']) !!}</td>
+                                    <td>{!! link_to_route('reporte.edit','Cerrado',$reporte->id, ['class' => 'btn btn-danger btn-block disabled']) !!}</td>
                                 @endif
                             </tr>
                         </tbody>

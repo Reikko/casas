@@ -9,13 +9,23 @@
 
         </div>
         <div class="col-sm-3">
-            <?php echo link_to_route('reporte.edit','Cerrar Reporte',$reporte->id, ['class' => 'btn btn-success btn-block']); ?>
+            <?php if($reporte->cerrado == 0): ?>
+                <?php echo link_to_route('reporte.edit','Cerrar Reporte',$reporte->id, ['class' => 'btn btn-success btn-block']); ?>
 
+            <?php else: ?>
+                <?php echo link_to_route('reporte.edit','Reporte Cerrado',$reporte->id, ['class' => 'btn btn-danger btn-block disabled']); ?>
+
+            <?php endif; ?>
         </div>
     </div><br>
 
     <div class="row">
-        <div class="panel panel-success">
+        <?php if($reporte->cerrado == 0): ?>
+            <div class="panel panel-success">
+        <?php else: ?>
+            <div class="panel panel-danger">
+        <?php endif; ?>
+
             <div class="panel-heading">
                 <h5>Reporte: N° <?php echo e($reporte->id); ?></h5>
                 <h5>Fecha: <?php echo e($reporte->fecha_ini); ?></h5>
@@ -49,10 +59,10 @@
                             <td><?php echo e($fila->obs_clie); ?></td>
                             <td><?php echo e($fila->obs_trab); ?></td>
                             <td><?php echo e($fila->f_realizacion); ?></td>
-                            <?php if($fila->completo == 0): ?>
-                                    <td><?php echo link_to_action('TablaReporteControl@completarFila','Completar',$fila->id, ['class' => 'btn btn-success btn-block']); ?></td>
+                            <?php if($fila->completo == 0 &&$reporte->cerrado == 0): ?>
+                                    <td><?php echo link_to_action('TablaReporteControl@completarFila','Completar',$fila->id, ['class' => 'btn btn-danger btn-block']); ?></td>
                             <?php else: ?>
-                                    <td><?php echo link_to_action('TablaReporteControl@completarFila','Completar',$fila->id, ['class' => 'btn btn-danger btn-block disabled']); ?></td>
+                                    <td><?php echo link_to_action('TablaReporteControl@completarFila','Completado',$fila->id, ['class' => 'btn btn-success btn-block disabled']); ?></td>
                             <?php endif; ?>
                         </tr>
                         </tbody>
@@ -69,8 +79,10 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-3">
-            <?php echo link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-success btn-block']); ?>
+            <?php if($reporte->cerrado == 0): ?>
+                <?php echo link_to_route('tabla.edit','Editar',$reporte->id, ['class' => 'btn btn-success btn-block']); ?>
 
+            <?php endif; ?>
         </div>
     </div><br>
 

@@ -26,7 +26,7 @@
             'data-backdrop'=>'static' ]) !!}
             Todos igual {!!Form::checkbox('allCalle', 'value',false,['onclick'=> 'seleccionarCalle()','id'=>'allCalle'])!!}</td>
         <td>{!! Form::text('all_Ext',null,['class'=>'form-control','id'=>'a_ext']) !!}
-            Todos igual {!!Form::checkbox('allExt', 'value',false,['onclick'=> 'seleccionNumExt()','id'=>'n_ext'])!!}</td>
+            Todos igual {!!Form::checkbox('allExt', 'value',false,['onclick'=> 'seleccionNumExt()','id'=>'allExt'])!!}</td>
         <td></td>
         <td><button type="button" class="btn btn-info btn-block">
                 <span class="glyphicon glyphicon-lock"></span> Block

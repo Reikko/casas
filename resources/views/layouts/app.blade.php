@@ -135,10 +135,18 @@
                             </li>
 
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Lugares<span class="caret"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Lugares Casa<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li>{!!link_to_route('lugar.create', $title = 'Nuevo Lugar')!!}</li>
-                                    <li>{!!link_to_route('lugar.index', $title = 'Mostrar Lugares')!!}</li>
+                                    <li>{!!link_to_route('lugar.create', $title = 'Nuevo Lugar Casa')!!}</li>
+                                    <li>{!!link_to_route('lugar.index', $title = 'Mostrar Lugares Casa')!!}</li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Lugares Defecto<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>{!!link_to_route('fallo.create', $title = 'Nuevo Lugar Defecto')!!}</li>
+                                    <li>{!!link_to_route('fallo.index', $title = 'Mostrar Lugares Defecto')!!}</li>
                                 </ul>
                             </li>
                         @endif

@@ -34,12 +34,18 @@ Route::resource('relacion','RelacionPropiedad');    //Utiliza para crear una rel
 Route::resource('tipo','TipoCuotaControl');         //Utilizada para crear los tipos de cuotas.
 Route::resource('reporte','ReporteControl');        //Ruta para generar un reporte nuevo.
 Route::resource('tabla','TablaReporteControl');        //Ruta para generar un reporte nuevo.
-Route::resource('lugar','LugaresControl');        //Ruta para generar un reporte nuevo.
+Route::resource('lugar','LugaresControl');        //Ruta para generar un nuevo lugar.
+Route::resource('fallo','TipoFalloControl');        //Ruta para generar un nuevo tipo de lugar de defecto.
+Route::resource('tipofallo','DescripcionControl');        //Ruta para crear las descripciones de cada defecto.
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
 Route::post('calle/create/{id}', 'CalleControl@store2');
 //
+
+//Agregar una descripcion dependiendo del tipo de fallo que seleccione
+Route::get('tipofallo/{id}/create','DescripcionControl@tipo');
+//----------------------------------------------------------------
 
 //Obtener el id de la propiedad y crear sus cuotas-----------
 Route::get('cuota/create/{id}','CuotaControl@getCuota');

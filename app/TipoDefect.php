@@ -17,4 +17,5 @@ class TipoDefect extends Model
         return DB::table('tipo_defects')
             ->lists('nom_defecto','id');
     }
+
 }

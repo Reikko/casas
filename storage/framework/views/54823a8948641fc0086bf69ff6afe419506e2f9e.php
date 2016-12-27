@@ -29,7 +29,7 @@
             Todos igual <?php echo Form::checkbox('allCalle', 'value',false,['onclick'=> 'seleccionarCalle()','id'=>'allCalle']); ?></td>
         <td><?php echo Form::text('all_Ext',null,['class'=>'form-control','id'=>'a_ext']); ?>
 
-            Todos igual <?php echo Form::checkbox('allExt', 'value',false,['onclick'=> 'seleccionNumExt()','id'=>'n_ext']); ?></td>
+            Todos igual <?php echo Form::checkbox('allExt', 'value',false,['onclick'=> 'seleccionNumExt()','id'=>'allExt']); ?></td>
         <td></td>
         <td><button type="button" class="btn btn-info btn-block">
                 <span class="glyphicon glyphicon-lock"></span> Block
