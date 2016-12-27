@@ -23,7 +23,11 @@
 
                 </td>
                 <td>
-                    <?php echo link_to_route('lugar.destroy','Eliminar',$lugar->id,['class'=>'btn btn-danger btn-block']); ?>
+                    <?php echo Form::open(['route'=>['lugar.destroy',$lugar->id],'method'=>'DELETE']); ?>
+
+                    <?php echo Form::submit('Eliminar',['class'=>'btn btn-danger btn-block']); ?>
+
+                    <?php echo Form::close(); ?>
 
                 </td>
                 </tbody>

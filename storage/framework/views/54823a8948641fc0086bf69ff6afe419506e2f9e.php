@@ -18,7 +18,7 @@
         <th>Eliminar</th>
         </thead>
         <td></td>
-        <td><?php echo Form::select('id_calle', $calles,1,['class'=>'form-control']); ?>
+        <td><?php echo Form::select('id_calle', $calles,1,['class'=>'form-control','id'=>'calle']); ?>
 
             <?php echo Form::button('Agregar Calle',[
             'class'=>'form-control btn btn-default btn-md',
@@ -26,10 +26,10 @@
             'data-target'=>'#modCalle',
             'data-backdrop'=>'static' ]); ?>
 
-            Todos igual <?php echo Form::checkbox('allCalle', 'value',false); ?></td>
-        <td><?php echo Form::text('all_Ext',null,['class'=>'form-control']); ?>
+            Todos igual <?php echo Form::checkbox('allCalle', 'value',false,['onclick'=> 'seleccionarCalle()','id'=>'allCalle']); ?></td>
+        <td><?php echo Form::text('all_Ext',null,['class'=>'form-control','id'=>'a_ext']); ?>
 
-            Todos igual <?php echo Form::checkbox('allExt', 'value',false); ?></td>
+            Todos igual <?php echo Form::checkbox('allExt', 'value',false,['onclick'=> 'seleccionNumExt()','id'=>'n_ext']); ?></td>
         <td></td>
         <td><button type="button" class="btn btn-info btn-block">
                 <span class="glyphicon glyphicon-lock"></span> Block
@@ -39,18 +39,18 @@
                 <span class="glyphicon glyphicon-lock"></span> Eliminar
             </button>
         </td>
-    <?php echo Form::model($unidades,['route'=>['unidad.update',$id],'method'=>'PUT']); ?>
+    <?php echo Form::model($unidades,['route'=>['unidad.update',$id],'method'=>'PUT','id'=>'formSelect']); ?>
 
         <!--Inicio del formulario-->
         <?php foreach($unidades as $key => $unidad): ?>
-            <tbody>
+            <tr>
             <td><?php echo e($key+1); ?><?php echo Form::hidden('unidades[]',$unidad->id,['class'=>'form-control']); ?></td>
             <td><?php echo Form::select('id_calle[]', $calles,$unidad->id_calle,['class'=>'form-control' ]); ?></td>
             <td><?php echo Form::text('num_ext[]',$unidad->num_ext,['class'=>'form-control']); ?></td>
             <td><?php echo Form::text('num_int[]',$unidad->num_int,['class'=>'form-control']); ?></td>
             <td><?php echo e($unidad->editable); ?></td>
 
-            </tbody>
+            </tr>
         <?php endforeach; ?>
 
     </table>

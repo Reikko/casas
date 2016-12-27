@@ -9,21 +9,24 @@ use azf\Report;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use azf\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class ReporteControl extends Controller
 {
-    /**
-     * Todo lo relacionado con los reportes
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     //muestra todol los reportes relacionados con
     public function crear($id)
     {
         return 'Editar la vista para editar la fila';
     }
+
     public function index()
     {
-
+        return 'Hola'. auth('admins')->user()->name;
     }
 
     /**

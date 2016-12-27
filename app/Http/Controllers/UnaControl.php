@@ -12,6 +12,11 @@ use azf\Http\Requests;
 
 class UnaControl extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //

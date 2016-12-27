@@ -20,7 +20,6 @@ class UnidadControl extends Controller
         $this->middleware('auth');
     }
 
-
     public function index()
     {
         $propiedades = DB::table('propiedads')

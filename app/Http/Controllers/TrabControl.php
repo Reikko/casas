@@ -56,7 +56,9 @@ class TrabControl extends Controller
             'rfc' => $request['rfc'],
             'num_seguro' => $request['num_seguro'],
         ]);
+
         $name = "".$id."".$request['renuncia']->getClientOriginalName();
+
         if($request['foto'] != null )
         {
             $picture = "".$id."FOTO".$request['foto']->getClientOriginalName();

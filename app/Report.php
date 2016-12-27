@@ -12,6 +12,7 @@ class Report extends Model
 
         'id_prop',
         'inqui',
+        'tipo_rol',
         'fecha_ini',
         'fecha_fin',
         'cerrado',

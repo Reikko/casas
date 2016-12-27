@@ -6,18 +6,21 @@
 
         </div>
     <?php endif; ?>
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
+        <div class="panel-heading"><h2><?php echo e($inq->nom_inquilino); ?> <?php echo e($inq->ap_pat); ?> <?php echo e($inq->ap_mat); ?></h2></div>
         <div class="panel-body">
-            <h2><?php echo e($inq->nom_inquilino); ?> <?php echo e($inq->ap_pat); ?> <?php echo e($inq->ap_mat); ?></h2>
-            <h4>Ocupacion:  <?php echo e($inq->ocupacion); ?></h4>
+
             <div class="col-sm-4">
+                <h4>Ocupacion:  <?php echo e($inq->ocupacion); ?></h4>
                 <?php if($inq->foto == 'imagen.jpg'): ?>
                     <?php echo e(Html::image(asset('imagen.jpg'), 'a picture', ['class' => 'img-thumbnail img-responsive','style'=>'width: 200px'])); ?>
 
-                <?php else: ?>
-                    <?php echo e(Html::image(asset('archivos/'.$inq->foto), 'a picture', ['class' => 'img-thumbnail img-responsive','style'=>'width: 200px'])); ?>
+                    <?php else: ?>
+                        <?php echo e(Html::image(asset('archivos/'.$inq->foto), 'a picture', ['class' => 'img-thumbnail img-responsive','style'=>'width: 200px'])); ?>
 
                 <?php endif; ?>
+                <?php echo link_to_route('inquilino.edit','Editar', $inq->id, ['class'=>'btn btn-primary btn-block']); ?>
+
             </div>
             <div class="col-sm-8">
                 <h5>Fecha de nacimiento: <?php echo e($inq->fecha_nac); ?></h5>
@@ -31,16 +34,17 @@
         </div>
     </div>
 
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <div class="panel-heading">Domicilio</div>
         <div class="panel-body">
             <h5>Calle: <?php echo e($inq->calle); ?></h5>
-            <h5>Numero exterior:<?php echo e($inq->num_ext); ?> Numero interior:<?php echo e($inq->num_int); ?></h5>
+            <h5>Numero exterior:<?php echo e($inq->num_ext); ?></h5>
+            <h5>Numero interior:<?php echo e($inq->num_int); ?></h5>
             <h5><?php echo e($inq->colonia); ?>, <?php echo e($inq->municipio); ?>, <?php echo e($inq->estado); ?>  </h5>
         </div>
     </div>
 
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <div class="panel-heading">Documentos</div>
         <div class="panel-body">
 

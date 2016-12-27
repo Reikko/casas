@@ -21,6 +21,12 @@ class CuotaControl extends Controller
     //Retorna todas las cuotas de esta propiedad y permite crear nuevas redirige a crear
     /*
      * Redirige a */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function getCuota(Request $request,$id)
     {
         $date = Carbon::now();

@@ -61,12 +61,13 @@
                 <div class="panel-body">
                     {!! Form::open(['route'=>'reporte.store','method'=>'POST']) !!}
                     {{ Form::hidden('id_prop', $id) }}
+                    {{ Form::hidden('tipo_rol', Auth::user()->rol) }}
                     @foreach($inquilinos as $inq)
-                        {{ Form::radio('inqui', $inq->id_prop) }} {{$inq->nom_inquilino}} {{$inq->ap_pat}} <br>
+                        {{ Form::radio('inqui', $inq->id_prop) }} {{$inq->nom_inquilino}} {{$inq->ap_pat}}  <br>
                     @endforeach
-
-                        {!! Form::submit('Nuevo Reporte',['class'=>'btn btn-primary']) !!}
-                        {!! Form::close() !!}
+                    {{ Form::radio('inqui',Auth::user()->id, true) }} {{Auth::user()->name}}<br>
+                    {!! Form::submit('Nuevo Reporte',['class'=>'btn btn-primary']) !!}
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

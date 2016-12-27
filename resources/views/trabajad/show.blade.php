@@ -7,14 +7,9 @@
             {{Session::get('message')}}
         </div>
     @endif
-    <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        En espera de Revision de Datos
-    </div>
     <div class="panel panel-default">
-
+        <div class="panel-heading"><h2>{{$ts->nom_trab}} {{$ts->ap_pat}} {{$ts->ap_mat}}</h2></div>
         <div class="panel-body">
-            <h2>{{$ts->nom_trab}} {{$ts->ap_pat}} {{$ts->ap_mat}}</h2>
             <h4>Puesto:  {{$ts->puesto}}</h4>
             <div class="col-sm-4">
                 @if($arc->foto == 'imagen.jpg')
@@ -22,7 +17,10 @@
                     @else
                     {{ Html::image(asset('archivos/'.$arc->foto), 'a picture', ['class' => 'img-thumbnail img-responsive','style'=>'width: 200px']) }}
                 @endif
+
+                {!!link_to_route('trabajador.edit','Editar',$ts->id,['class'=>'btn btn-primary btn-block'])!!}
             </div>
+
             <div class="col-sm-8">
                 <h5>Fecha de nacimiento: {{$ts->fecha_nac}}</h5>
                 <h5>Lugar de nacimiento: {{$ts->lug_nac}}</h5>
@@ -30,8 +28,8 @@
                 <h5>Estado civil: {{$ts->edo_civil}}</h5>
                 <h5>Sexo: {{$ts->sexo}}</h5>
                 <h5>Usuario: {{$ts->alias}}</h5>
-            </div>
 
+            </div>
         </div>
     </div>
     <div class="row">

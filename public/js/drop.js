@@ -24,34 +24,10 @@ $("#calle_cdad_sel").change(function ( event) {
     });
 });
 
-function Obten_Datos()
-{
-    var ruta = $('input:text[name=nom_trab]').val()+"/"+$("input:text[name=ap_pat]").val()+"/"+$("input:text[name=ap_mat]").val()+"/"+$("input:text[name=puesto]").val();
-    //var nom_trab = $('input:text[name=nom_trab]').val();
-    $.get("obt/pdf/"+ruta+"",function(response,state){
-        console.log(ruta);
-        var pagina = "obt/pdf/"+ruta+"";
-        location.href=pagina
-    });
-}
 
-//$('input:text[name=nom_trab]').onkeydown = ValidaNombre();
 
-function ValidaNombre()
-{
-    if($('input:text[name=nom_trab]') == "")
-    {
-        alert('El campo no puede estar vacio');
-    }
-}
 
-function validar(frm) {
-    frm.sub.disabled = true;
-        if ($('input:text[name=nom_trab]').value =='')
-            return;
-    frm.sub.disabled = false;
-}
-
+//Obtiene las colonias del codigo postal indicado
 function getCodigoPostal()
 {
     var c = $("#codigo").val();
@@ -64,6 +40,9 @@ function getCodigoPostal()
         }
     });
 }
+
+
+//JS utilizado para que funcione el menú
 $(document).ready(function(){
     $('.dropdown a.test').on("click", function(e){
         $(this).next('ul').toggle();

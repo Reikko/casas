@@ -22,7 +22,9 @@
                     {!!link_to_route('lugar.edit','Editar',$lugar->id,['class'=>'btn btn-warning btn-block'])!!}
                 </td>
                 <td>
-                    {!!link_to_route('lugar.destroy','Eliminar',$lugar->id,['class'=>'btn btn-danger btn-block'])!!}
+                    {!! Form::open(['route'=>['lugar.destroy',$lugar->id],'method'=>'DELETE']) !!}
+                    {!! Form::submit('Eliminar',['class'=>'btn btn-danger btn-block']) !!}
+                    {!! Form::close() !!}
                 </td>
                 </tbody>
             @endforeach

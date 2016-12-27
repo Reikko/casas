@@ -1,8 +1,10 @@
 <?php
 //Rutas unicas para mostrar vistas
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
+
+Route::get('/home', 'HomeController@index');
 
 Route::get('nuevas/select','CasaControl@select');       //Seleccion entre una o varias casas
 Route::get('nuevas/cp','CasaControl@cp');               //Envia el codigo postal
@@ -46,8 +48,8 @@ Route::get('cuota/create/{id}','CuotaControl@getCuota');
 Route::auth();
 
 //---------------------------Rutas para Los accesos de usuarios
-Route::get('/user/login','UserControl@showLoginForm');
-Route::post('/user/login','UserControl@login');
+Route::get('/user/login','AdminControl@showLoginForm');
+Route::post('/user/login','AdminControl@login');
 //-------------------------------------------------------------//
 
 //-----------------Ruta para El codigo Postal--------------//
@@ -69,7 +71,7 @@ Route::get('tabla/{id}/completar','TablaReporteControl@completarFila');
 //---------------------------------------------------------//
 
 
-Route::get('/home', 'HomeController@index');
+
 
 //Ruta para generar el pdf
 Route::get('trabajador/obt/pdf/{nombre}/{app}/{apm}/{puesto}','TrabControl@getPdf');

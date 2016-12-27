@@ -18,15 +18,15 @@
         <th>Eliminar</th>
         </thead>
         <td></td>
-        <td>{!! Form::select('id_calle', $calles,1,['class'=>'form-control']) !!}
+        <td>{!! Form::select('id_calle', $calles,1,['class'=>'form-control','id'=>'calle']) !!}
             {!! Form::button('Agregar Calle',[
             'class'=>'form-control btn btn-default btn-md',
             'data-toggle'=>'modal',
             'data-target'=>'#modCalle',
             'data-backdrop'=>'static' ]) !!}
-            Todos igual {!!Form::checkbox('allCalle', 'value',false)!!}</td>
-        <td>{!! Form::text('all_Ext',null,['class'=>'form-control']) !!}
-            Todos igual {!!Form::checkbox('allExt', 'value',false)!!}</td>
+            Todos igual {!!Form::checkbox('allCalle', 'value',false,['onclick'=> 'seleccionarCalle()','id'=>'allCalle'])!!}</td>
+        <td>{!! Form::text('all_Ext',null,['class'=>'form-control','id'=>'a_ext']) !!}
+            Todos igual {!!Form::checkbox('allExt', 'value',false,['onclick'=> 'seleccionNumExt()','id'=>'n_ext'])!!}</td>
         <td></td>
         <td><button type="button" class="btn btn-info btn-block">
                 <span class="glyphicon glyphicon-lock"></span> Block
@@ -36,17 +36,17 @@
                 <span class="glyphicon glyphicon-lock"></span> Eliminar
             </button>
         </td>
-    {!! Form::model($unidades,['route'=>['unidad.update',$id],'method'=>'PUT']) !!}
+    {!! Form::model($unidades,['route'=>['unidad.update',$id],'method'=>'PUT','id'=>'formSelect']) !!}
         <!--Inicio del formulario-->
         @foreach($unidades as $key => $unidad)
-            <tbody>
+            <tr>
             <td>{{$key+1}}{!! Form::hidden('unidades[]',$unidad->id,['class'=>'form-control']) !!}</td>
             <td>{!! Form::select('id_calle[]', $calles,$unidad->id_calle,['class'=>'form-control' ]) !!}</td>
             <td>{!! Form::text('num_ext[]',$unidad->num_ext,['class'=>'form-control']) !!}</td>
             <td>{!! Form::text('num_int[]',$unidad->num_int,['class'=>'form-control']) !!}</td>
             <td>{{$unidad->editable}}</td>
 
-            </tbody>
+            </tr>
         @endforeach
 
     </table>

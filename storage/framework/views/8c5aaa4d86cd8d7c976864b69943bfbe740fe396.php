@@ -22,7 +22,7 @@
                 <?php echo Form::label('NOMBRE COMPLETO',null,['class'=>'control-label col-sm-3']); ?>
 
                 <div class="col-sm-3">
-                    <?php echo Form::text('nom_trab',null,['class'=>'form-control','placeholder'=>'Nombre','required' => 'required','onkeydown' => 'ValidaNombre()']); ?>
+                    <?php echo Form::text('nom_trab',null,['class'=>'form-control','placeholder'=>'Nombre','required' => 'required']); ?>
 
                 </div>
                 <div class="col-sm-3">
@@ -137,7 +137,7 @@
                 <div class="col-sm-3">
 
                     <!--<?php echo e(link_to('archivos/r.docx','Descargar',['download'=>'Renuncia'])); ?>-->
-                        <button type="button" class="btn btn-success btn-lg btn-block" onclick="Obten_Datos()"> Descargar Renuncia </button>
+                        <button type="button" class="btn btn-success btn-lg btn-block" onclick="Valida_Campos()"> Descargar Renuncia </button>
                 </div>
                 <div class="col-sm-6">
                     <?php echo Form::label('Adjuntar renuncia',null,['class'=>'']); ?>

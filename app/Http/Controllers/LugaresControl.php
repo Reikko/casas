@@ -11,6 +11,12 @@ use azf\Http\Requests;
 
 class LugaresControl extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     //Controlador creado para los lugares que se deseen agregar, ver , modificar , etc...
 
     //Muestra todos los lugares disponibles
@@ -19,8 +25,7 @@ class LugaresControl extends Controller
         //return auth('web')->user('email');
         //return Auth::user()->name;
         $data = Session::all();
-        Session::forget('teams');
-        return $data;
+        //return $data;
         $lugares = Place::all();
         return view('Lugares.index',compact('lugares'));
     }
@@ -32,7 +37,7 @@ class LugaresControl extends Controller
      */
     public function create()
     {
-        //
+        return view('Lugares.create');
     }
 
     /**
@@ -43,7 +48,11 @@ class LugaresControl extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lugar = new Place;
+        $lugar->nom_lugar = $request['nom_lugar'];
+        $lugar->save();
+
+        return redirect('lugar')->with('message',''.$lugar->nom_lugar.' Creado ');
     }
 
     /**
@@ -82,6 +91,8 @@ class LugaresControl extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lugar = Place::find($id);
+        Place::destroy($id);
+        return redirect('lugar')->with('message',''.$lugar->nom_lugar.' Eliminado ');
     }
 }

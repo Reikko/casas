@@ -20,13 +20,6 @@ class UserControl extends Controller
     protected $username = 'name';
     protected $loginView = 'Users.user';
 
-    /*
-    protected $redirectTo = '/home';*/
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     /*public function __construct()
     {
         $this->middleware('auth:admins', ['except' => 'logout']);
@@ -39,21 +32,14 @@ class UserControl extends Controller
             //return redirect()->intended('des');
         //}
             //Session::flash('message',''.Auth::user()->name.'Datos incorrectos');
-            return Redirect::to('des');
+            return Redirect::to('lugar');
 
         //return Auth::user();
     }
 
-
-    protected function guard()
-    {
-        return Auth::guard('admins');
-    }
-
-
     public function index()
     {
-        return view('Users.user');
+
     }
 
     /**

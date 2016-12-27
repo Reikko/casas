@@ -18,6 +18,7 @@ class CreateReportsTable extends Migration
             $table->integer('id_prop')->unsigned();
             $table->foreign('id_prop')->references('id')->on('reg_houses')->onUpdate('cascade');
             $table->integer('inqui')->unsigned();
+            $table->integer('tipo_rol')->unsigned();
             $table->dateTime('fecha_ini');
             $table->dateTime('fecha_fin');
             $table->integer('cerrado')->unsigned();

@@ -14,6 +14,10 @@ use azf\Http\Requests;
 
 class CasaControl extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //Solo muestra botones de una o varias unidades a crear
     public function select()
     {

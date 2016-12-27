@@ -61,7 +61,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/des') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     AZF
                 </a>
             </div>
@@ -133,6 +133,14 @@
                                     <li>{!!link_to_route('nuevas.index', $title = 'Mostrar Propiedades')!!}</li>
                                 </ul>
                             </li>
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Lugares<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>{!!link_to_route('lugar.create', $title = 'Nuevo Lugar')!!}</li>
+                                    <li>{!!link_to_route('lugar.index', $title = 'Mostrar Lugares')!!}</li>
+                                </ul>
+                            </li>
                         @endif
                 </ul>
 
@@ -145,7 +153,7 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->name }} Rol:{{Auth::user()->rol}}<span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -196,6 +204,8 @@
 
     {!!Html::script('/js/drop.js')!!}
     {!!Html::script('/js/cambiaDefecto.js')!!}
+    {!!Html::script('/js/validaCampos.js')!!}
+    {!!Html::script('/js/selecciones.js')!!}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}

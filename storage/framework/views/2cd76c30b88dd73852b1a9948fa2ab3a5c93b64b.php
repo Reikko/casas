@@ -63,13 +63,15 @@
 
                     <?php echo e(Form::hidden('id_prop', $id)); ?>
 
+                    <?php echo e(Form::hidden('tipo_rol', Auth::user()->rol)); ?>
+
                     <?php foreach($inquilinos as $inq): ?>
-                        <?php echo e(Form::radio('inqui', $inq->id_prop)); ?> <?php echo e($inq->nom_inquilino); ?> <?php echo e($inq->ap_pat); ?> <br>
+                        <?php echo e(Form::radio('inqui', $inq->id_prop)); ?> <?php echo e($inq->nom_inquilino); ?> <?php echo e($inq->ap_pat); ?>  <br>
                     <?php endforeach; ?>
+                    <?php echo e(Form::radio('inqui',Auth::user()->id, true)); ?> <?php echo e(Auth::user()->name); ?><br>
+                    <?php echo Form::submit('Nuevo Reporte',['class'=>'btn btn-primary']); ?>
 
-                        <?php echo Form::submit('Nuevo Reporte',['class'=>'btn btn-primary']); ?>
-
-                        <?php echo Form::close(); ?>
+                    <?php echo Form::close(); ?>
 
                 </div>
             </div>
