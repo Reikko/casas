@@ -82,7 +82,7 @@
                         <td width="250">
                             <?php echo Form::select('num_defecto',$defecto,null,['class'=>'form-control','id'=>'defecto']); ?>
 
-                            <?php echo link_to('tipofallo','Ver todos', ['class' => 'btn btn-success btn-block']); ?>
+                            <?php echo link_to('tipofallo/1','Ver todos', ['class' => 'btn btn-success btn-block ','id'=>'descrip']); ?>
 
                         </td>
                         <td>
