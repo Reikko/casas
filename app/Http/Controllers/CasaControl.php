@@ -37,7 +37,7 @@ class CasaControl extends Controller
         return view('newHouse.index',compact('casas'));
     }
 
-    //Mostrar todos los inquilinos y dueños que existen
+    //Mostrar todos los inquilinos y dueños que existen en la casa
     public function relacion($id)
     {
         $arr = RelationProperty::ArrOcupantes($id);     //Devuelve arreglo de ocupantes

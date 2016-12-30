@@ -3,11 +3,15 @@
 namespace azf\Http\Controllers;
 
 use azf\codigospostales;
+use azf\Place;
 use azf\regHouse;
 use azf\RelationProperty;
 use azf\Report;
+use azf\TableReport;
+use azf\TipoDefect;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use PDF;
 use azf\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,6 +20,7 @@ class ReporteControl extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     //muestra todol los reportes relacionados con
@@ -92,4 +97,38 @@ class ReporteControl extends Controller
         Report::destroy($id);
         return redirect('/reporte/'.$reporte->id_prop);
     }
+
+    public function imprimeReporte($id)
+    {
+        $dt = Carbon::now();
+        setlocale(LC_TIME,'es');
+        $fecha = $dt->formatLocalized('%d')." de ". $dt->formatLocalized('%B')." del ".$dt->formatLocalized('%Y')." ";
+        $reporte = Report::find($id);                                   //Busca el reporte al cual se le va a editar
+        $filas = TableReport::Filas($reporte->id);                      //Busca todas las filas, falta hacer que coincida con cada reporte
+        $lugares = Place::lugaresList();                                //Busca todos los lugares donde este un defecto
+        $tipoDef = TipoDefect::TipoDefectoList();                       //Busca todos los posibles defectos
+        $pdf = PDF::loadView('Report.pdf', compact('id','reporte','lugares','tipoDef','filas'));
+        return $pdf->download('reporte'.$id.'.pdf');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

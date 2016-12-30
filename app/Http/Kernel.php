@@ -50,5 +50,6 @@ class Kernel extends HttpKernel
         'guest' => \azf\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'acceso' => \azf\Http\Middleware\IfLoginMiddleware::class,
+        'rol' => \azf\Http\Middleware\Inquilino::class,
     ];
 }

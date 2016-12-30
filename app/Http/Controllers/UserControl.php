@@ -2,6 +2,7 @@
 
 namespace azf\Http\Controllers;
 
+use azf\User;
 use FontLib\Table\Type\name;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -14,27 +15,10 @@ use azf\Http\Requests\LoginRequest;
 
 class UserControl extends Controller
 {
-
-    use AuthenticatesUsers;
-    protected $guard = 'admins';
-    protected $username = 'name';
-    protected $loginView = 'Users.user';
-
-    /*public function __construct()
+    public function __construct()
     {
-        $this->middleware('auth:admins', ['except' => 'logout']);
-    }*/
-
-    public function authenticated(Request $request,$guard)
-    {
-        //if (Auth::attempt(['name' => $name, 'password' => $password]))
-        //{
-            //return redirect()->intended('des');
-        //}
-            //Session::flash('message',''.Auth::user()->name.'Datos incorrectos');
-            return Redirect::to('lugar');
-
-        //return Auth::user();
+        $this->middleware('auth');
+        $this->middleware('rol');
     }
 
     public function index()
@@ -49,24 +33,29 @@ class UserControl extends Controller
      */
     public function create()
     {
-
+        return view('Users.register');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Registrar un nuevo usuario
     public function store(LoginRequest $request)
     {
-        if (Auth::attempt(['name' => $request->name, 'password' => $request->password])) {
-            // Authentication passed...
-            return redirect()->intended('des');
+        $v = \Validator::make($request->all(), [
+            'rol' => 'required',
+            'name' => 'required|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($v->errors());
         }
 
-        Session::flash('message','Datos incorrectos');
-        return Redirect::to('/user/login');
+        $user = new User;
+        $user->fill($request->all());
+        $user->save();
+
+        return redirect('inquilino');
     }
 
     /**
@@ -113,4 +102,6 @@ class UserControl extends Controller
     {
         //
     }
+
+
 }

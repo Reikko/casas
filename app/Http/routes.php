@@ -16,6 +16,8 @@ Route::get('des/{n}/estado/{id}','EdoControl@getEditCiudades');
 //
 
 Route::resource('des','DesControl');
+
+
 Route::resource('edo','EdoControl');
 Route::resource('cdad','CdadControl');
 Route::resource('calle','CalleControl');        //Crear calles del nuevo desarrollo
@@ -37,6 +39,7 @@ Route::resource('tabla','TablaReporteControl');        //Ruta para generar un re
 Route::resource('lugar','LugaresControl');        //Ruta para generar un nuevo lugar.
 Route::resource('fallo','TipoFalloControl');        //Ruta para generar un nuevo tipo de lugar de defecto.
 Route::resource('tipofallo','DescripcionControl');        //Ruta para crear las descripciones de cada defecto.
+Route::resource('user','UserControl');        //Ruta para crear las descripciones de cada defecto.
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
@@ -81,6 +84,7 @@ Route::get('tabla/{id}/completar','TablaReporteControl@completarFila');
 
 //Ruta para generar el pdf
 Route::get('trabajador/obt/pdf/{nombre}/{app}/{apm}/{puesto}','TrabControl@getPdf');
+Route::get('reporte/pdf/{id}','ReporteControl@imprimeReporte');
 //-------------------------------------------------------------------------------------//
 
 

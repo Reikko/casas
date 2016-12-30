@@ -96,7 +96,7 @@
                                 </td>
                                 <td>
                                     {!! Form::open(['route'=>['relacion.destroy',$t->id],'method'=>'DELETE']) !!}
-                                    {!! Form::submit('Eliminar',['class'=>'btn btn-danger']) !!}
+                                    {!! Form::submit('Quitar',['class'=>'btn btn-danger']) !!}
                                     {!! Form::close() !!}
                                 </td>
                             </tr>

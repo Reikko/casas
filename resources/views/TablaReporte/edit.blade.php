@@ -71,7 +71,10 @@
                         </td>
                         <td width="250">
                             {!! Form::select('num_defecto',$defecto,null,['class'=>'form-control','id'=>'defecto']) !!}
-                            {!! link_to('tipofallo/1','Ver todos', ['class' => 'btn btn-success btn-block ','id'=>'descrip']) !!}
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary">+</button>
+                                {!! link_to('tipofallo/1','Ver : Electrico', ['class' => 'btn btn-primary','id'=>'descrip']) !!}
+                            </div>
                         </td>
                         <td>
                             {!! Form::textarea('obs_clie',null,['class'=>'form-control','placeholder'=>'Escribe un comentario', 'rows'=> '2','cols'=> '20']) !!}

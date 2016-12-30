@@ -8,11 +8,12 @@ $("#tipoDef").change(function ( event) {
         {
             $("#defecto").append("<option value = \""+response[i].id+"\"> "+response[i].descripcion+"</option>");
         }
-
+        console.log($("#tipoDef option:selected").text());
         $("#descrip").attr({
-            'href': '../../tipodefecto/'+event.target.value,
-            'value': ''+event.target.innerHTML
+            'href': '../../tipofallo/'+event.target.value
         });
+
+        $("#descrip").text("Ver : "+$("#tipoDef option:selected").text());
 
     });
 

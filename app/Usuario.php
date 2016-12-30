@@ -13,12 +13,10 @@ class Usuario extends Authenticatable
         'tipo',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+    //Atributos que se ocultan para guardar
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
 }

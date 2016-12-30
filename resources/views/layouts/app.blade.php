@@ -70,29 +70,25 @@
                 <ul class="nav navbar-nav">
                         @if (Auth::guest())
                         @else
-
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Desarrollo<span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                                     <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Desarrollos</a>
+                                        {!!link_to_route('des.index', $title = 'Desarrollos')!!}
                                         <ul class="dropdown-menu">
-                                            <li>{!!link_to_route('des.index', $title = 'Mostrar Desarrollo')!!}</li>
                                             <li>{!!link_to_route('des.create', $title = 'Crear Desarrollo')!!}</li>
                                         </ul>
                                     </li>
                                     <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Ciudades</a>
+                                        {!!link_to_route('cdad.index', $title = 'Ciudades')!!}
                                         <ul class="dropdown-menu">
-                                            <li>{!!link_to_route('cdad.index', $title = 'Mostrar Ciudades')!!}</li>
                                             <li>{!!link_to_route('cdad.create', $title = 'Crear Ciudades')!!}</li>
                                         </ul>
                                     </li>
                                     <li class="dropdown-submenu">
-                                        <a tabindex="-1" href="#">Estados</a>
+                                        {!!link_to_route('edo.index', $title = 'Estados')!!}
                                         <ul class="dropdown-menu">
-                                            <li>{!!link_to_route('edo.index', $title = 'Mostrar Estados')!!}</li>
                                             <li>{!!link_to_route('edo.create', $title = 'Agregar Estado')!!}</li>
                                         </ul>
                                     </li>
@@ -106,47 +102,57 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Clientes<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>{!!link_to_route('client.index', $title = 'Mostrar Clientes')!!}</li>
-                                    <li>{!!link_to_route('client.create', $title = 'Crear Cliente')!!}</li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Lugares<span class="caret"></span></a>
+                                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                    <li class="dropdown-submenu">
+                                    {!!link_to_route('lugar.index', $title = 'Lugares Casa')!!}
+                                        <ul class="dropdown-menu">
+                                            <li>{!!link_to_route('lugar.create', $title = 'Crear Lugares Casa')!!}</li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        {!!link_to_route('fallo.index', $title = 'Lugares Defecto')!!}
+                                        <ul class="dropdown-menu">
+                                            <li>{!!link_to_route('fallo.create', $title = 'Crear Lugar Defecto')!!}</li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Trabajadores<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>{!!link_to_route('trabajador.index', $title = 'Mostrar Trabajadores')!!}</li>
-                                    <li>{!!link_to_route('trabajador.create', $title = 'Crear Trabajadores')!!}</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Inquilino<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>{!!link_to_route('inquilino.index', $title = 'Mostrar Inquilinos')!!}</li>
-                                    <li>{!!link_to_route('inquilino.create', $title = 'Crear Inquilino')!!}</li>
-                                </ul>
-                            </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Usuarios<span class="caret"></span></a>
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                <li class="dropdown-submenu">
+                                    <a tabindex="-1" href="#">Clientes</a>
+                                    <ul class="dropdown-menu">
+                                        <li>{!!link_to_route('client.index', $title = 'Mostrar Clientes')!!}</li>
+                                        <li>{!!link_to_route('client.create', $title = 'Crear Cliente')!!}</li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a tabindex="-1" href="#">Trabajadores</a>
+                                    <ul class="dropdown-menu">
+                                        <li>{!!link_to_route('trabajador.index', $title = 'Mostrar Trabajadores')!!}</li>
+                                        <li>{!!link_to_route('trabajador.create', $title = 'Crear Trabajadores')!!}</li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a tabindex="-1" href="#">Inquilino</a>
+                                    <ul class="dropdown-menu">
+                                        <li>{!!link_to_route('inquilino.index', $title = 'Mostrar Inquilinos')!!}</li>
+                                        <li>{!!link_to_route('inquilino.create', $title = 'Crear Inquilino')!!}</li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="/">Propiedades<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li>{!!link_to('nuevas/select', $title = 'Nueva Propiedad')!!}</li>
                                     <li>{!!link_to_route('nuevas.index', $title = 'Mostrar Propiedades')!!}</li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Lugares Casa<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>{!!link_to_route('lugar.create', $title = 'Nuevo Lugar Casa')!!}</li>
-                                    <li>{!!link_to_route('lugar.index', $title = 'Mostrar Lugares Casa')!!}</li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="/">Lugares Defecto<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li>{!!link_to_route('fallo.create', $title = 'Nuevo Lugar Defecto')!!}</li>
-                                    <li>{!!link_to_route('fallo.index', $title = 'Mostrar Lugares Defecto')!!}</li>
                                 </ul>
                             </li>
                         @endif
@@ -159,6 +165,9 @@
                         <li><a href="{{ url('/login') }}">Ingresar</a></li>
                         <!--<li><a href="{{ url('/register') }}">Registrar usuario</a></li>-->
                     @else
+                        @if( Auth::user()->rol == 0)
+                            <li><a href="{{ url('user/create') }}">Registrar usuario</a>
+                        @endif
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} Rol:{{Auth::user()->rol}}<span class="caret"></span>
