@@ -6,14 +6,24 @@
 
         </div>
     <?php endif; ?>
-    <button><?php echo link_to_route('unidad.edit', $title = 'Editar',$id); ?></button>
+
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+        <?php echo link_to('des','Regresar',['class'=>'btn btn-primary btn-block']); ?>
+
+    </div>
+    <div class="col-sm-3">
+        <?php echo link_to_route('unidad.edit','Editar',$id,['class'=>'btn btn-primary btn-block']); ?>
+
+    </div>
     <table class="table">
         <thead>
         <th>#</th>
         <th>Nombre de la Calle</th>
         <th>Numero Exterior</th>
         <th>Numero Interior</th>
-        <th>Asignada</th>
+        <th>Editable</th>
         <th>Ver</th>
         <th>Eliminar</th>
         </thead>
@@ -25,7 +35,7 @@
             <td><?php echo e($propiedad->nom_calle); ?></td>
             <td><?php echo e($propiedad->num_ext); ?></td>
             <td><?php echo e($propiedad->num_int); ?></td>
-            <td><?php echo e($propiedad->id_clie); ?></td>
+            <td><?php echo e($propiedad->editable); ?></td>
             <td><?php echo link_to_route('unidad.show', $title = 'Ver Unidad',$propiedad->id,['class'=>'btn btn-info btn-block']); ?></td>
             <td>
                 <?php echo Form::open(['route'=>['unidad.destroy',$propiedad->id],'method'=>'DELETE']); ?>

@@ -6,14 +6,22 @@
             {{Session::get('message')}}
         </div>
     @endif
-    <button>{!!link_to_route('unidad.edit', $title = 'Editar',$id)!!}</button>
+
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+        {!!link_to('des','Regresar',['class'=>'btn btn-primary btn-block'])!!}
+    </div>
+    <div class="col-sm-3">
+        {!!link_to_route('unidad.edit','Editar',$id,['class'=>'btn btn-primary btn-block'])!!}
+    </div>
     <table class="table">
         <thead>
         <th>#</th>
         <th>Nombre de la Calle</th>
         <th>Numero Exterior</th>
         <th>Numero Interior</th>
-        <th>Asignada</th>
+        <th>Editable</th>
         <th>Ver</th>
         <th>Eliminar</th>
         </thead>
@@ -25,7 +33,7 @@
             <td>{{$propiedad->nom_calle}}</td>
             <td>{{$propiedad->num_ext}}</td>
             <td>{{$propiedad->num_int}}</td>
-            <td>{{$propiedad->id_clie}}</td>
+            <td>{{$propiedad->editable}}</td>
             <td>{!!link_to_route('unidad.show', $title = 'Ver Unidad',$propiedad->id,['class'=>'btn btn-info btn-block'])!!}</td>
             <td>
                 {!! Form::open(['route'=>['unidad.destroy',$propiedad->id],'method'=>'DELETE']) !!}

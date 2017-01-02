@@ -17,7 +17,6 @@
         <th>Modificar</th>
         <th>Ver Calles</th>
         <th>Ver Unidades</th>
-        <th></th>
         </thead>
         @foreach($dess as $d)
             <tbody>
@@ -27,14 +26,13 @@
             <td>{{$d->unidades}}</td>
             <td>{{$d->responsable}}</td>
             <td>
-                {!!link_to_route('des.edit', $title = 'Editar', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary'])!!}
+                {!!link_to_route('des.edit', $title = 'Editar', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary btn-block'])!!}
             </td>
             <td>
-                {!!link_to_route('calle.show', $title = 'Ver Calles', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary'])!!}
+                {!!link_to_route('calle.show', $title = 'Ver Calles', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary btn-block'])!!}
             </td>
             <td>
-                {!!link_to_route('des.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary'])!!}
-                <!--{!!link_to_route('unidad.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary'])!!}-->
+                {!!link_to_route('des.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary btn-block'])!!}
             </td>
             </tbody>
         @endforeach

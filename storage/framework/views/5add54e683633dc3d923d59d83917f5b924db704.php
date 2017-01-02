@@ -17,7 +17,6 @@
         <th>Modificar</th>
         <th>Ver Calles</th>
         <th>Ver Unidades</th>
-        <th></th>
         </thead>
         <?php foreach($dess as $d): ?>
             <tbody>
@@ -27,17 +26,16 @@
             <td><?php echo e($d->unidades); ?></td>
             <td><?php echo e($d->responsable); ?></td>
             <td>
-                <?php echo link_to_route('des.edit', $title = 'Editar', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('des.edit', $title = 'Editar', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary btn-block']); ?>
 
             </td>
             <td>
-                <?php echo link_to_route('calle.show', $title = 'Ver Calles', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('calle.show', $title = 'Ver Calles', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary btn-block']); ?>
 
             </td>
             <td>
-                <?php echo link_to_route('des.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>
+                <?php echo link_to_route('des.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary btn-block']); ?>
 
-                <!--<?php echo link_to_route('unidad.show', $title = 'Ver Unidades', $parameters = $d->id, $attributes = ['class'=>'btn btn-primary']); ?>-->
             </td>
             </tbody>
         <?php endforeach; ?>

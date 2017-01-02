@@ -43,7 +43,7 @@
                                 <td><?php echo e($fila->descripcion); ?></td>
                                 <td><?php echo e($fila->obs_clie); ?></td>
                                 <td><?php echo e($fila->obs_trab); ?></td>
-                                <td> Editar </td>
+                                <td><?php echo link_to('tabla/'.$reporte->id.'/edit/'.$fila->id,'Editar', ['class' => 'btn btn-warning btn-block']); ?> </td>
                                 <td>
                                     <?php echo Form::open(['route'=>['tabla.destroy',$fila->id],'method'=>'DELETE']); ?>
 

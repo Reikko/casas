@@ -73,20 +73,4 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="panel panel-success">
-            <div class="panel-heading">Reportes</div>
-            <div class="panel-body">
-                <h5>Estado: {{$dir->estado}}</h5>
-                <h5>Municipio: {{$dir->municipio}}</h5>
-                <h5>{{$dir->tipo}}: {{$dir->asentamiento}}</h5>
-                <h5>Tipo de zona: {{$dir->zona}}</h5>
-                <h5>Tipo de Propiedad: {{$ts->tipo_prop}}</h5>
-                <h5>Calle : {{$ts->calle}}</h5>
-                <h5>Código Postal: {{$dir->cp}}</h5>
-                <h5>Numero Exterior: {{$ts->num_ext}}</h5>
-                <h5>Numero Interior: {{$ts->num_int}}</h5>
-            </div>
-        </div>
-    </div>
 @stop

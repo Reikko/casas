@@ -1,6 +1,7 @@
 <?php
 
 namespace azf\Http\Controllers;
+use azf\Estado;
 use azf\Propiedad;
 use Session;
 use Redirect;
@@ -60,9 +61,10 @@ class CalleControl extends Controller
     public function edit($id)
     {
         $call = Calles::find($id);
+        $desa = Desarrollo::find($call->id_des);
         $ciudades = Ciudad::lists('nom_cdad','id');
         $desarrolls = Desarrollo::lists('nom_des','id');
-        return view('clle.edit',['call'=>$call],compact('ciudades','desarrolls'));
+        return view('clle.edit',['call'=>$call],compact('ciudades','desarrolls','estados','desa'));
     }
 
     public function update(Request $request, $id)

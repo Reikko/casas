@@ -42,7 +42,7 @@
                                 <td>{{$fila->descripcion}}</td>
                                 <td>{{$fila->obs_clie}}</td>
                                 <td>{{$fila->obs_trab}}</td>
-                                <td> Editar </td>
+                                <td>{!! link_to('tabla/'.$reporte->id.'/edit/'.$fila->id,'Editar', ['class' => 'btn btn-warning btn-block']) !!} </td>
                                 <td>
                                     {!! Form::open(['route'=>['tabla.destroy',$fila->id],'method'=>'DELETE']) !!}
                                     {!! Form::submit('Eliminar',['class'=>'btn btn-danger']) !!}

@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section('444')
+    {!! link_to_route('calle.show','Regresar',$call->id_des, ['class' => 'btn btn-primary']) !!}
     {!! Form::model($call,['route'=>['calle.update',$call->id],'method'=>'PUT']) !!}
     <div class="form-group">
-        {!! Form::label('ciudad:') !!}
-        {!! Form::select('id_cdad', $ciudades,null,['class'=>'form-control']) !!}
+        {!! Form::label('Ciudad:') !!}
+        {!! Form::select('id_cdad', $ciudades,$desa->id_cdad,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">
-        {!! Form::label('ciudad:') !!}
+        {!! Form::label('Desarrollo:') !!}
         {!! Form::select('id_des', $desarrolls,$call->id_des,['class'=>'form-control']) !!}
     </div>
     <div class="form-group">

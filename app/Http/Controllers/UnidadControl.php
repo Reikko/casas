@@ -32,15 +32,21 @@ class UnidadControl extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+    //Utilizada para bloquear una unidad y no se pueda editar
+
+    public function bloquear($id)
+    {
+        $unidad = Propiedad::find($id);
+        $unidad->editable = 0;
+        $unidad->save();
+        return redirect('unidad/'.$unidad->id_des.'/edit');
+
+
+    }
     public function store(Request $request)
     {
-        //
+
     }
 
     //Aqui se mustran los detalles de la unidad...

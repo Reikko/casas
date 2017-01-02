@@ -24,10 +24,6 @@ class ReporteControl extends Controller
     }
 
     //muestra todol los reportes relacionados con
-    public function crear($id)
-    {
-        return 'Editar la vista para editar la fila';
-    }
 
     public function index()
     {
@@ -108,6 +104,8 @@ class ReporteControl extends Controller
         $lugares = Place::lugaresList();                                //Busca todos los lugares donde este un defecto
         $tipoDef = TipoDefect::TipoDefectoList();                       //Busca todos los posibles defectos
         $pdf = PDF::loadView('Report.pdf', compact('id','reporte','lugares','tipoDef','filas'));
+        $pdf->setPaper('a4', 'landscape');
+        //return view('Report.pdf',compact('id','reporte','lugares','tipoDef','filas'));
         return $pdf->download('reporte'.$id.'.pdf');
     }
 

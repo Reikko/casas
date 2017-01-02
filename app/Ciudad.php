@@ -18,5 +18,12 @@ class Ciudad extends Model
             ->get();
     }
 
+    public static function CiudadList($id)
+    {
+        return DB::table('ciudads')
+            ->where('id_edo',$id)
+            ->lists('nom_cdad','id');
+    }
+
 
 }

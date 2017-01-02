@@ -25,6 +25,8 @@ Route::resource('client','ClienteControl');
 Route::resource('propiedad','PropiedadControl');
 Route::resource('trabajador','TrabControl');    //Trabajador
 Route::resource('unidad','UnidadControl');      //
+Route::get('unidad/{id}/bloquear','UnidadControl@bloquear');
+
 Route::resource('nuevas','CasaControl');        //Registro de nuevas casas
 Route::resource('una','UnaControl');            //Registro de solo una nueva propiedad
 Route::resource('varias','VariasControl');      //Registro d varias propiedades
@@ -71,15 +73,14 @@ Route::get('nuevas/{id}/create','CasaControl@relacion');
 
 //-----------------Ruta para El reporte--------------//
 Route::get('reporte/create/{id}','ReporteControl@crear');
-Route::get('tabla/{rep}/edit/{id}','ReporteControl@crear');
+Route::get('tabla/{rep}/edit/{id}','TablaReporteControl@fila');
 //---------------------------------------------------------//
 
 //-----------------Cambio select en  Tabla de defectos--------------//
 Route::get('tabla/{un}/defecto/{id}','TablaReporteControl@selectDefecto');
+Route::get('tabla/{un}/edit/defecto/{id}','TablaReporteControl@selectDefecto');
 Route::get('tabla/{id}/completar','TablaReporteControl@completarFila');
 //---------------------------------------------------------//
-
-
 
 
 //Ruta para generar el pdf

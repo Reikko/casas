@@ -30,15 +30,22 @@ class TablaReporteControl extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function fila($rep,$id)
     {
-        //
+        $f = TableReport::find($id);
+        $reporte = Report::find($rep);                                  //Busca el reporte al cual se le va a editar
+        $filas = TableReport::Filas($reporte->id);                      //Busca todas las filas del reporte
+        $lugares = Place::lugaresList();                                //Busca todos los lugares donde este un defecto
+        $tipoDef = TipoDefect::TipoDefectoList();                       //Busca todos los posibles defectos
+        $defe = Defect::find($f->num_defecto);
+        $defecto = Defect::DefectoList($defe->id_t_defecto);                //Devuelve todos los defectos relacionados
+
+        return view('TablaReporte.fila',compact('id','reporte','lugares','tipoDef','defecto','filas','f','defe')); //Retorna a crear la tabla de los reportes
+    }
+
+    public function create($id)
+    {
+
     }
 
     //Crea un nuevo reporte y redirecciona a este para editarlo
@@ -46,6 +53,8 @@ class TablaReporteControl extends Controller
     {
         $fila = new TableReport;
         $fila->fill($request->all());
+        //$fila->f_realizacion = '0000-01-01 00:00:00';
+        //return $request->all();
         $fila->save();
         return Redirect::to('tabla/'.$fila->id_reporte.'/edit');
     }
@@ -71,16 +80,13 @@ class TablaReporteControl extends Controller
         return view('TablaReporte.edit',compact('id','reporte','lugares','tipoDef','defecto','filas')); //Retorna a crear la tabla de los reportes
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Editando la fila del reporte
     public function update(Request $request, $id)
     {
-        //
+        $fila = TableReport::find($id);
+        $fila->fill($request->all());
+        $fila->save();
+        return Redirect::to('tabla/'.$fila->id_reporte.'/edit');
     }
 
     //Eliminar una fila del reporte
@@ -89,7 +95,6 @@ class TablaReporteControl extends Controller
         $fila = TableReport::find($id);
         TableReport::destroy($id);
         return Redirect::to('tabla/'.$fila->id_reporte.'/edit');
-        return "Eliminando con el id:".$id;
     }
 
     //Cambia al seleccionar un tipo de defecto

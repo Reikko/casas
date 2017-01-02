@@ -10,7 +10,7 @@
 
     <table class="table">
         <thead>
-        <th>{!!link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $des->id, $attributes = ['class'=>'btn btn-success'])!!}</th>
+        <th>{!!link_to_route('calle.create','Agregar Calle',$des->id, ['class'=>'btn btn-success'])!!}</th>
         <th>nombre</th>
         <th>Editar</th>
 
@@ -20,10 +20,10 @@
             <td>{{$c->id}}</td>
             <td>{{$c->nom_calle}}</td>
             <td>
-                {!!link_to_route('des.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary'])!!}
+                {!!link_to_route('des.edit', $title = 'Editar', $parameters = $c->id, $attributes = ['class'=>'btn btn-primary btn-block'])!!}
             </td>
             <td>
-                {!!link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $c->id, $attributes = ['class'=>'btn btn-success'])!!}
+                {!!link_to_route('calle.create', $title = 'Agregar Calle', $parameters = $c->id, $attributes = ['class'=>'btn btn-success btn-block'])!!}
             </td>
             </tbody>
         @endforeach

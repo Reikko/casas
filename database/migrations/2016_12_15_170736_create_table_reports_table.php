@@ -18,7 +18,7 @@ class CreateTableReportsTable extends Migration
             $table->foreign('id_lugar')->references('id')->on('places')->onUpdate('cascade');
             $table->integer('num_defecto')->unsigned();
             $table->foreign('num_defecto')->references('id')->on('defects')->onUpdate('cascade');
-            $table->dateTime('f_realizacion');
+            $table->dateTime('f_realizacion')->nullable();
             $table->integer('completo')->unsigned();
             $table->string('obs_clie');
             $table->string('obs_trab');

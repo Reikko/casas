@@ -8,7 +8,8 @@
 @section('363')
     <h1>Calles Registradas en {{$desa->nom_des}}</h1>
     <div class="form-group">
-        <button>{!!link_to('calle/create/'.$desa->id, $title = 'Crear Calle o Edificio')!!}</button>
+        {!!link_to('calle/create/'.$desa->id, $title = 'Crear Calle o Edificio',['class' => 'btn btn-primary'])!!}
+        {!! link_to('des','Regresar', ['class' => 'btn btn-primary']) !!}
     </div>
     <table class="table">
         <thead>

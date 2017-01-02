@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('444')
-
     {!! Form::open(['route'=>'calle.store','method'=>'POST']) !!}
     <div class="form-group">
         {!! Form::label('ciudad:') !!}

@@ -11,4 +11,5 @@ class Estado extends Model
     protected $fillable = [
         'nom_edo'
     ];
+
 }

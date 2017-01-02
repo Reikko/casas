@@ -28,6 +28,7 @@
     24 => 'azf\\Providers\\RouteServiceProvider',
     25 => 'Collective\\Html\\HtmlServiceProvider',
     26 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    27 => 'Zizaco\\Entrust\\EntrustServiceProvider',
   ),
   'eager' => 
   array (
@@ -45,6 +46,7 @@
     11 => 'azf\\Providers\\EventServiceProvider',
     12 => 'azf\\Providers\\RouteServiceProvider',
     13 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    14 => 'Zizaco\\Entrust\\EntrustServiceProvider',
   ),
   'deferred' => 
   array (

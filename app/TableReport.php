@@ -12,7 +12,7 @@ class TableReport extends Model
         'id_reporte',
         'id_lugar',
         'num_defecto',
-        'f_realiz',
+        'f_realizacion',
         'obs_clie',
         'obs_trab',
     ];

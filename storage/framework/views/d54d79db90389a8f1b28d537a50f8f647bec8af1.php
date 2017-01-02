@@ -3,9 +3,11 @@
     <div class="row">
         <div class="col-sm-3"></div>
         <div class="col-sm-3">
+            <?php echo link_to('reporte/pdf/'.$reporte->id,'Imprimir reporte', ['class' => 'btn btn-primary btn-block']); ?>
+
         </div>
         <div class="col-sm-3">
-            <?php echo link_to_route('reporte.show','Regresar',$reporte->id_prop, ['class' => 'btn btn-default btn-block']); ?>
+            <?php echo link_to_route('reporte.show','Regresar',$reporte->id_prop, ['class' => 'btn btn-primary btn-block']); ?>
 
         </div>
         <div class="col-sm-3">
@@ -58,7 +60,12 @@
                             <td><?php echo e($fila->descripcion); ?></td>
                             <td><?php echo e($fila->obs_clie); ?></td>
                             <td><?php echo e($fila->obs_trab); ?></td>
-                            <td><?php echo e($fila->f_realizacion); ?></td>
+                            <?php if($fila->f_realizacion != null): ?>
+                                <td><?php echo e(\Carbon\Carbon::parse($fila->f_realizacion)->format('d-m-Y')); ?></td>
+                            <?php else: ?>
+                                <td>No terminado</td>
+                            <?php endif; ?>
+
                             <?php if($fila->completo == 0 &&$reporte->cerrado == 0): ?>
                                     <td><?php echo link_to_action('TablaReporteControl@completarFila','Completar',$fila->id, ['class' => 'btn btn-danger btn-block']); ?></td>
                             <?php else: ?>
