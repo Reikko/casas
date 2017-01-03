@@ -85,6 +85,7 @@ class ValoresDefault extends Seeder
             'email'=> $faker->email,
             'password'=> Hash::make('zavala_09'),
             'remember_token' => str_random(30),
+            'rol'=>'1',
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
         ));

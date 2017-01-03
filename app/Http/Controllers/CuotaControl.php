@@ -17,11 +17,6 @@ class CuotaControl extends Controller
      * Este control funciona para el registro de cuotas
      */
 
-
-    //Retorna todas las cuotas de esta propiedad y permite crear nuevas redirige a crear
-    /*
-     * Redirige a */
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -30,9 +25,7 @@ class CuotaControl extends Controller
     public function getCuota(Request $request,$id)
     {
         $date = Carbon::now();
-        //$regCuotas = RegistroCuota::where('id_prop',$id)->get();
         $regCuotas = RegistroCuota::Cuota($id);
-        //return $regCuotas;
         $periodos = TipoPeriodo::lists('nom_periodo','id');
         $cuotas = TipoCuota::lists('nom_cuota','id');
 
@@ -79,15 +72,16 @@ class CuotaControl extends Controller
         return Redirect::to('cuota/create/'.$cuota->id_prop);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Muestra la vista para que se edite una cuota
     public function show($id)
     {
-        //
+        $cuota = RegistroCuota::find($id);
+        $date = Carbon::now();
+        $regCuotas = RegistroCuota::Cuota($cuota->id_prop);
+        $periodos = TipoPeriodo::lists('nom_periodo','id');
+        $cuotas = TipoCuota::lists('nom_cuota','id');
+
+        return view('Cuote.showEdit',compact('id','periodos','cuotas','regCuotas','date','cuota'));
     }
 
     /**
@@ -101,28 +95,20 @@ class CuotaControl extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Guarda los datos al editar
     public function update(Request $request, $id)
     {
-        //
+        $fila = RegistroCuota::find($id);
+        $fila->fill($request->all());
+        $fila->save();
+        return Redirect::to('cuota/create/'.$fila->id_prop);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Eliminando una Cuota por id
     public function destroy($id)
     {
         $id_prop = RegistroCuota::find($id);
         RegistroCuota::destroy($id);
-        return Redirect::to('cuota/create/'.$id_prop->id_prop);
+        return Redirect::to('cuota/'.$id_prop->id_prop);
     }
 }

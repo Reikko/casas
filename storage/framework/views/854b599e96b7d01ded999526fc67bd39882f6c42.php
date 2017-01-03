@@ -35,65 +35,74 @@
                     </thead>
                     <?php foreach($filas as $num => $fila): ?>
                         <tbody>
-                        <tr>
                             <?php if($fila->id == $id): ?>
-                                <?php echo Form::model($f,['route'=>['tabla.update',$f->id],'method'=>'PUT']); ?>
+                                <tr class="success">
+                                    <?php echo Form::model($f,['route'=>['tabla.update',$f->id],'method'=>'PUT']); ?>
 
-                                <?php echo e(Form::hidden('id_reporte', $f->id_reporte, array('id' => 'invisible_id'))); ?>
+                                    <?php echo e(Form::hidden('id_reporte', $f->id_reporte, array('id' => 'invisible_id'))); ?>
 
-                                <td></td>
-                                <td>
-                                    <?php echo Form::select('id_lugar',$lugares,$f->id_lugar,['class'=>'form-control']); ?>
+                                    <td></td>
+                                    <td>
+                                        <?php echo Form::select('id_lugar',$lugares,$f->id_lugar,['class'=>'form-control']); ?>
 
-                                </td>
-                                <td>
-                                    <?php echo Form::select('tipo',$tipoDef,$defe->id_t_defecto,['class'=>'form-control','id'=>'tipoDef']); ?>
+                                    </td>
+                                    <td>
+                                        <?php echo Form::select('tipo',$tipoDef,$defe->id_t_defecto,['class'=>'form-control','id'=>'tipoDef']); ?>
 
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                            Opciones <span class="caret"></span></button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Agregar</a></li>
-                                            <li><a href="#">Ver</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                                <td>
-                                    <?php echo Form::select('num_defecto',$defecto,$f->num_defecto,['class'=>'form-control','id'=>'defecto']); ?>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                                                Opciones <span class="caret"></span></button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Agregar</a></li>
+                                                <li><a href="#">Ver</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <?php echo Form::select('num_defecto',$defecto,$f->num_defecto,['class'=>'form-control','id'=>'defecto']); ?>
 
-                                </td>
-                                <td>
-                                    <?php echo Form::textarea('obs_clie',$f->obs_clie,['class'=>'form-control','placeholder'=>'Escribe un comentario', 'rows'=> '3','cols'=> '20']); ?>
+                                    </td>
+                                    <td>
+                                        <?php echo Form::textarea('obs_clie',$f->obs_clie,['class'=>'form-control','placeholder'=>'Escribe un comentario', 'rows'=> '3','cols'=> '20']); ?>
 
-                                </td>
-                                <td>
-                                    <?php echo Form::textarea('obs_trab',$f->obs_trab,['class'=>'form-control','placeholder'=>'Escribe un comentario', 'rows'=> '3','cols'=> '20']); ?>
+                                    </td>
+                                    <td>
+                                        <?php echo Form::textarea('obs_trab',$f->obs_trab,['class'=>'form-control','placeholder'=>'Escribe un comentario', 'rows'=> '3','cols'=> '20']); ?>
 
-                                </td>
-                                <td>
-                                    <?php echo Form::submit('Guardar',['class'=>'btn btn-success btn-block']); ?>
+                                    </td>
+                                    <td>
+                                        <?php echo Form::submit('Guardar',['class'=>'btn btn-success btn-block']); ?>
 
-                                    <?php echo Form::close(); ?>
+                                        <?php echo Form::close(); ?>
 
-                                </td>
+                                        <?php echo Form::open(['route'=>['tabla.destroy',$f->id],'method'=>'DELETE']); ?>
+
+                                        <?php echo Form::submit('Eliminar',['class'=>'btn btn-danger btn-block']); ?>
+
+                                        <?php echo Form::close(); ?>
+
+                                    </td>
+                                </tr>
                                 <?php else: ?>
-                                <td><?php echo e($num + 1); ?></td>
-                                <td><?php echo e($fila->nom_lugar); ?></td>
-                                <td><?php echo e($fila->nom_defecto); ?></td>
-                                <td><?php echo e($fila->descripcion); ?></td>
-                                <td><?php echo e($fila->obs_clie); ?></td>
-                                <td><?php echo e($fila->obs_trab); ?></td>
-                                <td>
-                                    <?php echo Form::open(['route'=>['tabla.destroy',$fila->id],'method'=>'DELETE']); ?>
+                                <tr>
+                                    <td><?php echo e($num + 1); ?></td>
+                                    <td><?php echo e($fila->nom_lugar); ?></td>
+                                    <td><?php echo e($fila->nom_defecto); ?></td>
+                                    <td><?php echo e($fila->descripcion); ?></td>
+                                    <td><?php echo e($fila->obs_clie); ?></td>
+                                    <td><?php echo e($fila->obs_trab); ?></td>
+                                    <td>
+                                        <?php echo link_to('tabla/'.$reporte->id.'/edit/'.$fila->id,'Editar', ['class' => 'btn btn-default btn-block']); ?>
 
-                                    <?php echo Form::submit('Eliminar',['class'=>'btn btn-danger btn-block']); ?>
+                                        <?php echo Form::open(['route'=>['tabla.destroy',$fila->id],'method'=>'DELETE']); ?>
 
-                                    <?php echo Form::close(); ?>
+                                        <?php echo Form::submit('Eliminar',['class'=>'btn btn-danger btn-block']); ?>
 
-                                </td>
-                                <?php endif; ?>
+                                        <?php echo Form::close(); ?>
 
-                        </tr>
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                     <?php endforeach; ?>
                 </table>

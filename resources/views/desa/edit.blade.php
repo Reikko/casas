@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         {!! Form::label('Numero de Viviendas') !!}
-        {!! Form::text('unidades',null,['class'=>'form-control','placeholder'=>'Unidades habitacionales']) !!}
+        {!! Form::text('unidades',null,['class'=>'form-control','placeholder'=>'Unidades habitacionales','disabled']) !!}
     </div>
     {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
     {!! Form::close() !!}

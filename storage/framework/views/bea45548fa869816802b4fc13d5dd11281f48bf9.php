@@ -35,7 +35,7 @@
     <div class="form-group">
         <?php echo Form::label('Numero de Viviendas'); ?>
 
-        <?php echo Form::text('unidades',null,['class'=>'form-control','placeholder'=>'Unidades habitacionales']); ?>
+        <?php echo Form::text('unidades',null,['class'=>'form-control','placeholder'=>'Unidades habitacionales','disabled']); ?>
 
     </div>
     <?php echo Form::submit('Registrar',['class'=>'btn btn-primary']); ?>
