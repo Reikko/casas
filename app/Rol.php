@@ -3,11 +3,18 @@
 namespace azf;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Rol extends Model
 {
-    protected $table = 'roles';
+    protected $table = 'rols';
     protected $fillable = [
-        'nombreRol'
+        'nombre'
     ];
+
+    public static function RolesList()
+    {
+        return DB::table('rols')
+            ->lists('nombre','id');
+    }
 }

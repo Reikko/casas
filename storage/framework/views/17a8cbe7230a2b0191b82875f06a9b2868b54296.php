@@ -1,12 +1,11 @@
-<?php if(Session::has('message')): ?>
-    <div class="alert alert-success alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <?php echo e(Session::get('message')); ?>
-
-    </div>
-<?php endif; ?>
-
 <?php $__env->startSection('completo'); ?>
+    <?php if(Session::has('message')): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <?php echo e(Session::get('message')); ?>
+
+        </div>
+    <?php endif; ?>
     <table class="table">
         <thead>
         <th>ID</th>
@@ -23,8 +22,8 @@
             <td><?php echo e($client->id); ?></td>
             <td><?php echo e($client->nombre, $client->ap_pat); ?> <?php echo e($client->ap_pat); ?> <?php echo e($client->ap_mat); ?></td>
             <td><?php echo e($client->tel); ?></td>
-            <td><?php echo e($client->correo); ?></td>
-            <td><?php echo e($client->usuario); ?></td>
+            <td></td>
+            <td></td>
             <td><?php echo link_to_route('client.show', $title = 'Ver perfil',$parameters = $client->id, $attributes = ['class'=>'btn btn-primary']); ?></td>
             <td>
                 <?php echo link_to_route('client.edit', $title = 'Editar', $parameters = $client->id, $attributes = ['class'=>'btn btn-primary']); ?>

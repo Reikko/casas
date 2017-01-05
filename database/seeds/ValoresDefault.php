@@ -2,6 +2,7 @@
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 use azf\regHouse;
+use azf\Rol;
 
 class ValoresDefault extends Seeder
 {
@@ -12,6 +13,29 @@ class ValoresDefault extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create();
+        //Insertar el usuario administrador inicial
+        \DB::table('users')->insert(array(
+            'name'=>'administrador',
+            'email'=> $faker->email,
+            'password'=> Hash::make('zavala_09'),
+            'remember_token' => str_random(30),
+            'rol'=>'1',                         //Rol Super Administrador
+            'created_at' => date('Y-m-d H:m:s'),
+            'updated_at' => date('Y-m-d H:m:s')
+        ));
+
+        \DB::table('users')->insert(array(
+            'name'=>'default',
+            'email'=> $faker->email,
+            'password'=> Hash::make('zavala_09'),
+            'remember_token' => str_random(30),
+            'rol'=>'2',                         //Rol Visitante
+            'created_at' => date('Y-m-d H:m:s'),
+            'updated_at' => date('Y-m-d H:m:s')
+        ));
+
+
         \DB::table('estados')->insert(array(
             'nom_edo'=>'Seleccione un estado',
             'created_at' => date('Y-m-d H:m:s'),
@@ -32,6 +56,7 @@ class ValoresDefault extends Seeder
             'edo_civil' => 'Soltero',
             'sexo' => 'Masculino',
             'alias' => 'Sin Asignar',
+            'user'=>'2',
             'fecha_nac' =>date('Y-m-d'),
             'lug_nac' => 'Sin lugar',
             'calle' => 'Sin calle',
@@ -66,35 +91,14 @@ class ValoresDefault extends Seeder
             'updated_at' => date('Y-m-d H:m:s')
         ));
 
-        $faker = Faker::create();
+
 
         \DB::table('clientes')->insert(array(
             'nombre'=>'Sin Cliente',
             'ap_pat'=> 'Sin Apellido',
             'ap_mat'=> 'Sin Apellido',
+            'user'=>'2',
             'tel'=> $faker->phoneNumber,
-            'correo'=> $faker->email,
-            'contra'=> Hash::make('12345'),
-            'created_at' => date('Y-m-d H:m:s'),
-            'updated_at' => date('Y-m-d H:m:s')
-        ));
-
-            //Insertar el usuario administrador inicial
-        \DB::table('users')->insert(array(
-            'name'=>'administrador',
-            'email'=> $faker->email,
-            'password'=> Hash::make('zavala_09'),
-            'remember_token' => str_random(30),
-            'rol'=>'1',
-            'created_at' => date('Y-m-d H:m:s'),
-            'updated_at' => date('Y-m-d H:m:s')
-        ));
-
-        \DB::table('usuarios')->insert(array(
-            'name'=> 'reikko',
-            'email'=>$faker->email,
-            'password' => Hash::make('zavala_09'),
-            'remember_token' => str_random(80),
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
         ));
@@ -105,6 +109,8 @@ class ValoresDefault extends Seeder
         $casa->num_ext = '781';
         $casa->tipo_prop = 'Casa';
         $casa->save();
+
+
 
     }
 }

@@ -8,12 +8,6 @@ class Cliente extends Model
 {
     protected $table = 'clientes';
     protected $fillable = [
-        'nombre', 'ap_pat', 'ap_mat','tel','correo','usuario','contra','priv',
+        'nombre', 'ap_pat', 'ap_mat','tel','user'
     ];
-
-    public function setPasswordAttribute($valor){
-        if(!empty($valor)){
-            $this->attributes['contra'] = \Hash::make($valor);
-        }
-    }
 }

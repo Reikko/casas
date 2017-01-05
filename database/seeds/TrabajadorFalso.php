@@ -12,7 +12,7 @@ class TrabajadorFalso extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i = 0;$i<5;$i++)
+        for ($i = 0;$i<2;$i++)
         {
 
             $trabajador = new Trabajador;
@@ -22,6 +22,7 @@ class TrabajadorFalso extends Seeder
             $trabajador->edo_civil = 'Soltero';
             $trabajador->sexo = 'Masculino';
             $trabajador->alias = $faker->userName;
+            $trabajador->user = 2;
             $trabajador->fecha_nac = $faker->dateTime;
             $trabajador->lug_nac = 'Sin lugar';
             $trabajador->calle = 'Sin lugar';
@@ -32,8 +33,8 @@ class TrabajadorFalso extends Seeder
             $trabajador->municipio = 'Sin Municipio';
             $trabajador->puesto = 'No Asignado';
             $trabajador->estatus = '3';
-            $trabajador->num_seguro = $faker->randomLetter;
-            $trabajador->rfc = $faker->randomAscii;
+            $trabajador->num_seguro = '00000000000000000';
+            $trabajador->rfc = 'XXXXXXXXXXXXXXXXXXXXXX';
             $trabajador->save();
 
             $archivo = new Archivo;

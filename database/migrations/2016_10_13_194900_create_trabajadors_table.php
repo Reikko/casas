@@ -5,11 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTrabajadorsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('trabajadors', function (Blueprint $table) {
@@ -21,6 +17,8 @@ class CreateTrabajadorsTable extends Migration
             $table->string('edo_civil');
             $table->string('sexo');
             $table->string('alias');
+            $table->integer('user')->unsigned();
+            $table->foreign('user')->references('id')->on('users')->onUpdate('cascade');
             $table->date('fecha_nac');
             $table->string('lug_nac');
             $table->string('calle');

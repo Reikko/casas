@@ -13,7 +13,8 @@
                             <label for="rol" class="col-md-4 control-label">Rol</label>
 
                             <div class="col-md-6">
-                                <input id="rol" type="text" class="form-control" name="rol" value="<?php echo e(old('rol')); ?>">
+                                <?php echo Form::select('rol',$roles,null,['class'=>'form-control','id'=>'edo_sel','required'=>'true']); ?>
+
 
                                 <?php if($errors->has('rol')): ?>
                                     <span class="help-block">

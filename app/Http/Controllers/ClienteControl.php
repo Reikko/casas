@@ -3,6 +3,7 @@
 namespace azf\Http\Controllers;
 
 use azf\Cliente;
+use azf\User;
 use Illuminate\Http\Request;
 
 use azf\Http\Requests;
@@ -28,14 +29,39 @@ class ClienteControl extends Controller
 
     public function store(Request $request)
     {
-        Cliente::create([
+        $v = \Validator::make($request->all(), [
+            'nombre' => 'required|max:255',
+            'ap_pat' => 'required|max:255',
+            'ap_mat' => 'required|max:255',
+            'name' => 'required|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        if ($v->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($v->errors());
+        }
+
+        $user = new User;
+        $user->fill($request->all());
+        $user->rol = 3;             //Rol de cliente
+        $user->tabla = 2;           //Tabla clientes
+        $user->save();
+
+        $cliente = Cliente::create([
             'nombre'=>$request['nombre'],
             'ap_pat'=> $request['ap_pat'],
             'ap_mat'=> $request['ap_mat'],
             'tel'=> $request['tel'],
-            'correo'=> $request['correo'],
-            'contra'=> $request['contra'],
+            'user'=>$user->id,
         ]);
+
+
+
+        $user->id_user = $cliente->id;
+        $user->save();
+
         return redirect('/client')->with('message','Usuario Creado Correctamente');
     }
 

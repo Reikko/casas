@@ -2,6 +2,7 @@
 
 namespace azf\Http\Controllers;
 
+use azf\Rol;
 use azf\User;
 use FontLib\Table\Type\name;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -33,7 +34,8 @@ class UserControl extends Controller
      */
     public function create()
     {
-        return view('Users.register');
+        $roles = Rol::RolesList();
+        return view('Users.register',compact('roles'));
     }
 
     //Registrar un nuevo usuario

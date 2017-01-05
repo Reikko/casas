@@ -170,9 +170,7 @@
                         <li><a href="<?php echo e(url('/login')); ?>">Ingresar</a></li>
                         <!--<li><a href="<?php echo e(url('/register')); ?>">Registrar usuario</a></li>-->
                     <?php else: ?>
-                        <?php if( Auth::user()->rol == 0): ?>
-                            <li><a href="<?php echo e(url('user/create')); ?>">Registrar usuario</a>
-                        <?php endif; ?>
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <?php echo e(Auth::user()->name); ?> Rol:<?php echo e(Auth::user()->rol); ?><span class="caret"></span>
@@ -180,6 +178,9 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="<?php echo e(url('/logout')); ?>"><i class="fa fa-btn fa-sign-out"></i>Salir</a></li>
+                            <?php if( Auth::user()->rol == 1): ?>
+                                <li><a href="<?php echo e(url('user/create')); ?>">Registrar usuario</a>
+                            <?php endif; ?>
                             </ul>
                         </li>
 

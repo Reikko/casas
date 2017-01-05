@@ -19,10 +19,8 @@ class CreateClientesTable extends Migration
             $table->string('ap_pat');
             $table->string('ap_mat');
             $table->string('tel');
-            $table->string('correo');
-            $table->string('usuario');
-            $table->string('contra');
-            $table->string('priv');
+            $table->integer('user')->unsigned();
+            $table->foreign('user')->references('id')->on('users')->onUpdate('cascade');
             $table->timestamps();
         });
     }
