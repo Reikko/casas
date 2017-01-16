@@ -53,6 +53,12 @@ class Trabajador extends Model
             ->get();
     }
 
+    public static function TrabajadorList()
+    {
+        return DB::table('trabajadors')
+            ->lists('nom_trab','id');
+    }
+
 
 
 

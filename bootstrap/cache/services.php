@@ -29,6 +29,7 @@
     25 => 'Collective\\Html\\HtmlServiceProvider',
     26 => 'Barryvdh\\DomPDF\\ServiceProvider',
     27 => 'Zizaco\\Entrust\\EntrustServiceProvider',
+    28 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
   ),
   'eager' => 
   array (
@@ -47,6 +48,7 @@
     12 => 'azf\\Providers\\RouteServiceProvider',
     13 => 'Barryvdh\\DomPDF\\ServiceProvider',
     14 => 'Zizaco\\Entrust\\EntrustServiceProvider',
+    15 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
   ),
   'deferred' => 
   array (

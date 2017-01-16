@@ -42,6 +42,13 @@ Route::resource('lugar','LugaresControl');        //Ruta para generar un nuevo l
 Route::resource('fallo','TipoFalloControl');        //Ruta para generar un nuevo tipo de lugar de defecto.
 Route::resource('tipofallo','DescripcionControl');        //Ruta para crear las descripciones de cada defecto.
 Route::resource('user','UserControl');        //Ruta para crear las descripciones de cada defecto.
+Route::resource('avance','Destajo\AvanceControl');        //Ruta para crear los avances de cada desarrollo.
+Route::resource('ingreso','Destajo\IngresoControl');        //Ruta para controlar los avances de cada desarrollo
+Route::resource('prototipo','Destajo\PrototipoControl');    //Ruta para Controlar los prototipos  de cada desarrollo
+Route::resource('actividad','Destajo\DescriptionControl');    //Ruta para modificar las descripciones de cadad prototipo
+Route::resource('lote','Destajo\LotesControl');             //Ruta para controlar los lotes de cada desarrollo
+Route::get('import/actividad', 'Destajo\ImportControl@actividad');       //Ruta para importar las descripciones de cada prototipo
+
 
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');

@@ -160,6 +160,14 @@
                                     <li><?php echo link_to_route('nuevas.index', $title = 'Mostrar Propiedades'); ?></li>
                                 </ul>
                             </li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="/">Avance<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><?php echo link_to('avance/create', $title = 'Crear'); ?></li>
+                                <li><?php echo link_to_route('avance.index', $title = 'Ver'); ?></li>
+                            </ul>
+                        </li>
                         <?php endif; ?>
                 </ul>
 

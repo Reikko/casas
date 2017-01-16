@@ -43,6 +43,7 @@ class TrabControl extends Controller
             'edo_civil' => $request['edo_civil'],
             'sexo' => $request['sexo'],
             'alias' => $request['alias'],
+            'user'=> 2,
             'fecha_nac' =>$request['fecha_nac'],
             'lug_nac' => $request['lug_nac'],
             'calle' => $request['calle'],
@@ -114,6 +115,7 @@ class TrabControl extends Controller
             'comp_dom'=> $cdom,
             'com_seguro'=> $segur,
         ]);
+
         \Storage::disk('local')->put($name,\File::get($request['renuncia']));
 
 
