@@ -14,7 +14,6 @@ $("#tipoDef").change(function ( event) {
         });
 
         $("#descrip").text("Ver : "+$("#tipoDef option:selected").text());
-
     });
 
 });

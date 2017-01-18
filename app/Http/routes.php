@@ -44,6 +44,8 @@ Route::resource('tipofallo','DescripcionControl');        //Ruta para crear las 
 Route::resource('user','UserControl');        //Ruta para crear las descripciones de cada defecto.
 Route::resource('avance','Destajo\AvanceControl');        //Ruta para crear los avances de cada desarrollo.
 Route::resource('ingreso','Destajo\IngresoControl');        //Ruta para controlar los avances de cada desarrollo
+Route::get('ingreso/pago/{id}/{valor}','Destajo\IngresoControl@devPago');        //Devuelve el precio de los pagos
+Route::get('ingreso/pago/{id}','Destajo\IngresoControl@devPagos');        //Devuelve el precio de los pagos
 Route::resource('prototipo','Destajo\PrototipoControl');    //Ruta para Controlar los prototipos  de cada desarrollo
 Route::resource('actividad','Destajo\DescriptionControl');    //Ruta para modificar las descripciones de cadad prototipo
 Route::resource('lote','Destajo\LotesControl');             //Ruta para controlar los lotes de cada desarrollo
