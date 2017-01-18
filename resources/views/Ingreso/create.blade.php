@@ -146,6 +146,5 @@
         </div>
     </div>
 
-
     {!!Html::script('/js/calculaPago.js')!!}
 @stop

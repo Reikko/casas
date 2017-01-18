@@ -160,7 +160,6 @@
         </div>
     </div>
 
-
     <?php echo Html::script('/js/calculaPago.js'); ?>
 
 <?php $__env->stopSection(); ?>
