@@ -8,16 +8,14 @@ $(document).ready(function() {
             $.get("pago/" + id + "/" + pago, function (response, state) {
                 $("#pago" + id).html(response);
                 console.log($("#pago" + id).html());
-                /*$.ajax({
+                $.ajax({
                     type: "post",
-                    url: "",
+                    url: "ingreso/valor",
                     data: {
                         nombre: nombre
-                    }, success: function (msg) {
-                        alert("Se ha realizado el POST con exito "+msg);
                     }
-                });*/
-                $("#envia").click();
+                });
+                //$("#envia").click();
 
             });
         }

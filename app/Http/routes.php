@@ -44,14 +44,14 @@ Route::resource('tipofallo','DescripcionControl');        //Ruta para crear las 
 Route::resource('user','UserControl');        //Ruta para crear las descripciones de cada defecto.
 Route::resource('avance','Destajo\AvanceControl');        //Ruta para crear los avances de cada desarrollo.
 Route::resource('ingreso','Destajo\IngresoControl');        //Ruta para controlar los avances de cada desarrollo
-Route::get('ingreso/pago/{id}/{valor}','Destajo\IngresoControl@devPago');        //Devuelve el precio de los pagos
-Route::get('ingreso/pago/{id}','Destajo\IngresoControl@devPagos');        //Devuelve el precio de los pagos
 Route::resource('prototipo','Destajo\PrototipoControl');    //Ruta para Controlar los prototipos  de cada desarrollo
 Route::resource('actividad','Destajo\DescriptionControl');    //Ruta para modificar las descripciones de cadad prototipo
 Route::resource('lote','Destajo\LotesControl');             //Ruta para controlar los lotes de cada desarrollo
 Route::get('import/actividad', 'Destajo\ImportControl@actividad');       //Ruta para importar las descripciones de cada prototipo
 
 
+Route::get('ingreso/pago/{id}/{valor}','Destajo\IngresoControl@devPago');        //Devuelve el precio de los pagos
+Route::post('ingreso/valor','Destajo\IngresoControl@postValor');        //Devuelve el precio de los pagos
 //Obtener el desarrollo y darlo de alta en el mismo desarrollo
 Route::get('calle/create/{id}','CalleControl@getDesarrollo');
 Route::post('calle/create/{id}', 'CalleControl@store2');

@@ -188,12 +188,11 @@ class IngresoControl extends Controller
         }
     }
 
-    public function devPagos(Request $request,$id)
+    public function postValor(Request $request)
     {
         if($request -> ajax())
         {
-            //$pago = Destajo::Pago($id,$valor);
-            //return response()->json($pago);
+            return "Hola mundo";
         }
     }
 
