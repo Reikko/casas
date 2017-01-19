@@ -30,10 +30,8 @@ class AvanceControl extends Controller
     {
         $fecha = Carbon::now();
         $destajistas = Trabajador::TrabajadorList();
-        //$lotes = Lote::LoteList();
         $lotes = AsignaPrototipo::LotesListAll();          //Muestra lotes del id 1 , esto puede cambiar al cambiar el select
-        $prototipos = AsignaPrototipo::PrototiposList();
-        return view('Avance.create',compact('destajistas','lotes','fecha','prototipos'));
+        return view('Avance.create',compact('destajistas','lotes','fecha'));
     }
 
     /**

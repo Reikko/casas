@@ -15,6 +15,9 @@ class CreateCuadrillasTable extends Migration
         Schema::create('cuadrillas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('nombre');
+            $table->integer('encargado')->unsigned();
+            $table->foreign('encargado')->references('id')->on('trabajadors')->onUpdate('cascade');
             $table->timestamps();
         });
     }

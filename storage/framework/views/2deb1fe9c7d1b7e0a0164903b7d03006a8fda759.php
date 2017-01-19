@@ -10,32 +10,24 @@
     </div>
 
     <div class="form-group">
-        <div class="col-sm-6">
-            <?php echo Form::label('Prototipos:'); ?>
+        <?php echo Form::label('Lotes:'); ?>
 
-            <?php echo Form::select('prototipo',$prototipos,1,['class'=>'form-control','id'=>'prototipo']); ?>
+        <?php echo Form::select('id_lote',$lotes,null,['class'=>'form-control','id'=>'lote']); ?>
 
-        </div>
-        <div class="col-sm-6">
-            <?php echo Form::label('Lotes:'); ?>
-
-            <?php echo Form::select('id_lote',$lotes,null,['class'=>'form-control','id'=>'lote']); ?>
-
-        </div>
     </div>
 
-    <div class="form-group">
-            <div class="col-sm-6">
-                <?php echo Form::label('Fecha inicial'); ?>
 
-                <input type="date" name="f_ini" class="form-control" value=<?php echo e($fecha); ?>>
-            </div>
-            <div class="col-sm-6">
-                <?php echo Form::label('Fecha inicial'); ?>
+    <div class="col-sm-6">
+        <?php echo Form::label('Fecha inicial'); ?>
 
-                <input type="date" name="f_fin" class="form-control" value=<?php echo e($fecha->addDays(7)); ?>>
-            </div>
+        <input type="date" name="f_ini" class="form-control" value=<?php echo e($fecha); ?>>
     </div>
+    <div class="col-sm-6">
+        <?php echo Form::label('Fecha inicial'); ?>
+
+        <input type="date" name="f_fin" class="form-control" value=<?php echo e($fecha->addDays(7)); ?>>
+    </div>
+
     <?php echo Form::submit('Agregar',['class'=>'btn btn-primary']); ?>
 
     <?php echo Form::close(); ?>

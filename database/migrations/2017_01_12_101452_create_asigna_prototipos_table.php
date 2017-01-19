@@ -20,7 +20,6 @@ class CreateAsignaPrototiposTable extends Migration
             $table->integer('id_lote')->unsigned();
             $table->foreign('id_lote')->references('id')->on('lotes')->onUpdate('cascade');
             $table->timestamps();
-
         });
     }
 

@@ -59,14 +59,14 @@
                             <?php $ya = 1; ?>
                             @foreach($filasLote as $fl)
                                 @if($fl->id_destajo == $destajo->id && $fl->avance>0)
-                                    <td class="info">
+                                    <td class="info" id="{{"este".$destajo->id}}">
                                         {{  $fl->avance }} %
                                     </td>
                                     <?php $ya = 0; ?> @break
                                 @endif
                             @endforeach
                             @if($ya == 1)
-                                <td>0 %</td>
+                                <td class="info" id="{{"este".$destajo->id}}" >0 %</td>
                             @endif
 
                             @if ($errors->has('pago.'.$i))
@@ -109,7 +109,7 @@
                                     @if($fl->id_destajo == $destajo->id)
                                         <td>
                                             {{ Form::text('porcentaje['.$i.']', $fl->avance ,['class'=>'form-control']) }}
-                                            <strong id="{{"error".$i}}"></strong>
+                                            <strong id="{{"error".$destajo->id}}"></strong>
                                         </td>
                                         <?php $ya = 0; ?> @break
                                     @endif
@@ -117,14 +117,14 @@
                                 @if($ya == 1)
                                     <td>
                                         {{ Form::text('porcentaje['.$i.']', 0 ,['class'=>'form-control']) }}
-                                        <strong id="{{"error".$i}}"></strong>
+                                        <strong id="{{"error".$destajo->id}}"></strong>
                                     </td>
                                 @endif
                             @endif
 
                             @foreach($av_total as $avt)
                                 @if($avt->id_destajo == $destajo->id)
-                                    <td class="success">
+                                    <td class="success" id="{{"total".$destajo->id}}">
                                         {{$avt->avance}} %
                                         <?php $ya = 0; ?>
                                     </td>
@@ -132,7 +132,7 @@
                                 @endif
                             @endforeach
                             @if($ya == 1)
-                                <td >0 %</td>
+                                <td id="{{"total".$destajo->id}}">0 %</td>
                             @endif
 
                         </tr>

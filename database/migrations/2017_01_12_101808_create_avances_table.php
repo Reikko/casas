@@ -12,8 +12,8 @@ class CreateAvancesTable extends Migration
             $table->increments('id');
             $table->integer('id_lote')->unsigned();
             $table->foreign('id_lote')->references('id')->on('lotes')->onUpdate('cascade');
-            $table->integer('id_empleado')->unsigned();
-            $table->foreign('id_empleado')->references('id')->on('trabajadors')->onUpdate('cascade');
+            $table->integer('id_cuadrilla')->unsigned();
+            $table->foreign('id_cuadrilla')->references('id')->on('cuadrillas')->onUpdate('cascade');
             $table->integer('editable')->unsigned();
             $table->dateTime('f_ini');
             $table->dateTime('f_fin');

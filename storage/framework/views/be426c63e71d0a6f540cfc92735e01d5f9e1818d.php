@@ -164,8 +164,10 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="/">Avance<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><?php echo link_to('avance/create', $title = 'Crear'); ?></li>
-                                <li><?php echo link_to_route('avance.index', $title = 'Ver'); ?></li>
+                                <li><?php echo link_to('avance/create', $title = 'Crear Avance'); ?></li>
+                                <li><?php echo link_to_route('avance.index', $title = 'Total Avances'); ?></li>
+                                <li><?php echo link_to_route('lote.index', $title = 'Avance Lote'); ?></li>
+                                <li><?php echo link_to_route('avanceCuadrilla.index', $title = 'Avance Destajista'); ?></li>
                             </ul>
                         </li>
                         <?php endif; ?>

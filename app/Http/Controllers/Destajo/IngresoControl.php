@@ -190,7 +190,6 @@ class IngresoControl extends Controller
 
     public function postValor(Request $request)
     {
-        //return $request->all();
         $id_destajo = $request['id_destajo'];
         $porcentaje = $request['porcentaje'];
         $id_avance = $request['id_avance'];
@@ -213,8 +212,7 @@ class IngresoControl extends Controller
 
         if ($v->fails())
         {
-            return $v->errors()->toJson();
-            //return back()->withErrors($v->errors())->withInput();
+            return $v->errors();
         }
 
         foreach ($anterior as $ant)
@@ -229,25 +227,23 @@ class IngresoControl extends Controller
             }
         }
 
-        //return $request['porcentaje'];
-
         $v = Validator::make(['porcentaje' =>$porcentaje], [
             'porcentaje.*'  => 'required|numeric|integer|min:0|max:100',
         ],$messages);
 
-        //return $v->errors();
-
         if ($v->fails())
         {
-
-            //else
-            //return back()->withErrors($v->errors())->withInput();
+            return $v->errors();
         }
 
         $porcentaje = $request['porcentaje'];
         $filasLote = AvanceDestajo::Destajos($id_avance);
+
+        $arra = [];
+        $completo = [];
         foreach ($porcentaje as $i => $p)
         {
+
             $bool = false;
             foreach ($filasLote as $repetido)
             {
@@ -257,6 +253,7 @@ class IngresoControl extends Controller
                     $nuevo->porcentaje = $porcentaje[$i];
                     $nuevo->save();
                     $bool = true;
+                    //$arra = array_add($arra,["porcentaje.".$i],[$i =>["Actualizado"]]);
                     break;
                 }
             }
@@ -267,11 +264,15 @@ class IngresoControl extends Controller
                 $inserta->porcentaje = $porcentaje[$i];
                 $inserta->id_avance = $id_avance;
                 $inserta->save();
+                //$arra = array_add($arra,["porcentaje.".$i],[$i =>["Actualizado"]]);
             }
+            //return ["porcentaje.".$ii =>["Actualizado"]];
+
         }
-        //return $request['porcentaje'];
-        //return redirect('ingreso/'.$id_avance);
-        /*$id_destajo = $request['id_destajo'];
+
+        return "";
+        /*
+        $id_destajo = $request['id_destajo'];
         $porcentaje = $request['porcentaje'];
         $id_avance = $request['id_avance'];
 
@@ -293,7 +294,7 @@ class IngresoControl extends Controller
 
         if ($v->fails())
         {
-            //return $request->all();
+            return $v->errors();
             return back()->withErrors($v->errors())->withInput();
         }
 
@@ -314,6 +315,7 @@ class IngresoControl extends Controller
 
         if ($v->fails())
         {
+            return $v->errors();
             //return back()->withErrors($v->errors())->withInput();
             return redirect()->route('auth_show_path')->withErrors($v->errors())->withInput();
         }

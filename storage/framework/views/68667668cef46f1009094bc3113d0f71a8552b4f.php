@@ -66,14 +66,14 @@
                             <?php $ya = 1; ?>
                             <?php foreach($filasLote as $fl): ?>
                                 <?php if($fl->id_destajo == $destajo->id && $fl->avance>0): ?>
-                                    <td class="info">
+                                    <td class="info" id="<?php echo e("este".$destajo->id); ?>">
                                         <?php echo e($fl->avance); ?> %
                                     </td>
                                     <?php $ya = 0; ?> <?php break; ?>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                             <?php if($ya == 1): ?>
-                                <td>0 %</td>
+                                <td class="info" id="<?php echo e("este".$destajo->id); ?>" >0 %</td>
                             <?php endif; ?>
 
                             <?php if($errors->has('pago.'.$i)): ?>
@@ -120,7 +120,7 @@
                                         <td>
                                             <?php echo e(Form::text('porcentaje['.$i.']', $fl->avance ,['class'=>'form-control'])); ?>
 
-                                            <strong id="<?php echo e("error".$i); ?>"></strong>
+                                            <strong id="<?php echo e("error".$destajo->id); ?>"></strong>
                                         </td>
                                         <?php $ya = 0; ?> <?php break; ?>
                                     <?php endif; ?>
@@ -129,14 +129,14 @@
                                     <td>
                                         <?php echo e(Form::text('porcentaje['.$i.']', 0 ,['class'=>'form-control'])); ?>
 
-                                        <strong id="<?php echo e("error".$i); ?>"></strong>
+                                        <strong id="<?php echo e("error".$destajo->id); ?>"></strong>
                                     </td>
                                 <?php endif; ?>
                             <?php endif; ?>
 
                             <?php foreach($av_total as $avt): ?>
                                 <?php if($avt->id_destajo == $destajo->id): ?>
-                                    <td class="success">
+                                    <td class="success" id="<?php echo e("total".$destajo->id); ?>">
                                         <?php echo e($avt->avance); ?> %
                                         <?php $ya = 0; ?>
                                     </td>
@@ -144,7 +144,7 @@
                                 <?php endif; ?>
                             <?php endforeach; ?>
                             <?php if($ya == 1): ?>
-                                <td >0 %</td>
+                                <td id="<?php echo e("total".$destajo->id); ?>">0 %</td>
                             <?php endif; ?>
 
                         </tr>

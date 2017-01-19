@@ -19,8 +19,6 @@ class AsignaPrototipo extends Model
 
     public static function Lotes($id)                                       //Mustra todos los lotes relacionados con el id del prototipo
     {
-        //return DB::table('asignacions')->where('id_prototipo', $id)->get();
-
         return DB::table('asigna_prototipos')
             ->where('id_prototipo',$id)
             ->join('lotes','asigna_prototipos.id_lote','=','lotes.id')
@@ -41,8 +39,6 @@ class AsignaPrototipo extends Model
 
     public static function LotesListAll()                                       //Mustra todos los lotes relacionados con el id del prototipo
     {
-        //return DB::table('asignacions')->where('id_prototipo', $id)->get();
-
         return DB::table('asigna_prototipos')
             ->join('lotes','asigna_prototipos.id_lote','=','lotes.id')
             ->select('lotes.*','asigna_prototipos.id_prototipo')
