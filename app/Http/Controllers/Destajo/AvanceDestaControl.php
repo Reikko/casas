@@ -2,6 +2,7 @@
 
 namespace azf\Http\Controllers\Destajo;
 
+use azf\Cuadrilla;
 use azf\EmpleadoCuadrilla;
 use azf\Trabajador;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class AvanceDestaControl extends Controller
     //Retorna todas las cuadrillas creadas
     public function index()
     {
-        $cuadrillas = Trabajador::all();                        //Falta modificar para ir creando las cuadrillas
+        $cuadrillas = Cuadrilla::AllCuadrillas();                        //Falta modificar para ir creando las cuadrillas
         return view('Avance.Cuadrilla.index',compact('cuadrillas'));
     }
 
@@ -32,7 +33,9 @@ class AvanceDestaControl extends Controller
     public function show($id)
     {
         //$destajista = Trabajador::find($id);
-        return "Aqui va el avance de la cuadrilla ".$id;
+        $arrCuadPorEnc = Cuadrilla::arrCuadPorEnc($id);
+        
+        return $arrCuadPorEnc;
     }
 
     /**

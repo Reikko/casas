@@ -10,8 +10,8 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>CUADRILLA</th>
-                        <th>DESCRIPCION</th>
+                        <th>NOMBRE</th>
+                        <th>ENCARGADO</th>
                         <th>VER AVANCE</th>
                     </tr>
                     </thead>
@@ -24,11 +24,11 @@
                             <td> <!--id-->
                                 <?php echo e($fila->id); ?></td>
                             <td><!--Cuadrilla/Nombre-->
+                                <?php echo e($fila->nombre); ?></td>
+                            <td><!--Encargado-->
                                 <?php echo e($fila->nom_trab); ?><?php echo e($fila->ap_pat); ?> <?php echo e($fila->ap_mat); ?></td>
-                            <td><!--descripcion-->
-                                </td>
                             <td><!--ver-->
-                                <?php echo e(link_to('avanceCuadrilla/'.$fila->id,'Ver', ['class'=>'btn btn-primary btn-block'])); ?></td>
+                                <?php echo e(link_to('avanceDestajista/'.$fila->encargado,'Ver', ['class'=>'btn btn-primary btn-block'])); ?></td>
                         </tr>
 
                     <?php endforeach; ?>

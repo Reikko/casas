@@ -11,8 +11,8 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>CUADRILLA</th>
-                        <th>DESCRIPCION</th>
+                        <th>NOMBRE</th>
+                        <th>ENCARGADO</th>
                         <th>VER AVANCE</th>
                     </tr>
                     </thead>
@@ -25,11 +25,11 @@
                             <td> <!--id-->
                                 {{$fila->id}}</td>
                             <td><!--Cuadrilla/Nombre-->
+                                {{$fila->nombre}}</td>
+                            <td><!--Encargado-->
                                 {{$fila->nom_trab}}{{$fila->ap_pat}} {{$fila->ap_mat}}</td>
-                            <td><!--descripcion-->
-                                </td>
                             <td><!--ver-->
-                                {{link_to('avanceCuadrilla/'.$fila->id,'Ver', ['class'=>'btn btn-primary btn-block'])}}</td>
+                                {{link_to('avanceDestajista/'.$fila->encargado,'Ver', ['class'=>'btn btn-primary btn-block'])}}</td>
                         </tr>
 
                     @endforeach

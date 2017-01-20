@@ -167,7 +167,7 @@
                                 <li><?php echo link_to('avance/create', $title = 'Crear Avance'); ?></li>
                                 <li><?php echo link_to_route('avance.index', $title = 'Total Avances'); ?></li>
                                 <li><?php echo link_to_route('lote.index', $title = 'Avance Lote'); ?></li>
-                                <li><?php echo link_to_route('avanceCuadrilla.index', $title = 'Avance Destajista'); ?></li>
+                                <li><?php echo link_to_route('avanceDestajista.index', $title = 'Avance Destajista'); ?></li>
                             </ul>
                         </li>
                         <?php endif; ?>
