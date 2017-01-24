@@ -4,6 +4,7 @@ namespace azf\Http\Controllers\Destajo;
 
 use azf\AsignaPrototipo;
 use azf\AvanceDestajo;
+use azf\Cuadrilla;
 use azf\Destajo;
 use azf\Lote;
 use azf\tablaAvancesDestajo;
@@ -138,8 +139,12 @@ class IngresoControl extends Controller
         $av_ant = tablaAvancesDestajo::AvanceAnterior($filasArr,$id);                   //Devuelve la suma total de los porcentajes (Avance anterior)
         $lote = Lote::find($avance->id_lote);                                           //Devuelve datos del lote
         $asigna = AsignaPrototipo::Prototipo($avance->id_lote);                         //Devuleve el primer prototipo relacionado con el lote
+        //return $asigna->id_prototipo;
         $destajos = Destajo::DestajosAll($asigna->id_prototipo)->paginate(8);          //Consigue los avances de 15 en 15 relacionados con el prototipo
-        $empleado = Trabajador::find($avance->id_empleado);                             //Devuelve el trabajador relaciona con el avance
+        //return $destajos;
+        $cuadrilla = Cuadrilla::find($avance->id_cuadrilla);
+        $empleado = Trabajador::find($cuadrilla->encargado);                             //Devuelve el trabajador relaciona con el avance
+        //return $empleado;
         $filasLote = AvanceDestajo::Destajos($id);
         //return $filasLote;
         return view('Ingreso.actualizaFila',compact('id','avance','lote','destajos','empleado','av_total','av_ant','filasLote'));

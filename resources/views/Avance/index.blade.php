@@ -12,7 +12,7 @@
                         <tr class="info">
                             <th>#</th>
                             <th>Lote</th>
-                            <th>Empleado/Cuadrilla</th>
+                            <th>Cuadrilla/Encargado</th>
                             <th>Fecha Inicial</th>
                             <th>Fecha Final</th>
                             <th>Opcion</th>
@@ -23,7 +23,7 @@
                                 <tr>
                                     <td>{{$num + 1}}</td>
                                     <td>{{$fila->Lnombre}}</td>
-                                    <td>{{$fila->nom_trab}} {{$fila->ap_pat}} {{$fila->ap_mat}}</td>
+                                    <td>{{$fila->nomCuadrilla}} (Encargado: {{$fila->nom_trab}} {{$fila->ap_pat}} {{$fila->ap_mat}} )</td>
                                     <td>{{\Carbon\Carbon::parse($fila->f_ini)->format(' d-m-Y')}}</td>
                                     <td>{{\Carbon\Carbon::parse($fila->f_fin)->format(' d-m-Y')}}</td>
                                     <td>

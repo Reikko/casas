@@ -3,8 +3,8 @@
     <h3>Ingreso</h3>
     {!! Form::open(['route'=>'avance.store','method'=>'POST']) !!}
     <div class="form-group">
-        {!! Form::label('Destajista:') !!}
-        {!! Form::select('id_empleado',$destajistas,null,['class'=>'form-control']) !!}
+        {!! Form::label('Cuadrilla:') !!}
+        {!! Form::select('id_cuadrilla',$cuadrillas,null,['class'=>'form-control']) !!}
     </div>
 
     <div class="form-group">

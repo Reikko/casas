@@ -7,7 +7,7 @@
                     <?php echo e(link_to('avance/'.$id,'Ver', ['class'=>'btn btn-primary'])); ?>
 
                 </h1>
-                <h5>Destajista: <?php echo e($empleado->nombre); ?></h5>
+                <h5>Destajista: <?php echo e($empleado->nom_trab); ?></h5>
                 <h5>Folio N° : <?php echo e($avance->id); ?></h5>
                 <h5>Fecha inicial: <?php echo e(\Carbon\Carbon::parse($avance->f_ini)->format(' d-m-Y')); ?></h5>
                 <h5>Fecha final: <?php echo e(\Carbon\Carbon::parse($avance->f_fin)->format(' d-m-Y')); ?></h5>

@@ -3,9 +3,9 @@
     <?php echo Form::open(['route'=>'avance.store','method'=>'POST']); ?>
 
     <div class="form-group">
-        <?php echo Form::label('Destajista:'); ?>
+        <?php echo Form::label('Cuadrilla:'); ?>
 
-        <?php echo Form::select('id_empleado',$destajistas,null,['class'=>'form-control']); ?>
+        <?php echo Form::select('id_cuadrilla',$cuadrillas,null,['class'=>'form-control']); ?>
 
     </div>
 

@@ -10,7 +10,7 @@ class AvanceDestajo extends Model
     protected $table = 'avances';
     protected $fillable=[
         'id_lote',
-        'id_empleado',
+        'id_cuadrilla',
         'f_ini',
         'f_fin',
     ];
@@ -36,8 +36,9 @@ class AvanceDestajo extends Model
     {
         return DB::table('avances')
             ->join('lotes', 'avances.id_lote', '=', 'lotes.id')
-            ->join('trabajadors', 'avances.id_empleado', '=', 'trabajadors.id')
-            ->select('avances.*', 'lotes.nombre as Lnombre', 'trabajadors.nom_trab','trabajadors.ap_pat','trabajadors.ap_mat')
+            ->join('cuadrillas', 'avances.id_cuadrilla', '=', 'cuadrillas.id')
+            ->join('trabajadors', 'cuadrillas.encargado', '=', 'trabajadors.id')
+            ->select('avances.*', 'lotes.nombre as Lnombre', 'trabajadors.nom_trab','trabajadors.ap_pat','trabajadors.ap_mat','cuadrillas.nombre as nomCuadrilla')
             ->get();
     }
 
@@ -46,7 +47,8 @@ class AvanceDestajo extends Model
         return DB::table('avances')
             ->where('avances.id',$id)
             ->join('lotes', 'avances.id_lote', '=', 'lotes.id')
-            ->join('trabajadors', 'avances.id_empleado', '=', 'trabajadors.id')
+            ->join('cuadrillas', 'avances.id_cuadrilla', '=', 'cuadrillas.id')
+            ->join('trabajadors', 'cuadrillas.encargado', '=', 'trabajadors.id')
             ->select('avances.*', 'lotes.nombre as Lnombre', 'trabajadors.nom_trab','trabajadors.ap_pat','trabajadors.ap_mat')
             ->get();
 

@@ -11,7 +11,7 @@
                         <tr class="info">
                             <th>#</th>
                             <th>Lote</th>
-                            <th>Empleado/Cuadrilla</th>
+                            <th>Cuadrilla/Encargado</th>
                             <th>Fecha Inicial</th>
                             <th>Fecha Final</th>
                             <th>Opcion</th>
@@ -22,7 +22,7 @@
                                 <tr>
                                     <td><?php echo e($num + 1); ?></td>
                                     <td><?php echo e($fila->Lnombre); ?></td>
-                                    <td><?php echo e($fila->nom_trab); ?> <?php echo e($fila->ap_pat); ?> <?php echo e($fila->ap_mat); ?></td>
+                                    <td><?php echo e($fila->nomCuadrilla); ?> (Encargado: <?php echo e($fila->nom_trab); ?> <?php echo e($fila->ap_pat); ?> <?php echo e($fila->ap_mat); ?> )</td>
                                     <td><?php echo e(\Carbon\Carbon::parse($fila->f_ini)->format(' d-m-Y')); ?></td>
                                     <td><?php echo e(\Carbon\Carbon::parse($fila->f_fin)->format(' d-m-Y')); ?></td>
                                     <td>

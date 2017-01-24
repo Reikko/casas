@@ -9,10 +9,9 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>ENCARGADO</th>
-                        <th>VER AVANCE</th>
+                        <th>Nombre cuadrilla</th>
+                        <th>Encargado</th>
+                        <th>Avance</th>
                     </tr>
                     </thead>
                     <?php
@@ -21,14 +20,12 @@
                     <?php foreach($cuadrillas as $fila): ?>
 
                         <tr>
-                            <td> <!--id-->
-                                <?php echo e($fila->id); ?></td>
                             <td><!--Cuadrilla/Nombre-->
                                 <?php echo e($fila->nombre); ?></td>
                             <td><!--Encargado-->
                                 <?php echo e($fila->nom_trab); ?><?php echo e($fila->ap_pat); ?> <?php echo e($fila->ap_mat); ?></td>
                             <td><!--ver-->
-                                <?php echo e(link_to('avanceDestajista/'.$fila->encargado,'Ver', ['class'=>'btn btn-primary btn-block'])); ?></td>
+                                <?php echo e(link_to('avanceCuadrilla/'.$fila->id_cuadrilla,'Ver', ['class'=>'btn btn-primary btn-block'])); ?></td>
                         </tr>
 
                     <?php endforeach; ?>

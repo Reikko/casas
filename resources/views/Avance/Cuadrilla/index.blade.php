@@ -10,10 +10,9 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>ENCARGADO</th>
-                        <th>VER AVANCE</th>
+                        <th>Nombre cuadrilla</th>
+                        <th>Encargado</th>
+                        <th>Avance</th>
                     </tr>
                     </thead>
                     <?php
@@ -22,14 +21,12 @@
                     @foreach($cuadrillas as $fila)
 
                         <tr>
-                            <td> <!--id-->
-                                {{$fila->id}}</td>
                             <td><!--Cuadrilla/Nombre-->
                                 {{$fila->nombre}}</td>
                             <td><!--Encargado-->
                                 {{$fila->nom_trab}}{{$fila->ap_pat}} {{$fila->ap_mat}}</td>
                             <td><!--ver-->
-                                {{link_to('avanceDestajista/'.$fila->encargado,'Ver', ['class'=>'btn btn-primary btn-block'])}}</td>
+                                {{link_to('avanceCuadrilla/'.$fila->id_cuadrilla,'Ver', ['class'=>'btn btn-primary btn-block'])}}</td>
                         </tr>
 
                     @endforeach

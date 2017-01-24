@@ -12,11 +12,9 @@ use azf\Http\Controllers\Controller;
 
 class AvanceDestaControl extends Controller
 {
-    //Retorna todas las cuadrillas creadas
     public function index()
     {
-        $cuadrillas = Cuadrilla::AllCuadrillas();                        //Falta modificar para ir creando las cuadrillas
-        return view('Avance.Cuadrilla.index',compact('cuadrillas'));
+
     }
 
     public function create()
@@ -32,10 +30,7 @@ class AvanceDestaControl extends Controller
     //Muestra avance por destajista
     public function show($id)
     {
-        //$destajista = Trabajador::find($id);
-        $arrCuadPorEnc = Cuadrilla::arrCuadPorEnc($id);
-        
-        return $arrCuadPorEnc;
+
     }
 
     /**

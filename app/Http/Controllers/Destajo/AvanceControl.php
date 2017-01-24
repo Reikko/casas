@@ -4,6 +4,7 @@ namespace azf\Http\Controllers\Destajo;
 
 use azf\AsignaPrototipo;
 use azf\AvanceDestajo;
+use azf\Cuadrilla;
 use azf\Lote;
 use azf\Trabajador;
 use Illuminate\Http\Request;
@@ -16,7 +17,6 @@ class AvanceControl extends Controller
 {
     public function index()
     {
-        //$avances = Avance::all();
         $avances = AvanceDestajo::Avances();
         return view('Avance.index',compact('avances'));
     }
@@ -29,9 +29,10 @@ class AvanceControl extends Controller
     public function create()
     {
         $fecha = Carbon::now();
-        $destajistas = Trabajador::TrabajadorList();
+        //$destajistas = Trabajador::TrabajadorList();
+        $cuadrillas = Cuadrilla::cuadList();
         $lotes = AsignaPrototipo::LotesListAll();          //Muestra lotes del id 1 , esto puede cambiar al cambiar el select
-        return view('Avance.create',compact('destajistas','lotes','fecha'));
+        return view('Avance.create',compact('cuadrillas','lotes','fecha'));
     }
 
     /**
