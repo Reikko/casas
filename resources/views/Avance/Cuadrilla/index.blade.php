@@ -15,11 +15,7 @@
                         <th>Avance</th>
                     </tr>
                     </thead>
-                    <?php
-                    $subtotal = 0;
-                    ?>
                     @foreach($cuadrillas as $fila)
-
                         <tr>
                             <td><!--Cuadrilla/Nombre-->
                                 {{$fila->nombre}}</td>
@@ -28,7 +24,6 @@
                             <td><!--ver-->
                                 {{link_to('avanceCuadrilla/'.$fila->id_cuadrilla,'Ver', ['class'=>'btn btn-primary btn-block'])}}</td>
                         </tr>
-
                     @endforeach
                 </table>
             </div>

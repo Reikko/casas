@@ -50,6 +50,8 @@ Route::resource('lote','Destajo\LotesControl');             //Ruta para controla
 Route::get('import/actividad', 'Destajo\ImportControl@actividad');       //Ruta para importar las descripciones de cada prototipo
 Route::resource('avanceDestajista', 'Destajo\AvanceDestaControl');       //Ruta para ver los avances por destajista
 Route::resource('avanceCuadrilla', 'Destajo\AvanceCuadControl');       //Ruta para ver los avances por cuadrilla
+Route::resource('cuadrilla', 'Destajo\CuadrillaControl');       //Ruta para crear/modificar/eliminar las cuadrillas
+Route::resource('asignaCuadrilla', 'Destajo\TrabCuadrillaControl');       //Ruta para crear/modificar/eliminar las cuadrillas
 
 // Genera el pago por id del destajo y el valor que se le pase
 Route::get('ingreso/pago/{id}/{valor}','Destajo\IngresoControl@devPago');   //Devuelve el dinero que se le va a pagar por avance

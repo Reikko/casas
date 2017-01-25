@@ -11,7 +11,7 @@
 
         <thead>
             <tr class="info">
-                <th>id</th>
+                <th>Numero Casa</th>
                 <th>Nombre de la Calle</th>
                 <th>Numero Exterior</th>
                 <th>Numero Interior</th>

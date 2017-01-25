@@ -26,6 +26,7 @@ class Cuadrilla extends Model
             ->groupBy('avances.id_cuadrilla')
             ->get();
     }
+
     public static function cuadList()
     {
         return DB::table('cuadrillas')
@@ -62,6 +63,14 @@ class Cuadrilla extends Model
             ->groupBy('id_destajo')
             ->select('tabla_avances.*', 'destajos.concepto', 'destajos.descripcion','destajos.destajo','destajos.fondo','destajos.total',
                 DB::raw('SUM(porcentaje) as avance'))
+            ->get();
+    }
+
+    public static function MuestraCuadrillas()                                       //Mustra todas las cuadrillas activas
+    {
+        return DB::table('cuadrillas')
+            ->join('trabajadors','cuadrillas.encargado','=','trabajadors.id')
+            ->select('cuadrillas.*','trabajadors.nom_trab','trabajadors.ap_pat','trabajadors.ap_mat')
             ->get();
     }
 

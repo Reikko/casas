@@ -33,6 +33,7 @@ class DescripcionControl extends Controller
      */
     public function create()
     {
+
     }
 
     /**
@@ -79,7 +80,10 @@ class DescripcionControl extends Controller
      */
     public function edit($id)
     {
-        //
+        $def = Defect::find($id);
+        $tipo = TipoDefect::find($def->id_t_defecto);
+        //return $tipo;
+        return view('Desc.edit',compact('tipo','def'));
     }
 
     /**
@@ -91,7 +95,10 @@ class DescripcionControl extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tipofallo = Defect::find($id);
+        $tipofallo->fill($request->all());
+        $tipofallo->save();
+        return redirect('tipofallo/'.$tipofallo->id_t_defecto)->with('message',''.$tipofallo->descripcion.' Editado');
     }
 
     /**

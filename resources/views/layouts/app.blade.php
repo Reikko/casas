@@ -75,6 +75,12 @@
                                     Desarrollo<span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                                     <li class="dropdown-submenu">
+                                        {!!link_to_route('cuadrilla.index', $title = 'Cuadrillas')!!}
+                                        <ul class="dropdown-menu">
+                                            <li>{!!link_to_route('cuadrilla.create', $title = 'Crear Cuadrilla')!!}</li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu">
                                         {!!link_to_route('des.index', $title = 'Desarrollos')!!}
                                         <ul class="dropdown-menu">
                                             <li>{!!link_to_route('des.create', $title = 'Crear Desarrollo')!!}</li>

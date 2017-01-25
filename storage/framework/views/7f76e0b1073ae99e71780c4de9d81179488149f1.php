@@ -14,11 +14,7 @@
                         <th>Avance</th>
                     </tr>
                     </thead>
-                    <?php
-                    $subtotal = 0;
-                    ?>
                     <?php foreach($cuadrillas as $fila): ?>
-
                         <tr>
                             <td><!--Cuadrilla/Nombre-->
                                 <?php echo e($fila->nombre); ?></td>
@@ -27,7 +23,6 @@
                             <td><!--ver-->
                                 <?php echo e(link_to('avanceCuadrilla/'.$fila->id_cuadrilla,'Ver', ['class'=>'btn btn-primary btn-block'])); ?></td>
                         </tr>
-
                     <?php endforeach; ?>
                 </table>
             </div>
