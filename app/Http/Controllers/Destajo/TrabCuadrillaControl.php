@@ -2,18 +2,15 @@
 
 namespace azf\Http\Controllers\Destajo;
 
+use azf\EmpleadoCuadrilla;
 use Illuminate\Http\Request;
 
 use azf\Http\Requests;
 use azf\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class TrabCuadrillaControl extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
@@ -37,7 +34,14 @@ class TrabCuadrillaControl extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cuadrilla = $request['id_cuadrilla'];
+        //return $request->all();
+
+        $asigna = new EmpleadoCuadrilla;
+        $asigna->fill($request->all());
+        $asigna->save();
+
+        return redirect('cuadrilla/'.$cuadrilla);
     }
 
     /**
@@ -82,6 +86,8 @@ class TrabCuadrillaControl extends Controller
      */
     public function destroy($id)
     {
-        //
+        $asignacion = EmpleadoCuadrilla::find($id);
+        EmpleadoCuadrilla::destroy($id);
+        return Redirect::to('cuadrilla/'.$asignacion->id_cuadrilla);
     }
 }

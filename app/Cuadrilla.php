@@ -74,4 +74,13 @@ class Cuadrilla extends Model
             ->get();
     }
 
+    public static function Cuadrilla($id)                                       //Muestra datos de la cuadrilla como nombre y encargado;
+    {
+        return DB::table('cuadrillas')
+            ->join('trabajadors','cuadrillas.encargado','=','trabajadors.id')
+            ->select('cuadrillas.*','trabajadors.nom_trab','trabajadors.ap_pat','trabajadors.ap_mat')
+            ->where('cuadrillas.id',$id)
+            ->first();
+    }
+
 }

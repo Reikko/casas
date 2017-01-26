@@ -3,6 +3,8 @@
 namespace azf\Http\Controllers\Destajo;
 
 use azf\Cuadrilla;
+use azf\EmpleadoCuadrilla;
+use azf\Trabajador;
 use Illuminate\Http\Request;
 
 use azf\Http\Requests;
@@ -54,18 +56,17 @@ class CuadrillaControl extends Controller
         $cuadrilla->fill($request->all());
         $cuadrilla->save();
 
-        return redirect('asignaCuadrilla/'.$cuadrilla->id);
+        return redirect('cuadrilla/'.$cuadrilla->id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Muestra las caracteristicas de la cuadrila creada asi como los trabajadores que estan en ella
     public function show($id)
     {
-        //
+        $cuadrilla = Cuadrilla::Cuadrilla($id);
+        $arrEmplAdd = EmpleadoCuadrilla::ArrEmpleadoCuadrilla();
+        $trabajadores = Trabajador::TrabajadoresNotAdd($arrEmplAdd);
+        $empleados = EmpleadoCuadrilla::EmpleadoEnCuadrilla($id);
+        return view('Cuadrilla.show',compact('cuadrilla','trabajadores','empleados'));
     }
 
     /**

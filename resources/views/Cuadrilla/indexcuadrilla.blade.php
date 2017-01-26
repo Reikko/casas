@@ -4,7 +4,8 @@
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading">
-
+            <h2>Cuadrillas</h2>
+                {!!link_to('cuadrilla/create','Crear Cuadrilla',['class'=>'btn btn-primary'])!!}
             </div>
             <div class="panel-body">
                 <table class="table table-bordered table-hover">
@@ -25,7 +26,7 @@
                             <td><!--ver trabajadores-->
                                 {{link_to('cuadrilla/'.$fila->id,'Ver Trabajadores', ['class'=>'btn btn-primary btn-block'])}}</td>
                             <td><!--ver-->
-                                {{link_to('cuadrilla/'.$fila->id,'Ver', ['class'=>'btn btn-primary btn-block'])}}</td>
+                                {{link_to('avanceCuadrilla/'.$fila->id,'Ver', ['class'=>'btn btn-primary btn-block'])}}</td>
                         </tr>
                     @endforeach
                 </table>

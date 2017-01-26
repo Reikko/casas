@@ -3,6 +3,8 @@
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading">
+            <h2>Cuadrillas</h2>
+                <?php echo link_to('cuadrilla/create','Crear Cuadrilla',['class'=>'btn btn-primary']); ?>
 
             </div>
             <div class="panel-body">
@@ -24,7 +26,7 @@
                             <td><!--ver trabajadores-->
                                 <?php echo e(link_to('cuadrilla/'.$fila->id,'Ver Trabajadores', ['class'=>'btn btn-primary btn-block'])); ?></td>
                             <td><!--ver-->
-                                <?php echo e(link_to('cuadrilla/'.$fila->id,'Ver', ['class'=>'btn btn-primary btn-block'])); ?></td>
+                                <?php echo e(link_to('avanceCuadrilla/'.$fila->id,'Ver', ['class'=>'btn btn-primary btn-block'])); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </table>

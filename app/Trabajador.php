@@ -60,6 +60,23 @@ class Trabajador extends Model
     }
 
 
+    public static function TrabajadoresNotAdd($arr)
+    {
+        //$arr = [];
+        return DB::table('trabajadors')
+            ->where('id','<>',1)
+            ->whereNotIn('id',$arr)
+            ->select('nom_trab','ap_pat','ap_mat','id')
+            ->get();
+    }
+
+
+
+
+
+
+
+
 
 
 
