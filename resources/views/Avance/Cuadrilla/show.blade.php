@@ -45,7 +45,7 @@
                                         {{$fila->descripcion}}
                                     </td>
                                     <td>
-                                        {{$fila->avance}} %
+                                        {{$fila->porcentaje}} %
                                     </td>
                                     <td>
                                         ${{ ($fila->destajo/100)*$fila->total}}

@@ -47,7 +47,7 @@
 
                                     </td>
                                     <td>
-                                        <?php echo e($fila->avance); ?> %
+                                        <?php echo e($fila->porcentaje); ?> %
                                     </td>
                                     <td>
                                         $<?php echo e(($fila->destajo/100)*$fila->total); ?>

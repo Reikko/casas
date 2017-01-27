@@ -45,11 +45,13 @@ class tablaAvancesDestajo extends Model
 
     public static function AvanceAnterior($arr,$id)
     {
-        return DB::table('tabla_avances')->whereIn('id_avance', $arr)
+        return DB::table('tabla_avances')
+            ->whereIn('id_avance', $arr)
             ->whereNotIn('id_avance', [$id])
             ->join('destajos', 'tabla_avances.id_destajo', '=', 'destajos.id')
-            ->groupBy('id_destajo')
             ->select('tabla_avances.*', 'destajos.concepto', 'destajos.descripcion','destajos.destajo',DB::raw('SUM(porcentaje) as avance'))
+            ->groupBy('id_destajo')
+            ->havingRaw('SUM(porcentaje) < 100')
             ->get();
     }
 

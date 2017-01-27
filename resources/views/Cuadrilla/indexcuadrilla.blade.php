@@ -22,7 +22,7 @@
                             <td><!--Cuadrilla/Nombre-->
                                 {{$fila->nombre}}</td>
                             <td><!--Encargado-->
-                                {{$fila->nom_trab}}{{$fila->ap_pat}} {{$fila->ap_mat}}</td>
+                                {{$fila->nom_trab}} {{$fila->ap_pat}} {{$fila->ap_mat}}</td>
                             <td><!--ver trabajadores-->
                                 {{link_to('cuadrilla/'.$fila->id,'Ver Trabajadores', ['class'=>'btn btn-primary btn-block'])}}</td>
                             <td><!--ver-->

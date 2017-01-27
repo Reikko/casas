@@ -61,8 +61,7 @@ class Cuadrilla extends Model
         return DB::table('tabla_avances')->whereIn('id_avance', $arr)
             ->join('destajos', 'tabla_avances.id_destajo', '=', 'destajos.id')
             ->groupBy('id_destajo')
-            ->select('tabla_avances.*', 'destajos.concepto', 'destajos.descripcion','destajos.destajo','destajos.fondo','destajos.total',
-                DB::raw('SUM(porcentaje) as avance'))
+            ->select('tabla_avances.*', 'destajos.concepto', 'destajos.descripcion','destajos.destajo','destajos.fondo','destajos.total')
             ->get();
     }
 

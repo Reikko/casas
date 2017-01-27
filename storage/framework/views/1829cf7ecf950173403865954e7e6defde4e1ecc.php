@@ -22,7 +22,7 @@
                             <td><!--Cuadrilla/Nombre-->
                                 <?php echo e($fila->nombre); ?></td>
                             <td><!--Encargado-->
-                                <?php echo e($fila->nom_trab); ?><?php echo e($fila->ap_pat); ?> <?php echo e($fila->ap_mat); ?></td>
+                                <?php echo e($fila->nom_trab); ?> <?php echo e($fila->ap_pat); ?> <?php echo e($fila->ap_mat); ?></td>
                             <td><!--ver trabajadores-->
                                 <?php echo e(link_to('cuadrilla/'.$fila->id,'Ver Trabajadores', ['class'=>'btn btn-primary btn-block'])); ?></td>
                             <td><!--ver-->

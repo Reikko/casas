@@ -4,6 +4,8 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h1>Avances</h1>
+                    <?php echo e(link_to('avance.create','Crear avance',['class'=>'btn btn-primary'])); ?>
+
                 </div>
                 <div class="panel-body">
                     <table class="table table-bordered table-hover">

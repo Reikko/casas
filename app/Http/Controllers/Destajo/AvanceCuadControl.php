@@ -10,7 +10,7 @@ use azf\Http\Controllers\Controller;
 
 class AvanceCuadControl extends Controller
 {
-    //Muestra todo el avance por cuadrillas
+    //Muestra todo el avance por cuadrilla
     public function index()
     {
         $cuadrillas = Cuadrilla::AllCuadrillas();                        //Falta modificar para ir creando las cuadrillas
@@ -39,14 +39,14 @@ class AvanceCuadControl extends Controller
         //
     }
 
-
+    //retorna una lista de id de la cuadrila seleccionada
     public function show($id)
     {
-        //retorna una lista de id de la cuadrila seleccionada
         $datosCuadrilla = Cuadrilla::find($id);
         $arrCuad = Cuadrilla::arrCuad($id);
         $cuadrillas = Cuadrilla::Cuadrillas($id);                           //Mustra todas los avances relacionados con el id
         $filas = Cuadrilla::avanceCuadrilla($arrCuad);
+        //return $filas;
 
         return view('Avance.Cuadrilla.show',compact('datosCuadrilla','cuadrillas','filas'));
     }
